@@ -1,0 +1,12 @@
+{
+  "name": "iteam",
+  "version": "0.0.0",
+  "homepage": "https://github.com/believer/docpad-gulp",
+  "authors": [
+    "Rickard Laurin <rickard.laurin@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "mrwhite-less-mixins": "~0.3.3"
+  }
+}

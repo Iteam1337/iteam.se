@@ -9,7 +9,7 @@ var config = {
   styles: 'src/less/**/',
   stylesOut: 'out/css/',
   allStyle: '*.less',
-  mainStyle: '*.less',
+  mainStyle: 'main.less',
   documents: 'src/document/**/*.jade'
 };
 
