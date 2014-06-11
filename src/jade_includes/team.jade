@@ -1,0 +1,10 @@
+mixin coworker(name)
+  .grid-quarter
+    img(src="http://lorempixel.com/200/200",alt=name)
+    .name= name
+
+.row.team
+  .grid-full
+    .row.flex
+      for name in team
+        +coworker(name)

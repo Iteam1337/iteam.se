@@ -1,6 +1,105 @@
-body {
+/* General
+--------------------------------------------------------*/
+html {
+  font-size:62.5%;
 }
 
+body {
+  color:@color;
+  font-size:2rem;
+  line-height:1.75;
+  margin:0;
+}
+
+p {
+  font-size:2rem;
+  margin:0;
+}
+
+/* Headings
+--------------------------------------------------------*/
 h1 {
-  .center(both);
+  font-family:'Helvetica Neue';
+  font-weight:100;
+}
+
+/* Lists
+--------------------------------------------------------*/
+ul {
+  list-style:square;
+  margin:0;
+  padding:0;
+}
+
+/* Base
+--------------------------------------------------------*/
+img {
+  max-width:100%;
+}
+
+.rows > .row {
+  padding:40px 0;
+
+  @media @mobile { padding:20px; }
+}
+
+.row {
+  &.flex { display:flex; }
+  &.image { padding:0; }
+
+  .grid-full {
+    margin:0 auto;
+    max-width:970px;
+  }
+
+  .grid-half,
+  .grid-quarter {
+    -webkit-box-orient:vertical;
+    -webkit-box-pack:center;
+
+    display:-webkit-box;
+    margin-bottom:auto;
+    margin-top:auto;
+
+    &.top {
+      margin-top:0;
+    }
+  }
+
+  .grid-half {
+    width:50%;
+
+    &.text { padding:0 @margin; }
+  }
+  
+  .grid-quarter {
+    width:25%;
+  }
+}
+
+.quote {
+  margin:0 auto;
+  max-width:970px;
+  text-align: center;
+
+  .text {
+    font-style:italic;
+    position: relative;
+
+    &:before {
+      .position(top,left,-40px,-70px);
+
+      color:@quote;
+      content: "\201C";
+      font-size: 90px;
+    }
+  }
+  .by {
+    font-weight:700;
+    margin-top:@margin/2;
+  }
+}
+
+.list ul {
+  margin-left:20px;
 }

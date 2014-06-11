@@ -1,0 +1,16 @@
+- var split = Math.ceil(list.length / 2)
+- var columnOne = list.slice(0,split)
+- var columnTwo = list.slice(split)
+
+mixin list(column)
+  ul
+    for item in column
+      li= item
+
+.row.list
+  .grid-full
+    .row.flex
+      .grid-half
+        +list(columnOne)
+      .grid-half.top
+        +list(columnTwo)

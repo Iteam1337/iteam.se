@@ -1,0 +1,6 @@
+.row.flex
+  .grid-half
+    img(src=img[0])
+  for i in img.slice(1)
+    .grid-quarter
+      img(src=i)
