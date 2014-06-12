@@ -42,14 +42,15 @@ img {
 }
 
 .rows > .row {
-  padding:40px 0;
+  padding:@margin 0;
 
-  @media @mobile { padding:20px; }
+  @media @mobile { padding:@margin / 2; }
 }
 
 .row {
   &.flex { .flex(); }
   &.image, &.mosaic { padding:0; }
+  &.quote { padding:(@margin * 2) 0; }
 
   .grid {
     flex:1 1;
@@ -108,13 +109,7 @@ img {
   }
 }
 
-.list ul {
-  margin-left:20px;
-}
+.list ul { margin-left:@margin / 2;}
 
-.mosaic {
-  [class^="grid-"] {
-    line-height:0;
-  }
-}
+.mosaic [class^="grid-"] { line-height:0; }
 
