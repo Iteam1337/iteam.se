@@ -6,9 +6,15 @@ html {
 
 body {
   color:@color;
+  font-family:@serif;
   font-size:2rem;
-  line-height:1.75;
+  line-height:1.75em;
   margin:0;
+}
+
+a {
+  color:#333;
+  text-decoration:none;
 }
 
 p {
@@ -19,7 +25,7 @@ p {
 /* Headings
 --------------------------------------------------------*/
 h1 {
-  font-family:'Helvetica Neue';
+  font-family:@sans-serif;
   font-weight:100;
 }
 
@@ -45,19 +51,28 @@ img {
 
 .row {
   &.flex { .flex(); }
-  &.image { padding:0; }
+  &.image, &.mosaic { padding:0; }
+
+  .grid {
+    flex:1 1;
+
+    &:not(.last) {
+      margin-right:2%;
+    }
+  }
 
   .grid-full {
     margin:0 auto;
-    max-width:970px;
+    max-width:@max-width;
   }
 
   .grid-half,
   .grid-quarter {
-    margin-bottom:auto;
-    margin-top:auto;
+    .box-sizing();
 
-    &.top { margin-top:0; }
+    align-self:center;
+
+    &.top { align-self:flex-start; }
   }
 
   .grid-half {
@@ -68,14 +83,13 @@ img {
   }
   
   .grid-quarter {
-    width:25%;
+    max-width:25%;
+    
     @media @mobile { width:100%; }
   }
 }
 
 .quote {
-  margin:0 auto;
-  max-width:970px;
   text-align: center;
 
   .text {
@@ -83,7 +97,7 @@ img {
     position: relative;
 
     &:before {
-      .position(top,left,-40px,-70px);
+      .position(top,left,30px,-70px);
 
       color:@quote;
       content: "\201C";
@@ -99,3 +113,10 @@ img {
 .list ul {
   margin-left:20px;
 }
+
+.mosaic {
+  [class^="grid-"] {
+    line-height:0;
+  }
+}
+

@@ -1,6 +1,6 @@
-.row.flex
+.row.flex.mosaic(style="background:" + mosaicBg)
   .grid-half
-    img(src=img[0])
-  for i in img.slice(1)
+    img(src=imgs[0])
+  for i in imgs.slice(1)
     .grid-quarter
       img(src=i)

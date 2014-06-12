@@ -1,9 +1,24 @@
 .navbar {
-  background:#ccc;
-  padding:10px;
+  .box-shadow(0 0 5px rgba(33,33,33,0.2));
+  .position(top,left,0,0,fixed);
 
-  li {
-    display:inline-block;
-    margin-right:20px;
+  background:rgba(255,255,255,.9);
+  padding:10px 0;
+  right:0;
+
+  .nav {
+    .flex();
+    
+    list-style:none;
+    margin:0 auto;
+    max-width:@max-width;
+
+    li {
+      margin-right:20px;
+    }
   }
+}
+
+.offset {
+  .size(100%,55px);
 }
