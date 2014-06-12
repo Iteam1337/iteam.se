@@ -44,7 +44,10 @@ img {
 }
 
 .row {
-  &.flex { display:flex; }
+  &.flex {
+    .flex();
+    @media @mobile { display: block; }
+  }
   &.image { padding:0; }
 
   .grid-full {
@@ -54,26 +57,22 @@ img {
 
   .grid-half,
   .grid-quarter {
-    -webkit-box-orient:vertical;
-    -webkit-box-pack:center;
-
-    display:-webkit-box;
     margin-bottom:auto;
     margin-top:auto;
 
-    &.top {
-      margin-top:0;
-    }
+    &.top { margin-top:0; }
   }
 
   .grid-half {
     width:50%;
 
+    @media @mobile { width:100%; }
     &.text { padding:0 @margin; }
   }
   
   .grid-quarter {
     width:25%;
+    @media @mobile { width:100%; }
   }
 }
 
