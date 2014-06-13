@@ -8,8 +8,5 @@
   "license": "MIT",
   "devDependencies": {
     "mrwhite-less-mixins": "~0.3.3"
-  },
-  "dependencies": {
-    "bootstrap": "~3.1.1"
   }
 }
