@@ -1,0 +1,37 @@
+<div class="row slider">
+  <ul>
+    {{#each content}}
+      {{#if @first}}
+        <input type="radio" name="radio-btn" id="img-{{ @index }}" checked/>
+      {{else}}
+        <input type="radio" name="radio-btn" id="img-{{ @index }}"/>
+      {{/if}}
+      <li>
+        <div class="slide">
+          {{#if image}}
+            <img src="{{ image }}">
+          {{/if}}
+          {{#if title}}
+            <div class="title">{{ title }}</div>
+          {{/if}}
+          {{#if text}}
+            <div class="text">
+{{#markdown}}
+{{ text }}
+{{/markdown}}
+            </div>
+          {{/if}}
+          <div class="nav">
+            <label for="img-{{math @index "+" 1}}">nästa</label>
+            <label for="img-{{math @index "-" 1}}">förra</label>
+          </div>
+        </div>
+      </li>
+    {{/each}}
+    <li class="nav-dots">
+      {{#each content}}
+        <label for="img-{{ @index }}" class="nav-dot" id="img-dot-{{ @index }}"></label>
+      {{/each}}
+    </li>
+  </ul>
+</div>

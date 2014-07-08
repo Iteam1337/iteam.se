@@ -8,8 +8,10 @@ body {
   color:@color;
   font-family:@serif;
   font-size:2rem;
+  font-weight:400;
   line-height:1.75em;
   margin:0;
+  padding-bottom:100px;
 }
 
 a {
@@ -19,7 +21,7 @@ a {
 
 p {
   font-size:2rem;
-  margin:0;
+  margin:20px 0;
 }
 
 /* Headings
@@ -51,6 +53,13 @@ img {
   &.flex { .flex(); }
   &.image, &.mosaic { padding:0; }
   &.quote { padding:(@margin * 2) 0; }
+  &.text { padding: @margin 0; }
+  &.light { background: @light; }
+  &.mosaic { margin: 100px 0; }
+
+  @media @mobile {
+    &.text { padding:40px; }
+  }
 
   .grid {
     flex:1 1;

@@ -1,0 +1,36 @@
+---
+layout: default.hbs
+---
+
+{{#each partials}}
+  {{!-- Video --}}
+  {{#is type "video"}}
+    {{>video this }}
+  {{/is}}
+  
+  {{!-- Quote --}}
+  {{#is type "quote"}}
+    {{> quote this }}
+  {{/is}}
+
+  {{!-- Image --}}
+  {{#is type "image"}}
+    {{> image this }}
+  {{/is}}
+
+  {{!-- Text --}}
+  {{#is type "text"}}
+    {{> text this }}
+  {{/is}}
+  
+  {{!-- Image mosaic --}}
+  {{#is type "mosaic"}}
+    {{> mosaic this }}
+  {{/is}}
+
+  {{!-- Slider --}}
+  {{#is type "slider"}}
+    {{> slider this}}
+  {{/is}}
+
+{{/each}}
