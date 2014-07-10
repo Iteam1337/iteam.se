@@ -1,12 +1,13 @@
-var gulp       = require('gulp')
-,   less       = require('gulp-less')
-,   plumber    = require('gulp-plumber')
-,   connect    = require('gulp-connect')
-,   jade       = require('gulp-jade')
-,   rename     = require('gulp-rename');
+var gulp    = require('gulp')
+,   less    = require('gulp-less')
+,   plumber = require('gulp-plumber')
+,   clean   = require('gulp-clean')
+,   connect = require('gulp-connect')
+,   jade    = require('gulp-jade')
+,   rename  = require('gulp-rename');
 
 var assemble = require('gulp-assemble');
-var htmlmin = require('gulp-htmlmin');
+var htmlmin  = require('gulp-htmlmin');
 
 var config = {
   styles: 'src/less/**/',
@@ -24,8 +25,8 @@ gulp.task('connect', function() {
 });
 
 gulp.task('copy', function () {
-  gulp.src('src/content/**/*')
-    .pipe(gulp.dest('out/content'));
+  gulp.src([ 'src/content/fonts/*', 'bower_components/ionicons/fonts/*' ])
+    .pipe(gulp.dest('out/fonts'));
 
   gulp.src('src/scripts/**/*')
     .pipe(gulp.dest('out/scripts'))
@@ -47,7 +48,10 @@ var options = {
   data: 'src/data/*.json',
   partials: 'src/partials/*.hbs',
   layoutdir: 'src/layouts/',
-  helpers: ['src/scripts/handlebar-helpers.js']
+  helpers: [
+    'src/scripts/handlebar-helpers.js',
+    'node_modules/handlebars-helper-partial/index.js'
+  ]
 };
 
 gulp.task('assemble', function () {

@@ -3,6 +3,7 @@ layout: default.hbs
 ---
 
 {{#each partials}}
+
   {{!-- Video --}}
   {{#is type "video"}}
     {{>video this }}
@@ -26,6 +27,11 @@ layout: default.hbs
   {{!-- Image mosaic --}}
   {{#is type "mosaic"}}
     {{> mosaic this }}
+  {{/is}}
+  
+  {{!-- Offers --}}
+  {{#is type "offers"}}
+    {{> offers this }}
   {{/is}}
 
   {{!-- Slider --}}

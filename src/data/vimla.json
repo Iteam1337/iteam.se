@@ -3,13 +3,39 @@
   "partials": [
     {
       "type": "image",
-      "image": "http://www.gratisography.com/pictures/105H.jpg"
+      "title": "Vimla",
+      "start": true,
+      "image": {
+        "src": "http://www.gratisography.com/pictures/105H.jpg",
+        "alt": "startbild"
+      }
     },
     {
       "type": "quote",
       "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ipsum id ad mollitia quo doloremque dolor minima laborum itaque cupiditate temporibus iste nulla neque velit totam, minus porro beatae, eos.",
       "background": "#fff",
       "by":"Steve Jobs, CEO of Apple"
+    },
+    {
+      "type":"offers",
+      "offers": [
+        {
+          "class": "ion-flash",
+          "title": "Super Charge"
+        },
+        {
+          "class": "ion-ios7-lightbulb-outline",
+          "title": "Rådgivning"
+        },
+        {
+          "class": "ion-laptop",
+          "title": "Utveckling"
+        },
+        {
+          "class": "ion-settings",
+          "title": "Drift & Support"
+        }
+      ]
     },
     {
       "type": "text",
@@ -51,6 +77,15 @@
           "image": "http://www.gratisography.com/pictures/74H.jpg",
           "title": "Iteam - We Believe"
         }
+      ]
+    },
+    {
+      "type":"list",
+      "content": [
+        "Test 1",
+        "Test 2",
+        "Test 3",
+        "Test 4"
       ]
     }
   ]

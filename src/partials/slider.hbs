@@ -1,4 +1,4 @@
-<div class="row slider">
+<div class="row {{ type }}">
   <ul>
     {{#each content}}
       {{#if @first}}
@@ -22,8 +22,24 @@
             </div>
           {{/if}}
           <div class="nav">
-            <label for="img-{{math @index "+" 1}}">nästa</label>
-            <label for="img-{{math @index "-" 1}}">förra</label>
+            {{#if @first}}
+              <label for="img-{{subtract ../../content.length 1}}" class="prev">
+                <i class="ion-chevron-left"></i>
+              </label>
+            {{else}}
+              <label for="img-{{subtract @index 1 }}" class="prev">
+                <i class="ion-chevron-left"></i>
+              </label>
+            {{/if}}
+            {{#if @last}}
+              <label for="img-0" class="next">
+                <i class="ion-chevron-right"></i>
+              </label>
+            {{else}}
+              <label for="img-{{add @index 1}}" class="next">
+                <i class="ion-chevron-right"></i>
+              </label>
+            {{/if}}
           </div>
         </div>
       </li>

@@ -1,3 +1,11 @@
 <div class="row {{ type }}" style="background: {{ background }}">
-  <img src="{{ image }}" alt="">
+  {{#if start}}
+    <h1>{{ title }}</h1>
+    <img src="{{ image.src }}" alt="{{ image.alt }}">
+    <div class="down">
+      <i class="ion-chevron-down"></i>
+    </div>
+  {{else}}
+    <img src="{{ image.src }}" alt=" {{ image.alt }}">
+  {{/if}}
 </div>
