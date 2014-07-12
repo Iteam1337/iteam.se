@@ -1,10 +1,10 @@
 {
-  "subtitle": "Vimla",
   "partials": [
     {
       "type": "image",
       "title": "Vimla",
       "start": true,
+      "hasDown": true,
       "image": {
         "src": "http://www.gratisography.com/pictures/105H.jpg",
         "alt": "startbild"

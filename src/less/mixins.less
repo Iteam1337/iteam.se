@@ -7,3 +7,9 @@
 
   @media @mobile { flex-direction:column; }
 }
+
+.animation(@animation, @delay:0s, @timing) {
+  .prefix('animation', @animation);
+  .prefix('animation-delay', @delay);
+  .prefix('animation-timing-function', @timing)
+}

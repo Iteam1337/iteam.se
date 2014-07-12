@@ -6,15 +6,17 @@ module.exports = function (grunt) {
       options: {
         data: 'src/data/*.json',
         layout: 'default.hbs',
-        layoutdir: 'src/layouts/',
-        partials: 'src/partials/**/*.hbs',
+        layoutdir: 'src/layouts',
+        partials: 'src/partials/*.hbs',
         helpers: [
           'handlebars-helper-partial'
         ]
       },
-      site: {
-        src: ['src/pages/**/*.hbs'],
-        dest: 'out'
+      cases: {
+        options: { layout: 'case.hbs' },
+        files : {
+          'out/' : ['./src/pages/case/**/*.hbs']
+        },
       }            
     },
   });

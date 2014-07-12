@@ -1,10 +1,14 @@
-<div class="row {{ type }}" style="background: {{ background }}">
+<div class="row {{ type }}" style="background: {{ background }}; height: {{ height }}">
   {{#if start}}
     <h1>{{ title }}</h1>
-    <img src="{{ image.src }}" alt="{{ image.alt }}">
-    <div class="down">
-      <i class="ion-chevron-down"></i>
-    </div>
+    {{#if image}}
+      <img src="{{ image.src }}" alt="{{ image.alt }}">
+    {{/if}}
+    {{#if hasDown}}
+      <div class="down" style="background: {{ downBg }}">
+        <i class="ion-chevron-down"></i>
+      </div>
+    {{/if}}
   {{else}}
     <img src="{{ image.src }}" alt=" {{ image.alt }}">
   {{/if}}

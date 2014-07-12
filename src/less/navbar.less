@@ -1,24 +1,36 @@
-.navbar {
+#navbar {
   .box-shadow(0 0 5px rgba(33,33,33,0.2));
   .position(top,left,0,0,fixed);
 
-  background:rgba(255,255,255,.9);
+  background:rgba(33,33,33,.9);
+  color:#ccc;
   font-family:@sans-serif;
   font-size:1.7rem;
   padding:10px 0;
   right:0;
+  z-index:2;
 
   .nav {
     .flex();
     
+    justify-content:center;
     list-style:none;
     margin:0 auto;
     max-width:@max-width;
 
-    li { margin-right:20px; }
+    li {
+      margin-right:@margin;
+      
+      a {
+        .transition(color, 200ms, ease-in-out);
+
+        color: #ccc;
+        will-change: color;
+
+        &:hover { color: darken(@accent,10%); }
+      }
+    }
   }
 }
 
-.offset {
-  .size(100%,55px);
-}
+.offset { .size(100%,55px); }

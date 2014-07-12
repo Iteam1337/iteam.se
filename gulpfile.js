@@ -1,27 +1,30 @@
-var gulp    = require('gulp')
-,   less    = require('gulp-less')
-,   plumber = require('gulp-plumber')
-,   clean   = require('gulp-clean')
-,   connect = require('gulp-connect')
-,   jade    = require('gulp-jade')
-,   rename  = require('gulp-rename');
+var gulp      = require('gulp')
+,   less      = require('gulp-less')
+,   plumber   = require('gulp-plumber')
+,   webserver = require('gulp-webserver')
+,   rename    = require('gulp-rename')
+,   assemble  = require('gulp-assemble')
+,   htmlmin   = require('gulp-htmlmin')
+,   rimraf    = require('gulp-rimraf');
 
-var assemble = require('gulp-assemble');
-var htmlmin  = require('gulp-htmlmin');
+gulp.task('clean', function (cb) {
+  return gulp.src('./out/**/*', { read: false })
+    .pipe(rimraf(cb));
+});
 
 var config = {
   styles: 'src/less/**/',
   stylesOut: 'out/css/',
   allStyle: '*.less',
   mainStyle: 'main.less',
-  documents: 'src/pages/**/*.hbs'
+  pages: 'src/pages/**/*.hbs'
 };
 
-gulp.task('connect', function() {
-  connect.server({
-    root: 'out',
-    livereload: true
-  });
+gulp.task('connect', function () {
+  gulp.src('out')
+    .pipe(webserver({
+      livereload: true
+    }));
 });
 
 gulp.task('copy', function () {
@@ -29,8 +32,7 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('out/fonts'));
 
   gulp.src('src/scripts/**/*')
-    .pipe(gulp.dest('out/scripts'))
-    .pipe(connect.reload());
+    .pipe(gulp.dest('out/scripts'));
 });
 
 gulp.task('less', function () {
@@ -40,12 +42,10 @@ gulp.task('less', function () {
       compress: true
     }))
     .pipe(rename('iteam.css'))
-    .pipe(gulp.dest(config.stylesOut))
-    .pipe(connect.reload());
+    .pipe(gulp.dest(config.stylesOut));
 });
 
 var options = {
-  data: 'src/data/*.json',
   partials: 'src/partials/*.hbs',
   layoutdir: 'src/layouts/',
   helpers: [
@@ -55,19 +55,16 @@ var options = {
 };
 
 gulp.task('assemble', function () {
-  gulp.src([config.documents])
-    .pipe(plumber())
+  gulp.src([config.pages])
     .pipe(assemble(options))
     .pipe(htmlmin({
       collapseWhitespace:true
     }))
-    .pipe(rename('index.html'))
-    .pipe(gulp.dest('out/'))
-    .pipe(connect.reload());
+    .pipe(gulp.dest('./out'));
 });
 
 gulp.task('watch', function () {
-  gulp.watch([config.documents, 'src/partials/**/*.hbs', 'src/data/**/*.json'], ['assemble']);
+  gulp.watch(['src/layouts/**/*', config.pages, 'src/partials/**/*.hbs'], ['assemble']);
   gulp.watch([config.styles + config.allStyle], ['less']);
   gulp.watch('src/content/**/*', ['copy']);
   gulp.watch('src/scripts/**/*', ['copy']);

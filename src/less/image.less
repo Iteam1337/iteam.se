@@ -8,6 +8,8 @@
     color: #fff;
     font-size: 150px;
     margin: 0;
+    text-align: center;
+    width:100%;
   }
 
   .down {
@@ -21,13 +23,12 @@
     font-size: 40px;
     padding: 30px 20px 0;
     text-align: center;
+    z-index: 1;
 
     i {
+      .animation(hint 3s infinite, 3s, cubic-bezier(.14, .75, .2, 1.01));
       .transition(top, 500ms, ease-in-out);
 
-      -webkit-animation: hint 3s infinite;
-      -webkit-animation-delay: 3s;
-      -webkit-animation-timing-function: cubic-bezier(.14, .75, .2, 1.01);
       position: relative;
       will-change: top;
     }
