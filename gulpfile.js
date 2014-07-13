@@ -66,6 +66,7 @@ var options = {
   layoutdir: 'src/layouts/',
   helpers: [
     'src/helpers/pages.js',
+    'src/helpers/list.js',
     'node_modules/handlebars-helper-partial/index.js'
   ]
 };

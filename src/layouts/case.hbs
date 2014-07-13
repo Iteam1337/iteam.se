@@ -39,4 +39,9 @@ layout: default.hbs
     {{> slider this}}
   {{/is}}
 
+  {{!-- List --}}
+  {{#is type "list"}}
+    {{> list this}}
+  {{/is}}
+
 {{/each}}

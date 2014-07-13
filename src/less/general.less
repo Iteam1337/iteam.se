@@ -29,7 +29,8 @@ p {
   font-size:2rem;
   margin:@margin / 2 0 @margin;
 
-  &:last-child { margin-bottom: @margin / 2; }
+  &:first-child { margin-top: 0; }
+  &:last-child { margin: 0; }
 }
 
 /* Headings
@@ -127,8 +128,6 @@ img {
     margin-top:@margin/2;
   }
 }
-
-.list ul { margin-left:@margin / 2;}
 
 .mosaic [class^="grid-"] { line-height:0; }
 
