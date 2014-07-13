@@ -1,4 +1,5 @@
 var fs = require('fs');
+var front = require('yaml-front-matter');
 
 module.exports.pages = function (route, start, options) {
   var dir = route || './src/pages/case/';
@@ -9,24 +10,13 @@ module.exports.pages = function (route, start, options) {
   });
 
   var cases = dirs.map(function (folder) {
-    var name = module.exports.deslugify(folder);
+    var frontmatter = front.loadFront(dir + folder + '/index.hbs');
     var listUrl = '<li>'+
-                    '<a href="' + lead + folder + '/">' + name + '</a>'+
+                    '<a href="' + lead + folder + '/">' + frontmatter.subtitle + '</a>'+
                   '</li>';
 
     return listUrl;
   });
 
   return cases.join().replace(/\,/g,'');
-};
-
-module.exports.deslugify = function (slug) {
-  var deslugged = slug
-    .toLowerCase()
-    .replace(/aa/ig, 'å')
-    .replace(/ae/ig, 'ä')
-    .replace(/oe/ig, 'ö')
-    .replace(/\-/g, ' ');
-    
-  return deslugged.charAt(0).toUpperCase() + deslugged.slice(1);
 };

@@ -22,15 +22,3 @@ describe('#pages', function () {
     expect(helper.pages()[0]).to.eql('<');
   });
 });
-
-describe('#deslugify', function () {
-  it('should be a function', function () {
-    expect(helper.deslugify).to.be.a('function');
-  });
-  
-  it('should deslugify names', function () {
-    expect(helper.deslugify('om-oss')).to.eql('Om oss');
-    expect(helper.deslugify('vaara-tjaenster')).to.eql('Våra tjänster');
-    expect(helper.deslugify('Oevrigt')).to.eql('Övrigt');
-  });
-});
