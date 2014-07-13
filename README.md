@@ -1,7 +1,7 @@
 docpad-gulp
 ===========
 
-A try at making Docpad clone with Gulp
+A try at making a Docpad clone with Gulp
 
 First clone the repo
 
