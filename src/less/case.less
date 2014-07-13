@@ -1,3 +1,39 @@
+// Case start page
+.cases {
+  margin-top: @margin;
+
+  .grid-full {
+    min-width: @max-width
+  }
+
+  ul {
+    .flex();
+
+    width:100%;
+
+    li {
+      .box-sizing();
+      
+      background:#333;
+      display: flex;
+      padding:@margin;
+      position: relative;
+      width:49%;
+
+      &:nth-child(odd) {
+        margin-right:2%;
+      }
+
+      a {
+        .center(both);
+
+        color:#fff;
+      }
+    }
+  }
+}
+
+// Individual case pages
 .case-title {
   font-size:60px;
   text-align:center;

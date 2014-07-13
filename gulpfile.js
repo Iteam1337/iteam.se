@@ -5,6 +5,8 @@ var gulp      = require('gulp')
 ,   rename    = require('gulp-rename')
 ,   assemble  = require('gulp-assemble')
 ,   htmlmin   = require('gulp-htmlmin')
+,   jshint    = require('gulp-jshint')
+,   mocha     = require('gulp-mocha')
 ,   rimraf    = require('gulp-rimraf');
 
 gulp.task('clean', function (cb) {
@@ -19,6 +21,20 @@ var config = {
   mainStyle: 'main.less',
   pages: 'src/pages/**/*.hbs'
 };
+
+gulp.task('jshint', function () {
+  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('test', function () {
+  gulp.src(['src/test/**/*.js'], { read: false })
+    .pipe(plumber())  
+    .pipe(mocha({
+      reporter: 'Spec'
+    }));
+});
 
 gulp.task('connect', function () {
   gulp.src('out')
@@ -49,7 +65,7 @@ var options = {
   partials: 'src/partials/*.hbs',
   layoutdir: 'src/layouts/',
   helpers: [
-    'src/scripts/handlebar-helpers.js',
+    'src/helpers/pages.js',
     'node_modules/handlebars-helper-partial/index.js'
   ]
 };
@@ -67,7 +83,15 @@ gulp.task('watch', function () {
   gulp.watch(['src/layouts/**/*', config.pages, 'src/partials/**/*.hbs'], ['assemble']);
   gulp.watch([config.styles + config.allStyle], ['less']);
   gulp.watch('src/content/**/*', ['copy']);
-  gulp.watch('src/scripts/**/*', ['copy']);
+  gulp.watch(['src/helpers/**/*.js','src/test/**/*.js'], ['test']);
 });
 
-gulp.task('default', ['copy', 'less', 'assemble', 'connect', 'watch']);
+gulp.task('default', [
+  'copy',
+  'jshint',
+  'test',
+  'less',
+  'assemble',
+  'connect',
+  'watch'
+  ]);
