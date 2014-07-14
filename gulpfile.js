@@ -47,6 +47,9 @@ gulp.task('copy', function () {
   gulp.src([ 'src/content/fonts/*', 'bower_components/ionicons/fonts/*' ])
     .pipe(gulp.dest('out/fonts'));
 
+  gulp.src('src/content/*')
+    .pipe(gulp.dest('out/content'));
+
   gulp.src('src/scripts/**/*')
     .pipe(gulp.dest('out/scripts'));
 });
