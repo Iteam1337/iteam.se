@@ -11,8 +11,10 @@ module.exports.pages = function (route, start, options) {
 
   var cases = dirs.map(function (folder) {
     var frontmatter = front.loadFront(dir + folder + '/index.hbs');
+    var title = frontmatter.subtitle || frontmatter.name;
+
     var listUrl = '<li>'+
-                    '<a href="' + lead + folder + '/">' + frontmatter.subtitle + '</a>'+
+                    '<a href="' + lead + folder + '/">' + title + '</a>'+
                   '</li>';
 
     return listUrl;
