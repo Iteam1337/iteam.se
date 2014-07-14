@@ -1,5 +1,8 @@
 <div class="row {{ type }} {{ background }}" style="background:{{ bg }}">
   <div class="grid-full">
+  {{#if image}}
+    <img class="{{ image-position }}" src="{{ image.src }}" alt="{{ image.alt }}">
+  {{/if}}
 {{#markdown}}
 {{ content }}
 {{/markdown}}
