@@ -3,13 +3,9 @@
   align-items: flex-end;
   text-align: center;
 
-  ul {
-    list-style: none;
+  li {
+    display: inline-block;
 
-    li {
-      display: inline-block;
-
-      &:not(:last-child) { margin-right: @margin; }
-    }
+    &:not(:last-child) { margin-right: @margin; }
   }
 }
