@@ -49,4 +49,9 @@ layout: default.hbs
     {{> image-list this}}
   {{/is}}
 
+  {{!-- Team --}}
+  {{#is type "team"}}
+    {{> team this}}
+  {{/is}}
+
 {{/each}}
