@@ -44,4 +44,9 @@ layout: default.hbs
     {{> list this}}
   {{/is}}
 
+  {{!-- List --}}
+  {{#is type "image-list"}}
+    {{> image-list this}}
+  {{/is}}
+
 {{/each}}
