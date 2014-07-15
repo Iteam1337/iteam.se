@@ -54,4 +54,9 @@ layout: default.hbs
     {{> team this}}
   {{/is}}
 
+  {{!-- Side Image --}}
+  {{#is type "side-image"}}
+    {{> side-image this}}
+  {{/is}}
+
 {{/each}}

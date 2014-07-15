@@ -44,10 +44,10 @@ gulp.task('connect', function () {
 });
 
 gulp.task('copy', function () {
-  gulp.src([ 'src/content/fonts/*', 'bower_components/ionicons/fonts/*' ])
-    .pipe(gulp.dest('out/fonts'));
+  // gulp.src([ 'src/content/fonts/*',  ])
+  //   .pipe(gulp.dest('out/fonts'));
 
-  gulp.src('src/content/*')
+  gulp.src(['src/content/**/*', 'bower_components/ionicons/fonts/*'])
     .pipe(gulp.dest('out/content'));
 
   gulp.src('src/scripts/**/*')
