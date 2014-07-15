@@ -104,26 +104,30 @@
 }
 
 .nav label {
-  .size(100px, 100%);
-  .transition(opacity, 300ms, ease);
+  @size: 80px;
+
+  .border-radius(@size);
+  .center(y, left, @margin);
+  .size(@size);
+  .transition(all, 300ms, ease);
 
   position: absolute;
   z-index: 9;
   cursor: pointer;
-  background-color: fade(@light, 20%);
+  background-color: fade(@light, 40%);
   color: #FFF;
-  font-size: 80px;
+  font-size: 40px;
   line-height: 380px;
   text-align: center;
-  opacity: 0;
+  will-change: height, width;
+
+  &:hover {
+    .size(@size + 20);
+  }
 
   &.next {
     left: auto;
-    right: 0;
-  }
-
-  &.prev {
-    left:0;
+    right: @margin;
   }
 
   i {

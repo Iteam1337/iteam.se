@@ -4,4 +4,10 @@ order: 1
 layout: default.hbs
 ---
 
-{{{pages "./src/pages/medarbetare/" ""}}}
+<div class="row coworkers">
+  <div class="grid-full">
+    <ul>
+      {{{pages "./src/pages/medarbetare/" "" "coworker" 200}}}
+    </ul>
+  </div>
+</div>
