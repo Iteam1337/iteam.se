@@ -11,6 +11,7 @@ module.exports.team = function (team, size) {
     return '<li>'+
               '<img src="' + img + '">'+
               frontmatter.name +
+              '<div class="job">' + frontmatter.job + '</div>'+
             '</li>';
   });
 
