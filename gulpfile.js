@@ -7,6 +7,7 @@ var gulp      = require('gulp')
 ,   htmlmin   = require('gulp-htmlmin')
 ,   jshint    = require('gulp-jshint')
 ,   mocha     = require('gulp-mocha')
+,   concat    = require('gulp-concat')
 ,   rimraf    = require('gulp-rimraf');
 
 gulp.task('clean', function (cb) {
@@ -28,6 +29,14 @@ gulp.task('jshint', function () {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
+gulp.task('scripts', function() {
+  gulp.src('./src/scripts/**/*.js')
+    .pipe(concat('all.js'))
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(gulp.dest('./out/scripts'));
+});
+
 gulp.task('test', function () {
   gulp.src(['src/test/**/*.js'], { read: false })
     .pipe(plumber())  
@@ -44,14 +53,8 @@ gulp.task('connect', function () {
 });
 
 gulp.task('copy', function () {
-  // gulp.src([ 'src/content/fonts/*',  ])
-  //   .pipe(gulp.dest('out/fonts'));
-
   gulp.src(['src/content/**/*', 'bower_components/ionicons/fonts/*'])
     .pipe(gulp.dest('out/content'));
-
-  gulp.src('src/scripts/**/*')
-    .pipe(gulp.dest('out/scripts'));
 });
 
 gulp.task('less', function () {
@@ -87,11 +90,13 @@ gulp.task('watch', function () {
   gulp.watch([config.styles + config.allStyle], ['less']);
   gulp.watch('src/content/**/*', ['copy']);
   gulp.watch(['src/helpers/**/*.js','src/test/**/*.js'], ['test']);
+  gulp.watch('./src/scripts/**/*.js', ['scripts']);
 });
 
 gulp.task('default', [
   'copy',
   'jshint',
+  'scripts',
   'test',
   'less',
   'assemble',

@@ -1,14 +1,49 @@
+@navbar-bg: rgba(33,33,33,.9);
+
+#navicon {
+  .position(top,right, @margin / 4, @margin / 2);
+
+  cursor:pointer;
+  display:none;
+  font-family: @icons;
+
+  &:before {    
+    content: @ionicon-var-navicon;
+    display: block;
+    font-size: 3rem;
+  }
+
+  @media @mobile {
+    display:block;
+  }
+}
+
 #navbar {
   .box-shadow(0 0 5px rgba(33,33,33,0.2));
   .position(top,left,0,0,fixed);
+  .transition(top, 200ms, ease-in-out);
 
-  background:rgba(33,33,33,.9);
+  background:@navbar-bg;
   color:#ccc;
   font-family:@sans-serif;
   font-size:1.7rem;
   padding:10px 0;
   right:0;
   z-index:2;
+
+  &.open {
+    height:100%;
+    top:0;
+
+    #close-navbar {
+      &:extend(#navicon);
+
+      &:before {
+        content: @ionicon-var-close;
+        font-size: 2rem;
+      }
+    }
+  }
 
   .nav {
     .flex();
@@ -29,7 +64,28 @@
 
         &:hover { color: darken(@accent,10%); }
       }
+
+      @media @mobile {
+        font-size: 3rem;
+        margin-right: 0;
+        text-align: center;
+
+        &:not(:last-child) {
+          margin-bottom: @margin / 2;
+        }
+      }
     }
+
+    @media @mobile {
+      .center(both);
+      
+      bottom: 0;
+      width:100%;
+    }
+  }
+
+  @media @mobile {
+    top:-100%;
   }
 }
 

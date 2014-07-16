@@ -5,7 +5,9 @@
 
   flex-wrap:wrap;
 
-  @media @mobile { flex-direction:column; }
+  @media @mobile {
+    .prefix('flex-direction', 'column');
+  }
 }
 
 .animation(@animation, @delay:0s, @timing) {
