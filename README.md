@@ -37,16 +37,16 @@ Run gulp
 ### Image
 
 **Mandatory**
-* type
-* image or background (if start is true)
+* `type`
+* `image` or `background` (if start is true)
 
 **Optional**
-* background: HEX / RGB (HEX needs to have quotation marks i.e. "#bada55")
-* title: Title text
-* start: boolean (Tells template that image is first on page and allows title etc.)
-* hasDown: boolean (Shows arrow pointing down)
-* height: pixels
-* downBg: HEX / RGB (background color for down arrow)
+* background: `HEX` / `RGB` (HEX needs to have quotation marks i.e. "#bada55")
+* title: `String`
+* start: `Boolean` (Tells template that image is first on page and allows title etc.)
+* hasDown: `Boolean` (Shows arrow pointing down)
+* height: `Pixels`
+* downBg: `HEX` / `RGB` (background color for down arrow)
 
 Example
     
