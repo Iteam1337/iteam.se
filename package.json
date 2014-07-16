@@ -35,6 +35,8 @@
     "handlebars-helper-partial": "*",
     "jshint-stylish": "^0.4.0",
     "proxyquire": "^1.0.1",
+    "q": "^1.0.1",
+    "request": "^2.37.0",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0",
     "yaml-front-matter": "^3.0.1"

@@ -1,3 +1,21 @@
 {
-  "laxcomma": true
+  "curly": false,
+  "eqnull": true,
+  "eqeqeq": true,
+  "expr": true,
+  "undef": true,
+  "maxcomplexity": 8,
+  "node": true,
+  "esnext": true,
+  "laxcomma":true,
+  "globals": {
+    "describe": true,
+    "xdescribe": true,
+    "it": true,
+    "xit": true,
+    "before": true,
+    "beforeEach": true,
+    "after": true,
+    "afterEach": true
+  }
 }
