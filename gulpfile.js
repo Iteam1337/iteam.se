@@ -53,7 +53,10 @@ gulp.task('connect', function () {
 });
 
 gulp.task('copy', function () {
-  gulp.src(['src/content/**/*', 'bower_components/ionicons/fonts/*'])
+  gulp.src(['bower_components/ionicons/fonts/*'])
+    .pipe(gulp.dest('out/content/fonts'));
+
+  gulp.src(['src/content/**/*'])
     .pipe(gulp.dest('out/content'));
 });
 
