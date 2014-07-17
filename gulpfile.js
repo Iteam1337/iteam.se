@@ -75,7 +75,8 @@ var options = {
   layoutdir: 'src/layouts/',
   helpers: [
     'src/helpers/**/*.js',
-    'node_modules/handlebars-helper-partial/index.js'
+    'node_modules/handlebars-helper-partial/index.js',
+    'node_modules/handlebars-helpers/index.js'
   ]
 };
 
@@ -89,7 +90,7 @@ gulp.task('assemble', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['src/layouts/**/*', config.pages, 'src/partials/**/*.hbs'], ['assemble']);
+  gulp.watch(['src/layouts/**/*', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
   gulp.watch([config.styles + config.allStyle], ['less']);
   gulp.watch('src/content/**/*', ['copy']);
   gulp.watch(['src/helpers/**/*.js','src/test/**/*.js'], ['test']);

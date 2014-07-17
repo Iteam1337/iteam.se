@@ -23,8 +23,12 @@ describe('#team', function () {
     expect(helper.team).to.be.a('function');
   });
 
-  it('should return coworkers name', function () {
+  it('should return a list template', function () {
     expect(helper.team(['rickard'])).to.match(/<li><img.+?<\/li>/);
+  });
+
+  it('should not matter if name is capitalized', function () {
+    expect(helper.team(['Rickard'])).to.match(/<li><img.+?<\/li>/);
   });
 
   it('should call for a gravatar', function () {
