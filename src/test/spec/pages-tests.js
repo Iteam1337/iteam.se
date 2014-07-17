@@ -33,7 +33,7 @@ describe('#pages', function () {
 
   it('should return list of cases when not given a route', function () {
     expect(helper.pages()).to.be.a('string');
-    expect(helper.pages()).to.match(/^<li><img.+?<\/li>$/);
+    expect(helper.pages()).to.match(/^<li><a.+?<\/li>$/);
   });
 
   it('should get the gravatars if it is a coworker', function () {
