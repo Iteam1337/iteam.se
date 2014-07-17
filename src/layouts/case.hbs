@@ -2,14 +2,6 @@
 layout: default.hbs
 ---
 
-{{#if this.order}}
-  {{{caseNavigation this.order}}}
-{{/if}}
-
-{{#if this.order}}
-  {{{caseNavigation this.order "next"}}}
-{{/if}}
-
 {{#each partials}}
 
   {{!-- Video --}}
@@ -68,3 +60,37 @@ layout: default.hbs
   {{/is}}
 
 {{/each}}
+
+{{#if this.order}}
+  <div class="row case-navigation">
+    <div class="grid-full">
+      <div class="row flex">
+        <div class="previous">
+          {{{caseNavigation this.order}}}
+        </div>
+        <div class="cases">
+          <i class="ion-grid"></i>
+          <a href="/case">Alla case</a>
+        </div>
+        <div class="next">
+          {{{caseNavigation this.order "next"}}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+<div class="row contact">
+  <ul>
+    <li class="project">
+      <i class="ion-ios7-telephone"></i>
+      Kostnadsfri rådgivning
+    </li>
+    <li class="career">
+      <a href="/karriar">
+        <i class="ion-code-working"></i>
+        Jobba hos oss?
+      </a>
+    </li>
+  </ul>
+</div>

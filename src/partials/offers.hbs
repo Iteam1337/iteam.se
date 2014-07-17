@@ -1,12 +1,18 @@
 <div class="row flex {{ type }}">
   <div class="grid-full">
     <div class="row flex">
-    {{#each offers}}
-      <div class="grid-quarter">
-        <i class="{{ class }}"></i>
-        {{ title }}
-      </div>
-    {{/each}}
+    {{#if offers}}
+      {{#each offers}}
+        <div class="grid-quarter">
+          <i class="{{ class }}"></i>
+          {{ title }}
+        </div>
+      {{/each}}
+    {{else}}
+      <ul class="all-offers">
+        {{{pages "./src/pages/vara-tjanster/" "/vara-tjanster/" "services"}}}
+      </ul>
+    {{/if}}
     </div>
   </div>
 </div>

@@ -18,21 +18,32 @@ module.exports.pages = function (route, start, type, size, options) {
     frontmatter = front.loadFront(dir + folder + '/index.hbs');
     title = frontmatter.subtitle || frontmatter.name;
 
+    var url = '<a href="' + lead + folder + '/">' + title + '</a>';
+    var logo = frontmatter.logo ? '<img src="' + frontmatter.logo + '">' : '';
+
     if (type === 'coworker') {
       var imgSize = size || false;
       var img = image.gravatar(frontmatter.email, imgSize);
 
       listUrl = '<li>'+
-                  '<img src="' + img + '">'+
+                  '<a href="' + lead + folder + '">'+
+                    '<img src="' + img + '">'+
+                  '</a>'+
                   '<div>'+
-                    '<a href="' + lead + folder + '/">' + title + '</a>'+
+                    url +
                     '<p>'+ frontmatter.job + '</p>'+
                   '</div>'+
                 '</li>';
-    } else {
+    } else if (type === 'services') {
       listUrl = '<li>'+
-                  '<a href="' + lead + folder + '/">' + title + '</a>'+
-                '</li>';
+            '<i class="' + frontmatter.icon + '"></i>'+
+            '<div>'+
+              url+
+              '<p>'+ frontmatter.description + '</p>'+
+            '</div>'+
+          '</li>';
+    } else {
+      listUrl = '<li>'+ logo + url + '</li>';
     }
 
     return {

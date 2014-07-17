@@ -1,19 +1,17 @@
-.sixteen-nine() {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 25px;
-  height: 0;
-}
-
 .row.video {
-  .sixteen-nine();
-
-  .grid-full {
-    .sixteen-nine();
+  .video-wrap {
+    display: block;
+    overflow:hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    width: 100%;
   }
 
   iframe {
     .position(top,left,0,0);
     .size(100%);    
+
+    display: block;
   }
 }

@@ -8,6 +8,7 @@ var gulp      = require('gulp')
 ,   jshint    = require('gulp-jshint')
 ,   mocha     = require('gulp-mocha')
 ,   concat    = require('gulp-concat')
+,   uglify    = require('gulp-uglify')
 ,   rimraf    = require('gulp-rimraf');
 
 gulp.task('clean', function (cb) {
@@ -24,7 +25,7 @@ var config = {
 };
 
 gulp.task('jshint', function () {
-  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js'])
+  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -32,8 +33,7 @@ gulp.task('jshint', function () {
 gulp.task('scripts', function() {
   gulp.src('./src/scripts/**/*.js')
     .pipe(concat('all.js'))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(uglify())
     .pipe(gulp.dest('./out/scripts'));
 });
 

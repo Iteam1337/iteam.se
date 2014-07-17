@@ -37,8 +37,16 @@ p {
 h1 {
   font-family: @h1;
 }
-h2,h3 { font-family:@sans-serif; }
-h3 { margin-top:0; }
+h2,h3 {
+  font-family:@sans-serif;
+}
+h3 {
+  border-bottom:3px solid #ccc;
+  display: inline-block;
+  font-family:@sans-serif;
+  margin:0 auto @margin / 2;
+  padding-bottom: @margin / 4;
+}
 
 /* Lists
 --------------------------------------------------------*/

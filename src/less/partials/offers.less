@@ -29,4 +29,18 @@
     font-size: 60px;
     margin-bottom:20px;
   }
+
+  ul {
+    .flex();
+  }
+
+  li {
+    width:33%;
+
+    i { font-size: 8rem; }
+
+    &:nth-child(n+4) {
+      margin-top: @margin;
+    }
+  }
 }

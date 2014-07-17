@@ -14,10 +14,10 @@ describe('#caseNavigation', function () {
   });
 
   it('should find the case with the order number previous itself', function () {
-    expect(helper.caseNavigation(2)).to.match(/^<a.+?<\/a>$/i);
+    expect(helper.caseNavigation(2)).to.match(/^<i.+?<\/a>$/i);
   });
 
   it('should find the case with the order number after itself', function () {
-    expect(helper.caseNavigation(1, 'next')).to.match(/^<a.+?<\/a>$/i);
+    expect(helper.caseNavigation(1, 'next')).to.match(/^<a.+?<\/i>$/i);
   });
 });

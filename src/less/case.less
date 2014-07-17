@@ -1,5 +1,5 @@
 // Case start page
-.cases {
+.row.cases {
   margin-top: @margin;
 
   .grid-full {
@@ -14,20 +14,22 @@
     li {
       .box-sizing();
       
-      background:#333;
-      display: flex;
       padding:@margin;
       position: relative;
-      width:49%;
+      text-align: center;
+      width:32%;
 
-      &:nth-child(odd) {
-        margin-right:2%;
+      &:nth-child(3n-1) {
+        margin:0 2%;
+      }
+
+      &:nth-child(n+4) {
+        margin-top: @margin;
       }
 
       a {
-        .center(both);
-
-        color:#fff;
+        margin-top: @margin / 2;
+        padding: 5px 10px;
       }
     }
   }
@@ -52,6 +54,73 @@
       font-size:1.5rem;
       text-align:center;
       text-transform:uppercase;
+    }
+  }
+}
+
+.row.case-navigation {
+  @icon-margin: 10px;
+
+  background: rgb(19,24,25);
+  color: #fff;
+  padding: @margin 0;
+
+  a {
+    color: #fff;
+  }
+
+  i {
+    margin-right: 10px;
+  }
+
+  .flex > div {
+    width: 33%;
+
+    &.cases {
+      text-align: center; 
+
+      i { margin-right: @icon-margin; }
+    }
+
+    &.next {
+      text-align: right;
+      i { margin-left: @icon-margin; }
+    }
+  }
+}
+
+.row.contact {
+  li {
+    .box-sizing();
+    .transition(background, 300ms, ease-in-out);
+    
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2.5rem;
+    padding: @margin * 2;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    width:50%;
+    will-change: background;
+
+    i {
+      display: block;
+      font-size: 6rem;
+      position: relative;
+      top: -10px;
+    }
+
+    &.project {
+      background: fade(#ffbd09, 20%);
+
+      &:hover { background: fade(#ffbd09, 60%); }
+    }
+
+    &.career {
+      background: fade(#0088ff, 20%);
+
+      &:hover { background: fade(#0088ff, 60%); }
     }
   }
 }

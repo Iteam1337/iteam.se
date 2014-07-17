@@ -4,6 +4,9 @@ var front = require('yaml-front-matter');
 module.exports.caseNavigation = function (order, direction) {
   order += (direction === 'next') ? 1 : -1;
 
+  var leftIcon = (direction !== 'next') ? '<i class="ion-chevron-left"></i>' : '';
+  var rightIcon = (direction === 'next') ? '<i class="ion-chevron-right"></i>' : '';
+
   // Load all cases from folder
   var dir = './src/pages/case/';
   var dirs = fs.readdirSync(dir).filter(function (file) {
@@ -25,5 +28,5 @@ module.exports.caseNavigation = function (order, direction) {
   // Return link to case
   var project = front.loadFront(dir + cases[0] + '/index.hbs');
 
-  return '<a href="/case/' + cases[0] + '">' + project.subtitle + '</a>';
+  return leftIcon + '<a href="/case/' + cases[0] + '">' + project.subtitle + '</a>' + rightIcon;
 }; 
