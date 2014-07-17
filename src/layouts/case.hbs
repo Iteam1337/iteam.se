@@ -3,11 +3,11 @@ layout: default.hbs
 ---
 
 {{#if this.order}}
-  {{{previous this.order}}}
+  {{{caseNavigation this.order}}}
 {{/if}}
 
 {{#if this.order}}
-  {{{previous this.order "next"}}}
+  {{{caseNavigation this.order "next"}}}
 {{/if}}
 
 {{#each partials}}
