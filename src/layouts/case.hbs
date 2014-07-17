@@ -2,6 +2,14 @@
 layout: default.hbs
 ---
 
+{{#if this.order}}
+  {{{previous this.order}}}
+{{/if}}
+
+{{#if this.order}}
+  {{{previous this.order "next"}}}
+{{/if}}
+
 {{#each partials}}
 
   {{!-- Video --}}
