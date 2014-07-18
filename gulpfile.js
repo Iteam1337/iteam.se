@@ -9,7 +9,8 @@ var gulp      = require('gulp')
 ,   mocha     = require('gulp-mocha')
 ,   concat    = require('gulp-concat')
 ,   uglify    = require('gulp-uglify')
-,   rimraf    = require('gulp-rimraf');
+,   rimraf    = require('gulp-rimraf')
+,   awspublish = require('gulp-awspublish');
 
 gulp.task('clean', function (cb) {
   return gulp.src('./out/**/*', { read: false })
@@ -97,6 +98,33 @@ gulp.task('watch', function () {
   gulp.watch('./src/scripts/**/*.js', ['scripts']);
 });
 
+gulp.on('err', function(e) {
+  console.log(e.err.stack);
+});
+
+gulp.task('s3', function () {
+  var aws = {
+    key : process.env.AWS_ACCESS_KEY_ID,
+    secret : process.env.AWS_SECRET_ACCESS_KEY,
+    access: 'public-read',
+    region: 'eu-west-1',
+    bucket: 'test.iteam.se'
+  };
+
+  var publisher = awspublish.create(aws);
+
+  var headers = {
+    'Cache-Control': 'max-age=315360000, no-transform, public'
+  };
+
+  return gulp.src('./out/**/*')
+    .pipe(awspublish.gzip())
+    .pipe(publisher.publish(headers))
+    .pipe(publisher.cache())
+    .pipe(awspublish.reporter());
+});
+
+
 gulp.task('default', [
   'copy',
   'jshint',
@@ -106,4 +134,20 @@ gulp.task('default', [
   'assemble',
   'connect',
   'watch'
-  ]);
+]);
+
+
+gulp.task('build', [
+  'copy',
+  'jshint',
+  'scripts',
+  'test',
+  'less',
+  'assemble'
+]);
+
+
+gulp.task('deploy', [
+  'build',
+  's3'
+]);
