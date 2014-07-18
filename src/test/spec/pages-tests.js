@@ -48,4 +48,8 @@ describe('#pages', function () {
   it('should return a different template if type is services', function () {
     expect(helper.pages('./src/pages/medarbetare/','','services')).to.match(/^<li><i.+?<\/li>$/);
   });
+
+  it('should sort by last name', function () {
+    expect(helper.pages('./src/pages/medarbetare/','','coworker')).to.match(/^<li><a href="radu">.+?<\/li>$/);
+  });
 });

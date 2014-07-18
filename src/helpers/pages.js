@@ -14,6 +14,7 @@ module.exports.pages = function (route, start, type, size, options) {
     var listUrl;
     var logo;
     var url;
+    var lastName;
 
     frontmatter = front.loadFront(dir + folder + '/index.hbs');
     title       = frontmatter.subtitle || frontmatter.name;
@@ -23,6 +24,7 @@ module.exports.pages = function (route, start, type, size, options) {
     if (type === 'coworker') {
       var imgSize = size || false;
       var img = image.gravatar(frontmatter.email, imgSize);
+      lastName = title.substr(title.lastIndexOf(' ') + 1);
 
       listUrl = '<li>'+
                   '<a href="' + lead + folder + '">'+
@@ -47,10 +49,16 @@ module.exports.pages = function (route, start, type, size, options) {
 
     return {
       element: listUrl,
-      order: frontmatter.order || undefined
+      order: frontmatter.order || lastName
     };
   }).sort(function (a,b) {
-    return a.order - b.order;
+    if (typeof a.order === 'number') {
+      return a.order - b.order;
+    } else if (typeof a.order === 'string') {
+      return a.order.localeCompare(b.order);
+    } else {
+      return false;
+    }
   }).map(function (page) {
     return page.element;
   });

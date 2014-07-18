@@ -1,10 +1,15 @@
 .row.coworkers {
-  margin: @margin 0;
+  background: @light;
+  padding: @margin 0;
 
   li {
+    .box-sizing();
+    
+    background: #fff;
+    border:1px solid darken(@light, 5%);
     display: inline-block;
-    text-align: center;
-    width: 32%;
+    text-align: right;
+    width: 49%;
 
     @media @mobile {
       width:100%;
@@ -12,30 +17,41 @@
       margin-top: @margin / 2;
     }
 
+    &:nth-child(even) {
+      margin-left: 2%;
+      text-align: left;
+
+      img {
+        float: left;
+      }
+    }
+
     &:nth-child(n+4) {
       margin-top: @margin / 2;
     }
 
-    img, div {
-      display: inline-block;
-      padding-left: @margin;
-      vertical-align:top;
+    img {
+      float: right;
+      width: 40%;
+    }
 
-      @media @mobile {
-        padding-left: 0;
-      }
+    div {
+      .box-sizing();
+
+      display: inline-block;
+      padding: @margin / 2;
+      vertical-align:top;
     }
 
     div {
       a {
-        border-bottom: 3px solid #ccc;
         display: block;
-        margin-top: @margin / 2;
+        font-weight: 600;
         vertical-align: top;
       }
 
       p {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
     }
   }
