@@ -10,6 +10,19 @@
     margin: 0;
     text-align: center;
     width:100%;
+
+    @media @mobile {
+      .prefix('word-break', break-word);
+      
+      font-size: 60px;
+      line-height: 1;
+    }
+  }
+
+  .image-inner {
+    .box-sizing();
+    position: relative;
+    height: 100%;
   }
 
   img {
@@ -36,6 +49,23 @@
 
       position: relative;
       will-change: top;
+    }
+  }
+
+  &.parallax {
+    .prefix('background-size', cover);
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-size: 4rem;
+    position: static;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(33,33,33,0.8);
+    z-index: -1;
+    
+    .image-inner {
+      padding: @margin * 4 0;
     }
   }
 }

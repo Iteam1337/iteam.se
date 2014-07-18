@@ -94,8 +94,8 @@ gulp.task('watch', function () {
   gulp.watch(['src/layouts/**/*', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
   gulp.watch([config.styles + config.allStyle], ['less']);
   gulp.watch('src/content/**/*', ['copy']);
-  gulp.watch(['src/helpers/**/*.js','src/test/**/*.js'], ['test']);
-  gulp.watch('./src/scripts/**/*.js', ['scripts']);
+  gulp.watch(['src/helpers/**/*.js','src/test/**/*.js'], ['jshint', 'test']);
+  gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts']);
 });
 
 gulp.on('err', function(e) {

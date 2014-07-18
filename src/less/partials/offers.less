@@ -1,10 +1,11 @@
 .row.offers {
   margin: @margin 0;
+  padding: @margin 0;
 
-  .grid-full {
-    width: @max-width;
+  @media @mobile {
+    padding: 0 @margin;
   }
-  
+
   .row {
     .grid-quarter {
       @top: 40px;
@@ -25,19 +26,29 @@
   }
 
   i {
+    color: #ccc;
     display: block;
-    font-size: 60px;
     margin-bottom:20px;
   }
 
   ul {
     .flex();
+
+    justify-content: center;
   }
 
   li {
+    text-align: center;
     width:33%;
 
-    i { font-size: 8rem; }
+    @media @mobile {
+      margin-top: @margin;
+      width:100%;
+    }
+
+    a { font-weight:@bold; }
+
+    i { font-size: 6rem; }
 
     &:nth-child(n+4) {
       margin-top: @margin;

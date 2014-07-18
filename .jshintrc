@@ -17,6 +17,7 @@
     "beforeEach": true,
     "after": true,
     "afterEach": true,
-    "document": true
+    "document": true,
+    "window": true
   }
 }

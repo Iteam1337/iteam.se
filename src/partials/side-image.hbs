@@ -1,4 +1,4 @@
-<div class="row {{ type }}" style="background: {{ background }}; color: {{ color }}">
+<div class="row {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}; color: {{ color }}" {{/if}}>
   <div class="grid-full">
     <div class="text">
 {{#markdown}}

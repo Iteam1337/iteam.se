@@ -1,5 +1,4 @@
 .row.team {
-  margin: @margin 0;
   padding: @margin 0;
 
   ul {
@@ -10,14 +9,18 @@
 
   li {
     .box-sizing();
-
+    
+    color: @a;
     display: inline-block;
+    font-weight: 600;
     padding-right: @margin;
     text-align: center;
     width: 25%;
 
     @media @mobile {
       margin-top: @margin;
+      padding-right: 0;
+      padding: 0 @margin;
       width:100%;
     }
 
@@ -28,10 +31,11 @@
       margin: 0 auto @margin / 2;
     }
 
-    div {
-      color: darken(@light, 20%);
+    .job {
+      color: @color;
       font-size: 1.4rem;
-      line-height: 1;
+      font-weight: 400;
+      line-height: 1.5;
     }
   }
 }

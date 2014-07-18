@@ -6,8 +6,7 @@ var easteregg = {
     if (this.code.indexOf(this.konamiCode) >= 0) {
       this.code = '';
       this.fire();
-    }
-    else if (this.code.length >= 100) {
+    } else if (this.code.length >= 100) {
       this.code = '';
     }
   },
@@ -25,7 +24,7 @@ var easteregg = {
   }
 };
 
-document.addEventListener("keyup", function(event) {
+document.addEventListener("keyup", function (event) {
   event.stopImmediatePropagation();
   easteregg.register(event.which);
   return false;

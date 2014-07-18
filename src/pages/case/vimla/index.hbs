@@ -1,5 +1,8 @@
 ---
 subtitle: Vimla
+categories:
+  - systemutveckling
+  - rådgivning
 order: 1
 layout: case.hbs
 logo: http://www.iteam.se/content/images/case-logos/vimla.png
@@ -9,10 +12,10 @@ partials:
     start: true
     hasDown: true
     height: 600px
+    parallax: true
+    down-color: "#fff"
     title: Vimla
-    image:
-      src: /content/images/vimla_start.jpg
-      alt: Vimla på mobil
+    background-image: url(/content/images/vimla_start.jpg)
   -
     type: quote
     content: Vi ser vårt team hos Iteam mer som våra kollegor än som leverantör. Istället för att vi ställer krav som Iteam utför så jobbar vi tillsammans och sätter alla funktioner och lösningar för siten. Det har gjort att vi kommit mycket längre än vad vi skulle gjort annars
@@ -21,7 +24,7 @@ partials:
     type: text
     content: "### Ett samarbete byggt på öppenhet\nVi på Iteam har haft nöjet att samarbeta med Telenor för att ta fram det nya abonnemanget Vimla. Arbetet och processen har varit unik eftersom vi har haft två beställare med en imponerande kompetens samt professionella samarbetspartner (designbyrån Made to order med flera). Det har gjort att samarbetet flutit på och vi har varit på samma bana under hela projektet."
   -
-    background: "#50DC82"
+    background-color: "#50DC82"
     color: "#fff"
     type: side-image
     text: "## Responsiv\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus iure numquam natus accusamus molestiae ducimus, sint iusto commodi, officia maiores est alias, tempora provident iste. Aspernatur, quisquam eum accusamus quos."
@@ -36,7 +39,7 @@ partials:
   -
     type: team
     background: light
-    gravatar-sizes: 200
+    gravatar-sizes: 400
     team:
       - anders
       - alexander
@@ -48,6 +51,9 @@ partials:
       - sophie
   -
     type: text
+    parallax: true
+    color: "#fff"
+    background-image: "url(http://www.gratisography.com/pictures/108H.jpg)"
     content: "### Lösningen\nDet unika i lösningen är att alla samarbetspartner har ett gemensamt och tydligt mål. Alla ville utveckla en produkt som vi tror mycket starkt på. Därför har arbetet för oss på Iteam inte bara handlat om systemutveckling utan det har även handlat om att utveckla varumärket och se till att Telenor har kunnat bygga sin produkt i den takt och i den ordning de önskat."
   -
     type: quote
@@ -55,7 +61,7 @@ partials:
     by: Johan Öbrink, Technical Creative Director på Iteam
   -
     type: mosaic
-    background: "#DCDCDC"
+    background-color: "#DCDCDC"
     smallImages:
       - https://vimla.se/upload/Ikoner/fria_samtal.jpg
       - https://vimla.se/upload/Ikoner/extra_allt.jpg

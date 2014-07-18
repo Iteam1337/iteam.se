@@ -1,11 +1,19 @@
 .row.list {
   padding: @margin 0;
 
+  @media @mobile {
+    padding: @margin; 
+  }
+
   ul {
     .box-sizing();
 
     list-style: square;
     padding-left:@margin / 2;
     width:49%;
+
+    @media @mobile {
+      width: 100%;
+    }
   }
 }

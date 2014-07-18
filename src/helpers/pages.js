@@ -1,29 +1,30 @@
-var fs = require('fs');
 var front = require('yaml-front-matter');
 var image = require('./gravatar');
+var read  = require('./read');
 
 module.exports.pages = function (route, start, type, size, options) {
-  var dir, dirs, lead, pages;
-
-  dir = route || './src/pages/case/';
-  lead = start || '';
-
-  dirs = fs.readdirSync(dir).filter(function (file) {
-    return fs.statSync(dir + file).isDirectory();
-  });
+  var pages;
+  var dir = route || './src/pages/case/';
+  var lead = start || '';
+  var dirs = read.directory(dir);
 
   pages = dirs.map(function (folder) {
-    var frontmatter, title, listUrl;
+    var frontmatter;
+    var title;
+    var listUrl;
+    var logo;
+    var url;
+    var lastName;
 
     frontmatter = front.loadFront(dir + folder + '/index.hbs');
-    title = frontmatter.subtitle || frontmatter.name;
-
-    var url = '<a href="' + lead + folder + '/">' + title + '</a>';
-    var logo = frontmatter.logo ? '<img src="' + frontmatter.logo + '">' : '';
+    title       = frontmatter.subtitle || frontmatter.name;
+    url         = '<a href="' + lead + folder + '/">' + title + '</a>';
+    logo        = frontmatter.logo ? '<img src="' + frontmatter.logo + '">' : '';
 
     if (type === 'coworker') {
       var imgSize = size || false;
       var img = image.gravatar(frontmatter.email, imgSize);
+      lastName = title.substr(title.lastIndexOf(' ') + 1);
 
       listUrl = '<li>'+
                   '<a href="' + lead + folder + '">'+
@@ -48,10 +49,16 @@ module.exports.pages = function (route, start, type, size, options) {
 
     return {
       element: listUrl,
-      order: frontmatter.order || undefined
+      order: frontmatter.order || lastName
     };
   }).sort(function (a,b) {
-    return a.order - b.order;
+    if (typeof a.order === 'number') {
+      return a.order - b.order;
+    } else if (typeof a.order === 'string') {
+      return a.order.localeCompare(b.order);
+    } else {
+      return false;
+    }
   }).map(function (page) {
     return page.element;
   });

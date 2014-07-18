@@ -1,11 +1,13 @@
-<div class="row {{ type }} {{ background }}" style="background:{{ bg }}">
+<div class="row {{ type }} {{ background }} {{#if one-line}} one-line {{/if}} {{#if parallax}} parallax {{/if}}" {{#if background-color}} style="background:{{ background-color }};color: {{ color }}" {{/if}} {{#if background-image}} style="background-image: {{ background-image }}; color: {{ color }}" {{/if}}>
   <div class="grid-full">
   {{#if image}}
     <img class="{{ image-position }}" src="{{ image.src }}" alt="{{ image.alt }}">
   {{/if}}
+  {{#if content}}
 {{#markdown}}
 {{ content }}
 {{/markdown}}
+  {{/if}}
   {{#if mdtext}}
     {{{md mdtext}}}
   {{/if}}

@@ -1,0 +1,24 @@
+.row.quote {
+  text-align: center;
+
+  @media @mobile {
+    padding: @margin;
+  }
+
+  .text {
+    font-style:italic;
+    position: relative;
+
+    &:before {
+      .position(top,left,50px,-100px);
+
+      color:@quote;
+      content: "\201C";
+      font-size: 15rem;
+    }
+  }
+  .by {
+    font-weight:700;
+    margin-top:@margin/2;
+  }
+}

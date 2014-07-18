@@ -20,12 +20,13 @@ body {
 }
 
 a {
-  color:#333;
+  color:@a;
   text-decoration:none;
 }
 
 p {
-  font-size:2rem;
+  font-family: 'Lora';
+  font-size:1.5rem;
   margin:@margin / 2 0 @margin;
 
   &:first-child { margin-top: 0; }
@@ -38,10 +39,12 @@ h1 {
   font-family: @h1;
 }
 h2,h3 {
+  color: @a;
   font-family:@sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
 }
 h3 {
-  border-bottom:3px solid #ccc;
   display: inline-block;
   font-family:@sans-serif;
   margin:0 auto @margin / 2;
@@ -112,27 +115,6 @@ img {
     max-width:25%;
     
     @media @mobile { max-width:100%; }
-  }
-}
-
-.quote {
-  text-align: center;
-
-  .text {
-    font-style:italic;
-    position: relative;
-
-    &:before {
-      .position(top,left,30px,-70px);
-
-      color:@quote;
-      content: "\201C";
-      font-size: 90px;
-    }
-  }
-  .by {
-    font-weight:700;
-    margin-top:@margin/2;
   }
 }
 

@@ -10,8 +10,17 @@
     
     align-self:center;
     display: inline-block;
-    padding: @margin;
+    padding: 0 @margin 0 0;
     width: 40%;
+
+    @media @mobile {
+      padding: 0 @margin @margin;
+      width: 100%;
+    }
+
+    h1,h2,h3 {
+      color: inherit;
+    }
   }
 
   img {
