@@ -64,11 +64,16 @@ layout: default.hbs
     {{> tweet this}}
   {{/is}}
 
+  {{!-- Map --}}
+  {{#is type "map"}}
+    {{> map this}}
+  {{/is}}
+
 {{/each}}
 
-{{#if this.order}}
+{{#unless navigation}}
  {{> case-navigation}}
-{{/if}}
+{{/unless}}
 
 {{#unless contact}}
   {{> contact}}
