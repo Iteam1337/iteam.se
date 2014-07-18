@@ -1,0 +1,55 @@
+.row.contact {
+  margin: @margin 0;
+
+  .address {
+    display: inline-block;
+    margin-right: 2%;
+    width: 32%;
+
+    li {
+      font-size: 1.5rem;
+
+      &.title {
+        font-size:1.75rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  form {
+    display: inline-block;
+    vertical-align: top;
+    width: 66%;
+
+    h3 {
+      border:none;
+      display: block;
+      margin-bottom: 0;
+    }
+
+    i {
+      color: #ffbd09;
+      font-size: 4rem;
+      position: relative;
+      top:8px;
+    }
+
+    input {
+      border:none;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: @margin / 2;
+      width: 49%;
+
+      &:focus { outline: none; }
+
+      &.message { width: 100%; }
+
+      &[type="submit"] {
+        background: none;
+        border:none;
+        font-size: 1.75rem;
+        width: auto;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<div class="row flex {{ type }}" style="background: {{ background }}">
+<div class="row flex {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
   {{#each smallImages }}
     <div class="grid-quarter">
       <img src="{{ this }}" alt="">

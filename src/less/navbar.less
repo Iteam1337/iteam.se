@@ -45,21 +45,28 @@
     }
   }
 
+  .grid-full { position: relative; }
+
   #logo {
-    .position(top,left,10px, 20px);
+    .position(top,left,0,0);
+
     height: 30px;
   }
 
   .nav {
     .flex();
     
-    justify-content:center;
+    justify-content:flex-end;
     list-style:none;
     margin:0 auto;
     max-width:@max-width;
 
     li {
       margin-right:@margin;
+
+      &:last-child {
+        margin-right: 0;
+      }
       
       a {
         .transition(color, 200ms, ease-in-out);

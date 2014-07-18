@@ -1,5 +1,5 @@
-var fs = require('fs');
 var front = require('yaml-front-matter');
+var read  = require('./read');
 
 module.exports.caseNavigation = function (order, direction) {
   order += (direction === 'next') ? 1 : -1;
@@ -10,15 +10,11 @@ module.exports.caseNavigation = function (order, direction) {
 
   // Load all cases from folder
   var dir = './src/pages/case/';
-  var dirs = fs.readdirSync(dir).filter(function (file) {
-    return fs.statSync(dir + file).isDirectory();
-  });
+  var dirs = read.directory(dir);
 
   // Filter cases that match either previous or next depending on direction
   var cases = dirs.filter(function (folder) {
-    var frontmatter;
-
-    frontmatter = front.loadFront(dir + folder + '/index.hbs');
+    var frontmatter = front.loadFront(dir + folder + '/index.hbs');
 
     return frontmatter.order === order;
   });

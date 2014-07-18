@@ -1,5 +1,11 @@
-<div class="row {{ type }}" style="background:{{ background }}">
+<div class="row {{ type }} {{ background }}" {{#if background-color}} style="background:{{ background-color }}" {{/if}}>
   <div class="grid-full">
+    {{#if title}}
+      <h3>{{ title }}</h3>
+    {{/if}}
+    {{#if text}}
+      <p>{{ text }}</p>
+    {{/if}}
     <div class="video-wrap">
       <iframe src="{{ file }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>

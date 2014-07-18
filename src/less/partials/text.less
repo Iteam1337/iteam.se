@@ -1,6 +1,8 @@
 @img-width: 40%;
 
 .row.text {
+  h3 { margin: @margin / 2 0; }
+
   img {
     max-width: @img-width;
 
@@ -18,5 +20,32 @@
       margin-bottom: @margin / 2;
       max-width: 100%;
     }
-  } 
+  }
+
+  &.one-line {
+    padding: @margin / 2 0;
+    text-align: center;
+  }
+
+  &.parallax {
+    .prefix('background-size', cover);
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-size: 4rem;
+    padding: @margin * 4 0;
+    position: static;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(33,33,33,0.8);
+    z-index: -1;
+
+    h3 {
+      color: inherit;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
 }

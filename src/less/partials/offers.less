@@ -1,5 +1,6 @@
 .row.offers {
   margin: @margin 0;
+  padding: @margin 0;
 
   @media @mobile {
     padding: 0 @margin;
@@ -25,8 +26,8 @@
   }
 
   i {
+    color: #ccc;
     display: block;
-    font-size: 60px;
     margin-bottom:20px;
   }
 
@@ -35,6 +36,7 @@
   }
 
   li {
+    text-align: center;
     width:33%;
 
     @media @mobile {
@@ -42,7 +44,9 @@
       width:100%;
     }
 
-    i { font-size: 8rem; }
+    a { font-weight:@bold; }
+
+    i { font-size: 6rem; }
 
     &:nth-child(n+4) {
       margin-top: @margin;
