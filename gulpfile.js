@@ -147,7 +147,7 @@ gulp.task('build', [
 ]);
 
 
-gulp.task('deploy', [
+gulp.task('deploy:master', [
   'build',
   's3'
 ]);
