@@ -4,6 +4,7 @@ var front = require('yaml-front-matter');
 module.exports.caseNavigation = function (order, direction) {
   order += (direction === 'next') ? 1 : -1;
 
+  // Chevron icons
   var leftIcon = (direction !== 'next') ? '<i class="ion-chevron-left"></i>' : '';
   var rightIcon = (direction === 'next') ? '<i class="ion-chevron-right"></i>' : '';
 

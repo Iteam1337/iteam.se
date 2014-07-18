@@ -1,10 +1,10 @@
 .row.offers {
   margin: @margin 0;
 
-  .grid-full {
-    width: @max-width;
+  @media @mobile {
+    padding: 0 @margin;
   }
-  
+
   .row {
     .grid-quarter {
       @top: 40px;
@@ -36,6 +36,11 @@
 
   li {
     width:33%;
+
+    @media @mobile {
+      margin-top: @margin;
+      width:100%;
+    }
 
     i { font-size: 8rem; }
 

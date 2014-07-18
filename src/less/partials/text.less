@@ -2,16 +2,21 @@
 
 .row.text {
   img {
+    max-width: @img-width;
+
     &.left {
       float: left;
       margin-right: @margin;
-      max-width: @img-width;
     }
 
     &.right {
       float: right;
       margin-left: @margin;
-      max-width: @img-width;
+    }
+
+    @media @mobile {
+      margin-bottom: @margin / 2;
+      max-width: 100%;
     }
   } 
 }

@@ -76,6 +76,11 @@
   .flex > div {
     width: 33%;
 
+    @media @mobile {
+      text-align: center;
+      width:100%;
+    }
+
     &.cases {
       text-align: center; 
 
@@ -85,6 +90,10 @@
     &.next {
       text-align: right;
       i { margin-left: @icon-margin; }
+
+      @media @mobile {
+        text-align: center;
+      }
     }
   }
 }
@@ -103,6 +112,10 @@
     vertical-align: top;
     width:50%;
     will-change: background;
+
+    @media @mobile {
+      width:100%;
+    }
 
     i {
       display: block;
