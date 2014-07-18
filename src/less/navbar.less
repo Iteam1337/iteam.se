@@ -33,6 +33,7 @@
 
   &.open {
     height:100%;
+    padding: 0;
     top:0;
 
     #close-navbar {
@@ -45,12 +46,22 @@
     }
   }
 
-  .grid-full { position: relative; }
+  .grid-full {
+    position: relative;
+
+    @media @mobile {
+      height: 100%;
+    }
+  }
 
   #logo {
     .position(top,left,5px,0);
 
     height: 25px;
+
+    @media @mobile {
+      .position(top,left,12px,20px);
+    }
   }
 
   .nav {
@@ -90,8 +101,7 @@
 
     @media @mobile {
       .center(both);
-      
-      bottom: 0;
+
       width:100%;
     }
   }
