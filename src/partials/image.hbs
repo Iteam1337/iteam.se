@@ -1,14 +1,16 @@
-<div class="row {{ type }} {{ background }}" style="background: {{ background-color }}; height: {{ height }}">
+<div class="row {{ type }} {{ background }} {{#if parallax}} parallax {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} height: {{ height }}; {{#if background-image}} background-image: {{ background-image }} {{/if}}">
   {{#if start}}
-    <h1>{{ title }}</h1>
-    {{#if image}}
-      <img src="{{ image.src }}" alt="{{ image.alt }}">
-    {{/if}}
-    {{#if hasDown}}
-      <div class="down" {{#if down-bg}} style="background: {{ down-bg }}; color: {{ down-color }}" {{/if}}>
-        <i class="ion-chevron-down"></i>
-      </div>
-    {{/if}}
+    <div class="{{ type }}-inner">
+      <h1>{{ title }}</h1>
+      {{#if image}}
+        <img src="{{ image.src }}" alt="{{ image.alt }}">
+      {{/if}}
+      {{#if hasDown}}
+        <div class="down" {{#if down-bg}} style="background: {{ down-bg }}; color: {{ down-color }}" {{/if}}>
+          <i class="ion-chevron-down"></i>
+        </div>
+      {{/if}}
+    </div>
   {{else}}
     <img src="{{ image.src }}" alt=" {{ image.alt }}">
   {{/if}}
