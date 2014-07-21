@@ -1,16 +1,25 @@
-var gulp      = require('gulp')
-,   less      = require('gulp-less')
-,   plumber   = require('gulp-plumber')
-,   webserver = require('gulp-webserver')
-,   rename    = require('gulp-rename')
-,   assemble  = require('gulp-assemble')
-,   htmlmin   = require('gulp-htmlmin')
-,   jshint    = require('gulp-jshint')
-,   mocha     = require('gulp-mocha')
-,   concat    = require('gulp-concat')
-,   uglify    = require('gulp-uglify')
-,   rimraf    = require('gulp-rimraf')
-,   awspublish = require('gulp-awspublish');
+'use strict';
+var gulp = require('gulp');
+var less = require('gulp-less');
+var plumber = require('gulp-plumber');
+var webserver = require('gulp-webserver');
+var rename = require('gulp-rename');
+var assemble = require('gulp-assemble');
+var htmlmin = require('gulp-htmlmin');
+var jshint = require('gulp-jshint');
+var mocha = require('gulp-mocha');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var rimraf = require('gulp-rimraf');
+var awspublish = require('gulp-awspublish');
+var foreach = require('gulp-foreach');
+var path = require('path');
+
+function formatPagePath(pagePath) {
+  return pagePath
+    .replace(path.resolve(process.cwd(), 'src/pages'), '')
+    .replace(path.extname(pagePath), '.html'); 
+}
 
 gulp.task('clean', function (cb) {
   return gulp.src('./out/**/*', { read: false })
@@ -82,10 +91,14 @@ var options = {
 };
 
 gulp.task('assemble', function () {
-  gulp.src([config.pages])
-    .pipe(assemble(options))
-    .pipe(htmlmin({
-      collapseWhitespace:true
+  gulp.src(config.pages)
+    .pipe(foreach(function (stream, file) {
+      return stream
+        .pipe(assemble(options))
+        .pipe(htmlmin({
+          collapseWhitespace:true
+        }))
+        .pipe(concat(formatPagePath(file.path)));
     }))
     .pipe(gulp.dest('./out'));
 });
