@@ -31,7 +31,7 @@ var config = {
   stylesOut: 'out/css/',
   allStyle: '*.less',
   mainStyle: 'main.less',
-  pages: 'src/pages/**/*.hbs'
+  pages: './src/pages/**/*.hbs'
 };
 
 gulp.task('jshint', function () {
