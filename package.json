@@ -20,7 +20,7 @@
     "googlemaps": "^0.1.9",
     "grunt": "^0.4.5",
     "gulp": "^3.8.0",
-    "gulp-assemble": "^0.1.7",
+    "gulp-assemble": "believer/gulp-assemble",
     "gulp-awspublish": "^0.0.20",
     "gulp-concat": "^2.3.3",
     "gulp-htmlmin": "^0.1.3",
