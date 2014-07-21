@@ -56,7 +56,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('connect', function () {
-  gulp.src('out')
+  gulp.src('./out/')
     .pipe(webserver({
       livereload: true
     }));
