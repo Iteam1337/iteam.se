@@ -1,0 +1,20 @@
+<div class="row {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}; color: {{ color }}" {{/if}} {{#if background-image}} style="background-image: {{ background-image }}; color: {{ color }}" {{/if}}>
+  <div class="grid-full">
+    {{#if title}}
+      <h3>{{ title }}</h3>
+    {{/if}}
+    {{#if description}}
+      <p>{{ description }}</p>
+    {{/if}}
+    <ul>
+    {{#each items}}
+      <li>
+        <div class="circle" {{#if color}} style="color: {{ color }}" {{/if}}>
+          <div class="number">{{ number }}</div>
+          <div class="text">{{ text }}</div>
+        </div>
+      </li>
+    {{/each}}    
+    </ul>
+  </div>
+</div>
