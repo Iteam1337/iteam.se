@@ -1,0 +1,46 @@
+@circle: 150px;
+
+.row.stats {
+  padding: @margin * 2 0;
+  background-size: cover;
+  text-align: center;
+  
+  p {
+    color: @color;
+    margin: 0 auto;
+    max-width: 50%;
+  }
+
+  ul {
+    margin-top: @margin;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 2%;
+    text-align: center;
+    width: 32%;
+
+    &:nth-child(3n) { margin-right: 0; }
+    &:nth-child(n+4) { margin-top: @margin; }
+  }
+
+  .circle {
+    .box-sizing();
+    .size(@circle);
+
+    border: 3px solid;
+    border-color: inherit;
+    border-radius: @circle;
+    color:inherit;
+    display: inline-block;
+    padding-top: @margin; 
+
+    .number {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .text { font-size:1.5rem; }
+  }
+}
