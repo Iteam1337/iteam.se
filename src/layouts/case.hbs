@@ -74,6 +74,11 @@ layout: default.hbs
     {{> stats this}}
   {{/is}}
 
+  {{!-- Social media --}}
+  {{#is type "social-media"}}
+    {{> social-media this}}
+  {{/is}}
+
 {{/each}}
 
 {{#unless navigation}}
