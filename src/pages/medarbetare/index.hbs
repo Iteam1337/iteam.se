@@ -2,13 +2,29 @@
 subtitle: Medarbetare
 order: 1
 layout: default.hbs
+route: "./src/pages/medarbetare/"
+start: ""
+type: "coworker"
+size: 300
 ---
 
 <div class="row coworkers">
   <div class="grid-full">
     <ul>
-      {{!-- {{{pages "./src/pages/medarbetare/" "" "coworker" 300}}} --}}
       {{#pages this}}
+        {{#each data}}
+          <li>
+            {{#if this.logo}}
+            <a href="{{this.url}}">
+              <img src="{{this.logo}}"/>
+            </a>
+            {{/if}}
+            <div>
+              <a href="{{this.url}}">{{this.title}}</a>  
+              <p>{{this.frontmatter.job}}</p>
+            </div>
+          </li>
+        {{/each}}
       {{/pages}}
     </ul>
   </div>
