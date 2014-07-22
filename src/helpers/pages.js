@@ -34,11 +34,11 @@ module.exports.pages = function (data, options) {
 
     if (type === 'coworker') {
       var imgSize = size || false;
-      logo = image.gravatar(frontmatter.email, imgSize);
+
+      element.logo = image.gravatar(frontmatter.email, imgSize);
       firstName = title.substr(0, title.indexOf(' '));
       lastName = title.substr(title.lastIndexOf(' ') + 1);
 
-      element.logo = logo;
       element.name = {
         first: firstName,
         last: lastName
