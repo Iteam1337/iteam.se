@@ -1,0 +1,22 @@
+.row.services {
+  margin: @margin * 2 0 @margin * 4;
+
+  li {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    width: 49%;
+
+    &:nth-child(n+3) { margin-top: @margin; }
+
+    i {
+      display: block;
+      font-size: 6rem;
+      margin-bottom: @margin / 2;
+    }
+
+    a {
+      font-weight: 600;
+    }
+  }
+}

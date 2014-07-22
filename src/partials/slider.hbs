@@ -1,53 +1,64 @@
 <div class="row {{ type }}">
-  <ul>
-    {{#each content}}
-      {{#if @first}}
-        <input type="radio" name="radio-btn" id="img-{{ @index }}" checked/>
-      {{else}}
-        <input type="radio" name="radio-btn" id="img-{{ @index }}"/>
-      {{/if}}
-      <li>
-        <div class="slide">
-          {{#if image}}
-            <img src="{{ image }}">
-          {{/if}}
-          {{#if title}}
-            <div class="title">{{ title }}</div>
-          {{/if}}
-          {{#if text}}
-            <div class="grid-full text">
-{{#markdown}}
-{{ text }}
-{{/markdown}}
-            </div>
-          {{/if}}
-          <div class="nav">
-            {{#if @first}}
-              <label for="img-{{subtract ../../content.length 1}}" class="prev">
-                <i class="ion-chevron-left"></i>
-              </label>
-            {{else}}
-              <label for="img-{{subtract @index 1 }}" class="prev">
-                <i class="ion-chevron-left"></i>
-              </label>
-            {{/if}}
-            {{#if @last}}
-              <label for="img-0" class="next">
-                <i class="ion-chevron-right"></i>
-              </label>
-            {{else}}
-              <label for="img-{{add @index 1}}" class="next">
-                <i class="ion-chevron-right"></i>
-              </label>
-            {{/if}}
-          </div>
-        </div>
-      </li>
-    {{/each}}
-    <li class="nav-dots">
+  <div class="grid-full">
+    {{#if title}}
+      <h3>{{ title }}</h3>
+    {{/if}}
+    {{#if text}}
+      <p>{{ text }}</p>
+    {{/if}}
+    {{#if mdtext}}
+      {{md mdtext}}
+    {{/if}}
+    <ul>
       {{#each content}}
-        <label for="img-{{ @index }}" class="nav-dot" id="img-dot-{{ @index }}"></label>
+        {{#if @first}}
+          <input type="radio" name="radio-btn" id="img-{{ @index }}" checked/>
+        {{else}}
+          <input type="radio" name="radio-btn" id="img-{{ @index }}"/>
+        {{/if}}
+        <li>
+          <div class="slide">
+            {{#if image}}
+              <img src="{{ image }}">
+            {{/if}}
+            {{#if title}}
+              <div class="title">{{ title }}</div>
+            {{/if}}
+            {{#if text}}
+              <div class="grid-full text">
+  {{#markdown}}
+  {{ text }}
+  {{/markdown}}
+              </div>
+            {{/if}}
+            <div class="nav">
+              {{#if @first}}
+                <label for="img-{{subtract ../../content.length 1}}" class="prev">
+                  <i class="ion-chevron-left"></i>
+                </label>
+              {{else}}
+                <label for="img-{{subtract @index 1 }}" class="prev">
+                  <i class="ion-chevron-left"></i>
+                </label>
+              {{/if}}
+              {{#if @last}}
+                <label for="img-0" class="next">
+                  <i class="ion-chevron-right"></i>
+                </label>
+              {{else}}
+                <label for="img-{{add @index 1}}" class="next">
+                  <i class="ion-chevron-right"></i>
+                </label>
+              {{/if}}
+            </div>
+          </div>
+        </li>
       {{/each}}
-    </li>
-  </ul>
+      <li class="nav-dots">
+        {{#each content}}
+          <label for="img-{{ @index }}" class="nav-dot" id="img-dot-{{ @index }}"></label>
+        {{/each}}
+      </li>
+    </ul>
+  </div>
 </div>

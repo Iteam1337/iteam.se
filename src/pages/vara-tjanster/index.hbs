@@ -1,11 +1,16 @@
 ---
 subtitle: Våra tjänster
 layout: default.hbs
+navigation: true
 order: 2
 ---
 
 <div class="row services">
-  <ul>
-    {{{pages "./src/pages/vara-tjanster/" ""}}}
-  </ul>
+  <div class="grid-full">
+    <ul>
+      {{{pages "./src/pages/vara-tjanster/" "" "services"}}}
+    </ul>    
+  </div>
 </div>
+
+{{> contact}}

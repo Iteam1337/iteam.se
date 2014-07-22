@@ -69,6 +69,16 @@ layout: default.hbs
     {{> map this}}
   {{/is}}
 
+  {{!-- Stats --}}
+  {{#is type "stats"}}
+    {{> stats this}}
+  {{/is}}
+
+  {{!-- Social media --}}
+  {{#is type "social-media"}}
+    {{> social-media this}}
+  {{/is}}
+
 {{/each}}
 
 {{#unless navigation}}
