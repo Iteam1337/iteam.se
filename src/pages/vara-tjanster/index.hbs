@@ -6,8 +6,15 @@ order: 2
 
 <div class="row services">
   <ul>
-    {{!-- {{{pages "./src/pages/vara-tjanster/" ""}}} --}}
-    {{#pages this}}
+    {{#pages '{"route": "./src/pages/vara-tjanster/", "start": ""}'}}
+      {{#each data}}
+        <li class="{{this.frontmatter.categories}}">
+          {{#if this.logo}}
+            <img src="{{this.logo}}"/>
+          {{/if}}
+          <a href="{{this.url}}">{{this.title}}</a>
+        </li>
+      {{/each}}
     {{/pages}}
   </ul>
 </div>

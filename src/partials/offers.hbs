@@ -10,8 +10,16 @@
       {{/each}}
     {{else}}
       <ul class="all-offers">
-        {{!-- {{{pages "./src/pages/vara-tjanster/" "/vara-tjanster/" "services"}}} --}}
-        {{#pages this}}
+        {{#pages '{"route": "./src/pages/vara-tjanster/", "start": "/vara-tjanster/", "type": "services"}'}}
+          {{#each data}}
+            <li>
+              <i class="{{this.frontmatter.icon}}"></i>
+              <div>
+                <a href="{{this.url}}">{{this.title}}</a>  
+                <p>{{this.frontmatter.description}}</p>
+              </div>
+            </li>
+          {{/each}}
         {{/pages}}
       </ul>
     {{/if}}

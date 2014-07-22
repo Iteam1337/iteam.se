@@ -41,10 +41,7 @@ describe('#pages', function () {
   });
 
   it('should add a lead character to the url', function () {
-    helper.pages({
-      route: './src/pages/', 
-      start: '/'
-    }, options);
+    helper.pages('{"route": "./src/pages/", "start": "/"}', options);
     expect(options.fn).calledOnce;
     expect(options.fn).calledWith({
       data: [{
@@ -60,7 +57,7 @@ describe('#pages', function () {
   });
 
   it('should call the handler when given a route', function () {
-    helper.pages({ route: './src/pages/' }, options);
+    helper.pages('{"route": "./src/pages/" }', options);
     expect(options.fn).calledOnce;
     expect(options.fn).calledWith({
       data: [{
@@ -76,10 +73,7 @@ describe('#pages', function () {
   });
 
   it('should get the gravatars if it is a coworker', function () {
-    helper.pages({
-      route: './src/pages/medarbetare/', 
-      type: 'coworker'
-    }, options);
+    helper.pages('{"route": "./src/pages/medarbetare/", "type": "coworker"}', options);
     expect(image.gravatar).called.and.calledWith('rickard.laurin@iteam.se', false);
   });
 
@@ -93,10 +87,7 @@ describe('#pages', function () {
       name: 'bar',
       email: 'radu.achim@iteam.se'
     });
-    helper.pages({
-      route: './src/pages/medarbetare/',
-      type: 'coworker'
-    }, options);
+    helper.pages('{"route": "./src/pages/medarbetare/", "type": "coworker" }', options);
     expect(options.fn).calledWith({
       data: [{
         frontmatter: {

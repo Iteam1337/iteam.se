@@ -6,8 +6,15 @@
     <a href="/"><img src="http://www.iteam.se/content/images/svg/iteam_logo.svg" alt="" id="logo"></a>
     <div id="close-navbar"></div>
     <ul class="nav">
-      {{!-- {{{pages "./src/pages/" "/"}}} --}}
-      {{#pages this}}
+      {{#pages '{"route": "./src/pages/", "start": "/"}'}}
+        {{#each data}}
+          <li class="{{this.frontmatter.categories}}">
+            {{#if this.logo}}
+              <img src="{{this.logo}}"/>
+            {{/if}}
+            <a href="{{this.url}}">{{this.title}}</a>
+          </li>
+        {{/each}}
       {{/pages}}
     </ul> 
   </div>

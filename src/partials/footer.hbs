@@ -1,8 +1,15 @@
 <div class="row footer flex">
   <div class="grid-full">
     <ul>
-      {{!-- {{{pages "./src/pages/" "/"}}} --}}
-      {{#pages this}}
+      {{#pages '{"route": "./src/pages/", "start": "/"}'}}
+        {{#each data}}
+          <li class="{{this.frontmatter.categories}}">
+            {{#if this.logo}}
+              <img src="{{this.logo}}"/>
+            {{/if}}
+            <a href="{{this.url}}">{{this.title}}</a>
+          </li>
+        {{/each}}
       {{/pages}}
     </ul>
     <div class="love">

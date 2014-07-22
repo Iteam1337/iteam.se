@@ -5,6 +5,7 @@ var read  = require('./read');
 
 module.exports.pages = function (data, options) {
   var pages;
+  data = JSON.parse(data);
   var dir = data.route || './src/pages/case/';
   var dirs = read.directory(dir);
   var lead = data.start || '';
