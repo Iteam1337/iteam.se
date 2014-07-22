@@ -1,15 +1,31 @@
-var chai       = require('chai')
-,   expect     = chai.expect
-,   sinon      = require('sinon');
+'use strict';
+var chai = require('chai');
+var expect = chai.expect;
+var sinon = require('sinon');
+var proxyquire = require('proxyquire');
 
-var helper = require('../../helpers/categories');
+chai.use(require('sinon-chai'));
 
-describe('#categories', function () {
-  it('should be a function', function () {
-    expect(helper.categories).to.be.a('function');
+describe('categories', function () {
+  var helper;
+  var options;
+  var filters;
+
+  beforeEach(function () {
+    filters = ['systemutveckling', 'musik'];
+    options = {
+      fn: sinon.stub().returns(filters)
+    };
+    helper = proxyquire(process.cwd() + '/src/helpers/categories', {});
   });
 
-  it('should return an array with all categories', function () {
-    expect(helper.categories()).to.be.an('array').and.include('systemutveckling').and.include('musik');
+  describe('#categories', function () {
+    it('should be a function', function () {
+      expect(helper.categories).to.be.a('function');
+    });
+
+    it('should return an array with all categories', function () {
+      expect(helper.categories(null, options)).to.be.an('array').and.include('systemutveckling').and.include('musik');
+    });
   });
 });

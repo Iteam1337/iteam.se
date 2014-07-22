@@ -1,7 +1,9 @@
+'use strict';
+
 var front = require('yaml-front-matter');
 var read  = require('./read');
 
-module.exports.categories = function () {
+module.exports.categories = function (data, options) {
   var dir = './src/pages/case/';
   var dirs = read.directory(dir);
   var categories = [];
@@ -21,6 +23,5 @@ module.exports.categories = function () {
   }).reduce(function (a, b) {
     return a.concat(b);
   });
-
-  return cases;
+  return options.fn({ data: cases });
 };

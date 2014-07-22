@@ -111,8 +111,9 @@
   @size: 60px;
 
   .border-radius(@size);
-  .center(y, left, @margin / 2);
+  .transform(translateX(30px) translateY(-50%));
   .size(@size);
+  .position(top,left,50%,0);
   .transition(all, 200ms, ease);
 
   position: absolute;
@@ -130,8 +131,7 @@
   }
 
   &.next {
-    left: auto;
-    right: @margin / 2;
+    .transform(translateX(@max-width - @size - 30px) translateY(-50%));
   }
 
   i {
