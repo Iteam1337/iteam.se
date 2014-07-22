@@ -80,12 +80,35 @@
       }
       
       a {
-        .transition(color, 200ms, ease-in-out);
+        .transition(all, 200ms, ease-in-out);
 
-        color: #ccc;
+        color: #999;
+        position: relative;
         will-change: color;
 
-        &:hover { color: darken(@accent,10%); }
+        &:after {
+          .transform(translateY(10px));
+          .transition(all, 200ms, ease-in-out);
+
+          background: fade(#ffbd09, 90%);
+          content:"";
+          display: block;
+          height: 2px;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          right: 0;
+        }
+
+        &:hover {
+          color: darken(@accent,10%);
+
+          &:after {
+            .transform(translateY(0));
+
+             opacity: 1;
+          }
+        }
       }
 
       @media @mobile {
