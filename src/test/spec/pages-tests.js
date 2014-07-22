@@ -23,17 +23,17 @@ describe('#pages', function () {
 
   it('should add a lead character to the href', function () {
     expect(helper.pages('./src/pages/', '/')).to.be.a('string');
-    expect(helper.pages('./src/pages/', '/')).to.match(/^<li><a\shref="\/.+?<\/li>$/);
+    expect(helper.pages('./src/pages/', '/')).to.match(/^<li class=""><a\shref="\/.+?<\/li>$/);
   });
 
   it('should return a list when given a route', function () {
     expect(helper.pages('./src/pages/')).to.be.a('string');
-    expect(helper.pages('./src/pages/')).to.match(/^<li><a\shref=".+?<\/li>$/);
+    expect(helper.pages('./src/pages/')).to.match(/^<li class=""><a\shref=".+?<\/li>$/);
   });
 
   it('should return list of cases when not given a route', function () {
     expect(helper.pages()).to.be.a('string');
-    expect(helper.pages()).to.match(/^<li><a.+?<\/li>$/);
+    expect(helper.pages()).to.match(/^<li class=""><a.+?<\/li>$/);
   });
 
   it('should get the gravatars if it is a coworker', function () {

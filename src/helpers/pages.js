@@ -15,8 +15,10 @@ module.exports.pages = function (route, start, type, size, options) {
     var logo;
     var url;
     var lastName;
+    var categories;
 
     frontmatter = front.loadFront(dir + folder + '/index.hbs');
+    categories = frontmatter.categories || [];
     title       = frontmatter.subtitle || frontmatter.name;
     url         = '<a href="' + lead + folder + '/">' + title + '</a>';
     logo        = frontmatter.logo ? '<img src="' + frontmatter.logo + '">' : '';
@@ -44,7 +46,7 @@ module.exports.pages = function (route, start, type, size, options) {
             '</div>'+
           '</li>';
     } else {
-      listUrl = '<li>'+ logo + url + '</li>';
+      listUrl = '<li class="' + categories.join().replace(/\,/g, ' ') +'">'+ logo + url + '</li>';
     }
 
     return {

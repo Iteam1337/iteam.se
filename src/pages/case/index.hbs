@@ -3,6 +3,13 @@ subtitle: Case
 order: 1
 layout: default.hbs
 ---
+<ul>
+    {{#categories this}}
+      {{#each data}}
+      <li>{{this}}</li>
+      {{/each}}
+    {{/categories}}
+</ul>
 
 <div class="row flex cases">
   <div class="grid-full">
