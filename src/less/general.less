@@ -106,13 +106,15 @@ img {
     @media @mobile { width:100%; }
     &.text { padding:0 @margin; }
   }
-  
+
   .grid-quarter {
     max-width:25%;
-    
+
     @media @mobile { max-width:100%; }
+  }
+  .align-top {
+    align-self: flex-start;
   }
 }
 
 .mosaic [class^="grid-"] { line-height:0; }
-
