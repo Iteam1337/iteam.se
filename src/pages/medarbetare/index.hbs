@@ -16,18 +16,19 @@ text:
 <div class="row coworkers">
   <div class="grid-full">
     <ul>
-      {{#pages '{"route": "./src/pages/medarbetare/", "start": "", "type": "coworker", "size": 300}'}}
+      {{#pages '{"route": "./src/pages/medarbetare/", "start": "", "type": "coworker", "size": 500}'}}
         {{#each data}}
           <li>
-            {{#if this.logo}}
             <a href="{{this.url}}">
-              <img src="{{this.logo}}"/>
+              {{#if this.logo}}
+                <img src="{{this.logo}}"/>
+              {{/if}}
+              <div>
+                <h3>{{ this.name.first }} <span>{{ this.name.last }}</span></h3>
+                <p class="job">{{this.frontmatter.job}}</p>
+                <p>{{ this.frontmatter.description }}</p>
+              </div>
             </a>
-            {{/if}}
-            <div>
-              <a href="{{this.url}}">{{this.title}}</a>  
-              <p>{{this.frontmatter.job}}</p>
-            </div>
           </li>
         {{/each}}
       {{/pages}}
