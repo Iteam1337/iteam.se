@@ -25,24 +25,28 @@ module.exports.pages = function (data, options) {
       frontmatter.logo : 
       '';
 
-    if(type === 'coworker') {
+    var element = {
+      frontmatter: frontmatter,
+      url: lead + folder,
+      title: title,
+      logo: logo
+    };
+
+    if (type === 'coworker') {
       var imgSize = size || false;
       logo = image.gravatar(frontmatter.email, imgSize);
       firstName = title.substr(0, title.indexOf(' '));
       lastName = title.substr(title.lastIndexOf(' ') + 1);
+
+      element.logo = logo;
+      element.name = {
+        first: firstName,
+        last: lastName
+      };
     }
    
     return {
-      element: {
-        frontmatter: frontmatter,
-        url: lead + folder,
-        title: title,
-        logo: logo,
-        name: {
-          first: firstName,
-          last: lastName
-        }
-      },
+      element: element,
       order: frontmatter.order || lastName
     };
   }).sort(function (a,b) {
