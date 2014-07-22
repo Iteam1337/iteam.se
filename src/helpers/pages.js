@@ -1,12 +1,16 @@
+'use strict';
 var front = require('yaml-front-matter');
 var image = require('./gravatar');
 var read  = require('./read');
 
-module.exports.pages = function (route, start, type, size, options) {
+// module.exports.pages = function (route, start, type, size, options) {
+module.exports.pages = function (data, options) {
   var pages;
-  var dir = route || './src/pages/case/';
-  var lead = start || '';
+  var dir = data.route || './src/pages/case/';
+  var lead = data.start || '';
   var dirs = read.directory(dir);
+  var type = data.type;
+  var size = data.size;
 
   pages = dirs.map(function (folder) {
     var frontmatter;
@@ -48,9 +52,13 @@ module.exports.pages = function (route, start, type, size, options) {
     } else {
       listUrl = '<li class="' + categories.join().replace(/\,/g, ' ') +'">'+ logo + url + '</li>';
     }
-
     return {
-      element: listUrl,
+      element: {
+        categories: categories.join().replace(/\,/g, ' '),
+        logo: logo,
+        url: url,
+        frontmatter: frontmatter
+      },
       order: frontmatter.order || lastName
     };
   }).sort(function (a,b) {
@@ -64,6 +72,7 @@ module.exports.pages = function (route, start, type, size, options) {
   }).map(function (page) {
     return page.element;
   });
-
-  return pages.join().replace(/\,/g,'');
+  console.log(pages);
+  return options.fn({ data: pages });
+  // return pages.join().replace(/\,/g,'');
 };

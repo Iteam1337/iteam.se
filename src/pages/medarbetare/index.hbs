@@ -7,7 +7,9 @@ layout: default.hbs
 <div class="row coworkers">
   <div class="grid-full">
     <ul>
-      {{{pages "./src/pages/medarbetare/" "" "coworker" 300}}}
+      {{!-- {{{pages "./src/pages/medarbetare/" "" "coworker" 300}}} --}}
+      {{#pages this}}
+      {{/pages}}
     </ul>
   </div>
 </div>

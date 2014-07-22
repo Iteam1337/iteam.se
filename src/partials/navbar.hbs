@@ -6,7 +6,9 @@
     <a href="/"><img src="http://www.iteam.se/content/images/svg/iteam_logo.svg" alt="" id="logo"></a>
     <div id="close-navbar"></div>
     <ul class="nav">
-      {{{pages "./src/pages/" "/"}}}
+      {{!-- {{{pages "./src/pages/" "/"}}} --}}
+      {{#pages this}}
+      {{/pages}}
     </ul> 
   </div>
 </div>

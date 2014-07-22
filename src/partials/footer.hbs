@@ -1,7 +1,9 @@
 <div class="row footer flex">
   <div class="grid-full">
     <ul>
-      {{{pages "./src/pages/" "/"}}}
+      {{!-- {{{pages "./src/pages/" "/"}}} --}}
+      {{#pages this}}
+      {{/pages}}
     </ul>
     <div class="love">
       Made with <i class="ion-heart"></i> in Stockholm, Sweden.

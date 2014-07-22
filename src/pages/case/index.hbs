@@ -14,7 +14,12 @@ layout: default.hbs
 <div class="row flex cases">
   <div class="grid-full">
     <ul>
-      {{{pages "" ""}}}
+      {{!-- {{{pages "" ""}}} --}}
+      {{#pages this}}
+        {{#each data}}
+        <li class="{{this.categories}}"> {{this}} </li>
+        {{/each}}
+      {{/pages}}
     </ul>
   </div>
 </div>
