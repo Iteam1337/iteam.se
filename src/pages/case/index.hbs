@@ -17,10 +17,12 @@ layout: default.hbs
       {{#pages '{}'}}
         {{#each data}}
           <li class="{{this.frontmatter.categories}}">
-            {{#if this.logo}}
-              <img src="{{this.logo}}"/>
-            {{/if}}
-            <a href="{{this.url}}">{{this.title}}</a>
+            <a href="{{this.url}}">
+              {{#if this.logo}}
+                <img src="{{this.logo}}"/>
+              {{/if}}
+              {{this.title}}
+            </a>
           </li>
         {{/each}}
       {{/pages}}
