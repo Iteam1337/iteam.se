@@ -44,7 +44,9 @@ module.exports.pages = function (data, options) {
         last: lastName
       };
     }
-   
+    if(frontmatter.categories) {
+      frontmatter.categories = frontmatter.categories.join(' ');
+    }
     return {
       element: element,
       order: frontmatter.order || lastName
