@@ -19,6 +19,8 @@
     "afterEach": true,
     "document": true,
     "window": true,
-    "Social": true
+    "Social": true,
+    "SocialHub": true,
+    "Github": true
   }
 }

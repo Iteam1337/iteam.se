@@ -1,22 +1,11 @@
 'use strict';
 
 /**
- * For displaying content from social networks
- * The ones that are tested at the moment is only
- * instagram or twitter.
- * To use a different source than insta-team, change
- * the Social.url after it's instanced and before it's
- * initialized.
- * When calling init, use the twitter- OR instagram-handle
- * as the first argument, then where it should be placed as
- * the second.
- * TODO: be able to accept MOAR sources
- *
- * @param *optional {string}        type       twitter or instagram
- * @param *optional {number|string} count      how many items that should be displayed
- * @param *optional {string}        resolution 'low' or 'standard' resolution
+ * Social is a superclass that should be extended.
+ * @param {string} type  twitter, instagram and github is used at the moment
+ * @param {number} count defines how many elements that should be saved
  */
-function Social (type, count, resolution) {
+function Social(type, count) {
   this.storageName = function () {
     return type + '.' + this.handle;
   };
@@ -26,29 +15,17 @@ function Social (type, count, resolution) {
   this.handle = '';
   this.container = null;
 
-
-  this.url = 'http://insta-team.se/';
-  if (this.type === 'twitter') {
-    this.url += 'twitter/';
-  }
-  this.url += 'user/';
-
-  this.resolution = (resolution || '').toLowerCase();
-  if (this.resolution !== 'low' && this.resolution !== 'standard') {
-    this.resolution = 'standard';
-  }
-  this.resolution += '_resolution';
+  this.url = '';
 }
-
-Social.prototype.parseLinks = function (text) {
-  var regex = /((http(s)?:\/\/)|\b|^)[a-zA-Z0-9\-_\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?([a-zA-Z0-9åäö\!\&\-\.\_\?\,\'\/\\\+\;\%\$\#\=\~\:\(\)\@])*/gi;
-  return text.replace(regex, function (str) {
-    return '<a target="_blank" href="' + ( ( !arguments[ 2 ] ) ? 'http://' + str : str ) + '">' + str + '</a>';
-  });
-};
-
+/**
+ * Extend:
+ * This should return a string of where the
+ * content should be fetched from.
+ *
+ * @return {string}
+ */
 Social.prototype.URL = function () {
-  return this.url + this.handle + '?count=' + this.count;
+  return this.url;
 };
 
 Social.prototype.getLocal = function () {
@@ -59,15 +36,19 @@ Social.prototype.getLocal = function () {
   return JSON.parse(local);
 };
 
-Social.prototype.save = function (data, latest) {
-  if (latest === undefined) {
+Social.prototype.save = function (array) {
+  var data = array[0];
+  var latest = array[1];
+  if (array instanceof Array === false || latest === undefined) {
     return;
   }
 
   var local = this.getLocal();
+  data.splice(this.count);
   var ignoreSave = (local !== null && (local.data && local.latest) && (data.length === local.data.length && local.latest <= latest));
 
   if (ignoreSave) {
+    console.error('ignoring save');
     return;
   }
 
@@ -88,49 +69,34 @@ Social.prototype.draw = function (html) {
   this.updateNode(this.container, html);
 };
 
-Social.prototype.render = function (object) {
-  function getType (str) {
-    var i = str.lastIndexOf('.');
-    return 'video/' + str.substr(i + 1);
-  }
-  if (!object ||
-      !object.length) {
+/**
+ * Extend:
+ * This should return a valid htmlekement that will be printed
+ * to the page.
+ *
+ * @param  {array}       array
+ * @return {HTMLElement}
+ */
+Social.prototype.prerender = function (array) {};
+
+Social.prototype.render = function (array) {
+  if (!array ||
+      !array.length) {
     return;
   }
-  var newElement = document.createElement('div');
-  var type = '';
-  var node = null, source = null, video = null, image = null;
-  for (var i = 0, max = object.length, data; i < max; i++) {
-    data = object[i];
-    if (this.type === 'twitter') {
-      node = document.createElement('div');
-      node.innerHTML = this.parseLinks(data.text);
-    } else if (data.type === 'image') {
-      node = document.createElement('img');
-      image = data.image[this.resolution];
-      node.setAttribute('src', image.url);
-      node.setAttribute('width', image.width);
-      node.setAttribute('height', image.height);
-      node.setAttribute('href', data.link);
-      node.setAttribute('target', '_blank');
-    } else if (data.type === 'video') {
-      node = document.createElement('video');
-      source = document.createElement('source');
-      video = data.video[this.resolution];
-      node.setAttribute('poster', data.image[this.resolution].url);
-      node.setAttribute('width', video.width);
-      node.setAttribute('height', video.height);
-      node.setAttribute('controls', 'controls');
-      source.setAttribute('src', video.url);
-      source.setAttribute('type', getType(video.url));
-      node.appendChild(source);
-    } else {
-      node = document.createElement('span');
-    }
-    newElement.appendChild(node);
+  var newElement = this.prerender(array);
+  if (newElement instanceof window.HTMLElement) {
+    this.updateNode(newElement);
   }
-  this.updateNode(newElement);
 };
+
+/**
+ * This should return an array of data and the latest timestamp
+ *
+ * @param  {object} response    a response from the httpRequest
+ * @return {[array, timestamp]}
+ */
+Social.prototype.handleResponse = function (response) {};
 
 Social.prototype.getContent = function () {
   var self = this;
@@ -139,12 +105,7 @@ Social.prototype.getContent = function () {
     if (xhr.statusText !== 'OK') {
       return;
     }
-    var response = JSON.parse(xhr.responseText);
-    if (response.error !== null) {
-      console.error(response.error);
-      return;
-    }
-    self.save(response.data, response.data[0].created_at);
+    self.save(self.handleResponse(xhr.responseText));
   };
   xhr.onerror = function () {
     console.error(xhr.responseText);

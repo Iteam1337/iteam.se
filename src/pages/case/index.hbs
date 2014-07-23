@@ -3,25 +3,38 @@ subtitle: Case
 order: 1
 layout: default.hbs
 ---
-<ul class="filters-list">
-    {{#categories this}}
-      {{#each data}}
-      <li class="{{this}}">{{this}}</li>
-      {{/each}}
-    {{/categories}}
-</ul>
+
+<div class="row">
+  <div class="grid-full">
+    <ul class="filters-list">
+      {{#categories this}}
+        {{#each data}}
+        <li class="{{this}}">{{this}}</li>
+        {{/each}}
+      {{/categories}}
+      <li id="clear-all">
+        <i class="ion-close"></i>
+      </li>
+    </ul>    
+  </div>
+</div>
 
 <div class="row flex cases">
   <div class="grid-full">
     <ul class="cases-list">
       {{#pages '{}'}}
         {{#each data}}
-          <li class="{{this.frontmatter.categories}}">
-            <a href="{{this.url}}">
-              {{#if this.logo}}
-                <img src="{{this.logo}}"/>
-              {{/if}}
-              {{this.title}}
+          <li class="{{ frontmatter.categories }}"
+          style="
+            {{#if frontmatter.background}}
+              background: {{ frontmatter.background }};
+            {{/if}}
+            {{#if frontmatter.color}}
+              color: {{ frontmatter.color }};
+            {{/if}}
+          ">
+            <a href="{{ url }}">
+              {{ title }}
             </a>
           </li>
         {{/each}}

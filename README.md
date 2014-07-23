@@ -3,6 +3,8 @@ docpad-gulp
 
 A try at making a Docpad clone with Gulp
 
+[![Build Status](http://drone.iteam.se/github.com/Iteam1337/docpad-gulp/status.svg?branch=master)](http://drone.iteam.se/github.com/Iteam1337/docpad-gulp)
+
 First clone the repo
 
     git clone https://github.com/believer/docpad-gulp.git
