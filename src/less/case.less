@@ -31,6 +31,7 @@
 
   ul {
     .flex();
+    .justify-content(space-between);
 
     width:100%;
 
@@ -41,17 +42,19 @@
 
       background: @light;
       color: inherit;
-      margin-bottom: @margin;
+      margin-bottom:1%;
       opacity: 1;
       padding: 20px;
       position: relative;
       text-align: center;
-      width:32%;
+      width: 33%;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
 
       &.visually-hidden { opacity: 0; }
       &.hidden { display: none; }
-
-      &:nth-child(3n-1) { margin:0 2%; }
 
       a {
         color:inherit;
