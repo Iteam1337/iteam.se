@@ -83,9 +83,7 @@ var options = {
   partials: 'src/partials/*.hbs',
   layoutdir: 'src/layouts/',
   helpers: [
-    'src/helpers/**/*.js',
-    'node_modules/handlebars-helper-partial/index.js',
-    'node_modules/handlebars-helpers/index.js'
+    'src/helpers/**/*.js'
   ]
 };
 

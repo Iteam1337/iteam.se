@@ -9,18 +9,16 @@
   text-align: right;
 
   li {
+    .transition(background, 200ms, ease-in-out);
+
     background: @light;
     cursor: pointer;
     display: inline-block;
     padding: 0 10px;
 
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
+    &:not(:last-child) { margin-right: 20px; }
 
-    &.active {
-      background: @accent;
-    }
+    &:hover, &.active { background: @accent; }
   }
 }
 
