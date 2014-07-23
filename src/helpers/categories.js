@@ -27,6 +27,6 @@ module.exports.categories = function (data, options) {
   cases = cases.filter(function (elm, pos, self) {
     return self.indexOf(elm) === pos;
   });
-  
+
   return options.fn({ data: cases });
 };

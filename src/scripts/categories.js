@@ -16,13 +16,13 @@ function showFilteredElements (filters) {
     var elements = document.querySelectorAll('ul.cases-list > li.' + filter);
     Array.prototype.slice.call(elements, 0).forEach(function (element) {
       element.classList.remove('hidden');
-      element.classList.remove('visually-hidden');  
+      element.classList.remove('visually-hidden');
     });
   });
 }
 
 function toggleFilter(event) {
-  var element = event.srcElement;
+  var element = event.srcElement || event.target;
   element.classList.toggle('active');
   var activeFilters = getActiveFilters();
   Array.prototype.slice.call(cases, 0).forEach(function (child) {
@@ -32,9 +32,9 @@ function toggleFilter(event) {
     } else {
       child.classList.remove('hidden');
 
-      setTimeout(function () {  
-        child.classList.remove('visually-hidden');  
-      }, 20);  
+      setTimeout(function () {
+        child.classList.remove('visually-hidden');
+      }, 20);
     }
   });
 
@@ -54,9 +54,9 @@ if (filtersNode.length) {
     Array.prototype.slice.call(cases, 0).forEach(function (child) {
       child.classList.remove('hidden');
 
-      setTimeout(function () {  
-        child.classList.remove('visually-hidden');  
-      }, 20);  
-    });  
+      setTimeout(function () {
+        child.classList.remove('visually-hidden');
+      }, 20);
+    });
   });
 }

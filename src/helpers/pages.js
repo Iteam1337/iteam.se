@@ -21,8 +21,8 @@ module.exports.pages = function (data, options) {
 
     frontmatter = front.loadFront(dir + folder + '/index.hbs');
     title = frontmatter.subtitle || frontmatter.name;
-    logo = frontmatter.logo ? 
-      frontmatter.logo : 
+    logo = frontmatter.logo ?
+      frontmatter.logo :
       '';
 
     var element = {
@@ -45,6 +45,9 @@ module.exports.pages = function (data, options) {
       };
     }
     if(frontmatter.categories) {
+      frontmatter.categoriesHTMLFriendly = frontmatter.categories.map(function (category) {
+        return category.replace(/[^\w\d]/g, '').replace(/^(\d){1,}/, '');
+      }).join(' ');
       frontmatter.categories = frontmatter.categories.join(' ');
     }
     return {

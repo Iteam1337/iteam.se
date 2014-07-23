@@ -9,13 +9,13 @@ layout: default.hbs
     <ul class="filters-list">
       {{#categories this}}
         {{#each data}}
-        <li class="{{this}}">{{this}}</li>
+        <li class="{{className this}}">{{this}}</li>
         {{/each}}
       {{/categories}}
       <li id="clear-all">
         <i class="ion-close"></i>
       </li>
-    </ul>    
+    </ul>
   </div>
 </div>
 
@@ -24,7 +24,7 @@ layout: default.hbs
     <ul class="cases-list">
       {{#pages '{}'}}
         {{#each data}}
-          <li class="{{ frontmatter.categories }}"
+          <li class="{{ frontmatter.categoriesHTMLFriendly }}"
           style="
             {{#if frontmatter.background}}
               background: {{ frontmatter.background }};
