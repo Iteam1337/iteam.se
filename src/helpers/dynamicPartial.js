@@ -2,7 +2,7 @@
 
 var Handlebars = require('handlebars');
 
-module.exports.dynPartial = function (data, options) {
+module.exports.dynamicPartial = function (data, options) {
   if(!data) {
     return 'No data provided';
   }
