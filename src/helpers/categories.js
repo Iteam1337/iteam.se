@@ -19,10 +19,14 @@ module.exports.categories = function (data, options) {
 
     return categories;
   }).filter(function (elm, pos, self) {
-    return self.indexOf(elm) === pos && elm !== undefined;
+    return elm !== undefined;
   }).reduce(function (a, b) {
     return a.concat(b);
   }).sort();
+
+  cases = cases.filter(function (elm, pos, self) {
+    return self.indexOf(elm) === pos;
+  });
   
   return options.fn({ data: cases });
 };
