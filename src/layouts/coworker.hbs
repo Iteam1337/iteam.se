@@ -2,12 +2,14 @@
 layout: default.hbs
 ---
 
-<div class="row text center">
+<div class="row text center light">
   <div class="grid-full align-top">
     <h1>{{name}}</h1>
     <div><strong>{{email}}</strong></div>
     <div>{{job}}</div>
   </div>
+</div>
+<div class="row text center">
   <div class="grid-full align-top">
     {{#in partials "type" "text"}}
       {{#if title}}

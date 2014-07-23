@@ -40,7 +40,6 @@ SocialHub.prototype.prerender = function (array) {
   var node = null, source = null, video = null, image = null;
   for (var i = 0, max = array.length, data; i < max; i++) {
     data = array[i];
-    console.log(data);
     if (this.type === 'twitter') {
       node = document.createElement('div');
       node.innerHTML = this.parseLinks(data.text);
