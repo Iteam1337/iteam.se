@@ -40,9 +40,9 @@ gulp.task('scripts', function() {
 
 gulp.task('test', function () {
   gulp.src(['src/test/**/*.js'], { read: false })
-    .pipe(plumber())  
+    .pipe(plumber())
     .pipe(mocha({
-      reporter: 'Spec'
+      // reporter: 'Spec' // throws error on drone.iteam.se - may need a separate npm module included?
     }));
 });
 
