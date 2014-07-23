@@ -14,14 +14,14 @@ Github.prototype.URL = function () {
 
 Github.prototype.handleResponse = function (response) {
   response = JSON.parse(response);
-  this.save(response.slice(0, this.count), response[0].pushed_at, true);
+  return [response, response[0].pushed_at];
 };
 
-Github.prototype.prerender = function (object) {
+Github.prototype.prerender = function (array) {
   var newElement = document.createElement('ul');
   var node, a, p;
-  for (var i = 0, max = object.length, data; i < max; i++) {
-    data = object[i];
+  for (var i = 0, max = array.length, data; i < max; i++) {
+    data = array[i];
 
     a = document.createElement('a');
     a.setAttribute('href', data.html_url);

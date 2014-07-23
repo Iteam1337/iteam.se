@@ -17,7 +17,13 @@ function Social(type, count) {
 
   this.url = '';
 }
-
+/**
+ * Extend:
+ * This should return a string of where the
+ * content should be fetched from.
+ *
+ * @return {string}
+ */
 Social.prototype.URL = function () {
   return this.url;
 };
@@ -30,15 +36,19 @@ Social.prototype.getLocal = function () {
   return JSON.parse(local);
 };
 
-Social.prototype.save = function (data, latest, renderOnSuccess) {
-  if (latest === undefined) {
+Social.prototype.save = function (array) {
+  var data = array[0];
+  var latest = array[1];
+  if (array instanceof Array === false || latest === undefined) {
     return;
   }
 
   var local = this.getLocal();
+  data.splice(this.count);
   var ignoreSave = (local !== null && (local.data && local.latest) && (data.length === local.data.length && local.latest <= latest));
 
   if (ignoreSave) {
+    console.error('ignoring save');
     return;
   }
 
@@ -47,9 +57,7 @@ Social.prototype.save = function (data, latest, renderOnSuccess) {
     'latest': latest
   }));
 
-  if (renderOnSuccess === true) {
-    this.render(data);
-  }
+  this.render(data);
 };
 
 Social.prototype.updateNode = function (newElement) {
@@ -61,20 +69,33 @@ Social.prototype.draw = function (html) {
   this.updateNode(this.container, html);
 };
 
-Social.prototype.prerender = function (object) {};
+/**
+ * Extend:
+ * This should return a valid htmlekement that will be printed
+ * to the page.
+ *
+ * @param  {array}       array
+ * @return {HTMLElement}
+ */
+Social.prototype.prerender = function (array) {};
 
-Social.prototype.render = function (object) {
-  if (!object ||
-      !object.length) {
+Social.prototype.render = function (array) {
+  if (!array ||
+      !array.length) {
     return;
   }
-  var newElement = this.prerender(object);
-  if (newElement === undefined) {
-    return;
+  var newElement = this.prerender(array);
+  if (newElement instanceof window.HTMLElement) {
+    this.updateNode(newElement);
   }
-  this.updateNode(newElement);
 };
 
+/**
+ * This should return an array of data and the latest timestamp
+ *
+ * @param  {object} response    a response from the httpRequest
+ * @return {[array, timestamp]}
+ */
 Social.prototype.handleResponse = function (response) {};
 
 Social.prototype.getContent = function () {
@@ -84,7 +105,7 @@ Social.prototype.getContent = function () {
     if (xhr.statusText !== 'OK') {
       return;
     }
-    return self.handleResponse(xhr.responseText);
+    self.save(self.handleResponse(xhr.responseText));
   };
   xhr.onerror = function () {
     console.error(xhr.responseText);

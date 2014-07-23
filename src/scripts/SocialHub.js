@@ -30,7 +30,7 @@ SocialHub.prototype.URL = function () {
   return this.url + this.handle + '?count=' + this.count;
 };
 
-SocialHub.prototype.prerender = function (object) {
+SocialHub.prototype.prerender = function (array) {
   function getType (str) {
     var i = str.lastIndexOf('.');
     return 'video/' + str.substr(i + 1);
@@ -38,8 +38,9 @@ SocialHub.prototype.prerender = function (object) {
   var newElement = document.createElement('div');
   var type = '';
   var node = null, source = null, video = null, image = null;
-  for (var i = 0, max = object.length, data; i < max; i++) {
-    data = object[i];
+  for (var i = 0, max = array.length, data; i < max; i++) {
+    data = array[i];
+    console.log(data);
     if (this.type === 'twitter') {
       node = document.createElement('div');
       node.innerHTML = this.parseLinks(data.text);
@@ -75,5 +76,5 @@ SocialHub.prototype.handleResponse = function (response) {
   if (response.error !== null) {
     console.error(response.error);
   }
-  this.save(response.data, response.data[0].created_at, true);
+  return [response.data, response.data[0].created_at];
 };
