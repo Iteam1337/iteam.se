@@ -20,8 +20,9 @@ function showFilteredElements(filters) {
   });
 }
 
-function toggleFilter() {
-  this.classList.toggle('active');
+function toggleFilter(event) {
+  var element = event.srcElement;
+  element.classList.toggle('active');
   var activeFilters = getActiveFilters();
   var cases = document.querySelector('ul.cases-list');
   Array.prototype.slice.call(cases.children, 0).forEach(function (child) {
