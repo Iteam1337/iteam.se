@@ -21,3 +21,13 @@ if (container.length) {
   var username = container.getAttribute(attribute);
   new Github(count).init(container, username);
 }
+
+attribute = 'data-blog-url';
+container = document.querySelectorAll('[' + attribute + ']');
+
+if (container.length) {
+  container = container[0];
+  var url = container.getAttribute(attribute);
+  var count = container.getAttribute('data-blog-count');
+  new Blog(count)._init(container, url);
+}

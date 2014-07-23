@@ -19,8 +19,11 @@
     "afterEach": true,
     "document": true,
     "window": true,
+    "escape": true,
+
     "Social": true,
     "SocialHub": true,
-    "Github": true
+    "Github": true,
+    "Blog": true
   }
 }

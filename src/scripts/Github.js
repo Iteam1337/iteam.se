@@ -1,6 +1,6 @@
 'use strict';
 
-function Github (count) {
+function Github(count) {
   Social.apply(this, ['github', count]);
   this.url = 'https://api.github.com/users/{user}/repos';
 }
