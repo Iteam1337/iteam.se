@@ -10,12 +10,16 @@ if (container.length) {
 }
 
 attribute = 'data-github-username';
+var github_count = 'data-github-count';
+
 container = document.querySelectorAll('[' + attribute + ']');
 
 if (container.length) {
   container = container[0];
+
+  var count = container.getAttribute(github_count) || 3;
   var username = container.getAttribute(attribute);
-  new Github().init(container, username);
+  new Github(count).init(container, username);
 }
 
 attribute = 'data-blog-url';
