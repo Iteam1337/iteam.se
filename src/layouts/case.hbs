@@ -3,82 +3,9 @@ layout: default.hbs
 ---
 
 {{#each partials}}
-
-  {{!-- Video --}}
-  {{#is type "video"}}
-    {{>video this }}
-  {{/is}}
-  
-  {{!-- Quote --}}
-  {{#is type "quote"}}
-    {{> quote this }}
-  {{/is}}
-
-  {{!-- Image --}}
-  {{#is type "image"}}
-    {{> image this }}
-  {{/is}}
-
-  {{!-- Text --}}
-  {{#is type "text"}}
-    {{> text this }}
-  {{/is}}
-  
-  {{!-- Image mosaic --}}
-  {{#is type "mosaic"}}
-    {{> mosaic this }}
-  {{/is}}
-  
-  {{!-- Offers --}}
-  {{#is type "offers"}}
-    {{> offers this }}
-  {{/is}}
-
-  {{!-- Slider --}}
-  {{#is type "slider"}}
-    {{> slider this}}
-  {{/is}}
-
-  {{!-- List --}}
-  {{#is type "list"}}
-    {{> list this}}
-  {{/is}}
-
-  {{!-- List --}}
-  {{#is type "image-list"}}
-    {{> image-list this}}
-  {{/is}}
-
-  {{!-- Team --}}
-  {{#is type "team"}}
-    {{> team this}}
-  {{/is}}
-
-  {{!-- Side Image --}}
-  {{#is type "side-image"}}
-    {{> side-image this}}
-  {{/is}}
-
-  {{!-- Tweet --}}
-  {{#is type "tweet"}}
-    {{> tweet this}}
-  {{/is}}
-
-  {{!-- Map --}}
-  {{#is type "map"}}
-    {{> map this}}
-  {{/is}}
-
-  {{!-- Stats --}}
-  {{#is type "stats"}}
-    {{> stats this}}
-  {{/is}}
-
-  {{!-- Social media --}}
-  {{#is type "social-media"}}
-    {{> social-media this}}
-  {{/is}}
-
+  {{#if this.type}}
+    {{{partial this}}}
+  {{/if}}
 {{/each}}
 
 {{#unless navigation}}
