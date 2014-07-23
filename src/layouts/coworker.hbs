@@ -23,12 +23,12 @@ layout: default.hbs
 <div class="row text center">
   <div class="grid-full">
     <div class="row flex">
-      {{#in partials "type" "github"}}
-        {{>github this}}
-      {{/in}}
-      {{#in partials "type" "blog"}}
-        {{>blog this}}
-      {{/in}}
+      {{#if social-media.github}}
+        {{>github social-media}}
+      {{/if}}
+      {{#if social-media.blog}}
+        {{>blog social-media}}
+      {{/if}}
     </div>
   </div>
 </div>
