@@ -25,7 +25,7 @@ a {
 }
 
 p {
-  font-family: 'Lora';
+  font-family:@sans-serif;
   font-size:1.5rem;
   margin:@margin / 2 0 @margin;
 
@@ -73,10 +73,6 @@ img {
 
 .row {
   &.flex { .flex(); }
-  &.image, &.mosaic { padding:0; }
-  &.quote { padding:(@margin * 2) 0; }
-  &.text { padding: @margin 0; }
-  &.light { background: @light; }
 
   @media @mobile {
     &.text { padding:40px; }
@@ -110,13 +106,15 @@ img {
     @media @mobile { width:100%; }
     &.text { padding:0 @margin; }
   }
-  
+
   .grid-quarter {
     max-width:25%;
-    
+
     @media @mobile { max-width:100%; }
+  }
+  .align-top {
+    align-self: flex-start;
   }
 }
 
 .mosaic [class^="grid-"] { line-height:0; }
-

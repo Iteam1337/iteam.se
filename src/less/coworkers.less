@@ -8,7 +8,8 @@
     background: #fff;
     border:1px solid darken(@light, 5%);
     display: inline-block;
-    text-align: right;
+    text-align: left;
+    vertical-align: top;
     width: 49%;
 
     @media @mobile {
@@ -17,41 +18,43 @@
       margin-top: @margin / 2;
     }
 
-    &:nth-child(even) {
-      margin-left: 2%;
-      text-align: left;
-
-      img {
-        float: left;
-      }
-    }
-
-    &:nth-child(n+4) {
-      margin-top: @margin / 2;
-    }
+    &:nth-child(even) { margin-left: 2%; }
+    &:nth-child(n+3) { margin-top: @margin / 2; }
 
     img {
-      float: right;
-      width: 40%;
+      line-height: 1;
+      width: 100%;
     }
 
     div {
       .box-sizing();
 
-      display: inline-block;
       padding: @margin / 2;
       vertical-align:top;
-    }
 
-    div {
-      a {
-        display: block;
-        font-weight: 600;
-        vertical-align: top;
+      h3 {
+        font-size: 2rem;
+        margin: 0;
+        padding: 0;
+
+        span {
+          font-weight: 400;
+        }
       }
 
-      p {
-        font-size: 1.2rem;
+      .job {
+        color: @accent;
+        margin: @margin / 6 0 @margin / 2;
+        position: relative;
+
+        &:after {
+          .position(bottom, left, -10px, 0);
+          .size(50px, 3px);
+          
+          background: @accent;
+          content: "";
+          display: block;
+        }
       }
     }
   }

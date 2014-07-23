@@ -1,54 +1,54 @@
+'use strict';
 var front = require('yaml-front-matter');
 var image = require('./gravatar');
 var read  = require('./read');
 
-module.exports.pages = function (route, start, type, size, options) {
+module.exports.pages = function (data, options) {
   var pages;
-  var dir = route || './src/pages/case/';
-  var lead = start || '';
+  data = JSON.parse(data);
+  var dir = data.route || './src/pages/case/';
   var dirs = read.directory(dir);
+  var lead = data.start || '';
+  var type = data.type;
+  var size = data.size;
 
   pages = dirs.map(function (folder) {
     var frontmatter;
     var title;
-    var listUrl;
     var logo;
-    var url;
+    var firstName;
     var lastName;
 
     frontmatter = front.loadFront(dir + folder + '/index.hbs');
-    title       = frontmatter.subtitle || frontmatter.name;
-    url         = '<a href="' + lead + folder + '/">' + title + '</a>';
-    logo        = frontmatter.logo ? '<img src="' + frontmatter.logo + '">' : '';
+    title = frontmatter.subtitle || frontmatter.name;
+    logo = frontmatter.logo ? 
+      frontmatter.logo : 
+      '';
+
+    var element = {
+      frontmatter: frontmatter,
+      url: lead + folder,
+      title: title,
+      logo: logo
+    };
 
     if (type === 'coworker') {
       var imgSize = size || false;
-      var img = image.gravatar(frontmatter.email, imgSize);
+
+      element.logo = image.gravatar(frontmatter.email, imgSize);
+      firstName = title.substr(0, title.indexOf(' '));
       lastName = title.substr(title.lastIndexOf(' ') + 1);
 
-      listUrl = '<li>'+
-                  '<a href="' + lead + folder + '">'+
-                    '<img src="' + img + '">'+
-                  '</a>'+
-                  '<div>'+
-                    url +
-                    '<p>'+ frontmatter.job + '</p>'+
-                  '</div>'+
-                '</li>';
-    } else if (type === 'services') {
-      listUrl = '<li>'+
-            '<i class="' + frontmatter.icon + '"></i>'+
-            '<div>'+
-              url+
-              '<p>'+ frontmatter.description + '</p>'+
-            '</div>'+
-          '</li>';
-    } else {
-      listUrl = '<li>'+ logo + url + '</li>';
+      element.name = {
+        first: firstName,
+        last: lastName
+      };
     }
-
+    if(frontmatter.categories) {
+      frontmatter.categories = frontmatter.categories.join(' ');
+    }
     return {
-      element: listUrl,
+      element: element,
       order: frontmatter.order || lastName
     };
   }).sort(function (a,b) {
@@ -62,6 +62,5 @@ module.exports.pages = function (route, start, type, size, options) {
   }).map(function (page) {
     return page.element;
   });
-
-  return pages.join().replace(/\,/g,'');
+  return options.fn({ data: pages });
 };

@@ -2,10 +2,27 @@
 subtitle: Våra tjänster
 layout: default.hbs
 order: 2
+text:
+  type: text
+  mdtext: services
+  background: light
+  center: true
 ---
 
+{{> text text}}
+
 <div class="row services">
-  <ul>
-    {{{pages "./src/pages/vara-tjanster/" ""}}}
-  </ul>
+  <div class="grid-full">
+    <ul>
+      {{#pages '{"route": "./src/pages/vara-tjanster/", "start": "", "type": "services"}'}}
+        {{#each data}}
+          <li>
+            <i class="{{ this.frontmatter.icon }}"></i>
+            <a href="{{this.url}}">{{this.title}}</a>
+            <p>{{ this.frontmatter.description }}</p>
+          </li>
+        {{/each}}
+      {{/pages}}
+    </ul>
+  </div>
 </div>

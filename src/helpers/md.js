@@ -1,11 +1,18 @@
+'use strict';
 var marked = require('marked');
 var fs = require('fs');
+var path = require('path');
 
-module.exports.md = function (path) {
-  if (path.substr(-3) !== '.md') {
-    path = path + '.md';
+module.exports.md = function (filePath, options) {
+  var dirName = path.dirname(options.data.orig.files[0].src);
+  if(null === filePath.match(/\//g)) {
+    filePath = path.resolve(dirName, filePath);
   }
 
-  var text = fs.readFileSync(path, 'utf8');
+  if (filePath.substr(-3) !== '.md') {
+    filePath += '.md';
+  }
+  var text = fs.readFileSync(filePath, 'utf8');
   return marked(text);
 };
+

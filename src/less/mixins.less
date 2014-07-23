@@ -3,11 +3,15 @@
   display:-moz-flex;
   display:flex;
 
-  flex-wrap:wrap;
+  .prefix('flex-wrap', wrap);
 
   @media @mobile {
     .prefix('flex-direction', 'column');
   }
+}
+
+.justify-content(@justify: center) {
+  .prefix('justify-content', @justify);
 }
 
 .animation(@animation, @delay:0s, @timing) {

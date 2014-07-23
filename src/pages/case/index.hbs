@@ -3,11 +3,30 @@ subtitle: Case
 order: 1
 layout: default.hbs
 ---
+<ul class="filters-list">
+    {{#categories this}}
+      {{#each data}}
+      <li class="{{this}}">{{this}}</li>
+      {{/each}}
+    {{/categories}}
+</ul>
 
 <div class="row flex cases">
   <div class="grid-full">
-    <ul>
-      {{{pages "" ""}}}
+    <ul class="cases-list">
+      {{#pages '{}'}}
+        {{#each data}}
+          <li class="{{this.frontmatter.categories}}">
+            <a href="{{this.url}}">
+              {{#if this.logo}}
+                <img src="{{this.logo}}"/>
+              {{/if}}
+              {{this.title}}
+            </a>
+          </li>
+        {{/each}}
+      {{/pages}}
     </ul>
+
   </div>
 </div>

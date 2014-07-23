@@ -1,21 +1,56 @@
-var chai       = require('chai')
-,   expect     = chai.expect
-,   sinon      = require('sinon');
+'use strict';
+
+var chai = require('chai');
+var expect = chai.expect;
+var sinon = require('sinon');
+var proxyquire = require('proxyquire');
 
 chai.use(require('sinon-chai'));
 
-var helper = require('../../helpers/md');
+describe('md', function () {
+  var helper;
+  var fs;
+  var marked;
+  var path;
+  var options;
+  
+  beforeEach(function () {
+    options = {
+      data: {
+        orig: {
+          files:[{
+            src: '/users/foo/index'      
+          }]
+        }
+      }
+    };
+    marked = sinon.stub().returns('lorem ipsum dolor sit amet');
+    fs = {
+      readFileSync: sinon.spy()
+    };
+    path = {};
 
-describe('#md', function () {
-  it('should be a function', function () {
-    expect(helper.md).to.be.a('function');
+    helper = proxyquire(process.cwd() + '/src/helpers/md', {
+      'marked': marked,
+      'fs': fs,
+      'path': path
+    });
   });
 
-  it('should add file extension if none is provided', function () {
-    expect(helper.md('src/pages/case/radical-fm/text')).to.match(/^<h[0-9]*\s[a-zåäö\s0-9\\n\=\"\-\><\/\.\,\&\#\;\:\”\–]*/i);
-  });
-
-  it('should load a markdown file and return parsed text', function () {
-    expect(helper.md('src/pages/case/radical-fm/text.md')).to.match(/^<h[0-9]*\s[a-zåäö\s0-9\\n\=\"\-\><\/\.\,\&\#\;\:\”\–]*/i);
+  describe('#md', function () {
+    it('reads the file if the filePath is specified', function () {
+      helper.md('/users/foo/test', options);
+      expect(fs.readFileSync).calledOnce;
+      expect(fs.readFileSync).calledWith('/users/foo/test.md', 'utf8');
+    });
+    it('reads the file from the src specified in options', function () {
+      helper.md('bar', options);
+      expect(fs.readFileSync).calledOnce;
+      expect(fs.readFileSync).calledWith('/users/foo/bar.md', 'utf8');
+    });
+    it('returns a parsed text', function () {
+      var result = helper.md('bar', options);
+      expect(result).to.equal('lorem ipsum dolor sit amet');
+    });
   });
 });
