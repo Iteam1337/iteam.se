@@ -48,7 +48,7 @@ Social.prototype.save = function (array) {
   var ignoreSave = (local !== null && (local.data && local.latest) && (data.length === local.data.length && local.latest <= latest));
 
   if (ignoreSave) {
-    console.error('ignoring save');
+    console.info('ignoring save: %s', this.storageName());
     return;
   }
 
@@ -61,6 +61,8 @@ Social.prototype.save = function (array) {
 };
 
 Social.prototype.updateNode = function (newElement) {
+  newElement.className = this.container.className;
+  newElement.style.cssText = this.container.style.cssText;
   this.container.parentNode.replaceChild(newElement, this.container);
   this.container = newElement;
 };
@@ -96,7 +98,9 @@ Social.prototype.render = function (array) {
  * @param  {object} response    a response from the httpRequest
  * @return {[array, timestamp]}
  */
-Social.prototype.handleResponse = function (response) {};
+Social.prototype.handleResponse = function (response) {
+  console.info('constructor');
+};
 
 Social.prototype.getContent = function () {
   var self = this;

@@ -13,15 +13,22 @@ layout: default.hbs
   <div class="grid-full align-top">
     {{#in partials "type" "text"}}
       {{#if title}}
-        <h1>{{title}}</h1>
+        <h2>{{title}}</h2>
       {{/if}}
       <p>{{content}}</p>
     {{/in}}
   </div>
-  <div class="grid-full align-top">
-    {{#in partials "type" "github"}}
-      {{>github this}}
-    {{/in}}
+</div>
+<div class="row text center">
+  <div class="grid-full">
+    <div class="row flex">
+      {{#in partials "type" "github"}}
+        {{>github this}}
+      {{/in}}
+      {{#in partials "type" "blog"}}
+        {{>blog this}}
+      {{/in}}
+    </div>
   </div>
 </div>
 
