@@ -29,7 +29,9 @@ module.exports.pages = function (data, options) {
       logo = image.gravatar(frontmatter.email, imgSize);
       lastName = title.substr(title.lastIndexOf(' ') + 1);
     }
-   
+    if(frontmatter.categories) {
+      frontmatter.categories = frontmatter.categories.join(' ');
+    }
     return {
       element: {
         frontmatter: frontmatter,
