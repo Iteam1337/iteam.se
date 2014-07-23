@@ -1,32 +1,28 @@
 ---
 layout: default.hbs
 ---
+
 <div class="row text center">
   <div class="grid-full align-top">
-    <h1>Pharetra Nibh</h1>
-    <p>Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus.</p>
+    <h1>{{name}}</h1>
+    <div><strong>{{email}}</strong></div>
+    <div>{{job}}</div>
+  </div>
+  <div class="grid-full align-top">
+    {{#in partials "type" "text"}}
+      {{#if title}}
+        <h1>{{title}}</h1>
+      {{/if}}
+      <p>{{content}}</p>
+    {{/in}}
+  </div>
+  <div class="grid-full align-top">
+    {{#in partials "type" "github"}}
+      {{>github this}}
+    {{/in}}
+  </div>
+</div>
 
-    <p>Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-  </div>
-</div>
-<div class="row text center">
-  <div class="row grid-full flex">
-    <div class="grid-half align-top">
-      <h1>Condimentum Bibendum</h1>
-      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-    </div>
-    <div class="grid-half align-top">
-      <h1>Condimentum Fermentum Ullamcorper</h1>
-      <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur.</p>
-  </div>
-</div>
-<div class="row center">
-  <div class="row grid-full flex">
-    <img src="http://www.iteam.se/content/images/svg/iteam_logo.svg" class="animated bounce" data-delay="0" data-duration="1s">
-    <img src="http://www.iteam.se/content/images/svg/iteam_logo.svg" class="animated flash" data-delay="0.5s" data-duration="5s">
-    <img src="http://www.iteam.se/content/images/svg/iteam_logo.svg" class="animated bounce-in" data-delay="1s" data-duration="1s">
-    <img src="http://www.iteam.se/content/images/svg/iteam_logo.svg" class="animated tada" data-delay="1.5s" data-duration="2s">
-    <img src="http://www.iteam.se/content/images/svg/iteam_logo.svg" class="animated fade-in-right-big" data-delay="0" data-duration="1s">
-    </div>
-  </div>
-</div>
+{{#unless contact}}
+  {{> contact}}
+{{/unless}}
