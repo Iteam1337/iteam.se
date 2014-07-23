@@ -10,7 +10,7 @@ var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var rimraf = require('gulp-rimraf');
+var rimraf = require('rimraf');
 var awspublish = require('gulp-awspublish');
 var foreach = require('gulp-foreach');
 var path = require('path');
@@ -21,9 +21,8 @@ function formatPagePath(pagePath) {
     .replace(path.extname(pagePath), '.html'); 
 }
 
-gulp.task('clean', function (cb) {
-  return gulp.src('out/', { read: false })
-    .pipe(rimraf(cb));
+gulp.task('clean', function () {
+  rimraf.sync('./out');
 });
 
 var config = {
@@ -62,7 +61,7 @@ gulp.task('connect', function () {
     }));
 });
 
-gulp.task('copy', ['clean'], function () {
+gulp.task('copy', function () {
   gulp.src(['bower_components/ionicons/fonts/*'])
     .pipe(gulp.dest('out/content/fonts'));
 
@@ -90,7 +89,7 @@ var options = {
   ]
 };
 
-gulp.task('assemble', ['clean'], function () {
+gulp.task('assemble', function () {
   gulp.src(config.pages)
     .pipe(foreach(function (stream, file) {
       return stream
@@ -139,7 +138,6 @@ gulp.task('s3', function () {
 
 
 gulp.task('default', [
-  'clean',
   'copy',
   'jshint',
   'scripts',
@@ -149,7 +147,6 @@ gulp.task('default', [
   'connect',
   'watch'
 ]);
-
 
 gulp.task('build', [
   'clean',
