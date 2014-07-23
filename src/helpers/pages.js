@@ -16,6 +16,7 @@ module.exports.pages = function (data, options) {
     var frontmatter;
     var title;
     var logo;
+    var firstName;
     var lastName;
 
     frontmatter = front.loadFront(dir + folder + '/index.hbs');
@@ -24,21 +25,30 @@ module.exports.pages = function (data, options) {
       frontmatter.logo : 
       '';
 
-    if(type === 'coworker') {
+    var element = {
+      frontmatter: frontmatter,
+      url: lead + folder,
+      title: title,
+      logo: logo
+    };
+
+    if (type === 'coworker') {
       var imgSize = size || false;
-      logo = image.gravatar(frontmatter.email, imgSize);
+
+      element.logo = image.gravatar(frontmatter.email, imgSize);
+      firstName = title.substr(0, title.indexOf(' '));
       lastName = title.substr(title.lastIndexOf(' ') + 1);
+
+      element.name = {
+        first: firstName,
+        last: lastName
+      };
     }
     if(frontmatter.categories) {
       frontmatter.categories = frontmatter.categories.join(' ');
     }
     return {
-      element: {
-        frontmatter: frontmatter,
-        url: lead + folder,
-        title: title,
-        logo: logo
-      },
+      element: element,
       order: frontmatter.order || lastName
     };
   }).sort(function (a,b) {

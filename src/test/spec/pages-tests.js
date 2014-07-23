@@ -94,6 +94,10 @@ describe('#pages', function () {
           name: 'bar',
           email: 'radu.achim@iteam.se'
         },
+        name: {
+          first:'',
+          last:'bar'
+        },
         logo: 'http://www.gravatar.com',
         title: 'bar',
         url: 'bar'
@@ -101,6 +105,10 @@ describe('#pages', function () {
         frontmatter: {
           name: 'foo',
           email: 'rickard.laurin@iteam.se'
+        },
+        name: {
+          first:'',
+          last:'foo'
         },
         logo: 'http://www.gravatar.com',
         title: 'foo',

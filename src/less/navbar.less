@@ -73,7 +73,7 @@
     max-width:@max-width;
 
     li {
-      margin-right:@margin;
+      margin-right:@margin / 2;
 
       &:last-child {
         margin-right: 0;
@@ -90,7 +90,7 @@
           .transform(translateY(10px));
           .transition(all, 200ms, ease-in-out);
 
-          background: fade(#ffbd09, 90%);
+          background: fade(@accent, 90%);
           content:"";
           display: block;
           height: 2px;
@@ -106,7 +106,17 @@
           &:after {
             .transform(translateY(0));
 
-             opacity: 1;
+            opacity: 1;
+          }
+        }
+
+        &.active {
+          color: @accent;
+
+          &:after {
+            .transform(translateY(0));
+
+            opacity: 1;
           }
         }
       }
