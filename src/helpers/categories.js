@@ -22,6 +22,7 @@ module.exports.categories = function (data, options) {
     return self.indexOf(elm) === pos && elm !== undefined;
   }).reduce(function (a, b) {
     return a.concat(b);
-  });
+  }).sort();
+  
   return options.fn({ data: cases });
 };
