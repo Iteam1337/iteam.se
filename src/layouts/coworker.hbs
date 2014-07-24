@@ -9,12 +9,16 @@ layout: default.hbs
     <div>{{job}}</div>
   </div>
 </div>
-<div class="row text center">
-  <div class="grid-full align-top">
-    {{#each texts.about}}
-      <h2>{{title}}</h2>
-      <p>{{content}}</p>
-    {{/each}}
+<div class="row">
+  <div class="grid-full">
+    <div class="row cols-2">
+      {{#each texts.about}}
+        <div class="col-box">
+          <h2>{{title}}</h2>
+          <p>{{{content}}}</p>
+        </div>
+      {{/each}}
+    </div>
   </div>
 </div>
 <div class="row text center">
