@@ -3,7 +3,7 @@ image: node0.10
 script:
   - npm -s install -g gulp bower
   - npm -s install
-  - gulp deploy:$DRONE_BRANCH
+  - gulp build && gulp deploy:$DRONE_BRANCH
 
 notify:
 
