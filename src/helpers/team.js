@@ -9,9 +9,11 @@ module.exports.team = function (team, size) {
     var img = image.gravatar(frontmatter.email, imgSize);
 
     return '<li>'+
-              '<img src="' + img + '">'+
-              frontmatter.name +
-              '<div class="job">' + frontmatter.job + '</div>'+
+              '<a href="/medarbetare/' + coworker + '">'+
+                '<img src="' + img + '">'+
+                frontmatter.name +
+                '<div class="job">' + frontmatter.job + '</div>'+
+              '</a>'+
             '</li>';
   });
 
