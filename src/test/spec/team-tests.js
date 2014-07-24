@@ -24,11 +24,11 @@ describe('#team', function () {
   });
 
   it('should return a list template', function () {
-    expect(helper.team(['rickard'])).to.match(/<li><img.+?<\/li>/);
+    expect(helper.team(['rickard'])).to.match(/<li><a.+?<\/li>/);
   });
 
   it('should not matter if name is capitalized', function () {
-    expect(helper.team(['Rickard'])).to.match(/<li><img.+?<\/li>/);
+    expect(helper.team(['Rickard'])).to.match(/<li><a.+?<\/li>/);
   });
 
   it('should call for a gravatar', function () {
