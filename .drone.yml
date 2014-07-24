@@ -12,7 +12,7 @@ notify:
     channel: #marknad
     username: drone.io
     token: 8CucDNnAVELD0BBEErMnhobE
-    on_started: true
+    on_started: false
     on_failure: true
-    on_success: true
+    on_success: false
 
