@@ -14,6 +14,7 @@ var rimraf = require('rimraf');
 var awspublish = require('gulp-awspublish');
 var foreach = require('gulp-foreach');
 var path = require('path');
+var debug = require('gulp-debug');
 
 function formatPagePath(pagePath) {
   return pagePath
@@ -128,9 +129,8 @@ gulp.task('s3', function () {
   };
 
   return gulp.src('./out/**/*')
-    .pipe(awspublish.gzip())
+    //.pipe(debug({verbose: true}))
     .pipe(publisher.publish(headers))
-    .pipe(publisher.cache())
     .pipe(awspublish.reporter());
 });
 
@@ -158,6 +158,5 @@ gulp.task('build', [
 
 
 gulp.task('deploy:master', [
-  'build',
   's3'
 ]);

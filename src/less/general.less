@@ -118,3 +118,26 @@ img {
 }
 
 .mosaic [class^="grid-"] { line-height:0; }
+
+// cols
+.col-box {
+  padding: 10px;
+  float: left;
+  margin: 0;
+  word-break: break-word;
+}
+
+// heard of repeaters
+.cols-2, .cols-3, .cols-4, .cols-5, .cols-6 {
+  vertical-align: top;
+  display: inline-block;
+  > * {
+    box-sizing: border-box;
+  }
+}
+
+.cols-2 > * { width:50%;max-width:50%; }
+.cols-3 > * { width:33%;max-width:33%; }
+.cols-4 > * { width:25%;max-width:25%; }
+.cols-5 > * { width:20%;max-width:20%; }
+.cols-6 > * { width:16%;max-width:16%; }
