@@ -24,19 +24,21 @@ layout: default.hbs
     <ul class="cases-list">
       {{#pages '{}'}}
         {{#each data}}
-          <li class="{{ frontmatter.categoriesHTMLFriendly }}"
-          style="
-            {{#if frontmatter.background}}
-              background: {{ frontmatter.background }};
-            {{/if}}
-            {{#if frontmatter.color}}
-              color: {{ frontmatter.color }};
-            {{/if}}
-          ">
-            <a href="{{ url }}">
-              {{ title }}
-            </a>
-          </li>
+          {{#unless frontmatter.unpublished }} 
+            <li class="{{ frontmatter.categoriesHTMLFriendly }}"
+            style="
+              {{#if frontmatter.background}}
+                background: {{ frontmatter.background }};
+              {{/if}}
+              {{#if frontmatter.color}}
+                color: {{ frontmatter.color }};
+              {{/if}}
+            ">
+              <a href="{{ url }}">
+                {{ title }}
+              </a>
+            </li>
+          {{/unless}}        
         {{/each}}
       {{/pages}}
     </ul>
