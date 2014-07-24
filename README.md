@@ -15,7 +15,7 @@ Step in to the folder
 
 Install dependencies
     
-    npm install -g bower gulp
+    npm install -g gulp
     npm install
     
 Run gulp

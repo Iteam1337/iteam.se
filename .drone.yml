@@ -1,7 +1,7 @@
 image: node0.10
 
 script:
-  - npm -s install -g gulp bower
+  - npm -s install -g gulp
   - npm -s install
   - gulp build && gulp deploy:$DRONE_BRANCH
 
