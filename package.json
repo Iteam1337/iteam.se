@@ -35,8 +35,6 @@
     "jshint-stylish": "^0.4.0",
     "marked": "^0.3.2",
     "proxyquire": "^1.0.1",
-    "q": "^1.0.1",
-    "request": "^2.37.0",
     "rimraf": "^2.2.8",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0",
