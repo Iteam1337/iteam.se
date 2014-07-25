@@ -7,7 +7,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "mrwhite-less-mixins": "~0.3.3"
+    "mrwhite-less-mixins": ">= 0.3.3 <= 1.0.0"
   },
   "dependencies": {
     "ionicons": "~1.5.2"
