@@ -1,7 +1,17 @@
 <div class="row {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
   <div class="grid-full">
     <ul>
-      {{{team team gravatar-sizes}}}
+      {{#team this}}
+        {{#each data}}
+          <li>
+            <a href="{{url}}">
+              <img src="{{img}}"/>
+              {{frontmatter.name}}
+              <div class="job">{{frontmatter.job}}</div>
+            </a>
+          </li>
+        {{/each}}  
+      {{/team}}
     </ul>
   </div>
 </div>
