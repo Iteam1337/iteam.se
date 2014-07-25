@@ -1,5 +1,11 @@
-<div class="row {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
+<div class="row {{ type }} {{ background }} {{#if center}} center {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} {{#if color}} color: {{ color }}; {{/if}}">
   <div class="grid-full">
+    {{#if title}}
+      <h3>{{ title }}</h3>
+    {{/if}}
+    {{#if text}}
+      <p>{{ text }}</p>
+    {{/if}}
     <ul>
       {{#team this}}
         {{#each data}}

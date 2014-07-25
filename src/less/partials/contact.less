@@ -23,10 +23,12 @@
     }
 
     input {
+      .border-radius();
       .box-sizing();
+      .transition(all, 200ms, ease-in-out);
 
       background: @input-bg; 
-      border:none;
+      border:2px solid @input-bg;
       color: rgb(146,159,166);
       font-size: 1.5rem;
       padding: 15px 20px;
@@ -34,7 +36,11 @@
 
       &.name { margin-right: 1.4%; }
 
-      &:focus { outline: none; }
+      &:focus {
+        background: #fff;
+        border: 2px solid @accent;
+        outline: none;
+      }
 
       &.message {
         margin-top: 20px;
@@ -43,14 +49,20 @@
     }
 
     .submit {
+      .border-radius();
       .box-sizing();
 
       background: @accent;
       color: #fff;
+      cursor:pointer;
       display: inline-block;
       margin-top: 20px;
       padding: 10px 20px;
       text-align: right;
+
+      &:hover {
+        background: @color;
+      }
      
       input {
         background:none;
@@ -67,9 +79,7 @@
         font-size: 4rem;
         line-height: 0;
 
-        &:before {
-          line-height: 0;
-        }
+        &:before { line-height: 0; }
       }
     }
   }
