@@ -50,8 +50,7 @@ gulp.task('scripts', function() {
 gulp.task('test', function () {
   gulp.src(['src/test/**/*.js'], { read: false })
     .pipe(plumber())
-    .pipe(mocha({
-    }));
+    .pipe(mocha());
 });
 
 gulp.task('connect', function () {
