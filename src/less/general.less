@@ -84,6 +84,8 @@ img {
 }
 
 .row {
+  position: relative;
+
   &.flex { .flex(); }
 
   @media @mobile {
@@ -126,6 +128,17 @@ img {
   }
   .align-top {
     align-self: flex-start;
+  }
+
+  &.divide {
+    &:before {
+      .center(x, top, 0);
+      .size(100px, 3px);
+      
+      background: @accent;
+      content:"";
+      display: block;
+    }
   }
 }
 

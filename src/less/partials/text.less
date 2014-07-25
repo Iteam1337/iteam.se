@@ -2,7 +2,6 @@
 
 .row.text {
   padding: @margin 0;
-  position: relative;
 
   @media @mobile {
     padding: @margin @margin / 3;
@@ -71,17 +70,6 @@
 
   &.center {
     text-align: center;
-  }
-
-  &.divide {
-    &:before {
-      .center(x, top, 0);
-      .size(100px, 3px);
-      
-      background: @accent;
-      content:"";
-      display: block;
-    }
   }
 
   .left {
