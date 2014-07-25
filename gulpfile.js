@@ -51,7 +51,6 @@ gulp.task('test', function () {
   gulp.src(['src/test/**/*.js'], { read: false })
     .pipe(plumber())
     .pipe(mocha({
-      // reporter: 'Spec' // throws error on drone.iteam.se - may need a separate npm module included?
     }));
 });
 
