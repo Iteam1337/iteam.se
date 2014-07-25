@@ -1,54 +1,75 @@
 .row.contact {
   margin: @margin 0;
 
-  .address {
-    display: inline-block;
-    margin-right: 2%;
-    width: 32%;
-
-    li {
-      font-size: 1.5rem;
-
-      &.title {
-        font-size:1.75rem;
-        font-weight: bold;
-      }
-    }
-  }
-
   form {
-    display: inline-block;
+    text-align: right;
     vertical-align: top;
-    width: 66%;
 
     h3 {
       border:none;
       display: block;
-      margin-bottom: 0;
+      text-align: center;
+    }
+
+    p {
+      margin: 0 auto @margin / 2;
+      text-align: center;
+      width: 80%;
     }
 
     i {
-      color: #ffbd09;
-      font-size: 4rem;
       position: relative;
       top:8px;
     }
 
     input {
+      .box-sizing();
+
+      background: @input-bg; 
       border:none;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: @margin / 2;
+      color: rgb(146,159,166);
+      font-size: 1.5rem;
+      padding: 15px 20px;
       width: 49%;
+
+      &.name { margin-right: 1.4%; }
 
       &:focus { outline: none; }
 
-      &.message { width: 100%; }
+      &.message {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
 
-      &[type="submit"] {
-        background: none;
+    .submit {
+      .box-sizing();
+
+      background: @accent;
+      color: #fff;
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      text-align: right;
+     
+      input {
+        background:none;
         border:none;
+        color:#fff;
+        display: inline-block;
         font-size: 1.75rem;
+        padding:0;
         width: auto;
+      }
+
+      i {
+        color: #fff;
+        font-size: 4rem;
+        line-height: 0;
+
+        &:before {
+          line-height: 0;
+        }
       }
     }
   }
