@@ -1,0 +1,13 @@
+<div class="row {{type}}">
+  <div class="grid-full">
+  {{#calendar this}}
+    <ul>
+      {{#each this}}
+        <li>
+          {{this.time}} - {{{this.text}}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/calendar}}
+  </div>
+</div>

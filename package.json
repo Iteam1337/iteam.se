@@ -38,6 +38,7 @@
     "rimraf": "^2.2.8",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0",
-    "yaml-front-matter": "^3.0.1"
+    "yaml-front-matter": "^3.0.1",
+    "moment": "^2.7.0"
   }
 }
