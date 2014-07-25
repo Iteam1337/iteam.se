@@ -9,20 +9,22 @@ text:
   center: true
 ---
 
-{{> text text}}
+<div class="services-wrap">
+  {{> text text}}
 
-<div class="row services">
-  <div class="grid-full">
-    <ul>
-      {{#pages '{"route": "./src/pages/vara-tjanster/", "start": "", "type": "services"}'}}
-        {{#each data}}
-          <li>
-            <i class="{{ this.frontmatter.icon }}"></i>
-            <a href="{{this.url}}">{{this.title}}</a>
-            <p>{{ this.frontmatter.description }}</p>
-          </li>
-        {{/each}}
-      {{/pages}}
-    </ul>
+  <div class="row services">
+    <div class="grid-full">
+      <ul>
+        {{#pages '{"route": "./src/pages/vara-tjanster/", "start": "", "type": "services"}'}}
+          {{#each data}}
+            <li>
+              <i class="{{ this.frontmatter.icon }}"></i>
+              <a href="{{this.url}}">{{this.title}}</a>
+              <p>{{ this.frontmatter.description }}</p>
+            </li>
+          {{/each}}
+        {{/pages}}
+      </ul>
+    </div>
   </div>
 </div>
