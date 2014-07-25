@@ -5,8 +5,16 @@
   padding: @margin 0;
   text-align: center;
 
+  @media @mobile {
+    padding: @margin 20px;
+  }
+
   .grid-full {
     width: 970px;
+
+    @media @mobile {
+      width: 100%;
+    }
 
     > div {
       .box-sizing();
@@ -48,6 +56,16 @@
         .date {
           color: rgb(112,123,132);
           font-style: italic;
+        }
+      }
+
+      @media @mobile {
+        &.address,
+        &.social,
+        &.blog {
+          padding: 0;
+          text-align: center;
+          width: 100%;
         }
       }
     }

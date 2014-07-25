@@ -6,6 +6,10 @@
   ul {
     .flex();
     .justify-content();
+
+    @media @mobile {
+      padding: 20px;
+    }
   }
 
   li {
@@ -19,6 +23,14 @@
     text-align: left;
     vertical-align: top;
     width: 32%;
+
+    @media @mobile {
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
 
     &:nth-child(3n) { margin-right: 0; }
     &:nth-child(n+4) { margin-top: 2%; }

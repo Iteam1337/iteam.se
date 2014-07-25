@@ -1,5 +1,9 @@
 .row.contact {
-  margin: @margin 0;
+  padding: @margin 0;
+
+  @media @mobile {
+    padding: @margin 20px;
+  }
 
   form {
     text-align: right;
@@ -85,14 +89,22 @@
   }
 
   @media @mobile {
-    padding: 0 @margin;
+    form {
+      p {
+        width: 100%;
+      }
 
-    .address, form {
-      width: 100%;
+      input {
+        margin-bottom: 5px;
+        width: 100%;
 
-      input { width: 100%; }
+        &.message { margin-top: 0; }
+      }
+
+      .submit {
+        text-align: center;
+        width:100%;
+      }
     }
-
-    form { margin-top: @margin; }
   }
 }
