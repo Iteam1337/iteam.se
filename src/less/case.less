@@ -40,6 +40,9 @@
 
     li {
       .size(300px);
+      @media @mobile {
+        width: 100%;
+      }
       .transition(opacity, 200ms, ease-in-out);
 
       background: @light;
