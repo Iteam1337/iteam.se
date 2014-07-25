@@ -1,19 +1,76 @@
 .row.footer {
-  margin: @margin*2 0;
-  align-items: flex-end;
+  background: @footer-bg;
+  color: rgb(191,202,210);
+  font-size: 1.5rem;
+  padding: @margin 0;
   text-align: center;
 
-  li {
-    display: inline-block;
+  .grid-full {
+    width: 970px;
 
-    &:not(:last-child) { margin-right: @margin; }
+    > div {
+      .box-sizing();
+
+      display: inline-block;
+      text-align: left;
+      padding-right: 20px;
+      vertical-align: top;
+
+      h3 {
+        padding: 0;
+        margin: 0 0 20px;
+      }
+
+      &.address {
+        width:25%;
+      }
+
+      &.social {
+        width: 39%;
+        
+        li {
+          display: inline-block;
+          margin-right: 20px;
+        }
+      }
+
+      &.blog {
+        width: 35%;
+
+        li {
+          margin-bottom: 20px;
+        }
+
+        p {
+          margin-bottom: 0;
+        }
+
+        .date {
+          color: rgb(112,123,132);
+          font-style: italic;
+        }
+      }
+    }
   }
 
-  .love {
-    font-size: 1.5rem;
-
-    i {
-      color: red;
+  li {
+    &.phone {
+      color: @accent;
+      margin-top: 20px;
     }
+
+    &.mail a {
+      color: @accent;
+    }
+  }
+
+  a {
+    color: #fff;
+
+    &.facebook { color: #3B5998; }
+    &.twitter { color: #55ACEE; }
+    &.instagram { color: rgb(225,214,197); }
+
+    i { font-size: 4rem; }
   }
 }

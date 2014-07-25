@@ -1,19 +1,57 @@
 <div class="row footer flex">
   <div class="grid-full">
-    <ul>
-      {{#pages '{"route": "./src/pages/", "start": "/"}'}}
-        {{#each data}}
-          <li class="{{this.frontmatter.categories}}">
-            {{#if this.logo}}
-              <img src="{{this.logo}}"/>
-            {{/if}}
-            <a href="{{this.url}}">{{this.title}}</a>
-          </li>
-        {{/each}}
-      {{/pages}}
-    </ul>
-    <div class="love">
-      Made with <i class="ion-heart"></i> in Stockholm, Sweden.
+    <div class="address">
+      <h3 class="title">Iteam Solutions AB</h3>
+      <ul>
+        <li>Tegnérgatan 28</li>
+        <li>113 59 Stockholm</li>
+        <li class="phone">T: 08-26 70 90</li>
+        <li class="mail">
+          <a href="mailto:info@iteam.se">E: info@iteam.se</a>
+        </li>
+      </ul>
+    </div>
+    <div class="blog">
+      <h3>Bloggarna</h3>
+      <ul>
+        <li>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="date">25 juli 2014</div>
+        </li>
+        <li>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="date">25 juli 2014</div>
+        </li>
+        <li>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="date">25 juli 2014</div>
+        </li>
+      </ul>
+    </div>
+    <div class="social">
+      <h3>Sociala medier</h3>
+      <ul>
+        <li>
+          <a href="https://github.com/iteam1337" class="github">
+            <i class="ion-social-github"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://facebook.com/IteamSolutions" class="facebook">
+            <i class="ion-social-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a href="http://twitter.com/iteam1337" class="twitter">
+            <i class="ion-social-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="http://instagram.com/iteam1337" class="instagram">
+            <i class="ion-social-instagram"></i>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
