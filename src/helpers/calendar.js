@@ -14,6 +14,8 @@ module.exports.calendar = function (data, options) {
 
   var filtered = calendar.content.filter(function (entry) {
     return moment(entry.time).isAfter(moment().subtract(30, 'day'));
+  }).sort(function (a, b) {
+    return moment(a.time).diff(moment(b.time));
   });
 
   return options.fn(filtered);
