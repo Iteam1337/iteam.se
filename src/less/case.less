@@ -26,7 +26,11 @@
   margin: 0 0 @margin;
 
   .grid-full {
-    min-width: @max-width
+    min-width: @max-width;
+
+    @media @mobile {
+      min-width: 100%;
+    }
   }
 
   ul {

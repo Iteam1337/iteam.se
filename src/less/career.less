@@ -1,6 +1,14 @@
 .row.career {
   > .grid-full { padding: @margin 0; }
 
+  > .row.image {
+    
+    height: 450px;
+
+    @media @mobile {
+      height: auto;
+    }
+  }
   .text {
     width: 50%;
     display: inline-block;
@@ -18,6 +26,13 @@
 
     img { max-width: 100%; }
 
-    p { margin-bottom: 0; }
+    p { 
+      margin-bottom: 0; 
+    }
+    
+    @media @mobile {
+      width: 100%;
+      padding: 0 @mobile-padding;
+    }
   }
 }
