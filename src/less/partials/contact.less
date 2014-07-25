@@ -51,6 +51,7 @@
     .submit {
       .border-radius();
       .box-sizing();
+      .transition(background, @speed, ease-in-out);
 
       background: @accent;
       color: #fff;
@@ -59,10 +60,9 @@
       margin-top: 20px;
       padding: 10px 20px;
       text-align: right;
+      will-change: background;
 
-      &:hover {
-        background: @color;
-      }
+      &:hover { background: @color; }
      
       input {
         background:none;

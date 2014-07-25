@@ -1,0 +1,40 @@
+.row.calendar {
+  background-size: cover;
+  padding: @margin 0;
+  text-align: center;
+
+  ul {
+    .flex();
+    .justify-content();
+  }
+
+  li {
+    .box-sizing();
+
+    background: #fff;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 2%;
+    padding: @margin / 3;
+    text-align: left;
+    vertical-align: top;
+    width: 32%;
+
+    &:nth-child(3n) { margin-right: 0; }
+    &:nth-child(n+4) { margin-top: 2%; }
+
+    .date {
+      font-style: italic;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    h3.title {
+      font-size:1.75rem;
+      margin-bottom: 10px;
+      padding:0;
+      text-transform: initial;
+      width: 100%;
+    }
+  }
+}
