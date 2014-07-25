@@ -9,10 +9,11 @@
     <ul>
     {{#each items}}
       <li>
-        <div class="circle" {{#if color}} style="color: {{ color }}" {{/if}}>
-          <div class="number">{{ number }}</div>
-          <div class="text">{{ text }}</div>
-        </div>
+        {{#if icon}}
+          <i class="{{ icon }}"></i>
+        {{/if}}
+        <div class="number">{{ number }}</div>
+        <div class="text">{{ text }}</div>
       </li>
     {{/each}}    
     </ul>

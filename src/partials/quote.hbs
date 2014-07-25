@@ -1,5 +1,8 @@
 <div class="row flex {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
   <div class="grid-full">
+    {{#if image}}
+      <img src="{{ image.src }}" alt="{{ image.alt }}">
+    {{/if}}
     <div class="text">      
 {{#markdown}}
 {{ quote }}
