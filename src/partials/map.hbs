@@ -1,5 +1,15 @@
-<div class="row {{ type }}">
+<div class="row {{ type }} {{ background }}" style="
+  {{#if background-color}}
+    background: {{ background-color }};
+  {{/if}}
+  {{#if color}}
+    color: {{ color }};
+  {{/if}}
+">
   <div class="grid-full">
-    {{{map }}}
+    {{#if title}}
+      <h3>{{ title }}</h3>
+    {{/if}}
   </div>
+  <img src="/content/images/map.png">
 </div>

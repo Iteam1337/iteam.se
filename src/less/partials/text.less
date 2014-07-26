@@ -3,6 +3,10 @@
 .row.text {
   padding: @margin 0;
 
+  @media @mobile {
+    padding: @margin @margin / 3;
+  }
+
   h3 {
     color: inherit;
     margin: 0 0 @margin / 2;
@@ -55,8 +59,11 @@
     }
 
     @media @mobile {
-      > div {
-        padding: 0 @margin;
+      padding: 20px @margin;
+
+      h1,h2,h3 {
+        font-size: 4rem;
+        line-height: 1.2;
       }
     }
   }

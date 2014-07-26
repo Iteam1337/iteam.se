@@ -1,9 +1,14 @@
 .row.tweet {
-  color: #fff;
+  color: inherit;
   padding: @margin 0;
   text-align: center;
 
+  @media @mobile {
+    padding: @margin 20px;
+  }
+
   i {
+    color: @twitter;
     display: block;
     font-size: 4rem;
     margin-bottom: @margin / 2;  

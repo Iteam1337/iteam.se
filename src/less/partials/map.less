@@ -1,0 +1,16 @@
+.row.map {
+  height: 300px;
+  overflow:hidden;
+  padding: @margin 0;
+  position: relative;
+
+  img {
+    .center(y);
+
+    @media @mobile {
+      .center(both);
+
+      max-width: initial;
+    }
+  }
+}

@@ -1,67 +1,110 @@
 .row.contact {
-  margin: @margin 0;
+  padding: @margin 0;
 
-  .address {
-    display: inline-block;
-    margin-right: 2%;
-    width: 32%;
-
-    li {
-      font-size: 1.5rem;
-
-      &.title {
-        font-size:1.75rem;
-        font-weight: bold;
-      }
-    }
+  @media @mobile {
+    padding: @margin 20px;
   }
 
   form {
-    display: inline-block;
+    text-align: right;
     vertical-align: top;
-    width: 66%;
 
     h3 {
       border:none;
       display: block;
-      margin-bottom: 0;
+      text-align: center;
+    }
+
+    p {
+      margin: 0 auto @margin / 2;
+      text-align: center;
+      width: 80%;
     }
 
     i {
-      color: #ffbd09;
-      font-size: 4rem;
       position: relative;
       top:8px;
     }
 
     input {
-      border:none;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: @margin / 2;
+      .border-radius();
+      .box-sizing();
+      .transition(all, 200ms, ease-in-out);
+
+      background: @input-bg; 
+      border:2px solid @input-bg;
+      color: rgb(146,159,166);
+      font-size: 1.5rem;
+      padding: 15px 20px;
       width: 49%;
 
-      &:focus { outline: none; }
+      &.name { margin-right: 1.4%; }
 
-      &.message { width: 100%; }
+      &:focus {
+        background: #fff;
+        border: 2px solid @accent;
+        outline: none;
+      }
 
-      &[type="submit"] {
-        background: none;
+      &.message {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+
+    .submit {
+      .border-radius();
+      .box-sizing();
+      .transition(background, @speed, ease-in-out);
+
+      background: @accent;
+      color: #fff;
+      cursor:pointer;
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      text-align: right;
+      will-change: background;
+
+      &:hover { background: @color; }
+     
+      input {
+        background:none;
         border:none;
+        color:#fff;
+        display: inline-block;
         font-size: 1.75rem;
+        padding:0;
         width: auto;
+      }
+
+      i {
+        color: #fff;
+        font-size: 4rem;
+        line-height: 0;
+
+        &:before { line-height: 0; }
       }
     }
   }
 
   @media @mobile {
-    padding: 0 @margin;
+    form {
+      p {
+        width: 100%;
+      }
 
-    .address, form {
-      width: 100%;
+      input {
+        margin-bottom: 5px;
+        width: 100%;
 
-      input { width: 100%; }
+        &.message { margin-top: 0; }
+      }
+
+      .submit {
+        text-align: center;
+        width:100%;
+      }
     }
-
-    form { margin-top: @margin; }
   }
 }

@@ -1,6 +1,25 @@
 ---
 subtitle: Karriär
-order: 5
+order: 4
 layout: default.hbs
+left-text: 
+  type: text
+  mdtext: lefttext
+right-text:
+  type: text
+  mdtext: righttext
+  background: light
+image:
+  type: image
+  start: true
+  title: Karriär
+  image:
+    src: http://iteam.se/content/images/section-topbilder/isolde.jpg
 ---
-
+<div class="row career">
+{{> image image}}
+<div class="grid-full">
+  {{> text left-text}}
+  {{> text right-text}}
+</div>
+</div>

@@ -1,0 +1,38 @@
+.row.career {
+  > .grid-full { padding: @margin 0; }
+
+  > .row.image {
+    
+    height: 450px;
+
+    @media @mobile {
+      height: auto;
+    }
+  }
+  .text {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+    .box-sizing();
+
+    h4:first-of-type { margin-top: 0; }
+
+    ul {
+      list-style-type: initial;
+      margin-left: @margin/3;
+      font-size: 1.5rem;
+    }
+
+    img { max-width: 100%; }
+
+    p { 
+      margin-bottom: 0; 
+    }
+    
+    @media @mobile {
+      width: 100%;
+      padding: 0 @mobile-padding;
+    }
+  }
+}

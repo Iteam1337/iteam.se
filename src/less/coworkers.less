@@ -5,12 +5,12 @@
   li {
     .box-sizing();
     
-    background: #fff;
-    border:1px solid darken(@light, 5%);
     display: inline-block;
+    line-height: 0;
+    position: relative;
     text-align: left;
     vertical-align: top;
-    width: 49%;
+    width: 33.3%;
 
     @media @mobile {
       width:100%;
@@ -18,42 +18,59 @@
       margin-top: @margin / 2;
     }
 
-    &:nth-child(even) { margin-left: 2%; }
-    &:nth-child(n+3) { margin-top: @margin / 2; }
-
     img {
-      line-height: 1;
+      line-height: 0;
       width: 100%;
     }
+    
+    &:hover div {
+      opacity: 1;
+    }
 
-    div {
-      .box-sizing();
-
-      padding: @margin / 2;
+    .outer {
+      .position(top, left, 0, 0, absolute, true);
+      .transition(opacity, 300ms, ease-in-out);
+      
+      background:rgba(33,33,33,0.8);
+      opacity: 0;
       vertical-align:top;
 
-      h3 {
-        font-size: 2rem;
-        margin: 0;
-        padding: 0;
+      .inner {
+        .box-sizing();
+        .center(y);
+  
+        padding: @margin / 2;
+        text-align: center;
+        right: 0;
 
-        span {
-          font-weight: 400;
+        h3 {
+          color: #fff;
+          font-size: 2rem;
+          line-height: 1;
+          margin: 0 0 20px;
+          padding: 0;
+
+          span {
+            font-weight: 400;
+          }
         }
-      }
 
-      .job {
-        color: @accent;
-        margin: @margin / 6 0 @margin / 2;
-        position: relative;
+        .job {
+          color: @accent;
+          margin: @margin / 6 0 @margin / 2;
+          position: relative;
 
-        &:after {
-          .position(bottom, left, -10px, 0);
-          .size(50px, 3px);
-          
-          background: @accent;
-          content: "";
-          display: block;
+          &:after {
+            @size: 50px;
+
+            .position(top, left, -20px, 50%);
+            .size(@size, 3px);
+            
+            background: @accent;
+            content: "";
+            display: block;
+            margin-left: -(@size / 2);
+          }
         }
       }
     }

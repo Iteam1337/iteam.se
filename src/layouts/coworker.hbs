@@ -1,35 +1,49 @@
 ---
 layout: default.hbs
----
 
-<div class="row text center light">
-  <div class="grid-full align-top">
-    <h1>{{name}}</h1>
-    <div><strong>{{email}}</strong></div>
-    <div>{{job}}</div>
+instagram-count: 2
+github-count: 5
+blog-count: 5
+---
+<div class="coworker">
+  <div class="row text center light">
+    <div class="grid-full align-top">
+      <h1>{{name}}</h1>
+      <div><strong>{{email}}</strong></div>
+      <div>{{job}}</div>
+    </div>
+    {{> social-media social-media}}
   </div>
-</div>
-<div class="row text center">
-  <div class="grid-full align-top">
-    {{#each texts.about}}
-      <h2>{{title}}</h2>
-      <p>{{content}}</p>
-    {{/each}}
-  </div>
-</div>
-<div class="row text center">
-  <div class="grid-full">
-    <div class="row flex">
-      {{#if social-media.github}}
-        {{>github social-media}}
-      {{/if}}
-      {{#if social-media.blog}}
-        {{>blog social-media}}
-      {{/if}}
+  <div class="row">
+    <div class="grid-full">
+      <div class="row cols-2">
+        {{#each texts.about}}
+          <div class="col-box">
+            <h2>{{title}}</h2>
+            <p>{{{content}}}</p>
+          </div>
+        {{/each}}
+      </div>
     </div>
   </div>
-</div>
 
-{{#unless contact}}
-  {{> contact}}
-{{/unless}}
+  <div class="row text center">
+    <div class="grid-full">
+      <div class="row flex">
+        {{#if social-media.instagram}}
+          {{>instagram this}}
+        {{/if}}
+        {{#if social-media.github}}
+          {{>github this}}
+        {{/if}}
+        {{#if social-media.blog}}
+          {{>blog this}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  {{#unless contact}}
+    {{> contact}}
+  {{/unless}}
+</div>

@@ -1,4 +1,4 @@
-@navbar-bg: rgba(35,31,32,.9);
+@navbar-bg: @footer-bg;
 
 #navicon {
   .position(top,right, @margin / 4, @margin / 2);
@@ -13,15 +13,14 @@
     font-size: 3rem;
   }
 
-  @media @mobile {
-    display:block;
-  }
+  @media @mobile { display:block; }
 }
 
 #navbar {
   .box-shadow(0 0 5px rgba(33,33,33,0.2));
   .position(top,left,0,0,fixed);
   .transition(top, 200ms, ease-in-out);
+  .user-select();
 
   background:@navbar-bg;
   color:#ccc;
@@ -49,9 +48,7 @@
   .grid-full {
     position: relative;
 
-    @media @mobile {
-      height: 100%;
-    }
+    @media @mobile { height: 100%; }
   }
 
   #logo {

@@ -1,33 +1,33 @@
-var attribute, container;
+'use strict';
 
-attribute = 'data-twitter-user';
-container = document.querySelectorAll('[' + attribute + ']');
+(function () {
+  var _query = 'data-{type}-query';
+  var _count = 'data-{type}-count';
 
-if (container.length) {
-  container = container[0];
-  var attr = container.getAttribute(attribute);
-  new SocialHub('twitter', 1).init(container, attr);
-}
+  ['twitter','instagram','github','blog'].forEach(function (type) {
+    var query = _query.replace('{type}', type);
+    var count = _count.replace('{type}', type);
 
-attribute = 'data-github-username';
-var github_count = 'data-github-count';
+    var container = document.querySelectorAll('[' + query + ']');
+    if (!container.length) {
+      return;
+    }
+    container = container[0];
+    query = container.getAttribute(query);
+    count = container.getAttribute(count) || 3;
 
-container = document.querySelectorAll('[' + attribute + ']');
-
-if (container.length) {
-  container = container[0];
-
-  var count = container.getAttribute(github_count) || 3;
-  var username = container.getAttribute(attribute);
-  new Github(count).init(container, username);
-}
-
-attribute = 'data-blog-url';
-container = document.querySelectorAll('[' + attribute + ']');
-
-if (container.length) {
-  container = container[0];
-  var url = container.getAttribute(attribute);
-  var count = container.getAttribute('data-blog-count');
-  new Blog(count)._init(container, url);
-}
+    switch (type) {
+    case 'twitter':
+    case 'instagram':
+      new SocialHub(type, count).init(container, query);
+      break;
+    case 'blog':
+      new Blog(count)._init(container, query);
+      break;
+    case 'github':
+      new Github(count).init(container, query);
+      break;
+    }
+    console.log(type,query,count);
+  });
+})();

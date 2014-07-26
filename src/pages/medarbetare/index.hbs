@@ -1,6 +1,6 @@
 ---
 subtitle: Medarbetare
-order: 1
+order: 3
 layout: default.hbs
 
 navigation: true
@@ -19,14 +19,15 @@ text:
       {{#pages '{"route": "./src/pages/medarbetare/", "start": "", "type": "coworker", "size": 500}'}}
         {{#each data}}
           <li>
-            <a href="{{this.url}}">
-              {{#if this.logo}}
-                <img src="{{this.logo}}"/>
+            <a href="{{ url }}">
+              {{#if logo}}
+                <img src="{{ logo }}"/>
               {{/if}}
-              <div>
-                <h3>{{ this.name.first }} <span>{{ this.name.last }}</span></h3>
-                <p class="job">{{this.frontmatter.job}}</p>
-                <p>{{ this.frontmatter.description }}</p>
+              <div class="outer">
+                <div class="inner">
+                  <h3>{{ this.name.first }} <span>{{ this.name.last }}</span></h3>
+                  <p class="job">{{this.frontmatter.job}}</p>
+                </div>
               </div>
             </a>
           </li>
