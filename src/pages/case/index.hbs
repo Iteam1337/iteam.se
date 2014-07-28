@@ -9,10 +9,11 @@ layout: default.hbs
     <ul class="filters-list">
       {{#categories this}}
         {{#each data}}
-        <li class="{{className @key}}" style="{{#unless this.visible}} display: none;{{/unless}}" >{{@key}}</li>
+        <li data-category="{{className @key}}" 
+          {{#unless this.visible}} class="less-used-filter hidden" {{/unless}}>{{@key}}</li>
         {{/each}}
       {{/categories}}
-      <li id="show-all" class="filters-options">
+      <li id="toggle-all" class="filters-options">
         <i class="ion-more"></i>
       </li>
       <li id="clear-all" class="filters-options>

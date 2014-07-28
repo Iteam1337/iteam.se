@@ -21,11 +21,23 @@ function showFilteredElements (filters) {
   });
 }
 
-function showAllFilters(){
-  var filters = document.querySelectorAll('ul.filters-list > li');
+function generateContainRegexp (className) {
+  return new RegExp('(?:^|\\s)' + className + '(?:$|\\s)', 'gi');
+}
+
+function hasClass (classList, regexp) {
+  return (classList.match(regexp) !== null);
+}
+
+function toggleFilters(){
+  var filters = document.querySelectorAll('.less-used-filter');
   Array.prototype.slice.call(filters, 0).forEach(function (filter) {
-    filter.style.display = '';
-    console.log(filter.style.display);
+    var regexp = generateContainRegexp('hidden');
+    if (hasClass(filter.className, regexp)) {
+      filter.className = filter.className.replace(regexp, '');
+    } else {
+      filter.className += ' hidden';
+    }
   });
 }
 
@@ -54,19 +66,27 @@ if (filtersNode.length) {
     child.addEventListener('click', toggleFilter);
   });
 
-  document.getElementById('clear-all').addEventListener('click', function () {
-    Array.prototype.slice.call(filtersNode, 0).forEach(function (child) {
-      child.classList.remove('active');
+  var clearFiltersNode = document.getElementById('clear-all');
+
+  if(clearFiltersNode) {
+    clearFiltersNode.addEventListener('click', function () {
+      Array.prototype.slice.call(filtersNode, 0).forEach(function (child) {
+        child.classList.remove('active');
+      });
+
+      Array.prototype.slice.call(cases, 0).forEach(function (child) {
+        child.classList.remove('hidden');
+
+        setTimeout(function () {
+          child.classList.remove('visually-hidden');
+        }, 20);
+      });
     });
+  }
 
-    Array.prototype.slice.call(cases, 0).forEach(function (child) {
-      child.classList.remove('hidden');
-
-      setTimeout(function () {
-        child.classList.remove('visually-hidden');
-      }, 20);
-    });
-  });
-
-  document.getElementById('show-all').addEventListener('click', showAllFilters);
+  var toggleFiltersNode = document.getElementById('toggle-all');
+  if(toggleFiltersNode) {
+    toggleFiltersNode.addEventListener('click', toggleFilters);
+  }
 }
+
