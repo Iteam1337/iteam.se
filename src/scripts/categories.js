@@ -1,6 +1,6 @@
 'use strict';
 
-var filtersNode = document.querySelectorAll('ul.filters-list li:not(#clear-all)');
+var filtersNode = document.querySelectorAll('ul.filters-list li:not(.filters-options)');
 var cases = document.querySelectorAll('ul.cases-list li');
 
 function getActiveFilters() {
@@ -18,6 +18,14 @@ function showFilteredElements (filters) {
       element.classList.remove('hidden');
       element.classList.remove('visually-hidden');
     });
+  });
+}
+
+function showAllFilters(){
+  var filters = document.querySelectorAll('ul.filters-list > li');
+  Array.prototype.slice.call(filters, 0).forEach(function (filter) {
+    filter.style.display = '';
+    console.log(filter.style.display);
   });
 }
 
@@ -59,4 +67,6 @@ if (filtersNode.length) {
       }, 20);
     });
   });
+
+  document.getElementById('show-all').addEventListener('click', showAllFilters);
 }

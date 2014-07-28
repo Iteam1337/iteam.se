@@ -7,26 +7,31 @@ module.exports.categories = function (data, options) {
   var dir = './src/pages/case/';
   var dirs = read.directory(dir);
   var categories = [];
-
-  var cases = dirs.map(function (folder) {
+  dirs.forEach(function (folder) {
     var frontmatter = front.loadFront(dir + folder + '/index.hbs');
 
     if (!frontmatter.categories) { return; }
-
+    
     frontmatter.categories.map(function (category) {
-      categories.push(category);
+      if(category) {
+        categories.push(category);
+      }
     });
-
     return categories;
-  }).filter(function (elm, pos, self) {
-    return elm !== undefined;
-  }).reduce(function (a, b) {
-    return a.concat(b);
-  }).sort();
-
-  cases = cases.filter(function (elm, pos, self) {
-    return self.indexOf(elm) === pos;
   });
+
+  var cases = categories.reduce(function (result, element) {
+    if(result[element]) {
+      result[element].hits++;
+    } else {
+      result[element] = {
+        hits: 1
+      };
+    }
+
+    result[element].visible = result[element].hits > 1;
+    return result;
+  }, {});
 
   return options.fn({ data: cases });
 };
