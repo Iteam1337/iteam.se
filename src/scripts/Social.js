@@ -73,7 +73,7 @@ Social.prototype.draw = function (html) {
 
 /**
  * Extend:
- * This should return a valid htmlekement that will be printed
+ * This should return a valid htmlelement that will be printed
  * to the page.
  *
  * @param  {array}       array

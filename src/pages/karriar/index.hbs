@@ -2,7 +2,7 @@
 subtitle: Karriär
 order: 4
 layout: default.hbs
-left-text: 
+left-text:
   type: text
   mdtext: lefttext
 right-text:
@@ -15,11 +15,24 @@ image:
   title: Karriär
   image:
     src: http://iteam.se/content/images/section-topbilder/isolde.jpg
+
+instagram:
+  social-media:
+    instagram: iteam1337
+  instagram-count: 3
+  instagram-resolution: low
 ---
 <div class="row career">
-{{> image image}}
-<div class="grid-full">
-  {{> text left-text}}
-  {{> text right-text}}
-</div>
+  {{> image image}}
+  <div class="grid-full">
+    {{> text left-text}}
+    {{> text right-text}}
+  </div>
+  <div class="grid-full align-top instagram">
+    <div class="row">
+      <div class="grid-full">
+        {{> instagram instagram}}
+      </div>
+    </div>
+  </div>
 </div>
