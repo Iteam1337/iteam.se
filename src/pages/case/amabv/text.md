@@ -1,3 +1,5 @@
+### AMA Beskrivningsverktyg
+
 Webbaserat verktyg för byggsverige
 Att driva ett byggprojekt är en komplicerad uppgift, och handlar det inte om en hemmarenovering utan ett helt bostadsområde eller en tågtunnel under Stockholm så inser man att ett sätt att verktyg för att hantera kravspecifikationer och projektledning är absolut nödvändigt. Verktyget finns redan, det heter AMA. AMA är ursprungligen en bok med standardiserade beskrivningar av alla olika moment och byggdelar som kan förekomma i ett byggprojekt. Som ett led i att göra AMA mer tillgängligt och lättare än någonsin att använda gav Svensk Byggtjänst Iteam uppdraget att utveckla det till ett webbaserat verktyg.
 
