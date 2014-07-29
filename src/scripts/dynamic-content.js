@@ -31,6 +31,5 @@
       new Github(count).init(container, query);
       break;
     }
-    console.log(type,query,count);
   });
 })();
