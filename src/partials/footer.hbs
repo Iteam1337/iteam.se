@@ -17,14 +17,12 @@
       <div class="calendar">
         {{#each this}}
         <article>
-          <details>
-            <a href="{{link}}">
-              <h4 class="title">
-                {{title}}
-              </h4>
-            </a>
-            <time class="date">{{time}}</time>
-          </details>
+          <a href="{{link}}">
+            <h4 class="title">
+              {{title}}
+            </h4>
+          </a>
+          <time class="date">{{time}}</time>
           <p>{{{text}}}</p>
         </article>
         {{/each}}
