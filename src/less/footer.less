@@ -18,6 +18,7 @@
   .grid-full {
     width: 970px;
 
+
     @media @mobile {
       width: 100%;
     }
@@ -73,12 +74,18 @@
       // }
 
       @media @mobile {
-        &.address,
-        &.social,
-        &.blog {
+        &.block {
           padding: 0;
           text-align: center;
           width: 100%;
+          margin-bottom: 20px;
+        }
+        h4 {
+          line-height: 1.75em;
+          padding: .5em;
+        }
+        .date {
+          display: none;
         }
       }
     }
