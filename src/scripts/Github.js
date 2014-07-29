@@ -14,6 +14,11 @@ Github.prototype.URL = function () {
 
 Github.prototype.handleResponse = function (response) {
   response = JSON.parse(response);
+
+  if (!response.length) {
+    return;
+  }
+
   return [response, response[0].pushed_at];
 };
 
