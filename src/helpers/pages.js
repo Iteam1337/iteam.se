@@ -12,16 +12,12 @@ module.exports.pages = function (options) {
   var type = data.type;
   var size = data.size;
 
-
-  pages = dirs.reduce(function (result, folder) {
-
-    var frontmatter;
+  function getPage(path, folder) {
+    var frontmatter = front.loadFront(path);
     var title;
     var logo;
     var firstName;
     var lastName;
-
-    frontmatter = front.loadFront(dir + folder + '/index.hbs');
 
     title = frontmatter.subtitle || frontmatter.name;
     logo = frontmatter.logo ?
@@ -55,14 +51,17 @@ module.exports.pages = function (options) {
       frontmatter.categories = frontmatter.categories.join(' ');
     }
 
-    var page = {
+    return {
       element: element,
       order: frontmatter.order || lastName
     };
-    
+  }
+
+  pages = dirs.reduce(function (result, folder) {
+    var page = getPage(dir + folder + '/index.hbs', folder);
     if(!data.category) {
       result.push(page);
-    } else if(frontmatter.categories && frontmatter.categories.indexOf(data.category) >= 0) {
+    } else if(page.element.frontmatter.categories && page.element.frontmatter.categories.indexOf(data.category) >= 0) {
       result.push(page);
     }
     return result;
@@ -77,5 +76,6 @@ module.exports.pages = function (options) {
   }).map(function (page) {
     return page.element;
   });
+
   return options.fn({ data: pages });
 };
