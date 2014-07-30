@@ -26,7 +26,7 @@ layout: default.hbs
 <div class="row flex cases">
   <div class="grid-full">
     <ul class="cases-list">
-      {{#pages '{}'}}
+      {{#pages}}
         {{#each data}}
           {{#unless frontmatter.unpublished }} 
             <li class="{{ frontmatter.categoriesHTMLFriendly }}"

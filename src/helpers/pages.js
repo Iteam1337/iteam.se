@@ -3,16 +3,18 @@ var front = require('yaml-front-matter');
 var image = require('./gravatar');
 var read  = require('./read');
 
-module.exports.pages = function (data, options) {
+module.exports.pages = function (options) {
   var pages;
-  data = JSON.parse(data);
+  var data = options.hash || {}; 
   var dir = data.route || './src/pages/case/';
   var dirs = read.directory(dir);
   var lead = data.start || '';
   var type = data.type;
   var size = data.size;
 
-  pages = dirs.map(function (folder) {
+
+  pages = dirs.reduce(function (result, folder) {
+
     var frontmatter;
     var title;
     var logo;
@@ -20,6 +22,7 @@ module.exports.pages = function (data, options) {
     var lastName;
 
     frontmatter = front.loadFront(dir + folder + '/index.hbs');
+
     title = frontmatter.subtitle || frontmatter.name;
     logo = frontmatter.logo ?
       frontmatter.logo :
@@ -44,17 +47,26 @@ module.exports.pages = function (data, options) {
         last: lastName
       };
     }
+  
     if(frontmatter.categories) {
       frontmatter.categoriesHTMLFriendly = frontmatter.categories.map(function (category) {
         return category.replace(/[^\w\d]/g, '').replace(/^(\d){1,}/, '');
       }).join(' ');
       frontmatter.categories = frontmatter.categories.join(' ');
     }
-    return {
+
+    var page = {
       element: element,
       order: frontmatter.order || lastName
     };
-  }).sort(function (a,b) {
+    
+    if(!data.category) {
+      result.push(page);
+    } else if(frontmatter.categories && frontmatter.categories.indexOf(data.category) >= 0) {
+      result.push(page);
+    }
+    return result;
+  }, []).sort(function (a,b) {
     if (typeof a.order === 'number') {
       return a.order - b.order;
     } else if (typeof a.order === 'string') {
