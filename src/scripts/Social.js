@@ -36,7 +36,28 @@ Social.prototype.getLocal = function () {
   return JSON.parse(local);
 };
 
+Social.prototype.toggleVisibility = function (hide) {
+  var hidden = /(?:^|\\s)hidden(?:$|\\s)/gi;
+  var isVisible = (this.hideOnEmpty.className.match(hidden) !== null);
+  if (hide) {
+    this.hideOnEmpty.className += ' hidden';
+  } else {
+    this.hideOnEmpty.className = this.hideOnEmpty.className.replace(hidden, '');
+  }
+};
+
 Social.prototype.save = function (array) {
+  if (!array || !array.length) {
+    if (this.hideOnEmpty) {
+      this.toggleVisibility(true);
+    }
+    return;
+  }
+
+  if (this.hideOnEmpty) {
+    this.toggleVisibility();
+  }
+
   var data = array[0];
   var latest = array[1];
   if (array instanceof Array === false || latest === undefined) {
@@ -118,10 +139,15 @@ Social.prototype.getContent = function () {
   xhr.send(null, true);
 };
 
-Social.prototype.init = function (container, handle) {
+Social.prototype.init = function (container, handle, hideOnEmpty) {
   if (!handle.length || !(container instanceof window.HTMLElement)) {
     return;
   }
+
+  if (hideOnEmpty && hideOnEmpty.length) {
+    this.hideOnEmpty = hideOnEmpty[0];
+  }
+
   this.handle = handle;
   this.container = container;
   var local = this.getLocal();
