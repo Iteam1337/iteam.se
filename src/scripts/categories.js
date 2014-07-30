@@ -6,7 +6,7 @@ var cases = document.querySelectorAll('ul.cases-list li');
 function getActiveFilters() {
   var activeFilters = document.querySelectorAll('ul.filters-list > li.active');
   return Array.prototype.slice.call(activeFilters, 0).reduce(function (result, child) {
-    result.push(child.className.replace(' active', ''));
+    result.push(child.getAttribute('data-category'));
     return result;
   }, []);
 }

@@ -22,7 +22,7 @@ describe('contact', function () {
         '<form id="form-contact">' + 
           '<input type="text" name="name" value="Radu">' +
           '<input type="text" name="email" value="ram">' + 
-          '<input type="text" name="text" value="Hej" required="required">' + 
+          '<textarea name="text" required="required">Hej</textarea>' + 
           '<input type="submit" value="Send">' + 
         '</form>' + 
       '</body>' + 
@@ -51,7 +51,7 @@ describe('contact', function () {
       expect(xhr.send).calledOnce
         .calledWith('{"username":"Radu <ram>","text":"Hej","icon_emoji":":ghost:"}');
       xhr.onload();
-      var textElement = document.querySelector('input[name=text]');
+      var textElement = document.querySelector('textarea');
       expect(textElement.value).to.equal('');
 
     });
