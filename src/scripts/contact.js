@@ -16,7 +16,7 @@ function submit (event) {
   xhr.open(form.method, form.action, true);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.onload = function () {
-    document.querySelector('input[name=text]').value = '';
+    document.querySelector('textarea').value = '';
   };
   xhr.send(JSON.stringify(data));
 }
