@@ -3,7 +3,8 @@
 function getFormData(form) {
   var data = {
     username: form.elements.name.value + ' <' + form.elements.email.value + '>',
-    text: form.elements.text.value
+    text: form.elements.text.value,
+    icon_emoji: ':ghost:'
   };
   return data;
 }

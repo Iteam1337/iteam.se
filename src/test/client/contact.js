@@ -49,7 +49,7 @@ describe('contact', function () {
       var element = document.getElementsByTagName('form')[0];
       element.dispatchEvent(submitEvent);
       expect(xhr.send).calledOnce
-        .calledWith('{"username":"Radu <ram>","text":"Hej"}');
+        .calledWith('{"username":"Radu <ram>","text":"Hej","icon_emoji":":ghost:"}');
       xhr.onload();
       var textElement = document.querySelector('input[name=text]');
       expect(textElement.value).to.equal('');
