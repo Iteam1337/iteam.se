@@ -24,13 +24,6 @@ text:
                 {{this.title}}
               </a>
               <p>{{ this.frontmatter.description }}</p>
-              {{#pages category=this.title }}
-                <div>
-                  {{#each data}}
-                    <a href="/case/{{url}}">{{title}}</a>
-                  {{/each}}
-                </div>
-              {{/pages}}
             </li>
             {{/unless}}
           {{/each}}

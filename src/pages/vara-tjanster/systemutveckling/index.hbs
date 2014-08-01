@@ -1,10 +1,17 @@
 ---
 subtitle: Systemutveckling
 icon: ion-laptop
-layout: case.hbs
+layout: default.hbs
 description: Våra utvecklare är engagerade och sitter på den senaste kunskapen inom systemutveckling. Vi bygger allt från verktyg, till e-handel och intranät. Inget projekt är det andra likt.
-partials:
-  -
-    type: text
-    mdtext: text
+text:
+  type: text
+  mdtext: text
 ---
+
+{{> text text}}
+
+{{#pages category=subtitle}}
+  {{#each data}}
+    <a href="/case/{{url}}">{{title}}</a>
+  {{/each}}
+{{/pages}}
