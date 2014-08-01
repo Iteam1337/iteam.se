@@ -7,11 +7,18 @@ text:
   type: text
   mdtext: text
 ---
+<div class="cases-wrap">
+  {{#pages category=subtitle}}
+    <div class="grid-full">
+      <ul>
+        {{#each data}}
+          <li>
+            <a href="/case/{{url}}">{{title}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/pages}}
+</div>
 
 {{> text text}}
-
-{{#pages category=subtitle}}
-  {{#each data}}
-    <a href="/case/{{url}}">{{title}}</a>
-  {{/each}}
-{{/pages}}
