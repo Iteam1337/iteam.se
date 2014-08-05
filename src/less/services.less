@@ -40,10 +40,14 @@
 }
 
 .cases-wrap {
+    padding-bottom: 60px;
     ul {
       .flex();
       width:100%;
       justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+
       li {
         @media @mobile {
           width: 100%;
@@ -55,6 +59,8 @@
         opacity: 1;
         position: relative;
         text-align: center;
+        margin: 5px;
+        flex-grow:1;
 
         &.visually-hidden { opacity: 0; }
         &.hidden { display: none; }
