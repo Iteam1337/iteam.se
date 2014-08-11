@@ -24,7 +24,7 @@ Struktur
   - Block från vår vision
   - Kontaktformulär
 
-## Why
+## Why = hamnar på startsidan
    Detta är en ny sektion med två undersidor som båda leder fram till branscher och case.
 
   - Our mission
@@ -40,11 +40,33 @@ Struktur
     ## Humaniora: regardless of technical excellence - any required change in human behavior takes time and patience.
 
     ## The solution: working in team, agile mindset, early involvment of users, transparent agreements, distributing the risk and important as hell: Have Fun!
+## Case (How)
+## How  
+   - Team/Metodik
+     - I team
+     - Agilt
 
-## How
+   - Community
+     Var vi bidrar 
+       - Sthlm.js
+       - Nordic.js
+       - Lounge Hackers
+       - Kodcentrum
+       - Tala på konferenser
+       - Open Source
+       - Säkerhetsuppdateringar (Clavister)
+     Var vi deltar
+       - Almedalen
+       - DevSum
+       - Øredev
+       - Sthlm.js
+       - Sthlm Tech
+       - 
+
+## Erbjudande = What
    Ny sektion som beskriver hur vi förverkligar visionen. Vi delar nu upp innehållet mer grovkornigt så att man inte behöver förstå eller känna igen varumärkena på casen utan kan utgå från olika skärningar, typ av projekt (App, Responsiv osv) eller 
 
-  - Industries
+  - Branscher
     Varje bransch hamnar som block med kort beskrivning av utmaningarna inom varje bransch och vad vi har för vision för branschen. Ett urval av våra case som beskriver vad vi gjort och sedan ett kontaktkort för vem de ska kontakta för att få reda på mer.
 
     ### Media & Entertainment
@@ -87,8 +109,19 @@ Struktur
 
     ### Iteam Devops
     Set up and manage complex application architecture 
+  
+  - Teknikval
+    Responive webb
+    Java
+    C#
+    Wordpress
+    Javascript
+    Node
+    MongoDB
+    API
 
-## What
+
+## Om oss = Who
   - Coworkers
     Filter:
     - Project management
