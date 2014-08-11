@@ -1,12 +1,11 @@
 <div class="offset"></div>
 
-<div id="navicon"></div>
 <div id="navbar" class="row">
   <div class="grid-full">
     <a href="/"><img src="http://www.iteam.se/content/images/svg/iteam_logo.svg" alt="" id="logo"></a>
     <div id="close-navbar"></div>
     <ul class="nav">
-      {{#pages '{"route": "./src/pages/", "start": "/"}'}}
+      {{#pages route="./src/pages/" start="/"}}
         {{#each data}}
           <li class="{{this.frontmatter.categories}}">
             {{#if this.logo}}
@@ -18,4 +17,6 @@
       {{/pages}}
     </ul> 
   </div>
+  <div id="navicon"></div>
+
 </div>

@@ -1,35 +1,24 @@
 <div class="row footer flex">
   <div class="grid-full">
-    <div class="address">
-      <h3 class="title">Iteam Solutions AB</h3>
+    <div class="address block">
+      <h3 class="title">Besök oss</h3>
       <ul>
+        <li class="title"><strong>Iteam Solutions AB</strong></li>
         <li>Tegnérgatan 28</li>
         <li>113 59 Stockholm</li>
+      </ul>
+    </div>
+    <div class="contact block">
+      <h3 class="title">Kontakta oss</h3>
+      <ul>
         <li class="phone">T: 08-26 70 90</li>
         <li class="mail">
           <a href="mailto:info@iteam.se">E: info@iteam.se</a>
         </li>
       </ul>
     </div>
-    <div class="blog">
-      <h3>Bloggarna</h3>
-      <ul>
-        <li>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <div class="date">25 juli 2014</div>
-        </li>
-        <li>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <div class="date">25 juli 2014</div>
-        </li>
-        <li>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <div class="date">25 juli 2014</div>
-        </li>
-      </ul>
-    </div>
-    <div class="social">
-      <h3>Sociala medier</h3>
+    <div class="social block">
+      <h3>Följ oss</h3>
       <ul>
         <li>
           <a href="https://github.com/iteam1337" class="github">
@@ -52,6 +41,21 @@
           </a>
         </li>
       </ul>
+    </div>
+    <div class="calendar block">
+      <h3 class="title">Kommande händelser</h3>
+      {{#calendar}}
+      {{#each this}}
+      <article>
+        <a href="{{link}}">
+          <h4 class="title">
+            {{title}}
+          </h4>
+          <time class="date">{{time}}</time>
+        </a>
+      </article>
+      {{/each}}
+      {{/calendar}}
     </div>
   </div>
 </div>

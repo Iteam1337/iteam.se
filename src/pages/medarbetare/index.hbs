@@ -11,12 +11,13 @@ text:
   mdtext: coworkers
 ---
 
-{{> text text}}
+{{!-- TODO: Content --}}
+{{!-- {{> text text}} --}}
 
 <div class="row coworkers">
   <div class="grid-full">
     <ul>
-      {{#pages '{"route": "./src/pages/medarbetare/", "start": "", "type": "coworker", "size": 500}'}}
+      {{#pages route="./src/pages/medarbetare/" start="" type="coworker" size=500}}
         {{#each data}}
           <li>
             <a href="{{ url }}">

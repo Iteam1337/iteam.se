@@ -1,20 +1,5 @@
 @navbar-bg: @footer-bg;
 
-#navicon {
-  .position(top,right, @margin / 4, @margin / 2);
-
-  cursor:pointer;
-  display:none;
-  font-family: @icons;
-
-  &:before {    
-    content: @ionicon-var-navicon;
-    display: block;
-    font-size: 3rem;
-  }
-
-  @media @mobile { display:block; }
-}
 
 #navbar {
   .box-shadow(0 0 5px rgba(33,33,33,0.2));
@@ -43,6 +28,27 @@
         font-size: 2rem;
       }
     }
+
+    .nav {
+      display: block;
+    }
+  }
+
+
+  #navicon {
+    .position(top,right, @margin / 4, @margin / 2);
+
+    cursor:pointer;
+    display:none;
+    font-family: @icons;
+
+    &:before {    
+      content: @ionicon-var-navicon;
+      display: block;
+      font-size: 3rem;
+    }
+
+    @media @mobile { display:block; }
   }
 
   .grid-full {
@@ -133,11 +139,14 @@
       .center(both);
 
       width:100%;
+      display: none;
     }
   }
 
   @media @mobile {
-    top:-100%;
+    z-index: 10;
+    height:55px;
+    padding: 0;
   }
 }
 

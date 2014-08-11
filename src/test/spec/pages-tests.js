@@ -41,7 +41,11 @@ describe('#pages', function () {
   });
 
   it('should add a lead character to the url', function () {
-    helper.pages('{"route": "./src/pages/", "start": "/"}', options);
+    options.hash = {
+      route: './src/pages/',
+      start: '/'
+    };
+    helper.pages(options);
     expect(options.fn).calledOnce;
     expect(options.fn).calledWith({
       data: [{
@@ -57,7 +61,8 @@ describe('#pages', function () {
   });
 
   it('should call the handler when given a route', function () {
-    helper.pages('{"route": "./src/pages/" }', options);
+    options.hash = { route: './src/pages/' }; 
+    helper.pages(options);
     expect(options.fn).calledOnce;
     expect(options.fn).calledWith({
       data: [{
@@ -73,8 +78,38 @@ describe('#pages', function () {
   });
 
   it('should get the gravatars if it is a coworker', function () {
-    helper.pages('{"route": "./src/pages/medarbetare/", "type": "coworker"}', options);
+    options.hash = {
+      route: './src/pages/medarbetare/', 
+      type: 'coworker'
+    };
+    helper.pages(options);
     expect(image.gravatar).called.and.calledWith('rickard.laurin@iteam.se', false);
+  });
+
+  it('should filter pages by category if category is an option', function () {
+    read.directory.returns(['foo', 'bar']);
+    front.loadFront.withArgs('./src/pages/case/foo/index.hbs').returns({
+      name: 'foo',
+      categories: ['tl;dr']
+    });
+    front.loadFront.withArgs('./src/pages/case/bar/index.hbs').returns({
+      name: 'bar',
+      categories: ['test']
+    });
+    options.hash = { category: 'test' };
+    helper.pages(options);
+    expect(options.fn).calledWith({
+      data: [{
+        frontmatter: {
+          name: 'bar',
+          categories: 'test',
+          categoriesHTMLFriendly: 'test'
+        },
+        logo: '',
+        title: 'bar',
+        url: 'bar'
+      }]
+    });
   });
 
   it('should sort by last name', function () {
@@ -87,7 +122,11 @@ describe('#pages', function () {
       name: 'bar',
       email: 'radu.achim@iteam.se'
     });
-    helper.pages('{"route": "./src/pages/medarbetare/", "type": "coworker" }', options);
+    options.hash = {
+      route: './src/pages/medarbetare/', 
+      type: 'coworker' 
+    };
+    helper.pages(options);
     expect(options.fn).calledWith({
       data: [{
         frontmatter: {

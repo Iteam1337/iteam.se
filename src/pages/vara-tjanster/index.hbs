@@ -15,13 +15,17 @@ text:
   <div class="row services">
     <div class="grid-full">
       <ul>
-        {{#pages '{"route": "./src/pages/vara-tjanster/", "start": "", "type": "services"}'}}
+        {{#pages route="./src/pages/vara-tjanster/" start="" type="services"}}
           {{#each data}}
+            {{#unless frontmatter.unpublished }} 
             <li>
-              <i class="{{ this.frontmatter.icon }}"></i>
-              <a href="{{this.url}}">{{this.title}}</a>
+              <a href="{{this.url}}">
+                <i class="{{ this.frontmatter.icon }}"></i>
+                {{this.title}}
+              </a>
               <p>{{ this.frontmatter.description }}</p>
             </li>
+            {{/unless}}
           {{/each}}
         {{/pages}}
       </ul>

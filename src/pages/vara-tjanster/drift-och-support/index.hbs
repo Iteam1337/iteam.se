@@ -1,11 +1,26 @@
 ---
 subtitle: Drift & Support
 icon: ion-settings
-layout: case.hbs
+layout: default.hbs
 navigation: true
 description: Våra Supporttekniker ger personlig och snabb hjälp och kan det senaste inom IT. Antingen guidar Supporteknikerna på telefon eller kommer på studs om det krävs.
-partials:
-  -
-    type: text
-    mdtext: text
+text:
+  type: text
+  mdtext: text
 ---
+{{> text text}} 
+<div class="cases-wrap">
+  {{#pages category=subtitle}}
+    <div class="grid-full">  
+      Lite grejer vi gjort
+      <ul>
+        {{#each data}}
+          <li>
+            <a href="/case/{{url}}">{{title}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/pages}}
+</div>
+

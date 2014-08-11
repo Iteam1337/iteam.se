@@ -4,6 +4,67 @@
   }
 
   .instagram {
+    padding: 0;
     width: 100%;
+    i {
+      color: #7F8C8D;
+    }
   }
+
+  .row.flex,
+  .instagram-content {
+    justify-content: center;
+  }
+  .social-media ul {
+    padding: 0 20px;
+    border-left: 6px solid #FFBD09;
+    li {
+      text-align: left;
+    }
+  }
+
+  .boxes {
+    width: 100%;
+    display: block;
+    &,
+    & * {
+      box-sizing: border-box;
+    }
+    &:after {
+      content: ".";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  }
+  .box-position {
+    padding: 10px;
+    word-break: break-word;
+    display: inline-block;
+    vertical-align: top;
+
+    &.left,
+    &.right {
+      width: 50%;
+    }
+    &.left {
+      float: left;
+    }
+    &.right {
+      float: right;
+    }
+  }
+
+  @media @mobile {
+    .box-position {
+      &.left,
+      &.right {
+        width: 100%;
+        float: none;
+      }
+    }
+
+  }
+
 }

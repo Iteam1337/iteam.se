@@ -3,23 +3,22 @@ var front = require('yaml-front-matter');
 var image = require('./gravatar');
 var read  = require('./read');
 
-module.exports.pages = function (data, options) {
+module.exports.pages = function (options) {
   var pages;
-  data = JSON.parse(data);
+  var data = options.hash || {}; 
   var dir = data.route || './src/pages/case/';
   var dirs = read.directory(dir);
   var lead = data.start || '';
   var type = data.type;
   var size = data.size;
 
-  pages = dirs.map(function (folder) {
-    var frontmatter;
+  function getPage(path, folder) {
+    var frontmatter = front.loadFront(path);
     var title;
     var logo;
     var firstName;
     var lastName;
 
-    frontmatter = front.loadFront(dir + folder + '/index.hbs');
     title = frontmatter.subtitle || frontmatter.name;
     logo = frontmatter.logo ?
       frontmatter.logo :
@@ -44,17 +43,29 @@ module.exports.pages = function (data, options) {
         last: lastName
       };
     }
+  
     if(frontmatter.categories) {
       frontmatter.categoriesHTMLFriendly = frontmatter.categories.map(function (category) {
         return category.replace(/[^\w\d]/g, '').replace(/^(\d){1,}/, '');
       }).join(' ');
       frontmatter.categories = frontmatter.categories.join(' ');
     }
+
     return {
       element: element,
       order: frontmatter.order || lastName
     };
-  }).sort(function (a,b) {
+  }
+
+  pages = dirs.reduce(function (result, folder) {
+    var page = getPage(dir + folder + '/index.hbs', folder);
+    if(!data.category) {
+      result.push(page);
+    } else if(page.element.frontmatter.categories && page.element.frontmatter.categories.indexOf(data.category) >= 0) {
+      result.push(page);
+    }
+    return result;
+  }, []).sort(function (a,b) {
     if (typeof a.order === 'number') {
       return a.order - b.order;
     } else if (typeof a.order === 'string') {
@@ -65,5 +76,6 @@ module.exports.pages = function (data, options) {
   }).map(function (page) {
     return page.element;
   });
+
   return options.fn({ data: pages });
 };

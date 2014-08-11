@@ -2,9 +2,24 @@
 subtitle: Rådgivning
 icon: ion-ios7-lightbulb-outline
 description: Vi agerar rådgivare i den takt och omfattning som projekten behöver. Vi erbjuder en förstudie, en Teknisk Ledare som driver projektet och vi kan ta fram ett proof-of-koncept.
-layout: case.hbs
-partials:
-  -
-    type: text
-    mdtext: text
+layout: default.hbs
+text: 
+  type: text
+  mdtext: text
 ---
+{{> text text}}
+<div class="cases-wrap">
+  {{#pages category=subtitle}}
+    <div class="grid-full">
+      Lite grejer vi gjort
+      <ul>
+        {{#each data}}
+          <li>  
+            <a href="/case/{{url}}">{{title}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/pages}}
+</div>
+

@@ -2,12 +2,12 @@
     divide
   {{/if}}">
   <div class="grid-full">
-    <form action="">
+    <form id="form-contact" action="{{url}}" method="{{method}}">
       <h3>Säg hej!</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eos beatae deserunt, repudiandae voluptas dolorem odit, illo nesciunt quis adipisci deleniti ullam tempore minima eius tempora temporibus iure expedita labore?</p>
-      <input type="text" class="name" placeholder="Namn">
-      <input type="text" placeholder="E-mail">
-      <input type="text" class="message" placeholder="Meddelande">
+      {{#if content}} <p>{{content}}</p> {{/if}}
+      <input type="text" name="name" class="name" placeholder="Namn">
+      <input type="email" name="email" placeholder="E-mail" required="required">
+      <textarea required="required" name="text" placeholder="Meddelande" rows="4"></textarea>
       <div class="submit">
         <i style="animation-delay: 0.5s; animation-duration: 2s;" class="ion-ios7-email-outline animated bounce-in animate" data-delay="0.5s" data-duration="2s"></i>
         <input type="submit" value="Skicka meddelande">

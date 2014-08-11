@@ -9,10 +9,14 @@ layout: default.hbs
     <ul class="filters-list">
       {{#categories this}}
         {{#each data}}
-        <li class="{{className this}}">{{this}}</li>
+        <li data-category="{{className @key}}" 
+          {{#unless this.visible}} class="less-used-filter hidden" {{/unless}}>{{@key}}</li>
         {{/each}}
       {{/categories}}
-      <li id="clear-all">
+      <li id="toggle-all" class="filters-options">
+        <i class="ion-more"></i>
+      </li>
+      <li id="clear-all" class="filters-options>
         <i class="ion-close"></i>
       </li>
     </ul>
@@ -22,7 +26,7 @@ layout: default.hbs
 <div class="row flex cases">
   <div class="grid-full">
     <ul class="cases-list">
-      {{#pages '{}'}}
+      {{#pages}}
         {{#each data}}
           {{#unless frontmatter.unpublished }} 
             <li class="{{ frontmatter.categoriesHTMLFriendly }}"

@@ -9,15 +9,29 @@
     padding: @margin 20px;
   }
 
+  .footer-logo {
+    margin-top: 50px;
+    display: block;
+    width: 100%;
+  }
+
   .grid-full {
     width: 970px;
+
 
     @media @mobile {
       width: 100%;
     }
 
+
     > div {
       .box-sizing();
+
+      &.block {
+        box-sizing: border-box;
+        width: 25%;
+        color: white;
+      }
 
       display: inline-block;
       text-align: left;
@@ -29,66 +43,92 @@
         margin: 0 0 20px;
       }
 
-      &.address {
-        width:25%;
-      }
+      // &.address {
+      //   width:25%;
+      // }
 
       &.social {
-        width: 39%;
-        
+        // width: 39%;
+
         li {
           display: inline-block;
           margin-right: 20px;
         }
       }
 
-      &.blog {
-        width: 35%;
+      // &.blog {
+      //   width: 35%;
 
-        li {
-          margin-bottom: 20px;
-        }
+      //   li {
+      //     margin-bottom: 20px;
+      //   }
 
-        p {
-          margin-bottom: 0;
-        }
+      //   p {
+      //     margin-bottom: 0;
+      //   }
 
-        .date {
-          color: rgb(112,123,132);
-          font-style: italic;
-        }
-      }
+      //   .date {
+      //     color: rgb(112,123,132);
+      //     font-style: italic;
+      //   }
+      // }
 
       @media @mobile {
-        &.address,
-        &.social,
-        &.blog {
+        &.block {
           padding: 0;
           text-align: center;
           width: 100%;
+          margin-bottom: 20px;
+        }
+        h4 {
+          line-height: 1.75em;
+          padding: .5em;
+        }
+        .date {
+          display: none;
         }
       }
     }
   }
 
-  li {
-    &.phone {
-      color: @accent;
-      margin-top: 20px;
-    }
+  // li {
+  //   &.phone {
+  //     margin-top: 20px;
+  //   }
 
-    &.mail a {
-      color: @accent;
-    }
-  }
+  //   &.phone,
+  //   &.mail a {
+  //     color: @accent;
+  //   }
+
+  // }
 
   a {
-    color: #fff;
+    // &.facebook { color: @facebook; }
+    // &.twitter { color: @twitter; }
+    // &.instagram { color: rgb(225,214,197); }
 
-    &.facebook { color: @facebook; }
-    &.twitter { color: @twitter; }
-    &.instagram { color: rgb(225,214,197); }
-
-    i { font-size: 4rem; }
+    &,
+    i {
+      color: #fff;
+    }
+    i {
+      font-size: 4rem;
+    }
+  }
+  .calendar {
+    h4, time, p {
+      line-height: 2rem;
+    }
+    h4, time {
+      margin: 0;
+      padding: 0;
+    }
+    time {
+      font-size: 1.2rem;
+    }
+    p {
+      margin-bottom: 20px;
+    }
   }
 }
