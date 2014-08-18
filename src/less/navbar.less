@@ -2,13 +2,10 @@
 
 
 #navbar {
-  .box-shadow(0 0 5px rgba(33,33,33,0.2));
-  .position(top,left,0,0,fixed);
+  .position(top,left,0,0);
   .transition(top, 200ms, ease-in-out);
   .user-select();
 
-  background:@navbar-bg;
-  color:#ccc;
   font-family:@sans-serif;
   font-size:1.5rem;
   padding:10px 0;
@@ -85,7 +82,8 @@
       a {
         .transition(all, 200ms, ease-in-out);
 
-        color: #999;
+        color: #eee;
+        letter-spacing:0.05em;
         position: relative;
         will-change: color;
 

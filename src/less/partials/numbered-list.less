@@ -1,0 +1,24 @@
+.numbered-list {
+  background: #2e2e2e;
+  color:#eee;
+  padding: @margin 0;
+
+  ul {
+    counter-reset: list;
+
+    li {
+      counter-increment: list;
+      margin-bottom:30px;
+
+      &:before {
+        .border-radius(30px);
+
+        border:2px solid #eee;
+        content: counter(list) ".";
+        font-size: 3rem;
+        margin-right: 20px;
+        padding:10px 15px;
+      }
+    }
+  }
+}
