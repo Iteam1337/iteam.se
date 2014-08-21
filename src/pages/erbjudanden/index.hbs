@@ -1,0 +1,19 @@
+---
+subtitle: Erbjudanden
+layout: default.hbs
+order: 2
+---
+
+<div class="row offers">
+  <div class="grid-full">
+    {{#pages route="./src/pages/erbjudanden/" start="" type=""}}
+    	{{#each data}}
+      	<ul>
+          <li>
+            <a href="{{ this.url }}">{{ frontmatter.subtitle }}</a>
+          </li>
+      	</ul>
+      {{/each}}
+    {{/pages}}
+  </div>
+</div>

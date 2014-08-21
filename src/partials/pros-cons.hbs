@@ -1,0 +1,22 @@
+<div class="row {{ type }}">
+  <div class="grid-full">
+    <div class="row flex">
+      <div class="grid-half">
+        <h2>Fördelar</h2>
+        <ul>
+          {{#each pros}}
+            <li>{{ this }}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="grid-half">
+        <h2>Nackdelar</h2>
+        <ul>
+          {{#each cons}}
+            <li>{{ this }}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
