@@ -1,6 +1,7 @@
 'use strict';
 var gulp = require('gulp');
 var less = require('gulp-less');
+var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
 var webserver = require('gulp-webserver');
 var rename = require('gulp-rename');
@@ -71,9 +72,11 @@ gulp.task('copy', function () {
 gulp.task('less', function () {
   gulp.src(config.styles + config.mainStyle)
     .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(less({
       compress: true
     }))
+    .pipe(sourcemaps.write())
     .pipe(rename('iteam.css'))
     .pipe(gulp.dest(config.stylesOut));
 });
@@ -132,7 +135,6 @@ gulp.task('s3', function () {
     .pipe(awspublish.reporter());
 });
 
-
 gulp.task('default', [
   'copy',
   'jshint',
@@ -153,7 +155,6 @@ gulp.task('build', [
   'less',
   'assemble'
 ]);
-
 
 gulp.task('deploy:master', [
   's3'
