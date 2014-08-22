@@ -1,18 +1,106 @@
 .selected-cases {
   background-size: cover;
-  padding: @margin 0;
 
-  ul li {
-    background: #fff;
-    height: 300px;
-    text-align: center;
-    width: 30%;
+  > ul > li {
+    .box-sizing();
 
-    &:not(:last-child) { margin-right:5%; }
+    background-size:auto 100%;
+    background-position:center center;
+    display: inline-block;
+    height: 500px;
+    overflow:hidden;
+    position: relative;
+    vertical-align: top;
+    width: 50%;
+    
+    &:hover {
+      .background {
+        .transform(translateX(-10px));
+      }
+
+      a {
+        background: rgba(0,0,0,0.6);
+
+        article {
+          .transform(translateX(0) translateY(-50%));
+        }
+      }
+    }
+    &:nth-child(odd) { border-right:1px solid #fff; }
+    &:nth-child(n+3) { border-top: 1px solid #fff; }
 
     h3 {
       margin-bottom: 20px;
       padding-bottom: 0;
+    }
+
+    .background {
+      .transition(transform, 300ms, ease-in-out);
+
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height:100%;
+      width:120%;
+    }
+
+    a {
+      .position(top,left,0,0,absolute,true);
+      .transition(background, 300ms, ease-in-out);
+
+      background: rgba(0,0,0,0.7);
+
+      article {
+        @height: 300px;
+
+        .transform(translateX(-10px) translateY(-50%));
+        .transition(transform, 300ms, ease-in-out);
+        .position(top,left,50%,50%);
+        
+        margin-left:-25%;
+        width:50%;
+
+        h3 {
+          color: #ccc;
+          display: block;
+          font-size: 3rem;
+        }
+
+        p {
+          border-top: 1px solid #666;
+          border-bottom: 1px solid #666;
+          color: #ccc;
+          font-size:1.5rem;
+          margin: @margin / 5 0;
+          padding: @margin / 5 0;
+        }
+
+        .icons li {
+          display: inline-block;
+          color: #ccc;
+          font-size: 3rem;
+
+          &:not(:last-child) { margin-right: 20px; }
+        }
+
+        .button {
+          .transition(all, 300ms, ease-in-out);
+
+          background: none;
+          border: 1px solid #ffbd09;
+          border-radius: 4px;
+          display: inline-block;
+          font-size: 2rem;
+          font-weight: 100;
+          margin-top: 20px;
+          padding: 5px 20px;
+
+          &:hover {
+            background: @accent;
+            color: #000;
+          }
+        }
+      }
     }
   }
 }

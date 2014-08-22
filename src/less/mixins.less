@@ -19,3 +19,13 @@
   .prefix('animation-delay', @delay);
   .prefix('animation-timing-function', @timing)
 }
+
+.bullets() {
+  .border-radius(100%);
+  .scale(0.5);
+  .size(12px);
+  .transition(all, 300ms, ease-in-out);
+
+  background: @accent;
+  display: inline-block;
+}

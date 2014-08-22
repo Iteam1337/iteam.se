@@ -1,4 +1,8 @@
-<div class="row {{ type }}">
+<div class="row {{ type }}" style="
+  {{#if background}}
+    background: {{ background }};
+  {{/if}}
+">
   <div class="grid-full">
     <h2>{{ title }}</h2>
     <p>{{ text }}</p>

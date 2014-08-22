@@ -13,7 +13,7 @@ body {
   background:@bg;
   color:@color;
   font-family:@sans-serif;
-  font-size:2rem;
+  font-size:1.5rem;
   font-weight:400;
   line-height:1.75em;
   margin:0;
@@ -26,8 +26,9 @@ a {
 
 p {
   font-family:@serif;
-  font-size:2rem;
+  font-size:1.5rem;
   font-weight: 500;
+  letter-spacing: 0.025em;
   line-height: 2;
   margin:@margin / 2 0 @margin;
 
@@ -150,4 +151,47 @@ img {
 
 .hidden {
   display: none;
+}
+
+.side-menu {
+  .center(y, right, 20px);
+
+  position: fixed;
+
+  li {
+    line-height: 1.5;
+
+    a {
+      padding-right:30px;
+      position: relative;
+
+      span {
+        .opacity(0);
+        .transition(opacity, 300ms, ease-in-out);
+
+        margin-right:30px;
+      }
+
+      &:hover {
+        span {
+          .opacity(100);
+        }
+      }
+
+      i {
+        .bullets();
+        .position(top,right,0,0);
+      }
+    }
+
+    &:hover, &.active {
+      i {
+        .scale(1);
+
+        background:none;
+        border:1px solid @accent;
+        right:-1px;
+      }
+    }
+  }
 }
