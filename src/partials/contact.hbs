@@ -1,10 +1,10 @@
-<div class="row {{ type }} {{#if divide}}
+<div class="row {{ type }} {{ name }} {{#if divide}}
     divide
   {{/if}}">
   <div class="grid-full">
     <form id="form-contact" action="{{url}}" method="{{method}}">
-      <h3>Säg hej!</h3>
-      {{#if content}} <p>{{content}}</p> {{/if}}
+      <h3>{{ title }}</h3>
+      {{#if content}} <p>{{{content}}}</p> {{/if}}
       <input type="text" name="name" class="name" placeholder="Namn">
       <input type="email" name="email" placeholder="E-mail" required="required">
       <textarea required="required" name="text" placeholder="Meddelande" rows="4"></textarea>

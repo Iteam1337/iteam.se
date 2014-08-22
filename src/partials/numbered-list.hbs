@@ -1,10 +1,18 @@
-<div class="row {{ type }}">
-  <div class="grid-full">
-    <h2>{{ title }}</h2>
-    <ul>
-      {{#each bullets}}
-        <li>{{ this }}</li>
-      {{/each}}
-    </ul>
+<div class="row {{ type }}" style="
+  {{#if background-image}}
+    background-image: url({{ background-image }});
+  {{/if}}
+">
+  <div class="full">
+    <div class="grid-full">
+      <h2>{{ title }}</h2>
+      <ul>
+        {{#each bullets}}
+          <li>{{ this }}</li>
+        {{/each}}
+      </ul>
+
+      <img class="side-image" src="{{ side-image }}" alt="">
+    </div>
   </div>
 </div>
