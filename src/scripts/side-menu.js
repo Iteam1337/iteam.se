@@ -102,7 +102,7 @@ window.onscroll = function () {
   var html = document.documentElement;
 
   var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-  console.log(windowY + html.clientHeight + 400, height);
+  
   if ((windowY + html.clientHeight + 400) <= height) {
     positions.forEach(function (position, i) {
       if (windowY >= position) {
