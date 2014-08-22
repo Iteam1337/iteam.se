@@ -1,3 +1,13 @@
 .pros-cons {
   padding:@margin 0;
+
+  ul li {
+    &:before {
+      .bullets();
+
+      content:"";
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
 }

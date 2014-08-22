@@ -42,7 +42,9 @@ gulp.task('jshint', function () {
 });
 
 gulp.task('scripts', function() {
-  gulp.src('./src/scripts/**/*.js')
+  gulp.src([
+      './src/scripts/**/*.js'
+    ])
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./out/scripts'));
