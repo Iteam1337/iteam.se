@@ -8,16 +8,17 @@
     'data-{type}-hide-on-empty'
   ];
 
-  ['twitter','instagram','github','blog'].forEach(function (type) {
+  ['twitter','instagram','github','blog','meetup'].forEach(function (type) {
     function getAttributeString(pos) {
       return attr[pos].replace('{type}', type);
     }
     function getAttributeValue(string) {
       return container.getAttribute(string);
-    }
+    } 
 
     var query = getAttributeString(0);
     var count = getAttributeString(1);
+
     var resolution = getAttributeString(2);
 
     var container = document.querySelectorAll('[' + query + ']');
@@ -42,6 +43,9 @@
       break;
     case 'github':
       new Github(count).init(container, query, clearOnEmpty);
+      break;
+    case 'meetup':
+      new Meetup(count).init(container, query, clearOnEmpty);
       break;
     }
   });

@@ -1,3 +1,13 @@
 <div class="row {{ type }}">
-	
+  <ul>
+    {{#each contributions}}
+      <li>
+        <a href="{{ url }}">
+          <img src="{{ logo }}" alt="">
+        </a>
+        <h4>{{ title }}</h4>
+        <p>{{ text }}</p>
+      </li> 
+    {{/each}}
+  </ul>
 </div>

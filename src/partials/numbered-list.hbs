@@ -11,8 +11,10 @@
           <li>{{ this }}</li>
         {{/each}}
       </ul>
-
-      <img class="side-image" src="{{ side-image }}" alt="">
+      
+      {{#each side-images}}
+        <img class="side-image image-{{@index}}" src="{{ this }}" alt="">
+      {{/each}}
     </div>
   </div>
 </div>

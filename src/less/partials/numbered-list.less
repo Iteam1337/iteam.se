@@ -11,6 +11,10 @@
 
     .side-image {
       .transform(translateY(120px));
+
+      &.image-1 {
+        .transform(translateY(210px));
+      }
     }
 
     h2,ul {
@@ -36,7 +40,7 @@
   }
 
   ul {
-    width: 45%;
+    width: 40%;
 
     li {
       @indent: 22px;
@@ -61,5 +65,14 @@
     .transition(transform, 300ms, ease-in-out);
 
     width:600px;
+
+    &:hover {
+      z-index:20;
+    }
+
+    &.image-1 {
+      right: 40px;
+      .transform(translateY(240px));
+    }
   }
 }
