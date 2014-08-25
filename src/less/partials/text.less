@@ -17,14 +17,18 @@
   h3 {
     color: inherit;
     display: block;
-    margin: 0;
+    margin-top: @margin / 2;
     padding:0;
     text-align: center;
+
+    &:first-of-type {
+      margin-top:0;
+    }
   }
 
   p {
     font-size:2rem;
-    margin: (@margin / 5) * 2 auto;
+    margin: (@margin / 5) * 2 auto 0;
   }
 
   img {
