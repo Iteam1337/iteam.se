@@ -16,7 +16,20 @@
   {{/if}}
   "
 
-  style="{{#if background-color}} background:{{ background-color }}; {{/if}} {{#if color}} color: {{ color }}; {{/if}} {{#if background-image}} background-image: {{ background-image }}; {{/if}}">
+  style="
+  {{#if background-color}}
+    background:{{ background-color }}; 
+  {{/if}}
+  {{#if color}}
+    color: {{ color }};
+  {{/if}}
+  {{#if background-image}}
+    background-image: {{ background-image }};
+  {{/if}}
+  {{#if padding-top}}
+    padding-top: {{ padding-top }};
+  {{/if}}
+  ">
   <div class="grid-full">
   {{#if image}}
     <img class="{{ image-position }}" src="{{ image.src }}" alt="{{ image.alt }}">

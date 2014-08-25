@@ -1,5 +1,21 @@
 <div class="row {{ type }} flex">
-  <div class="information">
-    <h3>Kontakta Dennis</h3>
-  </div>
+  {{#employee name=name}}
+    <div class="gravatar">
+      <img src="{{ employee.image }}" alt="{{ employee.name }}">
+    </div>
+    <div class="information">
+      <h2>Kontakta {{ employee.firstName }}</h2>
+      <p>{{ ../text }}</p>
+      <div class="contact flex">
+        <div class="twitter">
+          <span class="ion-social-twitter"></span>
+          <a href="http://twitter.com/{{ employee.social-media.twitter }}">@{{ employee.social-media.twitter }}</a>
+        </div>
+        <div class="button">Tipsa</div>
+        <div class="button">
+          <div class="ion-email"></div>
+        </div>
+      </div>
+    </div>
+  {{/employee}}
 </div>

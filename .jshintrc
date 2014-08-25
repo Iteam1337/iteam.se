@@ -4,7 +4,7 @@
   "eqeqeq": true,
   "expr": true,
   "undef": true,
-  "maxcomplexity": 8,
+  "maxcomplexity": 10,
   "node": true,
   "esnext": true,
   "laxcomma":true,

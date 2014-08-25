@@ -1,4 +1,7 @@
-<div class="row flex {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
+<div class="row flex {{ type }} {{ background }}" style="
+  {{#if background-color}}
+    background: {{ background-color }}
+  {{/if}}" >
   {{#each images }}
     <img src="{{ this }}" alt="">
   {{/each}}

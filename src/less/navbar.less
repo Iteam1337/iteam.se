@@ -9,7 +9,7 @@ body.dark #navbar .nav a {
   .transition(top, 200ms, ease-in-out);
   .user-select();
 
-  font-family:@sans-serif;
+  font-family:@body-font;
   font-size:1.5rem;
   padding:10px 0;
   right:0;
@@ -33,7 +33,6 @@ body.dark #navbar .nav a {
       display: block;
     }
   }
-
 
   .navicon {
     .position(top,right, @margin / 4, @margin / 2);
@@ -74,6 +73,7 @@ body.dark #navbar .nav a {
     list-style:none;
     margin:0 auto;
     max-width:@max-width;
+    padding:7px 0;
 
     li {
       margin-right:@margin / 2;

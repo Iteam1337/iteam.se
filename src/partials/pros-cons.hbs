@@ -1,4 +1,8 @@
-<div class="row {{ type }}">
+<div class="row {{ type }}" style="
+  {{#if padding-top}}
+    padding-top: {{ padding-top }}
+  {{/if}}
+">
   <div class="grid-full">
     <div class="row flex">
       <div class="grid-half">

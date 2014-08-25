@@ -97,26 +97,28 @@ if (bullets) {
 }
 
 window.onscroll = function () {
-  var windowY = window.scrollY;
-  var body = document.body;
-  var html = document.documentElement;
+  if (document.querySelector('.side-menu')) {
+    var windowY = window.scrollY;
+    var body = document.body;
+    var html = document.documentElement;
 
-  var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-  
-  if ((windowY + html.clientHeight + 400) <= height) {
-    positions.forEach(function (position, i) {
-      if (windowY >= position) {
-        document.querySelector('.side-menu .active').classList.remove('active');
-        document.querySelector('.side-menu').children[i].classList.add('active');
+    var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+    
+    if ((windowY + html.clientHeight + 400) <= height) {
+      positions.forEach(function (position, i) {
+        if (windowY >= position) {
+          document.querySelector('.side-menu .active').classList.remove('active');
+          document.querySelector('.side-menu').children[i].classList.add('active');
+        }
+      });
+    } else {
+      var active = document.querySelector('.side-menu .active');
+
+      if (active) {
+        active.classList.remove('active');
       }
-    });
-  } else {
-    var active = document.querySelector('.side-menu .active');
 
-    if (active) {
-      active.classList.remove('active');
+      document.querySelectorAll('.side-menu')[0].children[positions.length - 1].classList.add('active');
     }
-
-    document.querySelectorAll('.side-menu')[0].children[positions.length - 1].classList.add('active');
   }
 };
