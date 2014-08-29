@@ -1,51 +1,16 @@
 ---
 subtitle: Case
 order: 1
-layout: default.hbs
+layout: case.hbs
+partials:
+  -
+    type: text
+    content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam nihil iure distinctio nobis excepturi itaque ipsam quod ipsum vitae, impedit nostrum, dolor minima laudantium corporis similique rem reiciendis libero at.
+  -
+    type: selected-cases
+    cases:
+      - Vimla
+      - TRR
+      - radical-fm
+      - beckers
 ---
-
-<div class="row">
-  <div class="grid-full">
-    <ul class="filters-list">
-      {{#categories this}}
-        {{#each data}}
-        <li data-category="{{className @key}}" 
-          {{#unless this.visible}} class="less-used-filter hidden" {{/unless}}>{{@key}}</li>
-        {{/each}}
-      {{/categories}}
-      <li id="toggle-all" class="filters-options">
-        <i class="ion-more"></i>
-      </li>
-      <li id="clear-all" class="filters-options>
-        <i class="ion-close"></i>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<div class="row flex cases">
-  <div class="grid-full">
-    <ul class="cases-list">
-      {{#pages}}
-        {{#each data}}
-          {{#unless frontmatter.unpublished }} 
-            <li class="{{ frontmatter.categoriesHTMLFriendly }}"
-            style="
-              {{#if frontmatter.background}}
-                background: {{ frontmatter.background }};
-              {{/if}}
-              {{#if frontmatter.color}}
-                color: {{ frontmatter.color }};
-              {{/if}}
-            ">
-              <a href="{{ url }}">
-                {{ title }}
-              </a>
-            </li>
-          {{/unless}}        
-        {{/each}}
-      {{/pages}}
-    </ul>
-
-  </div>
-</div>
