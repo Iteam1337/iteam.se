@@ -61,7 +61,7 @@ gulp.task('test', function () {
     .pipe(watch({ emit: 'all', name: 'Tests' }, function (files) {
       files
         .pipe(plumber())
-        .pipe(mocha({ reporter: 'Dot' }))
+        .pipe(mocha())
         .on('error', function (err) {
           if (!/tests? failed/.test(err.stack)) {
             console.log(err.stack);
