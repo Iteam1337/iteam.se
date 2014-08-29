@@ -16,7 +16,6 @@ var awspublish = require('gulp-awspublish');
 var foreach = require('gulp-foreach');
 var path = require('path');
 var debug = require('gulp-debug');
-var watch = require('gulp-watch');
 
 function formatPagePath(pagePath) {
   return pagePath
@@ -33,41 +32,28 @@ var config = {
   stylesOut: 'out/css/',
   allStyle: '*.less',
   mainStyle: 'main.less',
-  pages: [
-    'src/layouts/*.hbs',
-    'src/pages/**/*.hbs',
-    'src/partials/**/*.hbs',
-    'src/**/*.md'
-  ]
+  pages: './src/pages/**/*.hbs'
 };
 
 gulp.task('jshint', function () {
-  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'], { read: false })
+  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('scripts', function() {
-  gulp.src('./src/scripts/**/*.js', { read: false })
-    .pipe(watch({ name: 'Scripts' }))
-    .pipe(plumber())
+  gulp.src([
+      './src/scripts/**/*.js'
+    ])
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./out/scripts'));
 });
 
 gulp.task('test', function () {
-  gulp.src('src/test/**/*.js', { read: false })
-    .pipe(watch({ emit: 'all', name: 'Tests' }, function (files) {
-      files
-        .pipe(plumber())
-        .pipe(mocha())
-        .on('error', function (err) {
-          if (!/tests? failed/.test(err.stack)) {
-            console.log(err.stack);
-          }
-        });
-    }));
+  gulp.src(['src/test/**/*.js'], { read: false })
+    .pipe(plumber())
+    .pipe(mocha());
 });
 
 gulp.task('connect', function () {
@@ -106,9 +92,7 @@ var options = {
 };
 
 gulp.task('assemble', function () {
-  gulp.src(config.pages, { read: false })
-    .pipe(watch({ name: 'Assemble', emitOnGlob: true}))
-    .pipe(plumber())
+  gulp.src(config.pages)
     .pipe(foreach(function (stream, file) {
       return stream
         .pipe(assemble(options))
@@ -121,8 +105,11 @@ gulp.task('assemble', function () {
 });
 
 gulp.task('watch', function () {
+  gulp.watch(['src/layouts/**/*', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
   gulp.watch([config.styles + config.allStyle], ['less']);
   gulp.watch('src/content/**/*', ['copy']);
+  gulp.watch(['src/helpers/**/*.js','src/test/**/*.js'], ['jshint', 'test']);
+  gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts']);
 });
 
 gulp.on('err', function(e) {
