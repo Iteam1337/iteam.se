@@ -1,9 +1,9 @@
-.flex() {
+.flex(@wrap: wrap) {
   display:-webkit-flex;
   display:-moz-flex;
   display:flex;
 
-  .prefix('flex-wrap', wrap);
+  .prefix('flex-wrap', @wrap);
 
   @media @mobile {
     .prefix('flex-direction', 'column');

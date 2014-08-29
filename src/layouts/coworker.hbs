@@ -1,8 +1,8 @@
 ---
 layout: default.hbs
 
-instagram-count: 2
-instagram-resolution: low
+instagram-count: 4
+instagram-resolution: high
 github-count: 5
 blog-count: 5
 ---
@@ -28,27 +28,22 @@ blog-count: 5
       </div>
     </div>
   </div>
-{{!-- 
-  <div class="row text center">
-    <div class="grid-full">
-      <div class="row flex">
-        {{#if social-media.instagram}}
-        <div class="grid-half align-top instagram" data-instagram-hide-on-empty="true">
-          <div class="row social-media">
-            <div class="grid-full">
-              <i class="ion-social-instagram"></i>
-              {{> instagram this}}
-            </div>
-          </div>
-        </div>
-        {{/if}}
-        {{#if social-media.github}}
-          {{> github this}}
-        {{/if}}
-        {{#if social-media.blog}}
-          {{> blog this}}
-        {{/if}}
-      </div>
+
+  {{#if social-media.instagram}}
+    <div class="instagram">
+      {{> instagram this}}
     </div>
-  </div> --}}
+  {{/if}}
+
+  {{#if social-media.blog}}
+    <div class="blog">
+      {{> blog this}}
+    </div>
+  {{/if}}
+
+  {{#if social-media.github}}
+    <div class="row github">
+      {{> github this}}
+    </div>
+  {{/if}}
 </div>

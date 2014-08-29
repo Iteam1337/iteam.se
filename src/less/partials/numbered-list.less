@@ -27,6 +27,10 @@
 
     background: rgba(0,0,0,0.7);
     padding: @margin 0;
+
+    @media @mobile {
+      padding: @margin / 2 @margin / 5;
+    }
   }
 
   h2 {
@@ -37,10 +41,20 @@
   h2,ul {
     .transform(translateX(-20px));
     .transition(transform, 300ms, ease-in-out);
+
+    @media @mobile {
+      .transform(translateX(0));
+    }
   }
 
   ul {
+    .box-sizing();
+
     width: 40%;
+
+    @media @mobile {
+      width:100%;
+    }
 
     li {
       @indent: 22px;
@@ -66,8 +80,10 @@
 
     width:600px;
 
-    &:hover {
-      z-index:20;
+    &:hover { z-index:20; }
+
+    @media @mobile {
+      display:none;
     }
 
     &.image-1 {

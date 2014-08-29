@@ -1,13 +1,67 @@
 .coworker {  
-  .social-media {
-    margin: 30px 0 -20px;
-  }
-
   .instagram {
+    list-style: 0;
     padding: 0;
     width: 100%;
-    i {
-      color: #7F8C8D;
+  }
+
+  .github {
+    @icon-width: 15%;
+    @href-width: 20%;
+
+    background:#4183c4;
+    color:#fff;
+    padding: @margin 0;
+
+    @media @mobile {
+      padding: @margin / 2 @margin / 5;
+    }
+
+    .grid-full {
+      .flex();
+
+      i {
+        font-size:10rem;
+        width:@icon-width;
+
+        @media @mobile {
+          text-align: center;
+          margin-bottom: @margin / 5;
+          width:100%;
+        }
+      }
+
+      ul {
+        width:100% - @icon-width;
+
+        @media @mobile {
+          width: 100%;
+        }
+
+        li {
+          .flex();
+
+          &:not(:last-child) { margin-bottom: 10px; }
+
+          a {
+            .text-overflow();
+
+            width:@href-width;
+
+            @media @mobile {
+              width:100%;
+            }
+          }
+
+          p {
+            width:100% - @href-width;
+            
+            @media @mobile {
+              width:100%;
+            }        
+          }
+        }
+      }
     }
   }
 
@@ -15,17 +69,17 @@
   .instagram-content {
     justify-content: center;
   }
-  .social-media ul {
-    padding: 0 20px;
-    border-left: 6px solid #FFBD09;
-    li {
-      text-align: left;
-    }
-  }
 
   .boxes {
-    width: 100%;
     display: block;
+    padding: @margin/2 0;
+    width: 100%;
+    
+    h3 {
+      margin:0 0 10px;
+      padding:0;
+    }
+
     &,
     & * {
       box-sizing: border-box;
@@ -38,6 +92,7 @@
       clear: both;
     }
   }
+
   .box-position {
     padding: 10px;
     word-break: break-word;
