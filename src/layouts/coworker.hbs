@@ -6,28 +6,29 @@ instagram-resolution: low
 github-count: 5
 blog-count: 5
 ---
+
 <div class="coworker">
   <div class="row text center light">
     <div class="grid-full align-top">
-      <h1>{{name}}</h1>
-      <div><strong>{{email}}</strong></div>
-      <div>{{job}}</div>
+      <h1>{{ name }}</h1>
+      <div><strong>{{ email }}</strong></div>
+      <div>{{ job }}</div>
     </div>
-    {{> social-media social-media}}
+    {{!-- {{> social-media social-media}} --}}
   </div>
   <div class="row boxes">
     <div class="grid-full">
       <div class="row boxes">
         {{#each texts.about}}
         <div class="box-position {{position}}">
-          <h2>{{title}}</h2>
+          <h3>{{title}}</h3>
           <p>{{{content}}}</p>
         </div>
         {{/each}}
       </div>
     </div>
   </div>
-
+{{!-- 
   <div class="row text center">
     <div class="grid-full">
       <div class="row flex">
@@ -49,11 +50,5 @@ blog-count: 5
         {{/if}}
       </div>
     </div>
-  </div>
-
-  {{!-- TODO: Design --}}
-  {{!--   {{#unless contact}}
-    {{> contact}}
-  {{/unless}} --}}
-
+  </div> --}}
 </div>
