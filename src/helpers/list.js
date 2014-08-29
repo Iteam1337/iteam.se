@@ -1,4 +1,5 @@
 module.exports.list = function (items) {
+  items = items || [];
   var split = Math.ceil(items.length / 2);
 
   function makelistItems (column) {

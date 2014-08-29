@@ -29,6 +29,18 @@
     &:nth-child(odd) { border-right:1px solid #fff; }
     &:nth-child(n+3) { border-top: 1px solid #fff; }
 
+    @media @mobile {
+      width: 100%;
+
+      &:nth-child(odd) { border-right:none; }
+
+      border-top: 1px solid #fff;
+
+      &:hover {
+        .background { .transform(translateX(0)); }
+      }
+    }
+
     h3 {
       margin-bottom: 20px;
       padding-bottom: 0;
@@ -52,13 +64,23 @@
 
       article {
         @height: 300px;
-
+        
+        .box-sizing();
         .transform(translateX(-10px) translateY(-50%));
         .transition(transform, 300ms, ease-in-out);
         .position(top,left,50%,50%);
         
         margin-left:-25%;
         width:50%;
+
+        @media @mobile {
+          .transform(translateX(0) translateY(-50%));
+          
+          left:0;
+          margin-left:0;
+          padding:0 @margin / 5;
+          width:100%;
+        }
 
         h3 {
           color: #ccc;

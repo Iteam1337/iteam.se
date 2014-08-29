@@ -1,5 +1,9 @@
 .selected-products {
   padding: @margin 0;
+
+  @media @mobile {
+    padding: @margin / 2 @margin / 5;
+  }
   
   ul li {
     background: #fff;
@@ -7,6 +11,15 @@
     width: 30%;
 
     &:not(:last-child) { margin-right:5%; }
+
+    @media @mobile {
+      &:not(:last-child) {
+        margin-bottom: @margin / 5;
+        margin-right:0;
+      }
+
+      width:100%;
+    }
 
     h3 {
       margin-bottom: 20px;

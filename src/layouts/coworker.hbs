@@ -1,26 +1,27 @@
 ---
 layout: default.hbs
 
-instagram-count: 2
-instagram-resolution: low
+instagram-count: 4
+instagram-resolution: high
 github-count: 5
 blog-count: 5
 ---
+
 <div class="coworker">
   <div class="row text center light">
     <div class="grid-full align-top">
-      <h1>{{name}}</h1>
-      <div><strong>{{email}}</strong></div>
-      <div>{{job}}</div>
+      <h1>{{ name }}</h1>
+      <div><strong>{{ email }}</strong></div>
+      <div>{{ job }}</div>
     </div>
-    {{> social-media social-media}}
+    {{!-- {{> social-media social-media}} --}}
   </div>
   <div class="row boxes">
     <div class="grid-full">
       <div class="row boxes">
         {{#each texts.about}}
         <div class="box-position {{position}}">
-          <h2>{{title}}</h2>
+          <h3>{{title}}</h3>
           <p>{{{content}}}</p>
         </div>
         {{/each}}
@@ -28,32 +29,21 @@ blog-count: 5
     </div>
   </div>
 
-  <div class="row text center">
-    <div class="grid-full">
-      <div class="row flex">
-        {{#if social-media.instagram}}
-        <div class="grid-half align-top instagram" data-instagram-hide-on-empty="true">
-          <div class="row social-media">
-            <div class="grid-full">
-              <i class="ion-social-instagram"></i>
-              {{> instagram this}}
-            </div>
-          </div>
-        </div>
-        {{/if}}
-        {{#if social-media.github}}
-          {{> github this}}
-        {{/if}}
-        {{#if social-media.blog}}
-          {{> blog this}}
-        {{/if}}
-      </div>
+  {{#if social-media.instagram}}
+    <div class="instagram">
+      {{> instagram this}}
     </div>
-  </div>
+  {{/if}}
 
-  {{!-- TODO: Design --}}
-  {{!--   {{#unless contact}}
-    {{> contact}}
-  {{/unless}} --}}
+  {{#if social-media.blog}}
+    <div class="blog">
+      {{> blog this}}
+    </div>
+  {{/if}}
 
+  {{#if social-media.github}}
+    <div class="row github">
+      {{> github this}}
+    </div>
+  {{/if}}
 </div>
