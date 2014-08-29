@@ -3,7 +3,7 @@ var expect     = chai.expect;
 var sinon      = require('sinon');
 var proxyquire = require('proxyquire');
 
-describe.only('#selectedCases', function () {
+describe('#selectedCases', function () {
   var options;
   var helper;
   var image;

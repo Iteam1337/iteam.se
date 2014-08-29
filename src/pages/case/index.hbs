@@ -14,3 +14,24 @@ partials:
       - radical-fm
       - beckers
 ---
+
+
+
+<div class="row">
+  <div class="grid-full">
+    <ul class="filters-list">
+      {{#categories this}}
+        {{#each data}}
+        <li data-category="{{className @key}}" 
+          {{#unless this.visible}} class="less-used-filter hidden" {{/unless}}>{{@key}}</li>
+        {{/each}}
+      {{/categories}}
+      <li id="toggle-all" class="filters-options">
+        <i class="ion-more"></i>
+      </li>
+      <li id="clear-all" class="filters-options">
+        <i class="ion-close"></i>
+      </li>
+    </ul>
+  </div>
+</div>
