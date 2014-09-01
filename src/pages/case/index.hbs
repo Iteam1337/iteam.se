@@ -7,6 +7,16 @@ partials:
     type: text
     content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam nihil iure distinctio nobis excepturi itaque ipsam quod ipsum vitae, impedit nostrum, dolor minima laudantium corporis similique rem reiciendis libero at.
   -
+    type: case-filter
+    categories:
+      technology:
+        -
+          name: systemutveckling
+          icon: ion-code
+        -
+          name: github
+          icon: ion-network
+  -
     type: selected-cases
     cases:
       - Vimla
@@ -14,22 +24,3 @@ partials:
       - radical-fm
       - beckers
 ---
-
-<div class="row">
-  <div class="grid-full">
-    <ul class="filters-list">
-      {{#categories this}}
-        {{#each data}}
-        <li data-category="{{className @key}}" 
-          {{#unless this.visible}} class="less-used-filter hidden" {{/unless}}>{{@key}}</li>
-        {{/each}}
-      {{/categories}}
-      <li id="toggle-all" class="filters-options">
-        <i class="ion-more"></i>
-      </li>
-      <li id="clear-all" class="filters-options">
-        <i class="ion-close"></i>
-      </li>
-    </ul>
-  </div>
-</div>

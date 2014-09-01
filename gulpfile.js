@@ -91,7 +91,7 @@ var options = {
 };
 
 gulp.task('assemble', function () {
-  gulp.src(config.pages, { read: false })
+  gulp.src(config.pages)
     .pipe(foreach(function (stream, file) {
       return stream
         .pipe(assemble(options))
