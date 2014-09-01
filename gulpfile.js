@@ -16,6 +16,7 @@ var awspublish = require('gulp-awspublish');
 var foreach = require('gulp-foreach');
 var path = require('path');
 var debug = require('gulp-debug');
+var watch = require('gulp-watch');
 
 function formatPagePath(pagePath) {
   return pagePath
@@ -36,22 +37,20 @@ var config = {
 };
 
 gulp.task('jshint', function () {
-  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'])
+  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'], { read: false })
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('scripts', function() {
-  gulp.src([
-      './src/scripts/**/*.js'
-    ])
+  gulp.src('./src/scripts/**/*.js', { read: false })
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./out/scripts'));
 });
 
 gulp.task('test', function () {
-  gulp.src(['src/test/**/*.js'], { read: false })
+  gulp.src('src/test/**/*.js', { read: false })
     .pipe(plumber())
     .pipe(mocha());
 });
@@ -72,12 +71,12 @@ gulp.task('copy', function () {
 });
 
 gulp.task('less', function () {
-  gulp.src(config.styles + config.mainStyle)
+  gulp.src(config.styles + config.mainStyle, { read: false })
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(less({
-      compress: true
-    }))
+      .pipe(less({
+        compress: true
+      }))
     .pipe(sourcemaps.write())
     .pipe(rename('iteam.css'))
     .pipe(gulp.dest(config.stylesOut));
@@ -92,7 +91,7 @@ var options = {
 };
 
 gulp.task('assemble', function () {
-  gulp.src(config.pages)
+  gulp.src(config.pages, { read: false })
     .pipe(foreach(function (stream, file) {
       return stream
         .pipe(assemble(options))
