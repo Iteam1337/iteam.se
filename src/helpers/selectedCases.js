@@ -14,10 +14,12 @@ module.exports.selectedCases = function (options) {
 
   	frontmatter.url = caseName.toLowerCase();
     frontmatter.classes = "";
-    
-    frontmatter.categories.forEach(function (category) {
-      frontmatter.classes += ' ' + slug.slugify(category);
-    });
+
+    if( frontmatter.categories ) {
+      frontmatter.categories.forEach(function (category) {
+        frontmatter.classes += ' ' + slug.slugify(category);
+      });
+    }
 
   	selectedCases.push(frontmatter);
   });
