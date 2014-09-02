@@ -1,7 +1,6 @@
 'use strict';
 var gulp = require('gulp');
 var less = require('gulp-less');
-var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
 var webserver = require('gulp-webserver');
 var rename = require('gulp-rename');
@@ -16,7 +15,6 @@ var awspublish = require('gulp-awspublish');
 var foreach = require('gulp-foreach');
 var path = require('path');
 var debug = require('gulp-debug');
-var watch = require('gulp-watch');
 
 function formatPagePath(pagePath) {
   return pagePath
@@ -37,20 +35,20 @@ var config = {
 };
 
 gulp.task('jshint', function () {
-  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'], { read: false })
+  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('scripts', function() {
-  gulp.src('./src/scripts/**/*.js', { read: false })
+  gulp.src('./src/scripts/**/*.js')
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./out/scripts'));
 });
 
 gulp.task('test', function () {
-  gulp.src('src/test/**/*.js', { read: false })
+  gulp.src(['src/test/**/*.js'], { read: false })
     .pipe(plumber())
     .pipe(mocha());
 });
@@ -71,13 +69,11 @@ gulp.task('copy', function () {
 });
 
 gulp.task('less', function () {
-  gulp.src(config.styles + config.mainStyle, { read: false })
+  gulp.src(config.styles + config.mainStyle)
     .pipe(plumber())
-    .pipe(sourcemaps.init())
-      .pipe(less({
-        compress: true
-      }))
-    .pipe(sourcemaps.write())
+    .pipe(less({
+      compress: true
+    }))
     .pipe(rename('iteam.css'))
     .pipe(gulp.dest(config.stylesOut));
 });
@@ -136,6 +132,7 @@ gulp.task('s3', function () {
     .pipe(awspublish.reporter());
 });
 
+
 gulp.task('default', [
   'copy',
   'jshint',
@@ -156,6 +153,7 @@ gulp.task('build', [
   'less',
   'assemble'
 ]);
+
 
 gulp.task('deploy:master', [
   's3'

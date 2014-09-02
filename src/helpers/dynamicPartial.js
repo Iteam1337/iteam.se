@@ -2,15 +2,14 @@
 
 var Handlebars = require('handlebars');
 
-module.exports.dynamicPartial = function (data, options) {
-  if(!data) {
-    return 'No data provided';
-  }
-
+module.exports.dynamicPartial = function (options) {
+  var data = options.hash.partial || {};
   var html = Handlebars.partials[data.type];
+
   if(!html) {
     return 'No partial exists';
   }
+
   var template = Handlebars.compile(html);
   return template(data, options);
 };

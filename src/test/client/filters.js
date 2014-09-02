@@ -36,7 +36,7 @@ describe('filters', function () {
       filters = proxyquire(process.cwd() + '/src/scripts/categories', {});
   });
  
-  describe('#toggleFilters', function () {
+  xdescribe('#toggleFilters', function () {
     it('should show all fiters if they are hidden', function () {
       var clickEvent = window.document.createEvent('click');
       clickEvent.initEvent('click', true, true);

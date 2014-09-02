@@ -2,9 +2,6 @@
 
 var cases = document.querySelectorAll('.selected-cases li');
 
-console.log(cases);
-
-
 // var filtersNode = document.querySelectorAll('ul.filters-list li:not(.filters-options)');
 
 // function getActiveFilters() {
