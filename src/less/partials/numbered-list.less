@@ -17,7 +17,7 @@
       }
     }
 
-    h2,ul {
+    h2,ul,p {
       .transform(translateX(0));
     }
   }
@@ -38,7 +38,7 @@
     margin-top:0;
   }
 
-  h2,ul {
+  h2,ul,p {
     .transform(translateX(-20px));
     .transition(transform, 300ms, ease-in-out);
 
@@ -46,14 +46,18 @@
       .transform(translateX(0));
     }
   }
+  
+  // Bullet list
+  @width: 40%;
+  @mobile-width: 100%;
 
   ul {
     .box-sizing();
 
-    width: 40%;
+    width: @width;
 
     @media @mobile {
-      width:100%;
+      width: @mobile-width;
     }
 
     li {
@@ -70,6 +74,15 @@
         display: inline-block;
         margin-right: 10px;
       }
+    }
+  }
+  
+  // Text
+  p {
+    width:@width;
+
+    @media @mobile {
+      width: @mobile-width;
     }
   }
 

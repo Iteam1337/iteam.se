@@ -36,7 +36,8 @@
 
     &.left {
       float: left;
-      margin-right: @margin;
+      margin-bottom: @margin / 5;
+      margin-right: @margin / 2;
     }
 
     &.right {
@@ -53,6 +54,10 @@
   &.one-line {
     padding: @margin / 2 0;
     text-align: center;
+
+    p {
+      margin:0;
+    }
   }
 
   &.parallax {

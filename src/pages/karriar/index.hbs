@@ -1,6 +1,7 @@
 ---
 subtitle: Karriär
 body-class: dark
+no-navigation: true
 order: 4
 layout: partials.hbs
 partials:
@@ -11,24 +12,34 @@ partials:
       src: http://iteam.se/content/images/section-topbilder/isolde.jpg
       alt: Hund framför stol
   -
+    type: numbered-list
+    background-image: "http://www.gratisography.com/pictures/121H.jpg"
+    title: Är du vår nya utvecklare?
+    text: Vi vet att ett kreativt kunskapsföretag inte är bättre än glädjen hos sina medarbetare och därför prioriterar vi att få en stimulerande arbetsmiljö där vi lär oss av varandra, väljer utmanande projekt och där vi aldrig skickar ut konsulter ensamma på för långa uppdrag som konsulter.
+  -
     type: text
+    image-position: left
+    image:
+      src: http://www.iteam.se/content/images/ovrigt/elisabeth.jpeg
+      alt: Elisabeth
     mdtext: lefttext
   -
-    type: instagram1337
-
-instagram:
-  social-media:
-    instagram: iteam1337
-  instagram-count: 3
-  instagram-resolution: low
+    type: text
+    background: light
+    mdtext: righttext
+  -
+    type: text
+    mdtext: bottomtext
+  -
+    type: instagram
+    social-media:
+      instagram: iteam1337
+    instagram-count: 4
+    instagram-resolution: high
 ---
 
 {{!-- 
 ---
-subtitle: Karriär
-body-class: dark
-order: 4
-layout: partials.hbs
 partials:
   -
     type: text
@@ -44,12 +55,6 @@ bottom-text:
   type: text
   mdtext: bottomtext
   background: light
-image:
-  type: image
-  start: true
-  title: Karriär
-  image:
-    src: http://iteam.se/content/images/section-topbilder/isolde.jpg
 
 instagram:
   social-media:

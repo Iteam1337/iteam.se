@@ -6,14 +6,14 @@ order: 2
 
 <div class="row offers">
   <div class="grid-full">
+    <ul>
     {{#pages route="./src/pages/erbjudanden/" start="" type=""}}
     	{{#each data}}
-      	<ul>
           <li>
             <a href="{{ this.url }}">{{ frontmatter.subtitle }}</a>
           </li>
-      	</ul>
       {{/each}}
     {{/pages}}
+    </ul>
   </div>
 </div>

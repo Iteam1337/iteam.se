@@ -2,7 +2,7 @@
 #### 12 veckor på Iteam som praktikant!
 En vecka efter att ha gjort min sista arbetsdag här på Iteam tänkte jag försöka mig på att sammanfatta dessa lärorika veckor på företaget.
 
-Men först - här kommer en kort presentation om praktikanten/författaren. Jag heter Elisabeth och 26 år gammal. Pluggar [Applikationsutveckling.NET](http://www.plushogskolan.se/Utbildning/Utbildningar/Applikationsutvecklare.aspx), en YH-utbilning på Teknikhögskolan i Liljeholmen. Innan jag började utbildningen hade jag aldrig skrivit en rad kod i hela mitt liv, så jag började i princip från scratch med att skriva .
+Men först - här kommer en kort presentation om praktikanten/författaren. Jag heter Elisabeth och 26 år gammal. Pluggar [Applikationsutveckling.NET](http://www.plushogskolan.se/Utbildning/Utbildningar/Applikationsutvecklare.aspx), en YH-utbilning på Teknikhögskolan i Liljeholmen. Innan jag började utbildningen hade jag aldrig skrivit en rad kod i hela mitt liv, så jag började i princip från scratch med att skriva.
 
 Under utbildningen varvas kurser med LIA (Lärande i Arbete), en variant av praktik där tanken är att man som elev ska få en inblick hur det kan se ut på en arbetsplats samt att få chansen att testa sina nya kunskaper. Och nu, efter ca en termin med kurser var det dags att ge sig ut på LIA och få ett smakprov på hur en programmerare jobbar hos Iteam.
 
