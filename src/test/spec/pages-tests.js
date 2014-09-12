@@ -86,7 +86,7 @@ describe('#pages', function () {
     expect(image.gravatar).called.and.calledWith('rickard.laurin@iteam.se', false);
   });
 
-  xit('should filter pages by category if category is an option', function () {
+  it('should filter pages by category if category is an option', function () {
     read.directory.returns(['foo', 'bar']);
     front.loadFront.withArgs('./src/pages/case/foo/index.hbs').returns({
       name: 'foo',
@@ -112,7 +112,7 @@ describe('#pages', function () {
     });
   });
 
-  xit('should sort by last name', function () {
+  it('should sort by last name', function () {
     read.directory.returns(['foo', 'bar']);
     front.loadFront.withArgs('./src/pages/medarbetare/foo/index.hbs').returns({
       name: 'foo',

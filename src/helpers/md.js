@@ -1,7 +1,7 @@
 'use strict';
 var marked = require('marked');
-var fs = require('fs');
-var path = require('path');
+var fs     = require('fs');
+var path   = require('path');
 
 module.exports.md = function (filePath, options) {
   var dirName = path.dirname(options.data.orig.files[0].src);
@@ -10,7 +10,7 @@ module.exports.md = function (filePath, options) {
     filePath = path.resolve(dirName, filePath);
   }
 
-  if (filePath.substr(-3) !== '.md') {
+  if(filePath.substr(-3) !== '.md') {
     filePath += '.md';
   }
 
@@ -19,7 +19,7 @@ module.exports.md = function (filePath, options) {
   try {
     text = fs.readFileSync(filePath, 'utf8');
   } catch (e) {
-    return false;
+    return 'Markdown text does not exist';
   }
 
   return marked(text);

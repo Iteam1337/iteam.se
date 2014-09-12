@@ -139,6 +139,7 @@ gulp.task('default', [
   'less',
   'assemble',
   'connect',
+  'test',
   'watch'
 ]);
 
