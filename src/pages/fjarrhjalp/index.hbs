@@ -2,19 +2,15 @@
 subtitle: Fjärrhjälp
 body-class: dark fjarrhjalp
 order: 6
-layout: default.hbs
-image:
-  type: image
-  start: true
-  title: Fjärrhjälp
-  image:
-    src: http://iteam.se/content/images/section-topbilder/isolde.jpg
-text:
-  type: text
-  mdtext: text
+layout: partials.hbs
+partials:
+  -
+    type: image
+    start: true
+    title: Fjärrhjälp
+    image:
+      src: http://iteam.se/content/images/section-topbilder/isolde.jpg
+  -
+    type: text
+    mdtext: text
 ---
-
-<div class="row">
-  {{> image image}}
-  {{> text text}}
-</div>

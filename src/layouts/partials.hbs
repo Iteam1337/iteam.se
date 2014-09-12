@@ -8,6 +8,6 @@ layout: default.hbs
   {{/if}}
 {{/each}}
 
-{{#unless no-navigation}}
+{{#if navigation}}
  {{> case-navigation}}
-{{/unless}}
+{{/if}}

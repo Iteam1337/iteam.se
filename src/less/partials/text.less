@@ -96,6 +96,56 @@
     text-align: center;
   }
 
+  &.rolls {
+    .grid-full {
+      max-width:80%;
+    }
+
+    .grid-full > ul {
+      .prefix('flex-wrap','wrap');
+
+      display:inline-flex;
+
+      > li {
+        .prefix('justify-content', 'center');
+
+        vertical-align: top;
+        width:48%;
+
+        &:nth-child(odd) {
+          margin-right:2%;
+        }
+
+        li {
+          &:not(:last-child) {
+            line-height:2;
+            margin-bottom: 10px;
+          }
+
+          &:first-child:before,
+          &:nth-child(2):before,
+          &:nth-child(3):before {
+            padding-left:30px;
+            text-indent:-30px;
+          }
+
+
+          &:first-child:before {
+            content: "Mål:"
+          }
+
+          &:nth-child(2):before {
+            content: "Vad:"
+          }
+
+          &:nth-child(3):before {
+            content: "Verktyg:"
+          }
+        }
+      }
+    }
+  }
+
   .left {
     text-align: left;
   }

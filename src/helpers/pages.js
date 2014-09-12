@@ -4,7 +4,7 @@ var image = require('./gravatar');
 var read  = require('./read');
 
 module.exports.pages = function (options) {
-  var pages;
+  var orderedPages;
   var data = options.hash || {}; 
   var dir = data.route || './src/pages/case/';
   var dirs = read.directory(dir);
@@ -44,38 +44,21 @@ module.exports.pages = function (options) {
       };
     }
   
-    if(frontmatter.categories) {
-      frontmatter.categoriesHTMLFriendly = frontmatter.categories.map(function (category) {
-        return category.replace(/[^\w\d]/g, '').replace(/^(\d){1,}/, '');
-      }).join(' ');
-      frontmatter.categories = frontmatter.categories.join(' ');
-    }
-
     return {
       element: element,
       order: frontmatter.order || lastName
     };
   }
 
-  pages = dirs.reduce(function (result, folder) {
+  orderedPages = dirs.reduce(function (result, folder) {
     var page = getPage(dir + folder + '/index.hbs', folder);
-    if(!data.category) {
-      result.push(page);
-    } else if(page.element.frontmatter.categories && page.element.frontmatter.categories.indexOf(data.category) >= 0) {
-      result.push(page);
-    }
+
+    result.push(page);
+
     return result;
-  }, []).sort(function (a,b) {
-    if (typeof a.order === 'number') {
-      return a.order - b.order;
-    } else if (typeof a.order === 'string') {
-      return a.order.localeCompare(b.order);
-    } else {
-      return false;
-    }
-  }).map(function (page) {
+  }, []).map(function (page) {
     return page.element;
   });
 
-  return options.fn({ data: pages });
+  return options.fn({ data: orderedPages });
 };

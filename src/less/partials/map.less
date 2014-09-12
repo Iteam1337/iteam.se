@@ -1,8 +1,17 @@
 .row.map {
+  background-size:cover;
   height: 300px;
   overflow:hidden;
   padding: @margin 0;
   position: relative;
+
+  @media @tablet {
+    background-position: -300px 0;
+  }
+
+  @media @mobile {
+    background-position: -570px 0;
+  }
 
   img {
     .center(y);

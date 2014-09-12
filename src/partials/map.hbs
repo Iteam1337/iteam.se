@@ -5,11 +5,13 @@
   {{#if color}}
     color: {{ color }};
   {{/if}}
+  {{#if background-image}}
+    background-image: url({{ background-image }});
+  {{/if}}
 ">
   <div class="grid-full">
     {{#if title}}
       <h3>{{ title }}</h3>
     {{/if}}
   </div>
-  <img src="/content/images/map.png">
 </div>

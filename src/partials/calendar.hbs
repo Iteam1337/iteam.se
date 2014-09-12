@@ -13,20 +13,20 @@
     {{#if title}}
       <h3>{{ title }}</h3>
     {{/if}}
-  {{#calendar}}
-    <ul>
-      {{#each this}}
-        <li>
-          <div class="date">{{ time }}</div>
-          <h3 class="title">
-            <a href="{{ link }}">
-              {{ title }}
-            </a>
-          </h3>
-          {{{ text }}}
-        </li>
-      {{/each}}
-    </ul>
-  {{/calendar}}
+    {{#calendar}}
+      <ul>
+        {{#each this}}
+          <li>
+            <div class="date">{{ time }}</div>
+            <h3 class="title">
+              <a href="{{ link }}">
+                {{ title }}
+              </a>
+            </h3>
+            {{{ text }}}
+          </li>
+        {{/each}}
+      </ul>
+    {{/calendar}}
   </div>
 </div>

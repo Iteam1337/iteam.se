@@ -1,21 +1,14 @@
 ---
-subtitle: Våra tjänster
+subtitle: "Våra tjänster"
 layout: default.hbs
 order: 2
-text:
-  type: text
-  mdtext: services
-  background: light
-  center: true
 ---
 
 <div class="services-wrap">
-  {{> text text}}
-
   <div class="row services">
     <div class="grid-full">
       <ul>
-        {{#pages route="./src/pages/vara-tjanster/" start="" type="services"}}
+        {{#pages route="./src/pages/vara-tjanster/" start="" type=""}}
           {{#each data}}
             {{#unless frontmatter.unpublished }} 
             <li>

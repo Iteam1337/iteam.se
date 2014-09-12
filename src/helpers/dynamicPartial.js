@@ -11,5 +11,6 @@ module.exports.dynamicPartial = function (options) {
   }
 
   var template = Handlebars.compile(html);
+  
   return template(data, options);
 };

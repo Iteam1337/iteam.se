@@ -19,8 +19,8 @@ var debug = require('gulp-debug');
 function formatPagePath(pagePath) {
   return pagePath
     .replace(path.resolve(process.cwd(), 'src/pages'), '')
-    .replace(path.extname(pagePath), '.html'); 
-}
+    .replace(path.extname(pagePath), '.html');
+  }
 
 gulp.task('clean', function () {
   rimraf.sync('./out');
@@ -56,7 +56,8 @@ gulp.task('test', function () {
 gulp.task('connect', function () {
   gulp.src('./out/')
     .pipe(webserver({
-      livereload: true
+      livereload: true,
+      port: 9000
     }));
 });
 
@@ -86,21 +87,20 @@ var options = {
   ]
 };
 
+var oldFiles = 0;
+
 gulp.task('assemble', function () {
   gulp.src(config.pages)
-    .pipe(foreach(function (stream, file) {
-      return stream
-        .pipe(assemble(options))
-        .pipe(htmlmin({
-          collapseWhitespace:true
-        }))
-        .pipe(concat(formatPagePath(file.path)));
+    .pipe(plumber())
+    .pipe(assemble(options))
+    .pipe(htmlmin({
+      collapseWhitespace: true
     }))
     .pipe(gulp.dest('./out'));
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['src/layouts/**/*', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
+  gulp.watch(['src/layouts/**/*.hbs', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
   gulp.watch([config.styles + config.allStyle], ['less']);
   gulp.watch('src/content/**/*', ['copy']);
   gulp.watch(['src/helpers/**/*.js','src/test/**/*.js'], ['jshint', 'test']);
@@ -132,12 +132,10 @@ gulp.task('s3', function () {
     .pipe(awspublish.reporter());
 });
 
-
 gulp.task('default', [
   'copy',
   'jshint',
   'scripts',
-  'test',
   'less',
   'assemble',
   'connect',
@@ -149,7 +147,6 @@ gulp.task('build', [
   'copy',
   'jshint',
   'scripts',
-  'test',
   'less',
   'assemble'
 ]);
