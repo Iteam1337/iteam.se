@@ -1,15 +1,19 @@
-<div class="row">
-  {{#pages route="./src/pages/varatjanster/" start="" type=""}}
-    {{#each data}}
-      {{#unless frontmatter.unpublished }} 
-      <li>
-        <a href="{{this.url}}">
-          <i class="{{ this.frontmatter.icon }}"></i>
-          {{this.title}}
-        </a>
-        <p>{{ this.frontmatter.description }}</p>
-      </li>
-      {{/unless}}
-    {{/each}}
-  {{/pages}}
+<div class="row {{ type }}">
+  <div class="grid-full">
+    <ul>
+      {{#pages route="./src/pages/vara-tjanster/" start="" type=""}}
+        {{#each data}}
+          {{#unless frontmatter.unpublished }} 
+          <li>
+            <a href="{{this.url}}">
+              <i class="{{ this.frontmatter.icon }}"></i>
+              {{this.title}}
+            </a>
+            <p>{{ this.frontmatter.description }}</p>
+          </li>
+          {{/unless}}
+        {{/each}}
+      {{/pages}}
+    </ul>
+  </div>
 </div>
