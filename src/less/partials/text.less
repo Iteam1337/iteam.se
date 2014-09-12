@@ -107,10 +107,19 @@
       display:inline-flex;
 
       > li {
+        @left: 57px;
+        
+        .box-sizing();
         .prefix('justify-content', 'center');
 
+        line-height: 1.5;
+        padding-left:@left;
         vertical-align: top;
         width:48%;
+
+        p a {
+          margin-left:-@left;
+        }
 
         &:nth-child(odd) {
           margin-right:2%;
@@ -118,15 +127,16 @@
 
         li {
           &:not(:last-child) {
-            line-height:2;
             margin-bottom: 10px;
           }
 
           &:first-child:before,
           &:nth-child(2):before,
           &:nth-child(3):before {
-            padding-left:30px;
-            text-indent:-30px;
+            display: inline-block;
+            font-weight:700;
+            margin-right: 10px;
+            margin-left:-@left;
           }
 
 
@@ -139,7 +149,7 @@
           }
 
           &:nth-child(3):before {
-            content: "Verktyg:"
+            content: "Hur:"
           }
         }
       }
