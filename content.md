@@ -111,12 +111,10 @@ Struktur
     Set up and manage complex application architecture 
   
   - Teknikval
-    Responive webb
-    Java
-    C#
-    Wordpress
-    Javascript
-    Node
+    Responsive/App
+    C# / .NET
+    AngularJS
+    NodeJS
     MongoDB
     API
 
