@@ -9,7 +9,9 @@
     @icon-width: 15%;
     @href-width: 20%;
 
-    padding: 0 0 @margin 0;
+    background: #333;
+    color:#fff;
+    padding: @margin 0;
 
     @media @mobile {
       padding: @margin / 2 @margin / 5;
@@ -19,8 +21,10 @@
       .flex();
 
       i {
-        font-size:10rem;
-        width:@icon-width;
+        .position(bottom,right,-120px,-120px);
+
+        color:#fff;
+        font-size:50rem;
 
         @media @mobile {
           text-align: center;
@@ -52,7 +56,9 @@
           }
 
           p {
-            width:100% - @href-width;
+            .text-overflow();
+
+            width:70%;
             
             @media @mobile {
               width:100%;
@@ -66,6 +72,53 @@
   .row.flex,
   .instagram-content {
     justify-content: center;
+  }
+
+  .text.center {
+    height:300px;
+
+    > .grid-full {
+      .box-sizing();
+      .position(top,left,0,0,absolute,true);
+
+      background: rgba(0,0,0,0.4);
+      max-width:100%;
+
+      .inner {
+        .position(bottom,right,40px,40px);
+        text-align:right;
+      }
+    }
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .row.social-media {
+    padding-top:@margin / 2;
+
+    a {
+      .transition();
+
+      &:hover {
+        color:@accent;
+      }
+
+      &:not(:last-child) {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+
+    i {
+      color:#666;
+      font-size: 4rem;
+    }
   }
 
   .boxes {
