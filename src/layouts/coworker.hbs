@@ -8,14 +8,18 @@ blog-count: 5
 ---
 
 <div class="coworker">
-  <div class="row text center light">
+  <div class="row text center light no-padding-bottom" style="background-image:url({{ top-image }})">
     <div class="grid-full align-top">
-      <h1>{{ name }}</h1>
-      <div><strong>{{ email }}</strong></div>
-      <div>{{ job }}</div>
+      <div class="inner">
+        <h1>{{ name }}</h1>
+        <div><strong><a href="mailto:{{ email }}">{{ email }}</a></strong></div>
+        <div>{{ job }}</div>
+      </div>
     </div>
-    {{!-- {{> social-media social-media}} --}}
   </div>
+
+  {{> social-media social-media}}
+
   <div class="row boxes">
     <div class="grid-full">
       <div class="row boxes">
