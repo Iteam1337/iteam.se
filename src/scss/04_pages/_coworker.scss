@@ -1,0 +1,180 @@
+.coworker {  
+  .instagram {
+    list-style: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .github {
+    $icon-width: 15%;
+    $href-width: 20%;
+
+    background: #333;
+    color:#fff;
+    padding: $margin 0;
+
+    @include mobile() {
+      padding: $margin / 2 $margin / 5;
+    }
+
+    .grid-full {
+      @include flex();
+
+      i {
+        @include position(bottom,right,-120px,-120px);
+
+        color:#fff;
+        font-size:50rem;
+
+        @include mobile() {
+          text-align: center;
+          margin-bottom: $margin / 5;
+          width:100%;
+        }
+      }
+
+      ul {
+        width:100% - $icon-width;
+
+        @include mobile() {
+          width: 100%;
+        }
+
+        li {
+          @include flex();
+
+          &:not(:last-child) { margin-bottom: 10px; }
+
+          a {
+            @include text-overflow();
+
+            width:$href-width;
+
+            @include mobile() {
+              width:100%;
+            }
+          }
+
+          p {
+            @include text-overflow();
+
+            width:70%;
+            
+            @include mobile() {
+              width:100%;
+            }        
+          }
+        }
+      }
+    }
+  }
+
+  .row.flex,
+  .instagram-content {
+    justify-content: center;
+  }
+
+  .text.center {
+    height:300px;
+
+    > .grid-full {
+      @include box-sizing();
+      @include position(top,left,0,0,absolute,true);
+
+      background: rgba(0,0,0,0.4);
+      max-width:100%;
+
+      .inner {
+        @include position(bottom,right,40px,40px);
+        text-align:right;
+      }
+    }
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .row.social-media {
+    padding-top:$margin / 2;
+
+    a {
+      @include transition(all);
+
+      &:hover {
+        color:$accent;
+      }
+
+      &:not(:last-child) {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+
+    i {
+      color:#666;
+      font-size: 4rem;
+    }
+  }
+
+  .boxes {
+    display: block;
+    padding: $margin/2 0;
+    width: 100%;
+    
+    h3 {
+      margin:0 0 10px;
+      padding:0;
+    }
+
+    &,
+    & * {
+      box-sizing: border-box;
+    }
+    &:after {
+      content: ".";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  }
+
+  .box-position {
+    padding: 10px;
+    word-break: break-word;
+    display: inline-block;
+    vertical-align: top;
+
+    p {
+      margin:10px 0;
+    }
+
+    &.left,
+    &.right {
+      width: 50%;
+    }
+    &.left {
+      float: left;
+    }
+    &.right {
+      float: right;
+    }
+  }
+
+  @include mobile() {
+    .box-position {
+      &.left,
+      &.right {
+        width: 100%;
+        float: none;
+      }
+    }
+
+  }
+
+}

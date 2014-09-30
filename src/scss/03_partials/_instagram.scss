@@ -1,0 +1,39 @@
+.instagram {
+  line-height:0;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+  i {
+    color: rgb(225,214,197);
+    display: block;
+    font-size: 4rem;
+    margin-bottom: $margin / 2;
+  }
+}
+
+.instagram-content {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  flex:1 1;
+  display: inline-flex;
+
+  video,
+  img {
+    width: 50%;
+    height: 30%;
+  }
+  @include mobile() {
+    display: block;
+    video,
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+}

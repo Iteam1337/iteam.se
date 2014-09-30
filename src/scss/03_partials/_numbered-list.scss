@@ -1,0 +1,113 @@
+.numbered-list {
+  background-size:cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+
+  &.padding-top {
+    .full {
+      padding-top:$margin * 1.5;
+    }
+  }
+
+  &:hover {
+    .full {
+      background: rgba(0,0,0,0.5);
+    }
+
+    .side-image {
+      @include transform(translateY(120px));
+
+      &.image-1 {
+        @include transform(translateY(210px));
+      }
+    }
+
+    h2,ul,p {
+      @include transform(translateX(0));
+    }
+  }
+
+  .full {
+    @include transition(background, 300ms, ease-in-out);
+
+    background: rgba(0,0,0,0.7);
+    padding: $margin 0;
+
+    @include mobile() {
+      padding: $margin / 2 $margin / 5;
+    }
+  }
+
+  h2 {
+    color:#fff;
+    margin-top:0;
+  }
+
+  h2,ul,p {
+    @include transform(translateX(-20px));
+    @include transition(transform, 300ms, ease-in-out);
+
+    @include mobile() {
+      @include transform(translateX(0));
+    }
+  }
+  
+  // Bullet list
+  $width: 40%;
+  $mobile-width: 100%;
+
+  ul {
+    @include box-sizing();
+
+    width: $width;
+
+    @include mobile() {
+      width: $mobile-width;
+    }
+
+    li {
+      $indent: 22px;
+
+      margin-bottom:5px;
+      padding-left:$indent;
+      text-indent:-$indent;
+
+      &:before {
+        @include bullets();
+
+        content:"";
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+  
+  // Text
+  p {
+    width:$width;
+
+    @include mobile() {
+      width: $mobile-width;
+    }
+  }
+
+  .side-image {
+    @include position(bottom,right,0,80px);
+    @include transform(translateY(180px));
+    @include transition(transform, 300ms, ease-in-out);
+
+    width:600px;
+
+    &:hover { z-index:20; }
+
+    @include mobile() {
+      display:none;
+    }
+
+    &.image-1 {
+      right: 40px;
+      @include transform(translateY(240px));
+    }
+  }
+}

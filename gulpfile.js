@@ -1,20 +1,22 @@
 'use strict';
-var gulp = require('gulp');
-var less = require('gulp-less');
-var plumber = require('gulp-plumber');
-var webserver = require('gulp-webserver');
-var rename = require('gulp-rename');
-var assemble = require('gulp-assemble');
-var htmlmin = require('gulp-htmlmin');
-var jshint = require('gulp-jshint');
-var mocha = require('gulp-mocha');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rimraf = require('rimraf');
+
+var gulp       = require('gulp');
+var sass       = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var plumber    = require('gulp-plumber');
+var webserver  = require('gulp-webserver');
+var rename     = require('gulp-rename');
+var assemble   = require('gulp-assemble');
+var htmlmin    = require('gulp-htmlmin');
+var jshint     = require('gulp-jshint');
+var mocha      = require('gulp-mocha');
+var concat     = require('gulp-concat');
+var uglify     = require('gulp-uglify');
+var rimraf     = require('rimraf');
 var awspublish = require('gulp-awspublish');
-var foreach = require('gulp-foreach');
-var path = require('path');
-var debug = require('gulp-debug');
+var foreach    = require('gulp-foreach');
+var path       = require('path');
+var debug      = require('gulp-debug');
 
 function formatPagePath(pagePath) {
   return pagePath
@@ -69,12 +71,12 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('out/content'));
 });
 
-gulp.task('less', function () {
-  gulp.src(config.styles + config.mainStyle)
+gulp.task('sass', function () {
+  gulp.src('./src/scss/all.scss')
     .pipe(plumber())
-    .pipe(less({
-      compress: true
-    }))
+    .pipe(sourcemaps.init())
+      .pipe(sass())
+    .pipe(sourcemaps.write())
     .pipe(rename('iteam.css'))
     .pipe(gulp.dest(config.stylesOut));
 });
@@ -101,7 +103,7 @@ gulp.task('assemble', function () {
 
 gulp.task('watch', function () {
   gulp.watch(['src/layouts/**/*.hbs', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
-  gulp.watch([config.styles + config.allStyle], ['less']);
+  gulp.watch(['./src/scss/**/*.scss'], ['sass']);
   gulp.watch('src/content/**/*', ['copy']);
   gulp.watch(['src/helpers/**/*.js','src/test/**/*.js'], ['jshint', 'test']);
   gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts']);
@@ -136,7 +138,7 @@ gulp.task('default', [
   'copy',
   'jshint',
   'scripts',
-  'less',
+  'sass',
   'assemble',
   'connect',
   'test',

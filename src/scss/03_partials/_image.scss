@@ -1,0 +1,82 @@
+.row.image {
+  overflow:hidden;
+  padding:0;
+  position: relative;
+
+  h1 {
+    @include center(both);
+    
+    color: #fff;
+    font-size: 100px;
+    margin: 0;
+    text-align: center;
+    width:100%;
+
+    @include mobile() {
+      @include prefix('word-break', break-word);
+      
+      font-size: 60px;
+      line-height: 1;
+    }
+  }
+
+  .image-inner {
+    @include box-sizing();
+    
+    position: relative;
+    height: 100%;
+  }
+
+  img {
+    vertical-align: bottom;
+    width: 100%;
+  }
+
+  .down {
+    $size: 100px;
+
+    @include border-radius($size);
+    @include center(x, bottom, -($size * 1.5));
+    @include size($size, $size * 2);
+
+    background: $bg;
+    font-size: 40px;
+    padding: 30px 20px 0;
+    text-align: center;
+    z-index: 1;
+
+    i {
+      @include transition(top, 500ms, ease-in-out);
+
+      position: relative;
+      will-change: top;
+    }
+  }
+
+  &.parallax {
+    @include prefix('background-size', cover);
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-size: 4rem;
+    position: static;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(33,33,33,0.8);
+    z-index: -1;
+    
+    .image-inner {
+      padding: $margin * 4 0;
+    }
+  }
+}
+
+$start: 0;
+$end: 10px;
+
+@include keyframes(hint) {
+  0% { top: $start; }
+  12.5% { top:$end; }
+  25% { top: $start; }
+  100% { top: $start; }  
+}

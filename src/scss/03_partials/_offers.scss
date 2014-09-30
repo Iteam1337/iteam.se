@@ -1,0 +1,57 @@
+.row.offers {
+  margin: $margin 0;
+  padding: $margin 0;
+
+  @include mobile() {
+    padding: 0 $margin;
+  }
+
+  .row {
+    .grid-quarter {
+      $top: 40px;
+
+      padding-right: $top;
+      max-width: 100%;
+      min-width: 25%;
+      text-align: center;
+
+      &:nth-child(n+5) {
+        margin-top: $top;
+      }
+
+      &:nth-child(4n) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  i {
+    color: #ccc;
+    display: block;
+    margin-bottom:20px;
+  }
+
+  ul {
+    @include flex();
+
+    justify-content: center;
+  }
+
+  li {
+    text-align: center;
+    width:33%;
+
+    @include mobile() {
+      margin-top: $margin;
+      width:100%;
+    }
+
+    a { font-weight:$bold; }
+
+    i { font-size: 6rem; }
+
+    &:nth-child(n+4) {
+      margin-top: $margin;
+    }
+  }
+}
