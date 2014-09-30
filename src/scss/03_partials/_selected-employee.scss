@@ -1,0 +1,41 @@
+.selected-employee {
+  background: $light;
+  @include prefix('flex-wrap', initial);
+
+  .gravatar {
+    line-height: 0;
+    width: 400px;
+  }
+
+  .information {
+    max-width: 50%;
+    padding: $margin / 2;
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin: $margin / 5 0;
+    }
+
+    .contact {
+      .twitter {
+        flex-grow: 3;
+
+        span {
+          color:#55acee;
+          font-size: 3rem;
+          margin-right: 10px;
+          position: relative;
+          top:3px;
+        }
+      }
+
+      .button {
+        margin: 0;
+        margin-left: $margin / 5;
+      }
+    }
+  }
+}

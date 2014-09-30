@@ -1,0 +1,53 @@
+.side-menu {
+  @include center(y, right, 40px);
+
+  position: fixed;
+  z-index: 20;
+
+  @include mobile() {
+    display: none;
+  }
+
+  li {
+    cursor: pointer;
+    line-height: 1.5;
+    padding:0;
+
+    a {
+      display: inline-block;
+      position: relative;
+      text-align: right;
+      width:100%;
+
+      span {
+        @include opacity(0);
+        @include transition(opacity, 300ms, ease-in-out);
+
+        margin-right:30px;
+        position: relative;
+        top:-4px;
+      }
+
+      &:hover {
+        span {
+          @include opacity(100);
+        }
+      }
+
+      i {
+        @include bullets();
+        @include position(top,right,0,0);
+      }
+    }
+
+    &:hover, &.active {
+      i {
+        @include scale(1);
+
+        background:none;
+        border:1px solid $accent;
+        right:-1px;
+      }
+    }
+  }
+}

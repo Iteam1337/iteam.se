@@ -1,0 +1,8 @@
+.easter-egg {
+  @include position(top, left, 0, 0, fixed);
+  @include size(100%);
+
+  display: none;
+  background-image: url('../content/images/easteregg.png');
+  z-index: 1000;
+}

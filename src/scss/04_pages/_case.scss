@@ -1,0 +1,101 @@
+// Case start page
+// 
+
+.filters-list {
+  @include user-select();
+
+  font-size: 1.5rem;
+  padding: $margin 0;
+  text-align: right;
+
+  li {
+    @include transition(background, 200ms, ease-in-out);
+
+    background: $light;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 10px;
+    
+    &.hidden { display: none; }
+    
+    &:not(:last-child) { margin-right: 20px; }
+
+    &:hover, &.active { background: $accent; }
+  }
+}
+
+.row.cases {
+  margin: 0 0 $margin;
+
+  .grid-full {
+    min-width: $max-width;
+
+    @include mobile() {
+      min-width: 100%;
+    }
+  }
+
+  ul {
+    @include flex();
+
+    width:100%;
+
+    li {
+      @include size(300px);
+      @include mobile() {
+        width: 100%;
+      }
+      @include transition(opacity, 200ms, ease-in-out);
+
+      background: $light;
+      color: inherit;
+      opacity: 1;
+      position: relative;
+      text-align: center;
+      width: 33.3%;
+
+      &.visually-hidden { opacity: 0; }
+      &.hidden { display: none; }
+
+      a {
+        @include box-sizing();
+        @include size(100%);
+        @include transition(background, 200ms, ease-in-out);
+        
+        background: inherit;
+        color:inherit;
+        display: block;
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 20px;
+
+        &:hover {
+          background: darken($light, 30%);
+        }
+      }
+    }
+  }
+}
+
+// Individual case pages
+.case-title {
+  font-size:60px;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.team .flex {
+  justify-content:center;
+
+  .grid-quarter {
+    padding:0 2% 20px 0;
+
+    .name {
+      color:#999;
+      font-family:$body-font;
+      font-size:1.5rem;
+      text-align:center;
+      text-transform:uppercase;
+    }
+  }
+}

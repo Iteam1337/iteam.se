@@ -1,0 +1,36 @@
+.row.quote {
+  padding:$margin 0;
+  text-align: center;
+
+  @include mobile() {
+    padding: $margin;
+  }
+
+  img {
+    @include border-radius(200px);
+    margin-bottom: $margin / 3;
+  }
+
+  .text {
+    color: #000;
+    font-style:italic;
+    font-weight: 400;
+    margin: 0 auto;
+    position: relative;
+    width: 80%;
+    
+    p {
+      font-size: 2.2rem;
+      line-height: 1.75;
+
+      &:before { content:'“'; }
+      &:after { content: '”'; }
+    }
+  }
+  .by {
+    color: darken($light,30%);
+    font-size: 1.5rem;
+    font-weight:400;
+    margin-top:$margin/2;
+  }
+}

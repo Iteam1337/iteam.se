@@ -1,0 +1,11 @@
+.video-full {
+  height:0;
+  overflow: hidden;
+  padding-bottom:56.25%;
+  position: relative;
+
+  iframe, video {
+    @include position(top,left,0,0);
+    @include size(100%);
+  }
+}
