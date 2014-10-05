@@ -1,0 +1,60 @@
+.rows > .row {
+  padding: $margin 0;
+
+  @include mobile() { padding: $margin / 2; }
+}
+
+.row {
+  position: relative;
+
+  @include mobile() {
+    &.text { padding:40px; }
+  }
+
+  .grid {
+    flex:1 1;
+
+    &:not(.last) { margin-right:2%; }
+  }
+
+  .grid-full {
+    margin: 0 auto;
+    max-width: $max-width;
+  }
+
+  .grid-half,
+  .grid-quarter {
+    @include box-sizing();
+
+    align-self: center;
+
+    &.top { align-self: flex-start; }
+  }
+
+  .grid-half {
+    width:50%;
+
+    @include mobile() { width: 100%; }
+    &.text { padding: 0 $margin; }
+  }
+
+  .grid-quarter {
+    max-width: 25%;
+
+    @include mobile() { max-width: 100%; }
+  }
+  .align-top {
+    align-self: flex-start;
+  }
+
+  &.divide {
+    &:before {
+      @include center(x, top, 0);
+      @include size(100px, 3px);
+
+      background: $accent;
+      content: "";
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+/**
+ * Partial vision
+ * -----------------------------
+ * A title and short description
+ * 
+ */
+
+// Block
+.partial-vision {
+  padding: $margin 0;
+  text-align: center;
+
+  @include mobile() {
+    padding: $margin / 2 $margin / 5;
+  }
+}

@@ -1,12 +1,12 @@
-<div class="row {{ type }} {{ background }} {{#if parallax}} parallax {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} height: {{ height }}; {{#if background-image}} background-image: {{ background-image }} {{/if}}">
+<div class="row partial-{{ type }} {{ background }} {{#if parallax}} parallax {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} height: {{ height }}; {{#if background-image}} background-image: {{ background-image }} {{/if}}">
   {{#if start}}
-    <div class="{{ type }}-inner">
-      <h1>{{ title }}</h1>
+    <div class="partial-{{ type }}__content">
+      <h1>{{{ title }}}</h1>
       {{#if image}}
         <img src="{{ image.src }}" alt="{{ image.alt }}">
       {{/if}}
       {{#if hasDown}}
-        <div class="down" {{#if down-bg}} style="background: {{ down-bg }}; color: {{ down-color }}" {{/if}}>
+        <div class="partial-image__down-arrow" {{#if down-bg}} style="background: {{ down-bg }}; color: {{ down-color }}" {{/if}}>
           <i class="ion-chevron-down"></i>
         </div>
       {{/if}}

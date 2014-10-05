@@ -5,10 +5,12 @@ html {
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+
   background:$bg;
   color:$color;
   font-family:$body-font;
-  font-size:1.5rem;
+  font-size:$small-p-size;
   font-weight:300;
   letter-spacing: 0.025em;
   line-height:1.75em;
@@ -24,7 +26,7 @@ a {
 
 p {
   font-family:$body-font;
-  font-size:2rem;
+  font-size:$p-size;
   font-weight: 300;
   letter-spacing: 0.025em;
   line-height: 2;
@@ -50,29 +52,6 @@ strong {
   color: #fff;
 }
 
-/* Headings
---------------------------------------------------------*/
-h1 {
-  font-family:$header-font;
-  font-weight: $bold;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-h2,h3 {
-  color: $a;
-  font-family:$header-font;
-  font-size: $h2;
-  font-weight:$bold;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-h3 {
-  display: inline-block;
-  font-size: $h3;
-  margin:0 auto $margin / 2;
-  padding-bottom: $margin / 4;
-}
-
 /* Lists
 --------------------------------------------------------*/
 ul {
@@ -89,91 +68,6 @@ img {
 
 .flex { @include flex(); }
 
-.rows > .row {
-  padding:$margin 0;
-
-  @include mobile() { padding:$margin / 2; }
-}
-
-.row {
-  position: relative;
-
-  @include mobile() {
-    &.text { padding:40px; }
-  }
-
-  .grid {
-    flex:1 1;
-
-    &:not(.last) {
-      margin-right:2%;
-    }
-  }
-
-  .grid-full {
-    margin:0 auto;
-    max-width:$max-width;
-  }
-
-  .grid-half,
-  .grid-quarter {
-    @include box-sizing();
-
-    align-self:center;
-
-    &.top { align-self:flex-start; }
-  }
-
-  .grid-half {
-    width:50%;
-
-    @include mobile() { width:100%; }
-    &.text { padding:0 $margin; }
-  }
-
-  .grid-quarter {
-    max-width:25%;
-
-    @include mobile() { max-width:100%; }
-  }
-  .align-top {
-    align-self: flex-start;
-  }
-
-  &.divide {
-    &:before {
-      @include center(x, top, 0);
-      @include size(100px, 3px);
-
-      background: $accent;
-      content:"";
-      display: block;
-    }
-  }
-}
-
-.mosaic [class^="grid-"] { line-height:0; }
-
 .hidden {
   display: none;
-}
-
-.button {
-  @include transition(all, 300ms, ease-in-out);
-
-  background: none;
-  border: 1px solid #ffbd09;
-  border-radius: 4px;
-  color:$accent;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: 100;
-  margin-top: 20px;
-  padding: 5px 20px;
-
-  &:hover {
-    background: $accent;
-    color: #000;
-  }
 }

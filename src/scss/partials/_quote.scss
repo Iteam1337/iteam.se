@@ -1,0 +1,40 @@
+/**
+ * Partial quote
+ * -----------------------------
+ * A quote with the person it belongs to
+ * 
+ */
+
+.partial-quote {
+  padding:$margin 0;
+  text-align: center;
+
+  @include mobile() { padding: $margin; }
+
+  img {
+    @include border-radius(200px);
+    margin-bottom: $margin / 3;
+  }
+}
+
+// The quote
+.partial-quote__quote {
+  color: #000;
+  font-style:italic;
+  font-weight: bold;
+  margin: 0 auto;
+  position: relative;
+  width: 80%;
+  
+  // Add correct quotation marks
+  p {
+    &:before { content:'“'; }
+    &:after { content: '”'; }
+  }
+}
+
+// Quotee
+.partial-quote__quotee {
+  color: darken($light,30%);
+  margin-top: $margin / 2;
+}

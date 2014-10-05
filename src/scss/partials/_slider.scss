@@ -1,0 +1,131 @@
+/**
+ * Partial slider
+ * -----------------------------
+ * Image slider in HTML/CSS
+ * 
+ */
+
+$active: rgba(255, 255, 255, 0.8);
+$icon-size: 11px;
+$slider-height: 600px;
+
+// Block
+.partial-slider {
+  background: $light;
+  padding: $margin 0;
+  text-align: center;
+}
+
+// Element - Wrapper
+.partial-slider__wrap {
+  @include size(100%, $slider-height);
+  @include user-select(none);
+
+  display: block;
+  overflow: hidden;
+  position: relative;
+  
+  input { display: none; }
+
+  input:checked + .partial-slider__slide {
+    @include opacity(100);
+    @include transform(scale(1));
+    @include transition(opacity, 1s, ease-in-out);
+  }
+  
+  // Iterate the number of slide markers
+  @for $i from 0 through 5 {
+    input#img-#{$i}:checked ~ .nav-dots label#img-dot-#{$i} {
+      background: $active
+    }
+  }
+
+  .nav-dots {
+    @include center(x, bottom, 20px);
+    
+    height: $icon-size;
+    line-height: 1;
+  
+    .nav-dot {
+      @include border-radius(100%);
+      @include size($icon-size);
+      @include transition(background, 200ms, ease);
+
+      background: rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      display: inline-block;
+      margin: 0 5px;
+
+      &:hover { background: $active }
+    }
+  }
+}
+
+// Element - Each individual slide
+.partial-slider__slide {
+  @include opacity(0);
+  @include position(top,left,0,0);
+  @include size(100%, $slider-height);
+  @include transform(scale(0));
+  @include transition(all, 300ms, ease-in-out);
+
+  display: block;
+
+  .slide {
+    height: $slider-height;
+
+    &:hover + .nav label { opacity: 0.5; }
+
+    @include mobile() {
+      display:block;
+
+      img { width:100%; }          
+    }
+
+    .title {
+      @include center(both);
+
+      color:#fff;
+      font-size:4em;
+    }
+
+    .text {
+      flex-shrink:100;
+      padding:100px;
+
+      @include mobile() {
+        padding:20px 40px 0;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+// Element - Slide previous and next buttons
+.partial-slider__navigation label {
+  @include position(top,left,50%,0);
+  @include transition(all, 200ms, ease);
+  @include translateXY(30px, -50%);
+
+  background: fade(#333, 90%);
+  color: #fff;
+  cursor: pointer;
+  font-size: 3rem;
+  padding: 10px;
+  will-change: height, width;
+
+  &:hover {
+    @include translateXY(20px, -50%);
+  }
+
+  &.next {
+    @include translateXY($max-width - 90px, -50%);
+
+    &:hover {
+      @include translateXY($max-width - 80px, -50%);
+    }
+  }
+}

@@ -1,0 +1,119 @@
+/**
+ * Partial numbered list
+ * -----------------------------
+ * Bullet list with title and images to the right
+ * 
+ */
+
+$width: 40%;
+$mobile-width: 100%;
+
+.partial-numbered-list {
+  background-size:cover;
+  position: relative;
+  overflow: hidden;
+
+  &.padding-top .partial-numbered-list__overlay {
+    padding-top:$margin * 1.5;
+  }
+
+  &:hover {
+    .partial-numbered-list__overlay {
+      background: rgba(0,0,0,0.5);
+    }
+
+    .partial-numbered-list__side-image {
+      @include transform(translateY(120px));
+
+      &.image-1 {
+        @include transform(translateY(210px));
+      }
+    }
+
+    .partial-numbered-list__content {
+      @include transform(translateX(0));
+    }
+  }
+}
+
+// Faded overlay
+.partial-numbered-list__overlay {
+  @include transition(background, 300ms, ease-in-out);
+
+  background: rgba(0,0,0,0.7);
+  padding: $margin 0;
+
+  @include mobile() {
+    padding: $margin / 2 $margin / 5;
+  }
+}
+
+// Text content
+.partial-numbered-list__content {
+  @include transform(translateX(-20px));
+  @include transition(transform, 300ms, ease-in-out);
+
+  color: #fff;
+
+  @include mobile() {
+    @include transform(translateX(0));
+  }
+
+  h2 {
+    color:#fff;
+  }
+
+  // Text
+  p {
+    width:$width;
+
+    @include mobile() {
+      width: $mobile-width;
+    }
+  }
+}
+
+// Bullet list
+.partial-numbered-list__bullets {
+  @include box-sizing();
+
+  width: $width;
+
+  @include mobile() {
+    width: $mobile-width;
+  }
+
+  li {
+    $indent: 22px;
+
+    margin-bottom:5px;
+    padding-left:$indent;
+    text-indent:-$indent;
+
+    &:before {
+      @include bullets();
+
+      content:"";
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+// Images
+.partial-numbered-list__side-image {
+  @include position(bottom,right,0,80px);
+  @include transform(translateY(180px));
+  @include transition(transform, 300ms, ease-in-out);
+
+  width:600px;
+
+  &:hover { z-index:20; }
+  @include mobile() { display:none; }
+
+  &.image-1 {
+    @include transform(translateY(240px));
+
+    right: 40px;
+  }
+}

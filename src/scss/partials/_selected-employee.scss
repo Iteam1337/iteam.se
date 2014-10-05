@@ -1,0 +1,32 @@
+.partial-selected-employee {
+  @include prefix('flex-wrap', initial);
+
+  background: $light;
+
+  .gravatar {
+    line-height: 0;
+    width: 400px;
+  }
+
+  .employee {
+    max-width: 50%;
+    padding: $margin / 2;
+
+    h2 { margin: 0; }
+    p { margin: $margin / 5 0; }
+
+    .contact {
+      .twitter {
+        flex-grow: 3;
+
+        span {
+          color: $twitter;
+          font-size: 3rem;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .button { margin-left: $margin / 5; }
+}

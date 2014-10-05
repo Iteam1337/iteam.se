@@ -1,0 +1,26 @@
+/**
+ * Partial list
+ * -----------------------------
+ * Bullet list. Is split in two columns by list handlebars helper.
+ * 
+ */
+
+.partial-list {
+  padding: $margin 0;
+
+  @include mobile() {
+    padding: $margin; 
+  }
+
+  .partial-list__list {
+    @include box-sizing();
+
+    list-style: square;
+    padding-left:$margin / 2;
+    width:49%;
+
+    @include mobile() {
+      width: 100%;
+    }
+  }
+}

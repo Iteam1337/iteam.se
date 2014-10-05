@@ -1,4 +1,4 @@
-<div class="row {{ type }}">
+<div class="row partial-{{ type }}">
   <div class="grid-full">
     {{#if title}}
       <h3>{{ title }}</h3>
@@ -9,14 +9,14 @@
     {{#if mdtext}}
       {{md mdtext}}
     {{/if}}
-    <ul>
+    <ul class="partial-slider__wrap">
       {{#each content}}
         {{#if @first}}
           <input type="radio" name="radio-btn" id="img-{{ @index }}" checked/>
         {{else}}
           <input type="radio" name="radio-btn" id="img-{{ @index }}"/>
         {{/if}}
-        <li>
+        <li class="partial-slider__slide">
           <div class="slide">
             {{#if image}}
               <img src="{{ image }}">
@@ -31,7 +31,7 @@
   {{/markdown}}
               </div>
             {{/if}}
-            <div class="nav">
+            <div class="partial-slider__navigation">
               {{#if @first}}
                 <label for="img-{{subtract ../../content.length 1}}" class="prev">
                   <i class="ion-chevron-left"></i>

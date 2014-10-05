@@ -1,0 +1,52 @@
+/**
+ * Partial contact
+ * -----------------------------
+ * Contact form
+ *
+ * Common input styles are placed in components/inputs
+ */
+
+$form-spacing: 1.35%;
+
+.partial-contact {
+  padding: $margin 0;
+
+  // Mobile adjustments
+  @include mobile() {
+    padding: $margin 20px;
+
+    .partial-contact__form {
+      p { width: 100%; }
+
+      input[class^="partial-contact__field"],
+      .partial-contact__message {
+        margin-bottom: $form-spacing;
+        width: 100%;
+      }
+    }
+  }
+
+  // Form
+  .partial-contact__form {
+    text-align: right;
+    vertical-align: top;
+
+    h3 { text-align: center; }
+
+    p {
+      margin: 0 auto $margin / 2;
+      text-align: center;
+      width: 80%;
+    }
+
+    i { vertical-align: middle; }
+
+    .partial-contact__field--name {
+      margin-right: $form-spacing;
+    }
+
+    .partial-contact__message {
+      margin-top: $form-spacing;
+    }
+  }
+}

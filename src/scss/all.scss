@@ -1,7 +1,45 @@
+/**
+ * iteam.se
+ * -----------------------------
+ *
+ * Class names should use BEM-formatting
+ * http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+ *
+ * Watch out for any code smells. Please take the time to go back
+ * and refactor CSS if you feel that it can be improved.
+ * http://csswizardry.com/2012/11/code-smells-in-css/
+ *
+ * A class should be formatted with scoped variables first followed
+ * by any mixins and finally regular properties and values.
+ * All three categories should be placed in alphabetical order.
+ *
+ * Example
+ * ---------------
+ * .partial-name__element {
+ *   $scoped-variable: var;
+ *
+ *   @import mixins();
+ *
+ *   property: value;
+ * }
+ */
+
+
+/**
+ * Import Mr. White SCSS Mixins
+ *
+ * Instructions for LESS-version at link below, but all mixins
+ * are used the same way for SCSS-version.
+ *
+ * http://believer.github.io/
+ */
 @import "../../bower_components/mrwhite-scss-mixins/mixins";
 
-@import "01_settings/all",
-        "02_tools/all",
-        "03_partials/all",
-        "04_pages/all",
-        "general";
+// Import all project files from subfolders
+@import "settings/all";
+@import "tools/all";
+@import "components/all";
+@import "layout/all";
+@import "partials/all";
+@import "pages/all";
+@import "general";

@@ -1,0 +1,42 @@
+/**
+ * Partial contributions
+ * -----------------------------
+ * Our contribution fields (meetup, conference etc.)
+ * 
+ */
+
+.partial-contributions {
+  $spacing: $margin / 5;
+  $width: 100%;
+
+  padding: $margin 0;
+  text-align: center;
+
+  .partial-contribution__type {
+    @include box-sizing();
+
+    display: inline-block;
+    padding: 0 $spacing * 3;
+    vertical-align: top;
+    width: $width / 2;
+
+    &:nth-child(n+3) { padding-top: $spacing * 3; }
+
+    @include mobile() {
+      width: $width;
+
+      &:nth-child(n+3) { padding-top: 0; }
+      &:not(:last-child) { margin-bottom: $margin / 2; }
+    }
+
+    a {
+      display: inline-block;
+      border-bottom: 3px solid $accent;
+      line-height: 0;
+      margin-bottom: $spacing;
+      padding: 0 $spacing $spacing;
+    }
+
+    img { max-height: 150px; } 
+  }
+}

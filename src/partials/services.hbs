@@ -5,10 +5,12 @@
         {{#each data}}
           {{#unless frontmatter.unpublished }} 
           <li>
-            <a href="{{this.url}}">
-              <i class="{{ this.frontmatter.icon }}"></i>
-              {{this.title}}
-            </a>
+            <h3>
+              <a href="{{this.url}}">
+                <i class="{{ this.frontmatter.icon }}"></i>
+                {{this.title}}
+              </a>
+            </h3>
             <p>{{ this.frontmatter.description }}</p>
           </li>
           {{/unless}}

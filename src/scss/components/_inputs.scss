@@ -1,0 +1,34 @@
+/**
+ * Inputs
+ * -----------------------------
+ * Every type of input field, including textareas
+ * 
+ */
+
+input:not([type="submit"]),
+textarea {
+  @include border-radius();
+  @include box-sizing();
+  @include transition(all, 200ms, ease-in-out);
+
+  background: $background-input; 
+  border:2px solid $background-input;
+  padding: 15px 20px;
+
+  &:focus {
+    background: #fff;
+    border: 2px solid $accent;
+    outline: none;
+  }
+}
+
+input:not([type="submit"]) {
+  color: rgb(146,159,166);
+  font-size: 1.5rem;
+  width: 49%;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+}

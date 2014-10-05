@@ -1,14 +1,14 @@
-<div class="row {{ type }} {{ name }} {{#if divide}}
+<div class="row partial-{{ type }} {{ name }} {{#if divide}}
     divide
   {{/if}}">
   <div class="grid-full">
-    <form id="form-contact" action="{{url}}" method="{{method}}">
+    <form id="form-contact" class="partial-contact__form" action="{{url}}" method="{{method}}">
       <h3>{{ title }}</h3>
       {{#if content}} <p>{{{content}}}</p> {{/if}}
-      <input type="text" name="name" class="name" placeholder="Namn">
-      <input type="email" name="email" placeholder="E-mail" required="required">
-      <textarea required="required" name="text" placeholder="Meddelande" rows="4"></textarea>
-      <div class="submit">
+      <input type="text" name="name" class="partial-contact__field--name" placeholder="Namn">
+      <input type="email" name="email" class="partial-contact__field" placeholder="E-mail" required="required">
+      <textarea required="required" class="partial-contact__message" name="text" placeholder="Meddelande" rows="4"></textarea>
+      <div class="button">
         <i style="animation-delay: 0.5s; animation-duration: 2s;" class="ion-ios7-email-outline animated bounce-in animate" data-delay="0.5s" data-duration="2s"></i>
         <input type="submit" value="Skicka meddelande">
       </div>

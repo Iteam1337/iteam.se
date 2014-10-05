@@ -1,0 +1,35 @@
+.partial-case-navigation {
+  $icon-margin: 10px;
+
+  background: rgb(19,24,25);
+  color: #fff;
+  padding: $margin 0;
+
+  a { color: #fff; }
+  i { margin-right: 10px; }
+
+  .previous,
+  .cases,
+  .next {
+    width: 33%;
+
+    @include mobile() {
+      text-align: center;
+      width:100%;
+    }
+  }
+
+  .cases {
+    text-align: center; 
+
+    i { margin-right: $icon-margin; }
+  }
+
+  .next {
+    text-align: right;
+    
+    i { margin-left: $icon-margin; }
+
+    @include mobile() { text-align: center; }
+  }
+}

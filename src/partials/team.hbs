@@ -1,4 +1,4 @@
-<div class="row {{ type }} {{ background }} {{#if center}} center {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} {{#if color}} color: {{ color }}; {{/if}}">
+<div class="row partial-{{ type }} {{ background }} {{#if center}} center {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} {{#if color}} color: {{ color }}; {{/if}}">
   <div class="grid-full">
     {{#if title}}
       <h3>{{ title }}</h3>
@@ -6,10 +6,10 @@
     {{#if text}}
       <p>{{ text }}</p>
     {{/if}}
-    <ul>
+    <ul class="partial-team__team">
       {{#team this}}
         {{#each data}}
-          <li>
+          <li class="partial-team__team-member">
             <a href="{{url}}">
               <img src="{{img}}"/>
               {{frontmatter.name}}

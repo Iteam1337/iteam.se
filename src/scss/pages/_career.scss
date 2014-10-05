@@ -1,0 +1,58 @@
+.row.career {
+  > .grid-full { padding: $margin 0; }
+  
+  .text {
+    display: inline-block;
+    padding: 0 20px 20px 20px;
+    vertical-align: top;
+    width: 50%;
+
+    @include box-sizing();
+
+    h4:first-of-type { margin-top: 0; }
+
+
+    ul {
+      list-style-type: none;
+      font-size: 1.5rem;
+
+      li {
+        @include box-sizing();
+
+        padding: $margin / 2 $margin / 3;
+        text-align: center;
+        vertical-align: top;
+
+        &:not(:last-child) {
+          margin-bottom: $margin / 3;
+        }
+      }
+    }
+
+    &:last-child {
+      padding: 20px;
+      width: 100%;
+
+      ul {
+        @include flex();
+
+        width: 100%;
+
+        li {
+          width: 50%;
+        }
+      }
+    }
+
+    img { max-width: 100%; }
+
+    p { 
+      margin-bottom: 0; 
+    }
+    
+    @include mobile() {
+      padding: 0 $mobile-padding;
+      width: 100%;
+    }
+  }
+}

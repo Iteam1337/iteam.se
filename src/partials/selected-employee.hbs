@@ -1,9 +1,9 @@
-<div class="row {{ type }} flex">
+<div class="row partial-{{ type }} flex">
   {{#employee name=name}}
     <div class="gravatar">
       <img src="{{ employee.image }}" alt="{{ employee.name }}">
     </div>
-    <div class="information">
+    <div class="employee">
       <h2>Kontakta {{ employee.firstName }}</h2>
       <p>{{ ../text }}</p>
       <div class="contact flex">

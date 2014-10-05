@@ -1,0 +1,30 @@
+/**
+ * Partial video
+ * -----------------------------
+ * Iframe/video content scales in a responsive way
+ * 
+ * padding-bottom is set to 56.25% by default which equals a 16:9 format
+ * but 4:3 is possible with the added modifier.
+ */
+
+$four-three: 75%;
+$sixteen-nine: 56.25%;
+
+// Block
+.partial-video {
+  height:0;
+  overflow: hidden;
+  padding-bottom: $sixteen-nine;
+  position: relative;
+  
+  // 4:3 format
+  &--four-three {
+    padding-bottom: $four-three;
+  }
+
+  iframe,
+  video {
+    @include position(top,left,0,0);
+    @include size(100%);
+  }
+}

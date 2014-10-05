@@ -1,0 +1,53 @@
+/**
+ * Partial team
+ * -----------------------------
+ * A listing of the team involved in a project.
+ * Pictures via Gravatar, with name and job position for each team member.
+ * 
+ */
+
+// Block
+.partial-team {
+  padding: $margin 0;
+
+  p {
+    margin: $margin / 2 auto;
+    width: 80%;
+  }
+}
+
+// Team list
+.partial-team__team {
+  @include flex();
+
+  justify-content: center;
+}
+
+// Team members
+.partial-team__team-member {
+  $spacing: $margin / 4;
+
+  @include box-sizing();
+  
+  color: $a;
+  text-align: center;
+  width: 25%;
+
+  @include mobile() {
+    margin-top: $spacing;
+    padding: 0 $spacing;
+    width: 100%;
+  }
+
+  &:nth-child(n+5) { margin-top: $spacing; }
+
+  img {
+    display: block;
+    margin: 0 auto $spacing;
+  }
+
+  .job {
+    color: $color;
+    font-size: 1.4rem;
+  }
+}
