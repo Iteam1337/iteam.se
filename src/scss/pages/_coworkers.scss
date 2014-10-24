@@ -1,78 +1,52 @@
-.row.coworkers {
-  background: $light;
-  padding: $margin 0;
+/**
+ * Coworkers
+ * -----------------------------
+ * List all the coworkers
+ * 
+ */
+
+// Block
+.coworkers {
+}
+
+// Element - Coworkers in list form
+.coworkers__list {
+  display: flex;
+  flex-wrap: wrap;
 
   li {
-    @include box-sizing();
-    
-    display: inline-block;
-    line-height: 0;
-    position: relative;
-    text-align: left;
-    vertical-align: top;
-    width: 33.3%;
+    width: 50%;
+
+    &:nth-child(n+3) {
+      margin-top: 20px;
+    }
 
     @include mobile() {
-      width:100%;
+      width: 100%;
 
       margin-top: $margin / 2;
     }
-
-    img {
-      line-height: 0;
-      width: 100%;
-    }
-    
-    &:hover div {
-      opacity: 1;
-    }
-
-    .outer {
-      @include position(top, left, 0, 0, absolute, true);
-      @include transition(opacity, 300ms, ease-in-out);
-      
-      background:rgba(33,33,33,0.8);
-      opacity: 0;
-      vertical-align:top;
-
-      .inner {
-        @include box-sizing();
-        @include center(y);
-  
-        padding: $margin / 2;
-        text-align: center;
-        right: 0;
-
-        h3 {
-          color: #fff;
-          font-size: 2rem;
-          line-height: 1;
-          margin: 0 0 20px;
-          padding: 0;
-
-          span {
-            font-weight: 400;
-          }
-        }
-
-        .job {
-          color: $accent;
-          margin: $margin / 6 0 $margin / 2;
-          position: relative;
-
-          &:after {
-            $size: 50px;
-
-            @include position(top, left, -20px, 50%);
-            @include size($size, 3px);
-            
-            background: $accent;
-            content: "";
-            display: block;
-            margin-left: -($size / 2);
-          }
-        }
-      }
-    }
   }
+}
+
+// Element - Coworkers content wrap
+.coworkers__content {
+  display: table-row;
+}
+
+// Element - Common for image and name
+.coworkers__image,
+.coworkers__name {
+  display: table-cell;
+}
+
+// Element - Image of coworker (grabbed from Gravatar)
+.coworkers__image {
+  margin-right: 20px;
+  max-height: 100px;
+}
+
+// Element - Name and job position
+.coworkers__name {
+  vertical-align: middle;
 }

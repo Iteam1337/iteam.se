@@ -5,12 +5,14 @@
  * Class names should use BEM-formatting
  * http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
  *
+ * Also use DRY CSS whenever possible.
+ *
  * Watch out for any code smells. Please take the time to go back
  * and refactor CSS if you feel that it can be improved.
  * http://csswizardry.com/2012/11/code-smells-in-css/
  *
  * A class should be formatted with scoped variables first followed
- * by any mixins and finally regular properties and values.
+ * by any mixins/extends and finally regular properties and values.
  * All three categories should be placed in alphabetical order.
  *
  * Example
@@ -24,7 +26,6 @@
  * }
  */
 
-
 /**
  * Import Mr. White SCSS Mixins
  *
@@ -33,6 +34,7 @@
  *
  * http://believer.github.io/
  */
+@import "../../bower_components/mrwhite-scss-mixins/reset";
 @import "../../bower_components/mrwhite-scss-mixins/mixins";
 
 // Import all project files from subfolders

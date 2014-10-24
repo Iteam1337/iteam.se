@@ -1,57 +1,48 @@
-.row.offers {
-  margin: $margin 0;
+/**
+ * Partial offers
+ * -----------------------------
+ * Our offers
+ * 
+ */
+
+// Block
+.offers {
   padding: $margin 0;
 
+  @include mobile() { padding: 0 $margin / 5; }
+}
+
+// Element - Offers list
+.offers__offers-list {
+  @include flex();
+}
+
+// Element - Offer
+.offers__offer {
+  margin-right: 2%;
+  width: 31%;
+
   @include mobile() {
-    padding: 0 $margin;
+    padding: $margin / 5 0;
+    width: 100%;
   }
 
-  .row {
-    .grid-quarter {
-      $top: 40px;
+  &:nth-child(n+4) {
+    margin-top: $margin;
 
-      padding-right: $top;
-      max-width: 100%;
-      min-width: 25%;
-      text-align: center;
-
-      &:nth-child(n+5) {
-        margin-top: $top;
-      }
-
-      &:nth-child(4n) {
-        padding-right: 0;
-      }
-    }
+    @include mobile() { margin: 0; }
   }
 
-  i {
-    color: #ccc;
-    display: block;
-    margin-bottom:20px;
-  }
+  a { font-weight: $bold; }
+}
 
-  ul {
-    @include flex();
+// Element - Offer content
+.offers__offer-content {
+  margin-top: $margin / 5;
+}
 
-    justify-content: center;
-  }
-
-  li {
-    text-align: center;
-    width:33%;
-
-    @include mobile() {
-      margin-top: $margin;
-      width:100%;
-    }
-
-    a { font-weight:$bold; }
-
-    i { font-size: 6rem; }
-
-    &:nth-child(n+4) {
-      margin-top: $margin;
-    }
-  }
+// Element - Icons
+.offers__icons {
+  color: #ccc;
+  font-size: 6rem;
 }

@@ -5,22 +5,19 @@
  * 
  */
 
-.partial-list {
-  padding: $margin 0;
+// Block
+.list {
+}
+
+// Element - List
+.list__list {
+  @include box-sizing;
+
+  list-style: square;
+  padding-left: $margin / 5;
+  width: 49%;
 
   @include mobile() {
-    padding: $margin; 
-  }
-
-  .partial-list__list {
-    @include box-sizing();
-
-    list-style: square;
-    padding-left:$margin / 2;
-    width:49%;
-
-    @include mobile() {
-      width: 100%;
-    }
+    width: 100%;
   }
 }

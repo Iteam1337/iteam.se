@@ -17,6 +17,6 @@ describe('#list', function () {
     ];
 
     expect(helper.list(items)).to.be.a('string');
-    expect(helper.list(items)).to.eql('<ul class="partial-list__list"><li>ett</li><li>två</li></ul><ul class="partial-list__list"><li>tre</li></ul>');
+    expect(helper.list(items)).to.eql('<ul class="list__list"><li>ett</li><li>två</li></ul><ul class="list__list"><li>tre</li></ul>');
   });
 });

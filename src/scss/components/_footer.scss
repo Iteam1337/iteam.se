@@ -1,17 +1,17 @@
-.row.footer {
+/**
+ * Footer
+ * -----------------------------
+ * The footer and its elements
+ * 
+ */
+
+// Block
+.footer {
   background: $background-footer;
-  font-size: 1.5rem;
   padding: $margin 0;
-  text-align: center;
 
   @include mobile() {
-    padding: $margin 20px;
-  }
-
-  .footer-logo {
-    margin-top: 50px;
-    display: block;
-    width: 100%;
+    padding: 20px;
   }
 
   .grid-full {
@@ -20,44 +20,6 @@
     @include mobile() {
       width: 100%;
     }
-
-    .block {
-      @include box-sizing();
-    
-      color: #fff;
-      display: inline-block;
-      text-align: left;
-      padding-right: 20px;
-      vertical-align: top;
-      width: 25%;
-
-      h3 {
-        font-size:2rem;
-        padding: 0;
-        margin: 0 0 20px;
-      }
-
-      &.social li {
-        display: inline-block;
-        margin-right: 20px;
-      }
-
-      @include mobile() {
-        &.block {
-          padding: 0;
-          text-align: center;
-          width: 100%;
-          margin-bottom: 20px;
-        }
-        h4 {
-          line-height: 1.75em;
-          padding: .5em;
-        }
-        .date {
-          display: none;
-        }
-      }
-    }
   }
 
   a {
@@ -65,19 +27,39 @@
     i {
       color: #fff;
     }
-    i {
-      font-size: 4rem;
-    }
+    
+    i { font-size: 4rem; }
   }
-  .calendar {
-    h4,
-    time,
-    p {
-      line-height: 2rem;
-    }
 
-    time { font-size: 1.2rem; }
-    p { margin-bottom: 20px; }
-    article { margin-bottom: 10px; }
+  time { font-size: 1.2rem; }
+  p { margin-bottom: 20px; }
+  article { margin-bottom: 10px; }
+}
+
+// Element - Content block
+.footer__block {
+  @include box-sizing;
+  @include inline-block(top);
+
+  color: #fff;
+  padding-right: 20px;
+  width: 25%;
+
+  @include mobile {
+    text-align: center;
+    width: 100%;
   }
+
+  h4 { margin-bottom: 20px; }
+
+  &.social li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  @include mobile() {
+    h4 { margin-top: 20px; }
+
+    .date { display: none; }
+  }  
 }

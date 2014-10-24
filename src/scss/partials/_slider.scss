@@ -5,7 +5,7 @@
  * 
  */
 
-$active: rgba(255, 255, 255, 0.8);
+$color__active: rgba(255, 255, 255, 0.8);
 $icon-size: 11px;
 $slider-height: 600px;
 
@@ -36,7 +36,7 @@ $slider-height: 600px;
   // Iterate the number of slide markers
   @for $i from 0 through 5 {
     input#img-#{$i}:checked ~ .nav-dots label#img-dot-#{$i} {
-      background: $active
+      background: $color__active
     }
   }
 
@@ -56,7 +56,7 @@ $slider-height: 600px;
       display: inline-block;
       margin: 0 5px;
 
-      &:hover { background: $active }
+      &:hover { background: $color__active }
     }
   }
 }

@@ -1,15 +1,15 @@
 <div class="row footer flex">
   <div class="grid-full">
-    <div class="address block">
-      <h3 class="title">Besök oss</h3>
+    <div class="footer__block">
+      <h4 class="title">Besök oss</h4>
       <ul>
         <li class="title"><strong>Iteam Solutions AB</strong></li>
         <li>Tegnérgatan 28</li>
         <li>113 59 Stockholm</li>
       </ul>
     </div>
-    <div class="contact block">
-      <h3 class="title">Kontakta oss</h3>
+    <div class="footer__block">
+      <h4 class="title">Kontakta oss</h4>
       <ul>
         <li class="phone">T: 08-26 70 90</li>
         <li class="mail">
@@ -17,33 +17,20 @@
         </li>
       </ul>
     </div>
-    <div class="social block">
-      <h3>Följ oss</h3>
+    <div class="social footer__block">
+      <h4>Följ oss</h4>
       <ul>
-        <li>
-          <a href="https://github.com/iteam1337" class="github">
-            <i class="ion-social-github"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://facebook.com/IteamSolutions" class="facebook">
-            <i class="ion-social-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a href="http://twitter.com/iteam1337" class="twitter">
-            <i class="ion-social-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a href="http://instagram.com/iteam1337" class="instagram">
-            <i class="ion-social-instagram"></i>
-          </a>
-        </li>
+        {{#each social}}
+          <li>
+            <a href="{{ url }}" class="{{ class }}">
+              <i class="ion-social-{{ class }}"></i>
+            </a>
+          </li>
+        {{/each}}
       </ul>
     </div>
-    <div class="calendar block">
-      <h3 class="title">Kommande händelser</h3>
+    <div class="footer__block">
+      <h4 class="title">Kommande händelser</h4>
       {{#calendar}}
         {{#each this}}
           <article>

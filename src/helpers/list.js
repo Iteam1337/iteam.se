@@ -11,7 +11,7 @@ module.exports.list = function (items) {
   var colOne = makelistItems(items.slice(0, split));
   var colTwo = makelistItems(items.slice(split));
 
-  var ul = '<ul class="partial-list__list">';
+  var ul = '<ul class="list__list">';
 
   return ul + colOne.join().replace(/\,/g,'') + '</ul>'+
           ul + colTwo.join().replace(/\,/g,'') + '</ul>';

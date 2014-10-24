@@ -21,10 +21,11 @@ Blog.prototype.URL = function () {
 
 Blog.prototype.prerender = function (array) {
   var newElement = document.createElement('ul');
-  var node, a, p, tempNode;
+  var node, a, p, tempNode, h3;
   for (var i = 0, max = array.length, data; i < max; i++) {
     data = array[i];
 
+    h3 = document.createElement('h3');
     a = document.createElement('a');
     a.setAttribute('href', data.link);
     a.setAttribute('target', '_blank');
@@ -37,7 +38,9 @@ Blog.prototype.prerender = function (array) {
     p.innerHTML = (tempNode.textContent || tempNode.innerText || '').slice(0, 120) + ' …';
 
     node = document.createElement('li');
-    node.appendChild(a);
+
+    h3.appendChild(a);
+    node.appendChild(h3);
     node.appendChild(p);
 
     newElement.appendChild(node);

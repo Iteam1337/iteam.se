@@ -2,16 +2,12 @@
   padding: $margin 0;
 
   .partial-links__item {
-    &:not(:last-child) { margin-bottom:$margin / 5; }
-    
-    .url,
-    .text {
-      display:inline-block;
-    }
+    &:not(:last-child) { margin-bottom: $margin / 5; }
 
     .url {
+      @include inline-block(top);
+
       margin-right:2%;
-      vertical-align: top;
       width: 30%;
 
       a {
@@ -21,6 +17,9 @@
       }
     }
 
-    .text { width:68%; }   
+    .text {
+      display: inline-block;
+      width: 68%;
+    }
   }
 }

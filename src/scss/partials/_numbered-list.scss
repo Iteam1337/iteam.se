@@ -8,21 +8,23 @@
 $width: 40%;
 $mobile-width: 100%;
 
-.partial-numbered-list {
-  background-size:cover;
+// Block
+.numbered-list {
+  @include prefix('background-size', cover);
+
   position: relative;
   overflow: hidden;
 
-  &.padding-top .partial-numbered-list__overlay {
-    padding-top:$margin * 1.5;
+  &.padding-top .numbered-list__overlay {
+    padding-top: $margin * 1.5;
   }
 
   &:hover {
-    .partial-numbered-list__overlay {
+    .numbered-list__overlay {
       background: rgba(0,0,0,0.5);
     }
 
-    .partial-numbered-list__side-image {
+    .numbered-list__side-image {
       @include transform(translateY(120px));
 
       &.image-1 {
@@ -30,14 +32,14 @@ $mobile-width: 100%;
       }
     }
 
-    .partial-numbered-list__content {
+    .numbered-list__content {
       @include transform(translateX(0));
     }
   }
 }
 
-// Faded overlay
-.partial-numbered-list__overlay {
+// Element - Faded overlay
+.numbered-list__overlay {
   @include transition(background, 300ms, ease-in-out);
 
   background: rgba(0,0,0,0.7);
@@ -48,8 +50,8 @@ $mobile-width: 100%;
   }
 }
 
-// Text content
-.partial-numbered-list__content {
+// Element - Text content
+.numbered-list__content {
   @include transform(translateX(-20px));
   @include transition(transform, 300ms, ease-in-out);
 
@@ -60,7 +62,7 @@ $mobile-width: 100%;
   }
 
   h2 {
-    color:#fff;
+    color: #fff;
   }
 
   // Text
@@ -73,8 +75,8 @@ $mobile-width: 100%;
   }
 }
 
-// Bullet list
-.partial-numbered-list__bullets {
+// Element - Bullet list
+.numbered-list__bullets {
   @include box-sizing();
 
   width: $width;
@@ -86,30 +88,30 @@ $mobile-width: 100%;
   li {
     $indent: 22px;
 
-    margin-bottom:5px;
-    padding-left:$indent;
-    text-indent:-$indent;
+    margin-bottom: 5px;
+    padding-left: $indent;
+    text-indent: -$indent;
 
     &:before {
       @include bullets();
 
-      content:"";
+      content: "";
       display: inline-block;
       margin-right: 10px;
     }
   }
 }
 
-// Images
-.partial-numbered-list__side-image {
+// Element - Images
+.numbered-list__side-image {
   @include position(bottom,right,0,80px);
   @include transform(translateY(180px));
   @include transition(transform, 300ms, ease-in-out);
 
-  width:600px;
+  width: 600px;
 
-  &:hover { z-index:20; }
-  @include mobile() { display:none; }
+  &:hover { z-index: 20; }
+  @include mobile() { display: none; }
 
   &.image-1 {
     @include transform(translateY(240px));

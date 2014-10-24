@@ -7,21 +7,19 @@ navigation: true
 contact: true
 ---
 
-<div class="row coworkers">
+<div class="row partial coworkers">
   <div class="grid-full">
-    <ul>
+    <ul class="coworkers__list">
       {{#pages route="./src/pages/medarbetare/" start="" type="coworker" size=500}}
         {{#each data}}
           <li>
-            <a href="{{ url }}">
+            <a href="{{ url }}" class="coworkers__content">
               {{#if logo}}
-                <img src="{{ logo }}"/>
+                <img src="{{ logo }}" class="coworkers__image">
               {{/if}}
-              <div class="outer">
-                <div class="inner">
-                  <h3>{{ this.name.first }} <span>{{ this.name.last }}</span></h3>
-                  <p class="job">{{this.frontmatter.job}}</p>
-                </div>
+              <div class="coworkers__name">
+                <h4>{{ this.name.first }} <span>{{ this.name.last }}</span></h4>
+                <p class="job">{{this.frontmatter.job}}</p>
               </div>
             </a>
           </li>

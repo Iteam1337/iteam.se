@@ -20,6 +20,6 @@
   @include size(12px);
   @include transition(all, 300ms, ease-in-out);
 
-  background: $accent;
+  background: $color__accent;
   display: inline-block;
 }

@@ -2,15 +2,13 @@
   > .grid-full { padding: $margin 0; }
   
   .text {
-    display: inline-block;
+    @extend %inline-block--top;
+    @include box-sizing();
+    
     padding: 0 20px 20px 20px;
-    vertical-align: top;
     width: 50%;
 
-    @include box-sizing();
-
     h4:first-of-type { margin-top: 0; }
-
 
     ul {
       list-style-type: none;

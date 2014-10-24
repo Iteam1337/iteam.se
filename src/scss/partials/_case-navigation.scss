@@ -1,35 +1,45 @@
-.partial-case-navigation {
-  $icon-margin: 10px;
+/**
+ * Case navigation
+ * -----------------------------
+ * Navigate to next and previous case in order and also to top level.
+ * Preferably placed at the bottom of a case.
+ * 
+ */
 
+$icon-margin: 10px;
+
+// Block
+.case-navigation {
   background: rgb(19,24,25);
   color: #fff;
   padding: $margin 0;
 
   a { color: #fff; }
   i { margin-right: 10px; }
+}
 
-  .previous,
-  .cases,
-  .next {
-    width: 33%;
+// Element - Content blocks
+.case-navigation__block {
+  width: 33%;
 
-    @include mobile() {
-      text-align: center;
-      width:100%;
-    }
+  @include mobile() {
+    text-align: center;
+    width:100%;
   }
+}
 
-  .cases {
-    text-align: center; 
+// Element - Content block -- Modified for center block
+.case-navigation__block--center {
+  text-align: center;
 
-    i { margin-right: $icon-margin; }
-  }
+  i { margin-right: $icon-margin; }
+}
 
-  .next {
-    text-align: right;
-    
-    i { margin-left: $icon-margin; }
+// Element - Content block -- Modified for last block
+.case-navigation__block--next {
+  text-align: right;
+  
+  i { margin-left: $icon-margin; }
 
-    @include mobile() { text-align: center; }
-  }
+  @include mobile() { text-align: center; }
 }

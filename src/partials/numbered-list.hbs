@@ -1,14 +1,14 @@
-<div class="row partial-{{ type }} {{ extra-classes }}" style="
+<div class="row {{ type }} {{ extra-classes }}" style="
   {{#if background-image}}
     background-image: url({{ background-image }});
   {{/if}}
 ">
-  <div class="partial-numbered-list__overlay">
+  <div class="numbered-list__overlay">
     <div class="grid-full">
-      <div class="partial-numbered-list__content">
+      <div class="numbered-list__content">
         <h2>{{ title }}</h2>
         {{#if bullets}}
-          <ul class="partial-numbered-list__bullets">
+          <ul class="numbered-list__bullets">
             {{#each bullets}}
               <li>{{ this }}</li>
             {{/each}}
@@ -19,7 +19,7 @@
         {{/if}}        
       </div>
       {{#each side-images}}
-        <img class="partial-numbered-list__side-image image-{{@index}}" src="{{ this }}" alt="">
+        <img class="numbered-list__side-image image-{{@index}}" src="{{ this }}" alt="">
       {{/each}}
     </div>
   </div>

@@ -1,38 +1,34 @@
+/**
+ * Instagram
+ * -----------------------------
+ * Displays 4 Instagram photos in a row from Iteam1337 or a given coworker
+ * 
+ */
+
+// Block
 .instagram {
-  line-height:0;
+  line-height: 0;
   text-align: center;
-  padding: 0;
-  margin: 0;
-  &,
-  & * {
-    box-sizing: border-box;
-  }
-  i {
-    color: rgb(225,214,197);
-    display: block;
-    font-size: 4rem;
-    margin-bottom: $margin / 2;
-  }
 }
 
-.instagram-content {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  flex:1 1;
+// Element - Instagram content
+.instagram__content {
   display: inline-flex;
+  flex: 1 1;
+  width: 100%;
 
   video,
   img {
-    width: 50%;
-    height: 30%;
+    @include size(50%, 30%);
   }
+
   @include mobile() {
     display: block;
+
     video,
     img {
-      width: 100%;
-      height: 100%;
+      @include size(100%);
+
       display: block;
     }
   }

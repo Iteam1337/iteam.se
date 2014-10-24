@@ -13,19 +13,23 @@ textarea {
 
   background: $background-input; 
   border:2px solid $background-input;
+  font-size: $small-p-size;
   padding: 15px 20px;
 
   &:focus {
     background: #fff;
-    border: 2px solid $accent;
+    border: 2px solid $color__accent;
     outline: none;
   }
 }
 
-input:not([type="submit"]) {
+.contact__field {
   color: rgb(146,159,166);
-  font-size: 1.5rem;
   width: 49%;
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 textarea {

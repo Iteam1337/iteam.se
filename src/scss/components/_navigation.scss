@@ -92,7 +92,7 @@ body.invert #navbar .nav a {
           @include transform(translateY(10px));
           @include transition(all, 200ms, ease-in-out);
 
-          background: fade($accent, 90%);
+          background: fade($color__accent, 90%);
           content:"";
           display: block;
           height: 2px;
@@ -103,7 +103,7 @@ body.invert #navbar .nav a {
         }
 
         &:hover {
-          color: darken($accent,10%);
+          color: darken($color__accent,10%);
 
           &:after {
             @include transform(translateY(-3px));
@@ -113,7 +113,7 @@ body.invert #navbar .nav a {
         }
 
         &.active {
-          color: $accent;
+          color: $color__accent;
 
           &:after {
             @include transform(translateY(-3px));

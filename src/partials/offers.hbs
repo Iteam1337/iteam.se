@@ -1,6 +1,5 @@
-<div class="row flex {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
+<div class="row partial {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
   <div class="grid-full">
-    <div class="row flex">
     {{#if offers}}
       {{#each offers}}
         <div class="grid-quarter">
@@ -9,12 +8,12 @@
         </div>
       {{/each}}
     {{else}}
-      <ul class="all-offers">
+      <ul class="partial-offers__offers-list">
         {{#pages route="./src/pages/vara-tjanster/" start="/vara-tjanster/" type="services"}}
           {{#each data}}
-            <li>
-              <i class="{{this.frontmatter.icon}}"></i>
-              <div>
+            <li class="partial-offers__offer">
+              <i class="partial-offers__icons {{this.frontmatter.icon}}"></i>
+              <div class="partial-offers__offer-content">
                 <a href="{{this.url}}">{{this.title}}</a>  
                 <p>{{this.frontmatter.description}}</p>
               </div>
@@ -23,6 +22,5 @@
         {{/pages}}
       </ul>
     {{/if}}
-    </div>
   </div>
 </div>

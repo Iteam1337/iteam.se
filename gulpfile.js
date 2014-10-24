@@ -75,7 +75,9 @@ gulp.task('sass', function () {
   gulp.src('./src/scss/all.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
-      .pipe(sass())
+      .pipe(sass({
+        outputStyle: 'compressed'
+      }))
     .pipe(sourcemaps.write())
     .pipe(rename('iteam.css'))
     .pipe(gulp.dest(config.stylesOut));

@@ -1,16 +1,17 @@
 .row.map {
-  background-size:cover;
+  @include prefix('background-size', cover);
+  
   height: 300px;
-  overflow:hidden;
+  overflow: hidden;
   padding: $margin 0;
   position: relative;
 
   @include tablet() {
-    background-position: -300px 0;
+    background-position-x: -300px;
   }
 
   @include mobile() {
-    background-position: -570px 0;
+    background-position-x: -570px;
   }
 
   img {

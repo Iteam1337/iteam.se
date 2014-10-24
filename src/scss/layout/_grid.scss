@@ -39,10 +39,19 @@
   }
 
   .grid-quarter {
-    max-width: 25%;
+    $top: 40px;
+
+    padding-right: $top;
+    max-width: 100%;
+    min-width: 25%;
+    text-align: center;
+
+    &:nth-child(n+5) { margin-top: $top; }
+    &:nth-child(4n) { padding-right: 0; }
 
     @include mobile() { max-width: 100%; }
   }
+
   .align-top {
     align-self: flex-start;
   }
@@ -52,7 +61,7 @@
       @include center(x, top, 0);
       @include size(100px, 3px);
 
-      background: $accent;
+      background: $color__accent;
       content: "";
       display: block;
     }

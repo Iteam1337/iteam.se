@@ -15,7 +15,7 @@ input[type="submit"] {
   @include transition(all, 300ms, ease-in-out);
   
   background: none;
-  color: $accent;
+  color: $color__accent;
   cursor: pointer;
   font-size: $font-size;
 }
@@ -23,14 +23,15 @@ input[type="submit"] {
 // Button
 .button {
   @include border-radius(4px);
+  @include box-sizing;
 
-  border: 2px solid $accent;
+  border: 2px solid $color__accent;
   display: inline-block;
   font-weight: 100;
   padding: 5px 20px;
 
   &:hover {
-    background: $accent;
+    background: $color__accent;
     color: $color-hover;
 
     i,
@@ -42,11 +43,22 @@ input[type="submit"] {
   i {
     @include transition(all, 300ms, ease-in-out);
 
-    color: $accent;
+    color: $color__accent;
     font-size: 4rem;
     line-height: 0;
 
     &:before { line-height: 0; }
+  }
+
+  @include mobile {
+    text-align: center;
+    padding: 10px 20px;
+  }
+}
+
+.button--submit {
+  @include mobile {
+    width: 100%;
   }
 }
 

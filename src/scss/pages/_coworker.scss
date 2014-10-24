@@ -10,7 +10,7 @@
     $href-width: 20%;
 
     background: #333;
-    color:#fff;
+    color: #fff;
     padding: $margin 0;
 
     @include mobile() {
@@ -23,18 +23,17 @@
       i {
         @include position(bottom,right,-120px,-120px);
 
-        color:#fff;
-        font-size:50rem;
+        font-size: 50rem;
 
         @include mobile() {
           text-align: center;
           margin-bottom: $margin / 5;
-          width:100%;
+          width: 100%;
         }
       }
 
       ul {
-        width:100% - $icon-width;
+        width: 100% - $icon-width;
 
         @include mobile() {
           width: 100%;
@@ -48,20 +47,20 @@
           a {
             @include text-overflow();
 
-            width:$href-width;
+            width: $href-width;
 
             @include mobile() {
-              width:100%;
+              width: 100%;
             }
           }
 
           p {
             @include text-overflow();
 
-            width:70%;
+            width: 70%;
             
             @include mobile() {
-              width:100%;
+              width: 100%;
             }        
           }
         }
@@ -75,24 +74,23 @@
   }
 
   .text.center {
-    height:300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    height: 300px;
 
     > .grid-full {
       @include box-sizing();
       @include position(top,left,0,0,absolute,true);
 
       background: rgba(0,0,0,0.4);
-      max-width:100%;
+      max-width: 100%;
 
       .inner {
         @include position(bottom,right,40px,40px);
-        text-align:right;
+        text-align: right;
       }
     }
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
 
     a {
       color: #fff;
@@ -106,7 +104,7 @@
       @include transition(all);
 
       &:hover {
-        color:$accent;
+        color:$color__accent;
       }
 
       &:not(:last-child) {
@@ -116,7 +114,7 @@
     }
 
     i {
-      color:#666;
+      color: $color--link;
       font-size: 4rem;
     }
   }
@@ -126,29 +124,25 @@
     padding: $margin/2 0;
     width: 100%;
     
-    h3 {
-      margin:0 0 10px;
-      padding:0;
-    }
-
     &,
     & * {
-      box-sizing: border-box;
+      @include box-sizing;
     }
+
     &:after {
+      clear: both;
       content: ".";
-      visibility: hidden;
       display: block;
       height: 0;
-      clear: both;
+      visibility: hidden;
     }
   }
 
   .box-position {
+    @extend %inline-block--top;
+    
     padding: 10px;
     word-break: break-word;
-    display: inline-block;
-    vertical-align: top;
 
     p {
       margin:10px 0;
@@ -174,7 +168,5 @@
         float: none;
       }
     }
-
   }
-
 }
