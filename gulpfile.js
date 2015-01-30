@@ -29,10 +29,7 @@ gulp.task('clean', function () {
 });
 
 var config = {
-  styles: 'src/less/**/',
   stylesOut: 'out/css/',
-  allStyle: '*.less',
-  mainStyle: 'main.less',
   pages: './src/pages/**/*.hbs'
 };
 
@@ -152,7 +149,6 @@ gulp.task('build', [
   'copy',
   'jshint',
   'scripts',
-  'less',
   'assemble'
 ]);
 
