@@ -10,34 +10,9 @@
     &.orange { @include bg(255, 189, 9); }
     &.grey { @include bg(35, 31, 32); }
   }
-  
-  // Giant Goldfish by Manekineko
-  // http://www.colourlovers.com/lover/manekineko
-  &.goldfish {
-    &.blue { @include bg(105,210,231); }
-    &.teal { @include bg(167,219,216); }
-    &.sand { @include bg(224,228,204); }
-    &.light-orange { @include bg(243,134,48); }
-    &.dark-orange { @include bg(250,105,0); }
-  }
 
-  // Cheer up emo kid by Electrikmonk
-  // http://www.colourlovers.com/palette/1930/cheer_up_emo_kid
-  &.cheer {
-    &.dark { @include bg(85,98,112); }
-    &.teal { @include bg(78,205,196); }
-    &.green { @include bg(199,244,100); }
-    &.pink { @include bg(255,107,107); }
-    &.maroon { @include bg(196,77,88); }
-  }
-
-  // Adrift in Dreams by Skyblue2u
-  // http://www.colourlovers.com/palette/580974/Adrift_in_Dreams
-  &.dreams {
-    &.light-green { @include bg(207,240,158); }
-    &.green { @include bg(168,219,168); }
-    &.dark-green { @include bg(121,189,154); }
-    &.blue-green { @include bg(59,134,134); }
-    &.navy { @include bg(11,72,107); }
-  }
+  &.blue { background: $color--cornflower-blue; }
+  &.orange { background: $color--flush-orange; }
+  &.red { background: $color--radical-red; }
+  &.green { background: $color--spring-green; }
 }

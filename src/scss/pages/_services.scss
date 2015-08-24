@@ -1,9 +1,15 @@
 /**
  * Partial Services
  * -----------------------------
- * 
- * 
+ *
+ *
  */
+
+.services {
+  &.narrow {
+    padding: 0 0 $margin / 2;
+  }
+}
 
 // Element - Services list
 .services__list {
@@ -13,11 +19,9 @@
     @extend %inline-block--top;
     @include box-sizing();
 
-    padding: $margin / 2 $margin / 3;
-    text-align: center;
-    width: 49%;
+    width: 50%;
 
-    &:nth-child(odd) { margin-right: 2%; }
+    &:nth-child(odd) { padding-right: 2%; }
     &:nth-child(n+3) { margin-top: $margin / 3; }
 
     i {
@@ -49,7 +53,7 @@
       @include mobile() {
         width: 100%;
       }
-      
+
       @include transition(opacity, 200ms, ease-in-out);
 
       background: $light;
@@ -67,7 +71,7 @@
         @include box-sizing();
         @include size(100%);
         @include transition(background, 200ms, ease-in-out);
-        
+
         background: inherit;
         color: inherit;
         display: block;

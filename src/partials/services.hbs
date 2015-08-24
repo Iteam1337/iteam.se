@@ -1,9 +1,11 @@
-<div class="row partial {{ type }}">
+<div class="row partial {{ type }} {{#if narrow}}
+    narrow
+  {{/if}}">
   <div class="grid-full">
     <ul class="services__list">
       {{#pages route="./src/pages/vara-tjanster/" start="" type=""}}
         {{#each data}}
-          {{#unless frontmatter.unpublished }} 
+          {{#unless frontmatter.unpublished }}
           <li>
             <h3>
               <a href="{{this.url}}">
