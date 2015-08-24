@@ -5,7 +5,7 @@ var read  = require('./read');
 
 module.exports.pages = function (options) {
   var orderedPages;
-  var data = options.hash || {}; 
+  var data = options.hash || {};
   var dir = data.route || './src/pages/case/';
   var dirs = read.directory(dir);
   var lead = data.start || '';
@@ -50,7 +50,7 @@ module.exports.pages = function (options) {
       }).join(' ');
       frontmatter.categories = frontmatter.categories.join(' ');
     }
-  
+
     return {
       element: element,
       order: frontmatter.order || lastName

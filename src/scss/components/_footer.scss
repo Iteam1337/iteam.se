@@ -2,7 +2,7 @@
  * Footer
  * -----------------------------
  * The footer and its elements
- * 
+ *
  */
 
 // Block
@@ -27,7 +27,7 @@
     i {
       color: #fff;
     }
-    
+
     i { font-size: 4rem; }
   }
 
@@ -50,7 +50,10 @@
     width: 100%;
   }
 
-  h4 { margin-bottom: 20px; }
+  h4 {
+    color: $color--white;
+    margin-bottom: 20px;
+  }
 
   &.social li {
     display: inline-block;
@@ -61,5 +64,5 @@
     h4 { margin-top: 20px; }
 
     .date { display: none; }
-  }  
+  }
 }

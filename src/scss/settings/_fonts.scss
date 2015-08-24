@@ -1,17 +1,17 @@
 $ionicons-font-path: "../content/fonts";
 
-@import "../../bower_components/ionicons/scss/ionicons";
+@import "../../../bower_components/ionicons/scss/ionicons";
 
 /* FONTS
 --------------------------------------------------------*/
 
-$header-font:'ITC Avant Garde Gothic Std', sans-serif;
+$header-font:'Roboto', sans-serif;
 // $header-font:'Droid Serif', serif;
-$body-font: 'Palatino', sans-serif;
+$body-font: 'Roboto', sans-serif;
 
 $icons: $ionicons-font-family;
 
-$bold: 600;
+$bold: 500;
 
 $h2: 4.5rem;
 $h3: 2.5rem;
@@ -25,11 +25,10 @@ h1,
 h2,
 h3,
 h4 {
-  color: $color--link;
+  color: $color--black;
   font-family: $header-font;
   font-weight: $bold;
   line-height: 1.2;
-  text-transform: uppercase;
 
   a {
     color: $color--link;
@@ -59,4 +58,3 @@ p {
 strong {
   font-weight: 400;
 }
-

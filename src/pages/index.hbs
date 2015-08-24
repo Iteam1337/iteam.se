@@ -4,32 +4,24 @@ no-navigation: true
 body-class: dark
 partials:
   -
-    type: side-menu
-    items:
-      -
-        text: Vision
-        name: vision
-      -
-        text: Utvalda case
-        name: selected-cases
-      -
-        text: Erbjudanden
-        name: selected-products
-      -
-        text: Insatser
-        name: contributions
-      -
-        text: Säg hej!
-        name: contact
+    type: image
+    start: true
+    height: 600px
+    parallax: true
+    overlay: red
+    title: Why promising nothing delivers more and planning always fails
+    background-image: url(/content/images/vimla_start.jpg)
   -
-    type: video
-    file: "/content/video/splintercell.mp4"
-    autoplay: true
-    muted: true
-    loop: true
+    type: text
+    mdtext: src/pages/startpage
+    image:
+      src: /content/images/icons/iteam-icon-01.png
+      alt: Ruler icon
+    image-position: left
   -
     type: vision
     title: There's a better way
+    background: '#38ffa1'
     text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam rem nemo qui quia amet dolor negcessitatibus ad perferendis ut consequatur culpa voluptatem, modi, repudiandae quod laborum tempore natus nihil voluptatibus!
   -
     type: selected-cases

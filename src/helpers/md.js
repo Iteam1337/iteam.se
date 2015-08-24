@@ -1,4 +1,5 @@
 'use strict';
+
 var marked = require('marked');
 var fs     = require('fs');
 var path   = require('path');
@@ -24,4 +25,3 @@ module.exports.md = function (filePath, options) {
 
   return marked(text);
 };
-

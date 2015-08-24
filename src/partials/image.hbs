@@ -1,4 +1,8 @@
 <div class="row partial {{ type }} {{ background }} {{#if parallax}} parallax {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} height: {{ height }}; {{#if background-image}} background-image: {{ background-image }} {{/if}}">
+  {{#if overlay}}
+    <div class="image__overlay {{overlay}}"></div>
+  {{/if}}
+
   {{#if start}}
     <div class="{{ type }}__content">
       <h1 class="{{ type }}__title">{{{ title }}}</h1>

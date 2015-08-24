@@ -71,6 +71,7 @@ SocialHub.prototype.prerender = function (array) {
 };
 
 SocialHub.prototype.handleResponse = function (response) {
+  console.log(response);
   response = JSON.parse(response);
   if (response.error !== null) {
     console.error(response.error);

@@ -2,7 +2,7 @@
  * Instagram
  * -----------------------------
  * Displays 4 Instagram photos in a row from Iteam1337 or a given coworker
- * 
+ *
  */
 
 // Block
@@ -13,13 +13,13 @@
 
 // Element - Instagram content
 .instagram__content {
-  display: inline-flex;
-  flex: 1 1;
+  display: flex;
+  flex: 1;
   width: 100%;
 
   video,
   img {
-    @include size(50%, 30%);
+    @include size(25%, 30%);
   }
 
   @include mobile() {

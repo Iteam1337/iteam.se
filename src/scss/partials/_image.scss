@@ -3,11 +3,13 @@
  * -----------------------------
  * Displays a full width image and has optional value for parallax
  * effect and an animated arrow pointing down
- * 
+ *
  */
 
 // Block
 .image {
+  position: relative;
+
   img {
     vertical-align: bottom;
     width: 100%;
@@ -15,22 +17,34 @@
 
   &.parallax {
     background-attachment: fixed;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
   }
 }
 
+.image__overlay {
+  @include position(top, left, 0, 0, absolute, true);
+
+  opacity: $overlay-opacity;
+
+  &.blue { background: $color--cornflower-blue; }
+  &.orange { background: $color--flush-orange; }
+  &.red { background: $color--radical-red; }
+  &.green { background: $color--spring-green; }
+}
+
 // Element - Optional title text
 .image__title {
-  @include center(both);
-  @include prefix('text-shadow', 1px 1px 0px rgba(33,33,33,0.8));
-  
-  color: #fff;
+  @include center(y, left, 40px);
+
+  color: $color--white;
   font-size: 10rem;
+  max-width: 50%;
 
   @include mobile() {
     @include prefix('word-break', break-word);
-    
+
     font-size: 6rem;
     line-height: 1;
     text-align: center;
@@ -65,5 +79,5 @@ $end: 10px;
   0% { top: $start; }
   12.5% { top: $end; }
   25% { top: $start; }
-  100% { top: $start; }  
+  100% { top: $start; }
 }

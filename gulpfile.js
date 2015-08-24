@@ -30,7 +30,9 @@ gulp.task('clean', function () {
 
 var config = {
   stylesOut: 'out/css/',
-  pages: './src/pages/**/*.hbs'
+  pages: [
+    './src/pages/**/*.hbs'
+  ]
 };
 
 gulp.task('jshint', function () {

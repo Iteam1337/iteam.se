@@ -1,17 +1,32 @@
-/* COLORS
---------------------------------------------------------*/
-$color--font: #7F8C8D;
-$color--accent: #ffbd09;
-$color--background: #fff;
+//------------------------------------------------------------
+// COLORS
+//
+//------------------------------------------------------------
+$color--spring-green: rgb(56, 255, 161);         // #38ffa1;
+$color--cornflower-blue: rgb(102, 140, 255);     // #668cff
+$color--radical-red: rgb(255, 59, 92);           // #ff3b5c
+$color--flush-orange: rgb(255, 134, 0);          // #ff8600
+$color--black: rgb(0, 0, 0);                     // #000000
+$color--white: rgb(255, 255, 255);               // #ffffff
+
+$color--font: $color--black;
+$color--accent: $color--flush-orange;
+$color--background: $color--white;
 $color--quote: rgb(153, 153, 153);
 $color--link: #686A6B;
 
 $background-input: rgb(234,241,244);
-$background-footer: rgb(35,38,39);
+$background-footer: $color--black;
 
 $light: rgb(237,237,237);
 
-/* Brand colors
---------------------------------------------------------*/
+//
+// Brand colors
+// --------------------------------------------------
 $facebook: #3B5998;
 $twitter: #55ACEE;
+
+//
+// Colors options
+// --------------------------------------------------
+$overlay-opacity: .7;

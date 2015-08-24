@@ -1,7 +1,10 @@
 <div class="
   row
   {{ type }}
-  {{ background }} 
+  {{ background }}
+  {{#if image-position}}
+    positioned
+  {{/if}}
   {{#if one-line}}
     one-line 
   {{/if}}
@@ -20,7 +23,7 @@
   "
   style="
   {{#if background-color}}
-    background:{{ background-color }}; 
+    background:{{ background-color }};
   {{/if}}
   {{#if color}}
     color: {{ color }};

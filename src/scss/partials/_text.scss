@@ -15,6 +15,10 @@ $img-width: 40%;
     }
   }
 
+  &.positioned .grid-full {
+    display: flex;
+  }
+
   p {
     margin: ($margin / 5) * 2 auto 0;
   }
@@ -23,13 +27,11 @@ $img-width: 40%;
     max-width: $img-width;
 
     &.left {
-      float: left;
       margin-bottom: $margin / 5;
       margin-right: $margin / 2;
     }
 
     &.right {
-      float: right;
       margin-left: $margin;
     }
 
@@ -98,7 +100,7 @@ $img-width: 40%;
 
       > li {
         $left: 57px;
-        
+
         @include box-sizing();
         @include prefix('justify-content', 'center');
 
