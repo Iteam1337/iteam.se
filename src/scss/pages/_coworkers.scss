@@ -2,12 +2,10 @@
  * Coworkers
  * -----------------------------
  * List all the coworkers
- * 
+ *
  */
 
 // Block
-.coworkers {
-}
 
 // Element - Coworkers in list form
 .coworkers__list {
@@ -15,10 +13,10 @@
   flex-wrap: wrap;
 
   li {
-    width: 50%;
+    width: 33%;
 
-    &:nth-child(n+3) {
-      margin-top: 20px;
+    &:nth-child(n+4) {
+      margin-top: $margin / 4;
     }
 
     @include mobile() {
@@ -31,22 +29,24 @@
 
 // Element - Coworkers content wrap
 .coworkers__content {
-  display: table-row;
+  text-align: center;
 }
 
 // Element - Common for image and name
 .coworkers__image,
 .coworkers__name {
-  display: table-cell;
 }
 
 // Element - Image of coworker (grabbed from Gravatar)
 .coworkers__image {
-  margin-right: 20px;
-  max-height: 100px;
+  border-radius: 100%;
+  display: block;
+  margin: 0 auto $margin / 5;
+  max-height: 150px;
 }
 
 // Element - Name and job position
 .coworkers__name {
+  color: $color--black;
   vertical-align: middle;
 }
