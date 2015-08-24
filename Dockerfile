@@ -2,6 +2,7 @@ FROM node
 WORKDIR /app
 ADD package.json /app/
 RUN npm install
+RUN bower install
 ADD src /app/src
 ADD gulpfile.js /app/
 VOLUME /app/out
