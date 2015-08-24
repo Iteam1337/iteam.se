@@ -8,4 +8,4 @@ ADD src /app/src
 ADD gulpfile.js /app/
 VOLUME /app/out
 EXPOSE 9000
-CMD gulp
+CMD ./node_modules/.bin/gulp
