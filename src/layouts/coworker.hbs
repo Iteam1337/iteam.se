@@ -12,7 +12,6 @@ blog-count: 5
     <div class="grid-full align-top">
       <div class="inner">
         <h1>{{ name }}</h1>
-        <div><strong><a href="mailto:{{ email }}">{{ email }}</a></strong></div>
         <div>{{ job }}</div>
       </div>
     </div>
@@ -42,12 +41,6 @@ blog-count: 5
   {{#if social-media.blog}}
     <div class="blog">
       {{> blog this}}
-    </div>
-  {{/if}}
-
-  {{#if social-media.github}}
-    <div class="row github">
-      {{> github this}}
     </div>
   {{/if}}
 </div>
