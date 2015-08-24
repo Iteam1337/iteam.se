@@ -6,7 +6,7 @@
   h1 {
     @include center(both);
     @include text-shadow(2px 2px 0px rgba(33,33,33,0.4));
-    
+
     color: #fff;
     font-size: 100px;
     margin: 0;
@@ -15,7 +15,7 @@
 
     @include mobile() {
       @include prefix('word-break', break-word);
-      
+
       font-size: 60px;
       line-height: 1;
     }
@@ -23,7 +23,7 @@
 
   .image-inner {
     @include box-sizing();
-    
+
     position: relative;
     height: 100%;
   }
@@ -54,6 +54,10 @@
     }
   }
 
+  &.center {
+    background-position: center center;
+  }
+
   &.parallax {
     @include prefix('background-size', cover);
 
@@ -65,7 +69,7 @@
     text-align: center;
     text-shadow: 1px 1px 0px rgba(33,33,33,0.8);
     z-index: -1;
-    
+
     .image-inner {
       padding: $margin * 4 0;
     }
@@ -79,5 +83,5 @@ $end: 10px;
   0% { top: $start; }
   12.5% { top:$end; }
   25% { top: $start; }
-  100% { top: $start; }  
+  100% { top: $start; }
 }
