@@ -1,4 +1,4 @@
-FROM node
+FROM tutum.co/iteamdev/node-gulp
 WORKDIR /app
 ADD package.json /app/
 RUN npm install
