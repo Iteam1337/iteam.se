@@ -12,6 +12,7 @@ var jshint     = require('gulp-jshint');
 var mocha      = require('gulp-mocha');
 var concat     = require('gulp-concat');
 var uglify     = require('gulp-uglify');
+var plugins    = require('gulp-load-plugins')();
 var rimraf     = require('rimraf');
 var awspublish = require('gulp-awspublish');
 var foreach    = require('gulp-foreach');
@@ -76,6 +77,10 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
       .pipe(sass({
         outputStyle: 'compressed'
+      }))
+      .pipe(plugins.autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
       }))
     .pipe(sourcemaps.write())
     .pipe(rename('iteam.css'))
