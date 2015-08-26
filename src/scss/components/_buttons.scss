@@ -13,7 +13,7 @@ $color-hover: #000;
 .button,
 input[type="submit"] {
   @include transition(all, 300ms, ease-in-out);
-  
+
   background: none;
   color: $color__accent;
   cursor: pointer;
@@ -25,30 +25,11 @@ input[type="submit"] {
   @include border-radius(4px);
   @include box-sizing;
 
-  border: 2px solid $color__accent;
+  background: $color--flush-orange;
+  color: $color--white;
   display: inline-block;
   font-weight: 100;
   padding: 5px 20px;
-
-  &:hover {
-    background: $color__accent;
-    color: $color-hover;
-
-    i,
-    input[type="submit"] {
-      color: $color-hover;
-    }
-  }
-
-  i {
-    @include transition(all, 300ms, ease-in-out);
-
-    color: $color__accent;
-    font-size: 4rem;
-    line-height: 0;
-
-    &:before { line-height: 0; }
-  }
 
   @include mobile {
     text-align: center;
@@ -66,4 +47,5 @@ input[type="submit"] {
   @include appearance(none);
 
   border:none;
+  color: inherit;
 }

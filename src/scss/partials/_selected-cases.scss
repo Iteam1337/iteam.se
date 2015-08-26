@@ -1,107 +1,24 @@
+//------------------------------------------------------------
+// Selected cases
+//
+//------------------------------------------------------------
+
 .selected-cases {
-  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  > ul > li {
-    @extend %inline-block--top;
-    @include box-sizing();
-    @include size(50%, 500px);
+.selected-case {
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  position: relative;
 
-    background-size: auto 100%;
-    background-position: center center;
-    overflow: hidden;
-    position: relative;
+  &__image {
+    width: 30%;
+  }
 
-    &:hover {
-      .background {
-        @include transform(translateX(-10px));
-      }
-
-      a {
-        background: rgba($color--black, .5);
-
-        article {
-          @include transform(translateX(0) translateY(-50%));
-        }
-      }
-    }
-    &:nth-child(odd) { border-right:1px solid #fff; }
-    &:nth-child(n+3) { border-top: 1px solid #fff; }
-
-    @include mobile() {
-      width: 100%;
-
-      &:nth-child(odd) { border-right:none; }
-
-      border-top: 1px solid #fff;
-
-      &:hover {
-        .background { @include transform(translateX(0)); }
-      }
-    }
-
-    h3 {
-      margin-bottom: 20px;
-      padding-bottom: 0;
-    }
-
-    .background {
-      @include size(120%, 100%);
-      @include transition(transform, 300ms, ease-in-out);
-
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    a {
-      @include position(top,left,0,0,absolute,true);
-      @include transition(background, 300ms, ease-in-out);
-
-      background: rgba($color--black, $overlay-opacity);
-
-      article {
-        $height: 300px;
-
-        @include box-sizing();
-        @include transform(translateX(-10px) translateY(-50%));
-        @include transition(transform, 300ms, ease-in-out);
-        @include position(top,left,50%,50%);
-
-        margin-left:-25%;
-        width:50%;
-
-        @include mobile() {
-          @include transform(translateX(0) translateY(-50%));
-
-          left:0;
-          margin-left:0;
-          padding:0 $margin / 5;
-          width:100%;
-        }
-
-        h3 {
-          color: $color--white;
-          display: block;
-          font-size: 3rem;
-        }
-
-        p {
-          border-top: 1px solid #666;
-          border-bottom: 1px solid #666;
-          color: $color--white;
-          font-size:$small-p-size;
-          margin: $margin / 5 0;
-          padding: $margin / 5 0;
-        }
-
-        .icons li {
-          display: inline-block;
-          color: $color--white;
-          font-size: 3rem;
-
-          &:not(:last-child) { margin-right: 20px; }
-        }
-      }
-    }
+  article {
+    padding: $margin--quarter $margin--half;
   }
 }
