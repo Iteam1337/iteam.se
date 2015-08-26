@@ -1,23 +1,16 @@
 <div class="row {{ type }}">
-  <ul>
-    {{#selectedCases cases=cases}}
-      {{#each data}}
-        <li class="{{ classes }}">
-          <div class="background" style="background-image:url({{ image }})"></div>
+  {{#selectedCases cases=cases}}
+    {{#each data}}
+      <div class="selected-case">
+        <img class="selected-case__image" src="{{ image }}" />
+        <article>
           <a href="{{ url }}">
-            <article>
-              <h3>{{ subtitle }}</h3>
-              <p>{{ description }}</p>
-              <!--ul>
-                {{#each categories}}
-                  <li>{{ this }}</li>
-                {{/each}}
-              </ul-->
-              <div class="button">Läs</div>
-            </article>
+            <h3>{{ subtitle }}</h3>
           </a>
-        </li>
-      {{/each}}
-    {{/selectedCases}}
-  </ul>
+          <p>{{ description }}</p>
+          <div class="button">Läs</div>
+        </article>
+      </div>
+    {{/each}}
+  {{/selectedCases}}
 </div>

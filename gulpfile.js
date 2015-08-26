@@ -1,22 +1,23 @@
 'use strict'
 
-var gulp = require('gulp')
-var sass = require('gulp-sass')
-var sourcemaps = require('gulp-sourcemaps')
-var plumber = require('gulp-plumber')
-var webserver = require('gulp-webserver')
-var rename = require('gulp-rename')
-var assemble = require('gulp-assemble')
-var htmlmin = require('gulp-htmlmin')
-var jshint = require('gulp-jshint')
-var mocha = require('gulp-mocha')
-var concat = require('gulp-concat')
-var uglify = require('gulp-uglify')
-var rimraf = require('rimraf')
-var awspublish = require('gulp-awspublish')
-var foreach = require('gulp-foreach')
-var path = require('path')
-var debug = require('gulp-debug')
+var gulp       = require('gulp');
+var sass       = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var plumber    = require('gulp-plumber');
+var webserver  = require('gulp-webserver');
+var rename     = require('gulp-rename');
+var assemble   = require('gulp-assemble');
+var htmlmin    = require('gulp-htmlmin');
+var jshint     = require('gulp-jshint');
+var mocha      = require('gulp-mocha');
+var concat     = require('gulp-concat');
+var uglify     = require('gulp-uglify');
+var plugins    = require('gulp-load-plugins')();
+var rimraf     = require('rimraf');
+var awspublish = require('gulp-awspublish');
+var foreach    = require('gulp-foreach');
+var path       = require('path');
+var debug      = require('gulp-debug');
 
 function formatPagePath (pagePath) {
   return pagePath
@@ -74,9 +75,13 @@ gulp.task('sass', function () {
   gulp.src('./src/scss/all.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(sass({
-      outputStyle: 'compressed'
-    }))
+      .pipe(sass({
+        outputStyle: 'compressed'
+      }))
+      .pipe(plugins.autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
     .pipe(sourcemaps.write())
     .pipe(rename('iteam.css'))
     .pipe(gulp.dest(config.stylesOut))

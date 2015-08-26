@@ -1,5 +1,10 @@
 /* SIZES
 --------------------------------------------------------*/
 $max-width: 970px;
-$margin: 100px;
 $mobile-padding: 20px;
+
+$margin: 100px;
+$margin--half: $margin / 2;
+$margin--third: $margin / 3;
+$margin--quarter: $margin / 4;
+$margin--fifth: $margin / 5;
