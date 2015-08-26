@@ -11,10 +11,5 @@ ADD gulpfile.js /app/
 ## build the site
 RUN ./node_modules/.bin/gulp build
 
-## export it to nginx
-RUN mkdir -pv /usr/share/nginx/html
-RUN cp -r /app/out/* /usr/share/nginx/html/
-VOLUME /usr/share/nginx/html
-
-EXPOSE 9000
-CMD ./node_modules/.bin/gulp
+EXPOSE 8080
+CMD ./node_modules/.bin/http-server
