@@ -1,0 +1,8 @@
+web:
+  build: .
+proxy:
+  image: nginx
+  volumes_from: 
+    - web
+  ports:
+    - 80
