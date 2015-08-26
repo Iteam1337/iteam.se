@@ -3,8 +3,8 @@ FROM tutum.co/iteamdev/node-gulp
 WORKDIR /app
 ADD package.json /app/
 RUN npm install
-# RUN npm install -g bower
-# RUN bower install
+ADD bower.json /app/
+RUN ./node_modules/bower/bin/bower --config.interactive=false --allow-root install
 ADD src /app/src
 ADD gulpfile.js /app/
 
