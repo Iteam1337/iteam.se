@@ -8,8 +8,7 @@ RUN npm install
 ADD src /app/src
 ADD gulpfile.js /app/
 RUN ./node_modules/.bin/gulp build
-RUN mkdir -pv /usr/share/nginx/
 CMD /bin/bash
-RUN mv ./out/ /usr/share/nginx/html
-
+RUN mkdir -pv /usr/share/nginx/html
+RUN cp -r /app/out/* /usr/share/nginx/html/
 VOLUME /usr/share/nginx/html
