@@ -1,8 +1,10 @@
 web:
   build: .
+  volumes:
+    - /usr/share/nginx/html
 proxy:
   image: nginx
   volumes_from: 
     - web
   ports:
-    - 80
+    - 80:80
