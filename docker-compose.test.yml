@@ -1,3 +1,10 @@
 sut:
   build: .
+  volumes:
+    out:/app/out
   command: ./node_modules/.bin/gulp build test
+
+nginx:
+  build: Dockerfile
+  links:
+    - sut
