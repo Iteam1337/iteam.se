@@ -2,7 +2,7 @@ $navbar-bg: $background-footer;
 
 body.dark #navbar .nav a,
 body.invert #navbar .nav a {
-  color:#333;
+  color: $color--white;
 }
 
 #navbar {
@@ -66,7 +66,7 @@ body.invert #navbar .nav a {
     @include flex();
     @include justify-content(flex-end);
 
-    background:#fff;
+    background:transparent;
     list-style:none;
     margin:0 auto;
     max-width:$max-width;
@@ -83,7 +83,7 @@ body.invert #navbar .nav a {
       a {
         @include transition(all, 200ms, ease-in-out);
 
-        color: $color--black;
+        color: $color--white;
         letter-spacing:0.05em;
         position: relative;
         will-change: color;

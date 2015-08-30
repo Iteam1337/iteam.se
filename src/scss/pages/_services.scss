@@ -19,10 +19,10 @@
     @extend %inline-block--top;
     @include box-sizing();
 
-    width: 50%;
+    width: 30%;
 
     &:nth-child(odd) { padding-right: 2%; }
-    &:nth-child(n+3) { margin-top: $margin / 3; }
+    &:nth-child(n+4) { margin-top: $margin / 3; }
 
     i {
       color: $color__accent;

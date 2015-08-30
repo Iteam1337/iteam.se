@@ -1,6 +1,1 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+We help established companies with digital automation. By extracting vision and goals using deep interviews, service design and innovation labs we can accelerate a fast iteration path to a fully automated digital service. We provide up to three world class teams that can SuperCharge&trade; your existing team to faster develop those API:s, App-backends, Realtime data analysis, Cloud infrastructure or AI/Deep Learning algorithms.

@@ -1,5 +1,5 @@
 ---
-subtitle: Medarbetare
+subtitle: The Team
 order: 3
 layout: default.hbs
 
@@ -20,7 +20,7 @@ contact: true
 <div class="row partial coworkers">
   <div class="grid-full">
     <ul class="coworkers__list">
-      {{#pages route="./src/pages/medarbetare/" start="" type="coworker" size=300}}
+      {{#pages route="./src/pages/coworkers/" start="" type="coworker" size=300}}
         {{#each data}}
           <li>
             <a href="{{ url }}" class="coworkers__content">

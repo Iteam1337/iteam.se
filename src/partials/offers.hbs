@@ -9,7 +9,7 @@
       {{/each}}
     {{else}}
       <ul class="partial-offers__offers-list">
-        {{#pages route="./src/pages/vara-tjanster/" start="/vara-tjanster/" type="services"}}
+        {{#pages route="./src/pages/services/" start="/services/" type="services"}}
           {{#each data}}
             <li class="partial-offers__offer">
               <i class="partial-offers__icons {{this.frontmatter.icon}}"></i>
