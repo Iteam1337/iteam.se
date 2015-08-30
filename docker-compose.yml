@@ -1,10 +1,12 @@
 web:
   build: .
   volumes:
-    - /usr/share/nginx/html
-proxy:
-  image: nginx
-  volumes_from: 
-    - web
+    - ./nginx/out:/app/out
+  command: ./node_modules/.bin/gulp build
+
+nginx:
+  build: nginx/
   ports:
     - 80:80
+  links:
+    - web

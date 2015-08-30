@@ -1,10 +1,10 @@
 sut:
-  build: .
+  image: this
   volumes:
-    out:/app/out
-  command: ./node_modules/.bin/gulp build test
+    - ./nginx/out:/app/out
+  command: ./node_modules/.bin/gulp test
 
 nginx:
-  build: Dockerfile
+  build: nginx/
   links:
     - sut
