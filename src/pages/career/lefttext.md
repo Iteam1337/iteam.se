@@ -1,4 +1,4 @@
-#### [12 veckor på Iteam som praktikant!](/karriar/12-veckor-pa-iteam-som-praktikant/)
+#### [12 veckor på Iteam som praktikant!](/career/12-veckor-pa-iteam-som-praktikant/)
 En vecka efter att ha gjort min sista arbetsdag här på Iteam tänkte jag försöka mig på att sammanfatta dessa lärorika veckor på företaget.
 
 Men först - här kommer en kort presentation om praktikanten/författaren. Jag heter Elisabeth och 26 år gammal. Pluggar [Applikationsutveckling.NET](http://www.plushogskolan.se/Utbildning/Utbildningar/Applikationsutvecklare.aspx), en YH-utbilning på Teknikhögskolan i Liljeholmen. Innan jag började utbildningen hade jag aldrig skrivit en rad kod i hela mitt liv, så jag började i princip från scratch med att skriva.
