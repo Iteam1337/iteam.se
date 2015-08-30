@@ -4,6 +4,9 @@
   {{/if}}
 ">
   <div class="grid-full">
+    {{#if image}}
+        <img class="{{ image.position }}" src="{{ image.src }}" alt="{{ image.alt }}">
+    {{/if}}
     <h2>{{ title }}</h2>
     <p>{{ text }}</p>
   </div>

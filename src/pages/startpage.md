@@ -1,1 +1,2 @@
+## What the hell is Digital Transformation?
 We help established companies with digital automation. By extracting vision and goals using deep interviews, service design and innovation labs we can accelerate a fast iteration path to a fully automated digital service. We provide up to three world class teams that can SuperCharge&trade; your existing team to faster develop those API:s, App-backends, Realtime data analysis, Cloud infrastructure or AI/Deep Learning algorithms.
