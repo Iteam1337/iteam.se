@@ -1,12 +1,2 @@
 web:
   build: .
-  volumes:
-    - ./nginx/out:/app/out
-  command: ./node_modules/.bin/gulp build
-
-nginx:
-  build: nginx/
-  ports:
-    - 80:80
-  links:
-    - web
