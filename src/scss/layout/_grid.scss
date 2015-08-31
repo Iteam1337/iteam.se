@@ -18,6 +18,8 @@
   }
 
   .grid-full {
+    align-items: center;
+    display: flex;
     margin: 0 auto;
     max-width: $max-width;
   }
@@ -66,4 +68,8 @@
       display: block;
     }
   }
+}
+
+.left {
+  margin-right: $margin / 2;
 }

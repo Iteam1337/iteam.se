@@ -13,16 +13,12 @@
 
 // Element - Services list
 .services__list {
-  @include flex();
+  display: flex;
 
   li {
-    @extend %inline-block--top;
-    @include box-sizing();
-
-    width: 30%;
-
-    &:nth-child(odd) { padding-right: 2%; }
-    &:nth-child(n+4) { margin-top: $margin / 3; }
+    &:not(:last-child) {
+      margin-right: $margin--fifth;
+    }
 
     i {
       color: $color__accent;
@@ -33,7 +29,7 @@
 
     a {
       color: $color__font;
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 }

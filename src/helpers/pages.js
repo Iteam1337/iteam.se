@@ -1,4 +1,5 @@
 'use strict';
+
 var front = require('yaml-front-matter');
 var image = require('./gravatar');
 var read  = require('./read');
@@ -45,9 +46,14 @@ module.exports.pages = function (options) {
     }
 
     if(frontmatter.categories) {
-      frontmatter.categoriesHTMLFriendly = frontmatter.categories.map(function (category) {
-        return category.replace(/[^\w\d]/g, '').replace(/^(\d){1,}/, '');
-      }).join(' ');
+      frontmatter.categoriesHTMLFriendly = frontmatter.categories
+        .map(function (category) {
+          return category
+            .replace(/[^\w\d]/g, '')
+            .replace(/^(\d){1,}/, '');
+        })
+        .join(' ');
+
       frontmatter.categories = frontmatter.categories.join(' ');
     }
 
@@ -57,25 +63,34 @@ module.exports.pages = function (options) {
     };
   }
 
-  orderedPages = dirs.reduce(function (result, folder) {
-    var page = getPage(dir + folder + '/index.hbs', folder);
-    if(!data.category) {
-      result.push(page);
-    } else if(page.element.frontmatter.categories && page.element.frontmatter.categories.indexOf(data.category) >= 0) {
-      result.push(page);
-    }
-    return result;
-  }, []).sort(function (a,b) {
-    if (typeof a.order === 'number') {
-      return a.order - b.order;
-    } else if (typeof a.order === 'string') {
-      return a.order.localeCompare(b.order);
-    } else {
-      return false;
-    }
-  }).map(function (page) {
-    return page.element;
-  });
+  orderedPages = dirs
+    .reduce(function (result, folder) {
+      var page = getPage(dir + folder + '/index.hbs', folder);
+      var categories = page.element.frontmatter.categories;
+
+      if (!data.category) {
+        result.push(page);
+      } else if(categories && categories.indexOf(data.category) >= 0) {
+        result.push(page);
+      }
+
+      return result;
+    }, [])
+    .filter(function (page) {
+      return !page.element.frontmatter.unpublished;
+    })
+    .sort(function (a,b) {
+      if (typeof a.order === 'number') {
+        return a.order - b.order;
+      } else if (typeof a.order === 'string') {
+        return a.order.localeCompare(b.order);
+      } else {
+        return false;
+      }
+    })
+    .map(function (page) {
+      return page.element;
+    });
 
   return options.fn({ data: orderedPages });
 };
