@@ -5,10 +5,6 @@ var fs     = require('fs');
 var path   = require('path');
 
 module.exports.md = function (filePath, options) {
-  if (filePath.indexOf('/') === -1) {
-    return marked(filePath);
-  }
-  
   var dirName = path.dirname(options.data.orig.files[0].src);
 
   if(null === filePath.match(/\//g)) {
