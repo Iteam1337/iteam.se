@@ -1,11 +1,11 @@
-<div class="row partial {{ type }} {{ background }} {{#if parallax}} parallax {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} height: {{ height }}; {{#if background-image}} background-image: {{ background-image }} {{/if}}">
+<div class="row partial {{ type }} {{ background }} {{#if animate}} animate fadeIn {{/if}} {{#if parallax}} parallax {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} height: {{ height }}; {{#if background-image}} background-image: {{ background-image }} {{/if}}">
   {{#if overlay}}
     <div class="image__overlay {{overlay}}"></div>
   {{/if}}
 
   {{#if start}}
     <div class="{{ type }}__content">
-      <h1 class="{{ type }}__title">{{{ title }}}</h1>
+      <div class="{{ type }}__title {{#if animate}} animate fadeInUp {{/if}}">{{{ title }}}</div>
       {{#if image}}
         <img src="{{ image.src }}" alt="{{ image.alt }}">
       {{/if}}
