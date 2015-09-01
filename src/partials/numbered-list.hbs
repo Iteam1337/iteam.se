@@ -15,8 +15,10 @@
           </ul>
         {{/if}}
         {{#if text}}
-          <p>{{ text }}</p>
-        {{/if}}        
+{{#markdown}}
+{{ text }}
+{{/markdown}}
+        {{/if}}
       </div>
       {{#each side-images}}
         <img class="numbered-list__side-image image-{{@index}}" src="{{ this }}" alt="">
