@@ -2,8 +2,13 @@
  * Partial quote
  * -----------------------------
  * A quote with the person it belongs to
- * 
+ *
  */
+
+ .row.partial-quote .grid-full {
+   flex-wrap: wrap;
+   justify-content: center;
+ }
 
 .partial-quote {
   padding:$margin 0;
@@ -25,7 +30,7 @@
   margin: 0 auto;
   position: relative;
   width: 80%;
-  
+
   // Add correct quotation marks
   p {
     &:before { content:'“'; }
