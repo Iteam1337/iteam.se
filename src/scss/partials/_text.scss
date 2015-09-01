@@ -23,7 +23,8 @@ $img-width: 40%;
   p {
     margin-bottom: ($margin / 5) * 2;
 
-    &:only-of-type {
+    &:only-of-type,
+    &:last-of-type {
       margin-bottom: 0;
     }
   }

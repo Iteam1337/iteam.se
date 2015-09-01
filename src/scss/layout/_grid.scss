@@ -4,6 +4,13 @@
   @include mobile() { padding: $margin / 2; }
 }
 
+.center {
+  @include center(both);
+
+  width: 100%;
+  z-index: 1;
+}
+
 .row {
   position: relative;
 
@@ -26,6 +33,10 @@
     @include devices(mobile-landscape, mobile) {
       flex-wrap: wrap;
     }
+  }
+
+  .grid-wrapped {
+    flex-wrap: wrap;
   }
 
   .grid-half,

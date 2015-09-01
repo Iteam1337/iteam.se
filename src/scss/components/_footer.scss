@@ -6,20 +6,21 @@
  */
 
 // Block
+.row.footer .grid-full {
+  align-items: flex-start;
+  width: 970px;
+
+  @include mobile() {
+    width: 100%;
+  }
+}
+
 .footer {
   background: $background-footer;
   padding: $margin 0;
 
   @include mobile() {
     padding: 20px;
-  }
-
-  .grid-full {
-    width: 970px;
-
-    @include mobile() {
-      width: 100%;
-    }
   }
 
   a {

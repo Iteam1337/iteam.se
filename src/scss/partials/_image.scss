@@ -40,6 +40,7 @@
 
   color: $color--white;
   font-size: 8rem;
+  line-height: 1.15;
   max-width: 70%;
 
   @include mobile() {
