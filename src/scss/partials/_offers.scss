@@ -2,7 +2,7 @@
  * Partial offers
  * -----------------------------
  * Our offers
- * 
+ *
  */
 
 // Block
@@ -33,7 +33,7 @@
     @include mobile() { margin: 0; }
   }
 
-  a { font-weight: $bold; }
+  a { font-weight: $font--bold; }
 }
 
 // Element - Offer content

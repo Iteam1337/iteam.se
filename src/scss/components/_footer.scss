@@ -36,6 +36,10 @@
   article { margin-bottom: 10px; }
 }
 
+.footer__title {
+  font-weight: $font--bold;
+}
+
 // Element - Content block
 .footer__block {
   @include box-sizing;

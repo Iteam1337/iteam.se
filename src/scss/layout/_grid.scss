@@ -22,6 +22,10 @@
     display: flex;
     margin: 0 auto;
     max-width: $max-width;
+
+    @include devices(mobile-landscape, mobile) {
+      flex-wrap: wrap;
+    }
   }
 
   .grid-half,
