@@ -15,7 +15,23 @@
 .services__list {
   display: flex;
 
+  @include devices(mobile-landscape, mobile) {
+    flex-wrap: wrap;
+
+    &:not(:last-child) {
+      margin-bottom: $margin--fifth;
+      margin-right: 0;
+    }
+  }
+
   li {
+    @include devices(mobile-landscape, mobile) {
+      &:not(:last-child) {
+        margin-bottom: $margin--fifth;
+        margin-right: 0;
+      }
+    }
+
     &:not(:last-child) {
       margin-right: $margin--fifth;
     }
@@ -46,10 +62,6 @@
     width:100%;
 
     li {
-      @include mobile() {
-        width: 100%;
-      }
-
       @include transition(opacity, 200ms, ease-in-out);
 
       background: $light;
@@ -58,7 +70,10 @@
       position: relative;
       text-align: center;
       margin: 5px;
-      flex-grow: 1;
+
+      @include mobile {
+        width: 100%;
+      }
 
       &.visually-hidden { opacity: 0; }
       &.hidden { display: none; }
