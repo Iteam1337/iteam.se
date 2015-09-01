@@ -1,16 +1,18 @@
 <div class="row {{ type }}">
+  <div class="grid-full grid-wrapped">
   {{#selectedCases cases=cases}}
     {{#each data}}
       <div class="selected-case">
-        <img class="selected-case__image" src="{{ image }}" />
-        <article>
-          <a href="{{ url }}">
-            <h3>{{ subtitle }}</h3>
-          </a>
-          <p>{{ description }}</p>
-          <div class="button">Läs</div>
-        </article>
+        <a href="{{ url }}">
+          <img class="selected-case__image" src={{ thumbnail }} />
+          <div class="center">
+            <div class="selected-case__title">{{ subtitle }}</div>
+            <hr>
+          </div>
+          <div class="selected-case__overlay"></div>
+        </a>
       </div>
     {{/each}}
   {{/selectedCases}}
+  </div>
 </div>

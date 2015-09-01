@@ -3,22 +3,48 @@
 //
 //------------------------------------------------------------
 
-.selected-cases {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .selected-case {
   align-items: center;
   display: flex;
+  margin: 1%;
   overflow: hidden;
   position: relative;
+  width: 31%;
 
-  &__image {
-    width: 30%;
+  &:hover {
+    .selected-case__title {
+      transform: scale(1.1);
+    }
+
+    hr {
+      width: 60%;
+    }
   }
 
-  article {
-    padding: $margin--quarter $margin--half;
+  &__title {
+    color: $color--white;
+    font-size: $h3;
+    font-weight: $font--bold;
+    text-align: center;
+    transition: transform $transition--speed $transition--easing;
+  }
+
+  &__image {
+    display: block;
+  }
+
+  hr {
+    border: 0;
+    border-bottom: 1px solid $color--white;
+    height: 1px;
+    opacity: .6;
+    transition: width $transition--speed - 100 $transition--easing;
+    width: 0%;
+  }
+
+  &__overlay {
+    @include position(top, left, 0, 0, absolute, true);
+
+    background: rgba($color--black, .3);
   }
 }
