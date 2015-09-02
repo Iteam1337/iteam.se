@@ -9,7 +9,6 @@
 
   display: inline-flex;
   flex:1 1;
-  padding: $margin 0;
 
   @include mobile() {
     padding: $margin / 2 $margin / 5;
