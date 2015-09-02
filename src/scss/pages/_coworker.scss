@@ -73,13 +73,13 @@
     justify-content: center;
   }
 
-  .text.center {
+  .image {
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
     height: 400px;
 
-    > .grid-full {
+    > .image__content {
       @include box-sizing();
       @include position(top,left,0,0,absolute,true);
 
@@ -152,6 +152,7 @@
 
     &.left,
     &.right {
+      margin: 0;
       width: 50%;
     }
     &.left {

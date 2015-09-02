@@ -24,15 +24,22 @@ Animate.css - http://daneden.me/animate
   }
 }
 
-.animate {
-  animation-duration: 1s;
-  animation-fill-mode: both;
+$animation--duration: 1s;
+$animation--fill: both;
 
-  &.fadeIn {
-    animation-name: fadeIn;
-  }
+@mixin animationOptions {
+  animation-duration: $animation--duration;
+  animation-fill-mode: $animation--fill;
+}
 
-  &.fadeInUp {
-    animation-name: fadeInUp;
-  }
+.fadeIn {
+  @include animationOptions;
+
+  animation-name: fadeIn;
+}
+
+.fadeInUp {
+  @include animationOptions;
+
+  animation-name: fadeInUp;
 }

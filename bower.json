@@ -10,6 +10,7 @@
     "mrwhite-scss-mixins": ">= 0.6.0 <= 1.0.0"
   },
   "dependencies": {
-    "ionicons": "~1.5.2"
+    "ionicons": "~1.5.2",
+    "wowjs": "~1.1.2"
   }
 }
