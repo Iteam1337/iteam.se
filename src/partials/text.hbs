@@ -1,5 +1,6 @@
 <div class="
   row
+  partial
   {{ type }}
   {{ background }}
   {{#if image-position}}
@@ -17,8 +18,17 @@
   {{#if divide}}
     divide
   {{/if}}
+  {{#if animate}}
+    wow fadeIn
+  {{/if}}
   {{#if extra-classes}}
     {{extra-classes}}
+  {{/if}}
+  {{#if background}}
+    has-background
+  {{/if}}
+  {{#if background-color}}
+    has-background
   {{/if}}
   "
   style="

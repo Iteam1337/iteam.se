@@ -1,14 +1,14 @@
-<div class="row partial-{{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
+<div class="row partial {{ type }} {{ background }}" {{#if background-color}} style="background: {{ background-color }}" {{/if}}>
   <div class="grid-full">
     {{#if image}}
       <img src="{{ image.src }}" alt="{{ image.alt }}">
     {{/if}}
-    <div class="partial-quote__quote">      
+    <div class="quote__quote">
 {{#markdown}}
 {{ quote }}
 {{/markdown}}
     </div>
-    <div class="partial-quote__quotee">
+    <div class="quote__quotee">
       {{ by }}
     </div>
   </div>
