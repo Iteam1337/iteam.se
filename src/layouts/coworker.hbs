@@ -21,7 +21,7 @@ blog-count: 5
 
   {{> social-media social-media}}
 
-  <div class="row boxes">
+  <div class="row partial boxes">
     <div class="grid-full">
       <div class="row boxes">
         {{#each texts.about}}
@@ -35,13 +35,13 @@ blog-count: 5
   </div>
 
   {{#if social-media.instagram}}
-    <div class="instagram wow fadeIn">
+    <div class="partial instagram wow fadeIn">
       {{> instagram this}}
     </div>
   {{/if}}
 
   {{#if social-media.blog}}
-    <div class="blog">
+    <div class="partial blog">
       {{> blog this}}
     </div>
   {{/if}}
