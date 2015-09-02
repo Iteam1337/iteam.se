@@ -25,8 +25,8 @@ contact: true
               {{#if logo}}
                 <img src="{{ logo }}" class="coworkers__image">
               {{/if}}
-              <div class="coworkers__name">
-                <h4>{{ this.name.first }} <span>{{ this.name.last }}</span></h4>
+              <div class="coworkers__coworker">
+                <h4 class="coworkers__coworker-name">{{ this.name.first }} <span>{{ this.name.last }}</span></h4>
                 <p class="job">{{this.frontmatter.job}}</p>
               </div>
             </a>
