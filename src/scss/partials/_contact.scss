@@ -6,6 +6,10 @@
  * Common input styles are placed in components/inputs
  */
 
+.row.contact .grid-full {
+  justify-content: center;
+}
+
 // Block
 .contact {
   padding: $margin 0;
