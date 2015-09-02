@@ -7,8 +7,8 @@ var path   = require('path');
 module.exports.md = function (filePath, options) {
   var dirName = path.dirname(options.data.orig.files[0].src);
 
-  if(null === filePath.match(/\//g)) {
-    filePath = path.resolve(dirName, filePath);
+  if(filePath.indexOf('/') === -1) {
+    filePath = path.join(dirName, filePath);
   }
 
   if(filePath.substr(-3) !== '.md') {
