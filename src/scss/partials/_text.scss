@@ -1,8 +1,6 @@
 $img-width: 40%;
 
 .row.text {
-  padding: $margin 0;
-
   @include mobile() {
     padding: $margin--fifth;
   }
@@ -71,7 +69,8 @@ $img-width: 40%;
     background-position: center center;
     background-attachment: fixed;
     font-size: 4rem;
-    padding: $margin * 4 0;
+    margin-top: $margin;
+    padding: $margin * 2 0;
     position: static;
     text-align: center;
     text-shadow: 1px 1px 0px rgba(33,33,33,0.8);

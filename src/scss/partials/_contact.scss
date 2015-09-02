@@ -12,8 +12,6 @@
 
 // Block
 .contact {
-  padding: $margin 0;
-
   // Mobile adjustments
   @include mobile() {
     padding: $margin 20px;

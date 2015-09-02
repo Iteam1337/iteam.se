@@ -1,9 +1,11 @@
-@mixin flex($wrap: wrap) {
-  display:-webkit-flex;
-  display:-moz-flex;
-  display:flex;
+//------------------------------------------------------------
+// Mixins
+//
+//------------------------------------------------------------
 
-  @include prefix('flex-wrap', $wrap);
+@mixin flex($wrap: wrap) {
+  display:flex;
+  flex-wrap: wrap;
 
   @include mobile() {
     @include prefix('flex-direction', 'column');

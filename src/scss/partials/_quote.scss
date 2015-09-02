@@ -5,12 +5,12 @@
  *
  */
 
- .row.partial-quote .grid-full {
+ .row.partial.quote .grid-full {
    flex-wrap: wrap;
    justify-content: center;
  }
 
-.partial-quote {
+.quote {
   padding:$margin 0;
   text-align: center;
 
@@ -23,7 +23,7 @@
 }
 
 // The quote
-.partial-quote__quote {
+.quote__quote {
   color: #000;
   font-style:italic;
   font-weight: bold;
@@ -39,7 +39,7 @@
 }
 
 // Quotee
-.partial-quote__quotee {
+.quote__quotee {
   color: darken($light,30%);
   margin-top: $margin / 2;
 }

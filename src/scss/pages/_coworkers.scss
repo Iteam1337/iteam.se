@@ -16,13 +16,13 @@
     width: 33%;
 
     &:nth-child(n+4) {
-      margin-top: $margin / 4;
+      margin-top: $margin--half;
     }
 
     @include mobile() {
       width: 100%;
 
-      margin-top: $margin / 2;
+      margin-top: $margin--half;
     }
   }
 }
@@ -30,11 +30,6 @@
 // Element - Coworkers content wrap
 .coworkers__content {
   text-align: center;
-}
-
-// Element - Common for image and name
-.coworkers__image,
-.coworkers__name {
 }
 
 // Element - Image of coworker (grabbed from Gravatar)
@@ -46,7 +41,10 @@
 }
 
 // Element - Name and job position
-.coworkers__name {
+.coworkers__coworker {
   color: $color--black;
-  vertical-align: middle;
+}
+
+.coworkers__coworker-name {
+  margin-bottom: 0;
 }

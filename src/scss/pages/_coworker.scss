@@ -1,7 +1,6 @@
 .coworker {
   .instagram {
     list-style: 0;
-    padding: 0;
     width: 100%;
   }
 
@@ -100,8 +99,6 @@
   }
 
   .row.social-media {
-    padding-top:$margin / 2;
-
     a {
       @include transition(all);
 
@@ -123,7 +120,6 @@
 
   .boxes {
     display: block;
-    padding: $margin/2 0;
     width: 100%;
 
     &,
@@ -143,7 +139,6 @@
   .box-position {
     @extend %inline-block--top;
 
-    padding: 10px;
     word-break: break-word;
 
     p {
@@ -157,6 +152,7 @@
     }
     &.left {
       float: left;
+      padding-right: $margin--fifth;
     }
     &.right {
       float: right;

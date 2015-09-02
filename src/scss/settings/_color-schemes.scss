@@ -1,18 +1,21 @@
-@mixin bg($r, $g, $b) {
-  background: rgb($r, $g, $b);
-}
-
 .row {
-  &.light { background: $light; }
-
-  // Iteam colors
-  &.iteam {
-    &.orange { @include bg(255, 189, 9); }
-    &.grey { @include bg(35, 31, 32); }
+  &.blue {
+    background: $color--cornflower-blue;
+    color: $color--white;
   }
 
-  &.blue { background: $color--cornflower-blue; }
-  &.orange { background: $color--flush-orange; }
-  &.red { background: $color--radical-red; }
-  &.green { background: $color--spring-green; }
+  &.orange {
+    background: $color--flush-orange;
+    color: $color--black;
+  }
+
+  &.red {
+    background: $color--radical-red;
+    color: $color--white;
+  }
+
+  &.green {
+    background: $color--spring-green;
+    color: $color--black;
+  }
 }
