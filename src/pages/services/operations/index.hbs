@@ -1,27 +1,24 @@
 ---
-subtitle: "Drift & Support"
-layout: default.hbs
-navigation: true
+subtitle: Operations
+layout: partials.hbs
 unpublished: true
-description: Våra Supporttekniker ger personlig och snabb hjälp och kan det senaste inom IT. Antingen guidar Supporteknikerna på telefon eller kommer på studs om det krävs.
+order: 2
+description: We take care of your infrastructure so you can trust everything works, every day.
 partials:
   -
+    type: image
+    parallax: true
+    height: 400px
+    start: true
+    background-image: url(/content/images/section-top/operations_multiply.jpg)
+    title: Iteam Operations
+  -
     type: text
-    mdtext: text
----
-{{> text text}} 
-<div class="cases-wrap">
-  {{#pages category=subtitle}}
-    <div class="grid-full">  
-      Lite grejer vi gjort
-      <ul>
-        {{#each data}}
-          <li>
-            <a href="/case/{{url}}">{{title}}</a>
-          </li>
-        {{/each}}
-      </ul>
-    </div>
-  {{/pages}}
-</div>
-
+    mdtext: src/pages/services/operations/text.md
+  -
+    type: selected-cases
+    cases:
+      - carlstedt
+      - landahl
+      - ses-astra
+----

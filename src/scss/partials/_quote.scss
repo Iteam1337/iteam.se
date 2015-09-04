@@ -33,6 +33,7 @@
 
   // Add correct quotation marks
   p {
+    font-size: 3rem;
     &:before { content:'“'; }
     &:after { content: '”'; }
   }

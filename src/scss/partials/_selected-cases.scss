@@ -9,7 +9,9 @@
   margin: 1%;
   overflow: hidden;
   position: relative;
-  width: 31%;
+  width: 300px;
+  height: 300px;
+  background: $color--spring-green;
 
   &:hover {
     .selected-case__title {

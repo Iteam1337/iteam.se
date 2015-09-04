@@ -1,3 +1,3 @@
-### Vi digitaliserar drömmar
+### Examples of digital transformations
 
-Vi har funnits sedan 1995 och har gjort projekt inom många branscher som vi gärna visar dig på ett möte, nedan finns ett axplock. Ofta består ett projekt av en stor teknisk utmaning i kombination med ett affärsdrivet tänk.
+We work with a couple of NDA-type projects which unfortunately means we can't talk about them, these are just a few of the examples of what we have done...
