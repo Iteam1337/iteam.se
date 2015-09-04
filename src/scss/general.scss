@@ -44,8 +44,7 @@ img { max-width: 100%; }
   }
 
   > div:last-of-type:not(.video):not(.image):not(.instagram):not(.numbered-list):not(.contact) {
-      padding-bottom: $margin;
-    }
+    padding-bottom: $margin;
   }
 }
 
