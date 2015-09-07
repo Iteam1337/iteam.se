@@ -1,4 +1,4 @@
-![Image](http://www.iteam.se/content/images/ovrigt/elisabeth.jpeg)
+![Image](//www.iteam.se/content/images/ovrigt/elisabeth.jpeg)
 #### 12 veckor på Iteam som praktikant!
 En vecka efter att ha gjort min sista arbetsdag här på Iteam tänkte jag försöka mig på att sammanfatta dessa lärorika veckor på företaget.
 
