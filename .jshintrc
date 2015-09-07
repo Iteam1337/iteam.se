@@ -7,6 +7,7 @@
   "maxcomplexity": 10,
   "node": true,
   "esnext": true,
+  "asi": true,
   "laxcomma":true,
   "globals": {
     "describe": true,
