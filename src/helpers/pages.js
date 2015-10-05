@@ -13,7 +13,6 @@ module.exports.pages = function (options) {
   var type = data.type;
   var size = data.size;
 
-
   function getPage(path, folder) {
     var frontmatter = front.loadFront(path);
     var firstName;
@@ -34,9 +33,12 @@ module.exports.pages = function (options) {
     if (type === 'coworker') {
       var imgSize = size || false;
       element.logo = image.gravatar(frontmatter.email, imgSize);
+      firstName = title.substr(0, title.indexOf(' '));
+      lastName = title.substr(title.lastIndexOf(' ') + 1);
+
       element.name = {
-        first: title.substr(0, title.indexOf(' ')),
-        last: title.substr(title.lastIndexOf(' ') + 1)
+        first: firstName,
+        last: lastName
       };
     }
 
