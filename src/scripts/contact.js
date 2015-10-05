@@ -23,6 +23,6 @@ function submit (event) {
 
 var form = document.getElementsByTagName('form')[0];
 
-if(form) {
+if (form) {
   form.addEventListener('submit', submit);
 }

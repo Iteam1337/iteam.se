@@ -6,9 +6,6 @@
  * @param {number} count defines how many elements that should be saved
  */
 function Social(type, count) {
-  this.storageName = function () {
-    return type + '.' + this.handle;
-  };
   this.type = type.toLowerCase();
   this.count = count || 3;
 
@@ -17,6 +14,10 @@ function Social(type, count) {
 
   this.url = '';
 }
+
+Social.prototype.storageName = function (){
+  return this.type + '.' + this.handle;
+};
 /**
  * Extend:
  * This should return a string of where the
@@ -126,6 +127,7 @@ Social.prototype.handleResponse = function (response) {
 Social.prototype.getContent = function () {
   var self = this;
   var xhr = new window.XMLHttpRequest();
+
   xhr.onload = function () {
     if (xhr.statusText !== 'OK') {
       return;

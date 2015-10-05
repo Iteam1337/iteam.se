@@ -7,10 +7,8 @@ function Meetup(count) {
 }
 
 Meetup.prototype = Object.create(Social.prototype);
-Meetup.prototype.constructor = Social;
 
 Meetup.prototype.handleResponse = function (response) {
-  console.log(response);
   response = JSON.parse(response);
 
   if (!response.length) {
@@ -23,3 +21,5 @@ Meetup.prototype.handleResponse = function (response) {
 Meetup.prototype.prerender = function (array) {
   console.log(array);
 };
+
+Meetup.prototype.constructor = Social;

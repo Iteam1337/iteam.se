@@ -31,11 +31,13 @@ gulp.task('jshint', function () {
 
 gulp.task('scripts', function () {
   gulp.src([
+    './src/scripts/social/Social.js',
+    './src/scripts/social/*.js',
     './src/scripts/**/*.js',
     './bower_components/wowjs/dist/wow.min.js'
   ])
     .pipe($.concat('all.js'))
-    .pipe($.uglify())
+    // .pipe($.uglify())
     .pipe(gulp.dest('./out/scripts'));
 });
 
@@ -84,8 +86,6 @@ var options = {
     'src/helpers/**/*.js'
   ]
 };
-
-var oldFiles = 0;
 
 gulp.task('assemble', function () {
   gulp.src(config.pages)

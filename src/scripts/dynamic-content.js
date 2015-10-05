@@ -8,13 +8,13 @@
     'data-{type}-hide-on-empty'
   ];
 
-  ['twitter','instagram','github','blog','meetup'].forEach(function (type) {
+  ['twitter', 'instagram', 'github', 'blog', 'meetup'].forEach(function (type) {
     function getAttributeString(pos) {
       return attr[pos].replace('{type}', type);
     }
     function getAttributeValue(string) {
       return container.getAttribute(string);
-    } 
+    }
 
     var query = getAttributeString(0);
     var count = getAttributeString(1);
@@ -39,7 +39,7 @@
       new SocialHub(type, count, resolution).init(container, query, clearOnEmpty);
       break;
     case 'blog':
-      new Blog(count)._init(container, query, clearOnEmpty);
+      new Blog(count).init(container, query, clearOnEmpty);
       break;
     case 'github':
       new Github(count).init(container, query, clearOnEmpty);
