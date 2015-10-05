@@ -1,10 +1,11 @@
 
-<div class="row partial {{ type }}">
+<div class="row partial {{ type }} {{#if class}} {{ class }} {{/if}}">
   <video
     {{#if autoplay}} autoplay="autoplay" {{/if}}
     {{#if loop}} loop {{/if}}
     {{#if muted}} muted {{/if}}
     {{#if controls}} controls {{/if}}>
+
     <source src="{{ file }}" type="video/mp4">
   </video>
 </div>
