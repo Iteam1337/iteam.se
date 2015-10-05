@@ -6,7 +6,7 @@ module.exports.calendar = function (options) {
   var frontmatter = front.loadFront('./src/pages/calendar.hbs');
   var calendar = frontmatter.calendar;
 
-  if(!calendar) {
+  if (!calendar) {
     return '';
   }
 
