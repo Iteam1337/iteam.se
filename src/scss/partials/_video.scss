@@ -12,6 +12,7 @@ $sixteen-nine: 56.25%;
 
 // Block
 .video {
+
   line-height: 0;
   padding-bottom: $sixteen-nine;
   position: relative;
@@ -20,6 +21,11 @@ $sixteen-nine: 56.25%;
   &--four-three {
     padding-bottom: $four-three;
   }
+
+  &, video {
+    max-height: 500px;
+  }
+
 
   iframe,
   video {

@@ -1,20 +1,24 @@
 'use strict';
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-
-var rimraf = require('rimraf');
-var path = require('path');
-
 function formatPagePath (pagePath) {
   return pagePath
     .replace(path.resolve(process.cwd(), 'src/pages'), '')
     .replace(path.extname(pagePath), '.html');
 }
 
-gulp.task('clean', function () {
-  rimraf.sync('./out');
-});
+var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
+
+var rimraf = require('rimraf');
+var path = require('path');
+
+var options = {
+  partials: 'src/partials/*.hbs',
+  layoutdir: 'src/layouts/',
+  helpers: [
+    'src/helpers/**/*.js'
+  ]
+};
 
 var config = {
   stylesOut: 'out/css/',
@@ -22,6 +26,10 @@ var config = {
     './src/pages/**/*.hbs'
   ]
 };
+
+gulp.task('clean', function () {
+  rimraf.sync('./out');
+});
 
 gulp.task('jshint', function () {
   gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'])
@@ -78,14 +86,6 @@ gulp.task('sass', function () {
     .pipe($.rename('iteam.css'))
     .pipe(gulp.dest(config.stylesOut));
 });
-
-var options = {
-  partials: 'src/partials/*.hbs',
-  layoutdir: 'src/layouts/',
-  helpers: [
-    'src/helpers/**/*.js'
-  ]
-};
 
 gulp.task('assemble', function () {
   gulp.src(config.pages)

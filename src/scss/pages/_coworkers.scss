@@ -16,35 +16,44 @@
     width: 33%;
 
     &:nth-child(n+4) {
-      margin-top: $margin--half;
+      margin-top: $margin--half / 2;
     }
 
     @include mobile() {
       width: 100%;
 
-      margin-top: $margin--half;
+      margin-top: $margin--half / 2;
     }
   }
 }
 
 // Element - Coworkers content wrap
 .coworkers__content {
-  text-align: center;
+  position: relative;
 }
 
 // Element - Image of coworker (grabbed from Gravatar)
 .coworkers__image {
-  border-radius: 100%;
-  display: block;
-  margin: 0 auto $margin / 5;
-  max-height: 150px;
+  display: inline-block;
 }
 
 // Element - Name and job position
 .coworkers__coworker {
   color: $color--black;
+  width: 320px;
+  height: 280px;
+  max-width: 320px;
+  max-height: 280px;
+  z-index: 1;
 }
 
 .coworkers__coworker-name {
+  padding-top: 10px;
   margin-bottom: 0;
 }
+.coworkers__coworker-name,
+.coworkers__coworker-job {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
