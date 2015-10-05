@@ -1,23 +1,10 @@
 'use strict';
 
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var plumber = require('gulp-plumber');
-var webserver = require('gulp-webserver');
-var rename = require('gulp-rename');
-var assemble = require('gulp-assemble');
-var htmlmin = require('gulp-htmlmin');
-var jshint = require('gulp-jshint');
-var mocha = require('gulp-mocha');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var plugins = require('gulp-load-plugins')();
+var $ = require('gulp-load-plugins')();
+
 var rimraf = require('rimraf');
-var awspublish = require('gulp-awspublish');
-var foreach = require('gulp-foreach');
 var path = require('path');
-var debug = require('gulp-debug');
 
 function formatPagePath (pagePath) {
   return pagePath
@@ -38,8 +25,8 @@ var config = {
 
 gulp.task('jshint', function () {
   gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'])
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('scripts', function () {
@@ -47,20 +34,20 @@ gulp.task('scripts', function () {
     './src/scripts/**/*.js',
     './bower_components/wowjs/dist/wow.min.js'
   ])
-    .pipe(concat('all.js'))
-    .pipe(uglify())
+    .pipe($.concat('all.js'))
+    .pipe($.uglify())
     .pipe(gulp.dest('./out/scripts'));
 });
 
 gulp.task('test', function () {
   gulp.src(['src/test/**/*.js'], { read: false })
-    .pipe(plumber())
-    .pipe(mocha());
+    .pipe($.plumber())
+    .pipe($.mocha());
 });
 
 gulp.task('connect', function () {
   gulp.src('./out/')
-    .pipe(webserver({
+    .pipe($.webserver({
       livereload: true,
       port: 9000
     }));
@@ -76,17 +63,17 @@ gulp.task('copy', function () {
 
 gulp.task('sass', function () {
   gulp.src('./src/scss/all.scss')
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(sass({
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
       outputStyle: 'compressed'
     }))
-    .pipe(plugins.autoprefixer({
+    .pipe($.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(sourcemaps.write())
-    .pipe(rename('iteam.css'))
+    .pipe($.sourcemaps.write())
+    .pipe($.rename('iteam.css'))
     .pipe(gulp.dest(config.stylesOut));
 });
 
@@ -102,9 +89,9 @@ var oldFiles = 0;
 
 gulp.task('assemble', function () {
   gulp.src(config.pages)
-    .pipe(plumber())
-    .pipe(assemble(options))
-    .pipe(htmlmin({
+    .pipe($.plumber())
+    .pipe($.assemble(options))
+    .pipe($.htmlmin({
       collapseWhitespace: true
     }))
     .pipe(gulp.dest('./out'));
@@ -131,16 +118,16 @@ gulp.task('s3', function () {
     bucket: 'test.iteam.se'
   };
 
-  var publisher = awspublish.create(aws);
+  var publisher = $.awspublish.create(aws);
 
   var headers = {
     'Cache-Control': 'max-age=315360000, no-transform, public'
   };
 
   return gulp.src('./out/**/*')
-    // .pipe(debug({verbose: true}))
+    // .pipe($.debug({verbose: true}))
     .pipe(publisher.publish(headers))
-    .pipe(awspublish.reporter())
+    .pipe($.awspublish.reporter())
 });
 
 gulp.task('default', [
