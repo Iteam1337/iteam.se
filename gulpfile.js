@@ -9,6 +9,8 @@ function formatPagePath (pagePath) {
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
+
+var runSequence = require('run-sequence');
 var rimraf = require('rimraf');
 var path = require('path');
 
@@ -49,10 +51,13 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest('./out/scripts'));
 });
 
-gulp.task('test', function () {
-  gulp.src(['src/test/**/*.js'], { read: false })
+
+gulp.task('test', function (done) {
+  gulp
+    .src(['src/test/**/*.js'], { read: false })
     .pipe($.plumber())
-    .pipe($.mocha());
+    .pipe($.mocha())
+    .on('end', done);
 });
 
 gulp.task('connect', function () {
@@ -130,12 +135,21 @@ gulp.task('s3', function () {
     .pipe($.awspublish.reporter())
 });
 
-gulp.task('default', [
-  'build',
-  'test',
-  'connect',
-  'watch'
-]);
+gulp.task('default', function () {
+    runSequence('test', [
+      'build',
+      'connect',
+      'watch'
+    ]);
+});
+
+// gulp.task('default', ['test'], function () {
+//   gulp.start([
+//     'build',
+//     'connect',
+//     'watch'
+//   ]);
+// });
 
 gulp.task('build', [
   'copy',

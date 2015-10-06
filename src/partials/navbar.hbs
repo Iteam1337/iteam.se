@@ -15,7 +15,16 @@
         {{/each}}
       {{/pages}}
     </ul>
+    <ul class="nav">
+      {{#remoteHelp}}
+        {{>inspect this}}
+        <li class="foo">
+          <a href="/">fjärrhjälp</a>
+        </li>
+      {{/remoteHelp}}
+    </ul>
   </div>
+
   <div class="navicon"></div>
 </div>
 
