@@ -31,7 +31,18 @@ social:
     <link rel="stylesheet"  href="/css/iteam.css" type="text/css" />
     <link rel="shortcut icon" href="/content/favicon.png" />
   </head>
-  <body class="{{#if invert}} invert {{/if}} {{body-class}}">
+  <body class="
+{{#if invert}}
+  invert
+{{/if}}
+
+{{#if body-class}}
+  {{body-class}}
+{{/if}}
+
+{{#if subtitle}}
+  {{slugify subtitle}}
+{{/if}}">
     {{> navbar }}
     <div class="container">
       {{> body}}

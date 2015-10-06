@@ -2,10 +2,15 @@
  * Links
  * -----------------------------
  * Anything related to links
- * 
+ *
  */
 
 a {
-  color: $color__accent;
+  color: $color__white;
   text-decoration: none;
+  border-bottom: 4px solid $color__white;
+  &.inverted, .inverted & {
+    color: $color__black;
+    border-bottom: 4px solid $color__black;
+  }
 }

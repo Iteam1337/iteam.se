@@ -69,29 +69,6 @@
     }
   }
 
-  function desaturate(ctx, width, height) {
-    var imageData = ctx.getImageData(0, 0, width, height);
-    var pixels = imageData.data;
-
-    var r, g, b, a, average;
-
-    for (var i = 0, l = pixels.length; i < l; i += 4) {
-      a = pixels[i + 3];
-      if (a === 0) {
-        continue;
-      }
-
-      r = pixels[i];
-      g = pixels[i + 1];
-      b = pixels[i + 2];
-
-      average = (r + g + b) / 3 >>> 0;
-      pixels[i] = pixels[i + 1] = pixels[i + 2] = average;
-    }
-
-    ctx.putImageData(imageData, 0, 0);
-  }
-
   var isCanvasSupported = (function () {
     var elem = document.createElement('canvas');
     return !!(elem.getContext && elem.getContext('2d'));
@@ -136,23 +113,28 @@
       }
 
       var canvas = document.createElement('canvas');
-      var width = template.getAttribute('width') || 320;
-      var height = template.getAttribute('height') || 200;
-
+      var width =  Math.min(template.getAttribute('width') || 320, image.width);
+      var height = Math.min(template.getAttribute('height') || 200, image.height);
       var ctx = canvas.getContext('2d');
 
-      width = Math.min(width, image.width);
-      height = Math.min(height, image.height);
+      // var wh = Math.min(width, height);
+      // canvas.width = wh;
+      // canvas.height = wh;
 
       canvas.width = width;
       canvas.height = height;
 
-      ctx.drawImage(image, 0, 0);
-
-      desaturate(ctx, width, height);
+      ctx.drawImage(image,
+        // 0, 0,
+        // width, height,
+        // 0, 0,
+        // width, height);
+        0, 0);
 
       ctx.globalCompositeOperation = 'color';
       ctx.globalAlpha = 1;
+      ctx.beginPath();
+
       ctx.beginPath();
       ctx.fillStyle = '#668cff';
       ctx.fillRect(0, 0, width, height);
@@ -168,3 +150,4 @@
   });
 
 })();
+

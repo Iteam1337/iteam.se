@@ -47,7 +47,7 @@ gulp.task('scripts', function () {
     './bower_components/wowjs/dist/wow.min.js'
   ])
     .pipe($.concat('all.js'))
-    // .pipe($.uglify())
+    .pipe($.uglify())
     .pipe(gulp.dest('./out/scripts'));
 });
 
@@ -63,6 +63,7 @@ gulp.task('test', function (done) {
 gulp.task('connect', function () {
   gulp.src('./out/')
     .pipe($.webserver({
+      host: process.env.host || 'localhost',
       livereload: true,
       port: 9000
     }));

@@ -16,5 +16,14 @@ module.exports.calendar = function (options) {
     return moment(a.time).diff(moment(b.time));
   });
 
+  if (filtered.length === 0) {
+    filtered.push({
+      time: '',
+      title: 'no upcoming events, currently',
+      text: '\n',
+      link: '#'
+    });
+  }
+
   return options.fn(filtered);
 };

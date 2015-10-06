@@ -1,13 +1,13 @@
-.fjarrhjalp {
-  p {
-    text-align: center;
-  }
-
-  .button {
-    &:not(:last-child) { margin-right: $margin / 5; }
-
-    &:hover a {
-      color: #000;
+.remote-assistance {
+  .row.text {
+    img {
+      max-width: 40%;
+      height: auto;
+      display: inline-block;
     }
+  }
+  span {
+    display: inline-block;
+    vertical-align: baseline;
   }
 }
