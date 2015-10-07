@@ -29,6 +29,8 @@ $img-width: 40%;
 
   img {
     max-width: $img-width;
+    height: auto;
+    display: inline-block;
 
     &.right {
       margin-left: $margin;

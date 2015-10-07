@@ -30,17 +30,40 @@ social:
 
     <link rel="stylesheet"  href="/css/iteam.css" type="text/css" />
     <link rel="shortcut icon" href="/content/favicon.png" />
+
+<!--[if lte IE 9 ]>
+  <link href="/css/ie.css" rel="stylesheet" type="text/css">
+  <script>
+if (window.location.pathname.match(/^\/ie(\/|$)/) === null) {
+  window.location = '/ie';
+}
+  </script>
+<![endif]-->
   </head>
-  <body class="{{#if invert}} invert {{/if}} {{body-class}}">
+  <body class="
+{{#if invert}}
+  invert
+{{/if}}
+
+{{#if body-class}}
+  {{body-class}}
+{{/if}}
+
+{{#if subtitle}}
+  {{slugify subtitle}}
+{{/if}}">
     {{> navbar }}
+
     <div class="container">
       {{> body}}
     </div>
     {{> footer}}
     {{> easteregg }}
+
     <script type="text/javascript" src="/scripts/all.js"></script>
     <script>
       new WOW().init();
     </script>
+
   </body>
 </html>

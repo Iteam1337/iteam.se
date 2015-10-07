@@ -29,6 +29,12 @@ body.invert #navbar .nav a {
     }
   }
 
+  .nav--remote {
+    position: absolute;
+    right: 40px;
+    top: 15px;
+  }
+
   .navicon {
     @include position(top,right, $margin / 4, $margin / 2);
 
@@ -61,17 +67,7 @@ body.invert #navbar .nav a {
     }
   }
 
-  .nav {
-    @include box-sizing();
-    @include flex();
-    @include justify-content(flex-end);
-
-    background:transparent;
-    list-style:none;
-    margin-left: auto;
-    max-width:$max-width;
-    padding: $margin / 5 * 2;
-
+  ul {
     li {
       line-height: 1;
       margin-right:$margin / 5;
@@ -84,15 +80,19 @@ body.invert #navbar .nav a {
         @include transition(all, 200ms, ease-in-out);
 
         color: $color--white;
-        font-weight: 500;
-        letter-spacing:0.05em;
         position: relative;
+
+        font-size: 18px;
+        line-height: 21.5px;
+        letter-spacing: -1px;
+        word-spacing: -1px;
+        font-weight: normal;
 
         &:after {
           @include transform(translateY(10px));
           @include transition(all, 200ms, ease-in-out);
 
-          background: fade($color__accent, 90%);
+          background: fade($color--white, 90%);
           content:"";
           display: block;
           height: 2px;
@@ -103,20 +103,20 @@ body.invert #navbar .nav a {
         }
 
         &:hover {
-          color: darken($color__accent,10%);
+          color: darken($color--white, 10%);
 
           &:after {
-            @include transform(translateY(-3px));
+            // @include transform(translateY(-3px));
 
             opacity: 1;
           }
         }
 
         &.active {
-          color: $color__accent;
+          border-bottom: 4.8px solid $color--spring-green;
 
           &:after {
-            @include transform(translateY(-3px));
+            // @include transform(translateY(-3px));
 
             opacity: 1;
           }
@@ -133,6 +133,17 @@ body.invert #navbar .nav a {
         }
       }
     }
+  }
+  .nav {
+    @include box-sizing();
+    @include flex();
+    @include justify-content(flex-end);
+
+    background:transparent;
+    list-style:none;
+    margin-left: auto;
+    max-width:$max-width;
+    padding: $margin / 5 * 2;
 
     @include mobile() {
       @include center(both);

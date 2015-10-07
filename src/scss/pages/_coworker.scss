@@ -77,22 +77,6 @@
     background-size: cover;
     color: #fff;
     height: 400px;
-
-    > .image__content {
-      @include box-sizing();
-      @include position(top,left,0,0,absolute,true);
-
-      background: rgba(0,0,0,0.4);
-      max-width: 100%;
-
-      .inner {
-        @include center(y, left, 40px);
-
-        color: $color--white;
-        font-size: $h2;
-      }
-    }
-
     a {
       color: #fff;
     }

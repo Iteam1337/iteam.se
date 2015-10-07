@@ -5,29 +5,35 @@ layout: default.hbs
 
 navigation: false
 contact: true
----
 
-<div
-  class="row partial image animate fadeIn"
-  style="height: 300px; background-position: center center; background-image:url(/content/images/section-top/medarbetare_multiply.jpg)">
-  <div class="image__content">
-    <h1 class="image__title animate fadeInUp">{{ subtitle }}</h1>
-  </div>
-</div>
+image:
+  type: image
+  animate: true
+  background: fadeIn
+  title: The Team
+  start: true
+  height: 300px
+  background-image: url(/content/images/section-top/medarbetare_multiply.jpg)
+---
+{{>image image}}
 
 <div class="row partial coworkers">
   <div class="grid-full">
     <ul class="coworkers__list">
       {{#pages route="./src/pages/coworkers/" start="" type="coworker" size=300}}
         {{#each data}}
+
           <li>
             <a href="{{ url }}" class="coworkers__content">
-              {{#if logo}}
-                <img src="{{ logo }}" class="coworkers__image">
-              {{/if}}
               <div class="coworkers__coworker">
+                <template
+                  class="coworkers__image"
+                  width="320"
+                  height="200"
+                  image="{{logo}}">
+                </template>
                 <h4 class="coworkers__coworker-name">{{ this.name.first }} <span>{{ this.name.last }}</span></h4>
-                <p class="job">{{this.frontmatter.job}}</p>
+                <p class="coworkers__coworker-job">{{this.frontmatter.job}}</p>
               </div>
             </a>
           </li>

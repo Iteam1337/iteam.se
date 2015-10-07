@@ -21,7 +21,7 @@
     "document": true,
     "window": true,
     "escape": true,
-
+    "Image": true,
     "Social": true,
     "SocialHub": true,
     "Github": true,

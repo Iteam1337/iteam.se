@@ -2,22 +2,23 @@
 layout: default.hbs
 
 instagram-count: 4
-instagram-resolution: high
+instagram-resolution: normal
 github-count: 5
 blog-count: 5
 ---
 
 <div class="coworker">
-  <div
-    class="row partial image wow fadeIn"
-    style="height: 300px; background-position: center center; background-image:url({{ top-image }})">
-    <div class="image__content">
-      <div class="image__title wow fadeInUp">
-        {{ name }}
-        <div class="image__subtitle">{{ job }}</div>
-      </div>
-    </div>
-  </div>
+
+  {{>image
+    type="image"
+    start=true
+    subTitle=job
+    height="300px"
+    title=name
+    animate="true"
+    background="fadeIn"
+    background-image-url=top-image
+  }}
 
   {{> social-media social-media}}
 

@@ -1,21 +1,69 @@
-<div class="row partial {{ type }} {{ background }} {{#if animate}} wow fadeIn {{/if}} {{#if parallax}} parallax {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} height: {{ height }}; {{#if background-image}} background-image: {{ background-image }} {{/if}}">
+<div
+  class="
+    row partial
+    {{ type }}
+
+    {{#if background}}
+      {{ background }}
+    {{/if}}
+
+    {{#if animate}}
+      wow fadeIn
+    {{/if}}
+
+    {{#if parallax}}
+      parallax
+    {{/if}}"
+  style="
+    {{#if backgroundColor}}
+      background: {{ backgroundColor }};
+    {{/if}}
+
+    {{#if height }}
+      height: {{ height }};
+    {{/if}}
+
+    {{#if background-image}}
+      background-image: {{ background-image }};
+    {{/if}}
+
+    {{#if background-image-url}}
+      background-image: url({{ background-image-url }});
+    {{/if}}
+
+    {{#if background-position}}
+       background-position: {{ background-position }};
+    {{else}}
+       background-position: center center;
+    {{/if}}">
+
   {{#if overlay}}
     <div class="image__overlay {{overlay}}"></div>
   {{/if}}
 
   {{#if start}}
-    <div class="{{ type }}__content">
-      <div class="{{ type }}__title {{#if animate}} animate fadeInUp {{/if}}">{{{ title }}}</div>
-      {{#if image}}
+    <div class="{{ type }}__content grid-full">
+      <div class="{{ type }}__title {{#if animate}} animate fadeInUp {{/if}}">
+        <h1 class="{{ type }}__tile-main">{{{ title }}}{{#if sub-title}}<small class="{{ type }}__tile-sub">{{sub-title}}</small>{{/if}}</h1>
+      </div>
+
+      {{#if image }}
         <img src="{{ image.src }}" alt="{{ image.alt }}">
       {{/if}}
+
       {{#if hasDown}}
-        <div class="image__down-arrow" {{#if down-bg}} style="background: {{ down-bg }}; color: {{ down-color }}" {{/if}}>
+        <div
+          class="image__down-arrow"
+          {{#if down-bg}}
+            style="background: {{ down-bg }}; color: {{ down-color }}"
+          {{/if}}>
           <i class="ion-chevron-down"></i>
         </div>
       {{/if}}
     </div>
   {{else}}
-    <img src="{{ image.src }}" alt=" {{ image.alt }}">
+    {{#if image }}
+      <img src="{{ image.src }}" alt="{{ image.alt }}">
+    {{/if}}
   {{/if}}
 </div>

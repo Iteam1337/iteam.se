@@ -16,7 +16,8 @@
 
   li {
     margin-right:2%;
-    max-width:48%;
+    max-width: 48%;
+    min-width: 48%;
     vertical-align: top;
 
     @include mobile() {
@@ -33,5 +34,11 @@
     p {
       margin: $margin / 5 0;
     }
+  }
+}
+
+.social {
+  a {
+    border-bottom: none;
   }
 }
