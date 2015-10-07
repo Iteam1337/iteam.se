@@ -47,7 +47,7 @@
         <h1 class="{{ type }}__tile-main">{{{ title }}}{{#if sub-title}}<small class="{{ type }}__tile-sub">{{sub-title}}</small>{{/if}}</h1>
       </div>
 
-      {{#if image}}
+      {{#if image }}
         <img src="{{ image.src }}" alt="{{ image.alt }}">
       {{/if}}
 
@@ -62,6 +62,8 @@
       {{/if}}
     </div>
   {{else}}
-    <img src="{{ image.src }}" alt="{{ image.alt }}">
+    {{#if image }}
+      <img src="{{ image.src }}" alt="{{ image.alt }}">
+    {{/if}}
   {{/if}}
 </div>

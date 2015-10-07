@@ -52,10 +52,8 @@ if (window.location.pathname.match(/^\/ie(\/|$)/) === null) {
 {{#if subtitle}}
   {{slugify subtitle}}
 {{/if}}">
-<!--[if lte IE 9 ]>
+    {{> navbar }}
 
-<![endif]-->
-{{> navbar }}
     <div class="container">
       {{> body}}
     </div>

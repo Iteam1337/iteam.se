@@ -1,6 +1,6 @@
 /**
-  by Nemes Ioan Sorin - not an jQuery big fan 
-  therefore this script is for those who love the old clean coding style  
+  by Nemes Ioan Sorin - not an jQuery big fan
+  therefore this script is for those who love the old clean coding style
   @id = the id of the element who need to come into view
 */
 (function () {
@@ -20,9 +20,9 @@ var smoothScr = {
     this.iterr = 30; // reset milisec iterator to original value
   },
   getRealTop : function (el) {
-    var elm = el; 
+    var elm = el;
     var realTop = 0;
-    
+
     do
     {
       realTop += elm.offsetTop;
@@ -46,7 +46,7 @@ var smoothScr = {
     var element = document.querySelector(className);
 
     eOff = element.offsetTop; // element offsetTop
-    tOff =  this.getRealTop(element.parentNode); // terminus point 
+    tOff =  this.getRealTop(element.parentNode); // terminus point
     pOff = this.getPageScroll(); // page offsetTop
 
     if (pOff === null || isNaN(pOff) || pOff === 'undefined') pOff = 0;
@@ -54,26 +54,26 @@ var smoothScr = {
     scrVal = eOff - pOff; // actual scroll value;
 
     if (scrVal > tOff)  {
-      pos = (eOff - tOff - pOff); 
+      pos = (eOff - tOff - pOff);
       dir = 1;
     }
 
     if (scrVal < tOff) {
       pos = (pOff + tOff) - eOff;
-      dir = -1; 
+      dir = -1;
     }
 
-    if(scrVal !== tOff) {
+    if (scrVal !== tOff) {
       step = ~~((pos / 4) +1) * dir;
 
-      if(this.iterr > 1) this.iterr -= 1; 
+      if(this.iterr > 1) this.iterr -= 1;
       else this.itter = 0; // decrease the timeout timer value but not below 0
       window.scrollBy(0, step);
       this.tm = setTimeout(function () {
-         smoothScr.anim(className);  
-      }, this.iterr); 
-    }  
-    if (scrVal === tOff) { 
+         smoothScr.anim(className);
+      }, this.iterr);
+    }
+    if (scrVal === tOff) {
       this.setActive(className);
       this.stopShow(); // reset function values
 
@@ -86,7 +86,7 @@ var bullets = document.querySelectorAll('.side-menu li');
 
 if (bullets) {
   var positions = [];
-  
+
   bullets = Array.prototype.slice.call(bullets);
   bullets.forEach(function (bullet) {
     var firstClass = bullet.classList[0];
@@ -103,7 +103,7 @@ window.onscroll = function () {
     var html = document.documentElement;
 
     var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-    
+
     if ((windowY + html.clientHeight + 400) <= height) {
       positions.forEach(function (position, i) {
         if (windowY >= position) {

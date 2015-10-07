@@ -1,6 +1,6 @@
-'use strict';
-
 (function () {
+  'use strict';
+
   var attr = [
     'data-{type}-query',
     'data-{type}-count',

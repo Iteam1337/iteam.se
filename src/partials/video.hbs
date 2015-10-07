@@ -4,8 +4,8 @@
     {{#if autoplay}} autoplay="autoplay" {{/if}}
     {{#if loop}} loop {{/if}}
     {{#if muted}} muted {{/if}}
-    {{#if controls}} controls {{/if}}>
-
+    {{#if controls}} controls {{/if}}
+    {{#if playbackRate }} playbackRate={{playbackRate}} {{/if}}>
     <source src="{{ file }}" type="video/mp4">
   </video>
 </div>

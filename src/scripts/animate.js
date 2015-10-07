@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+
   function animate(element, visible) {
     if (visible) {
       element.classList.add('animate');
@@ -29,6 +30,7 @@
     element.style.cssText = css;
   }
   var content = document.getElementsByClassName('animated');
+
   if (content.length) {
     for (var i = 0, max = content.length; i < max; i++) {
       setOptions(content[i]);
