@@ -1,0 +1,23 @@
+.grid-full {
+  background: red !important;
+}
+.ie {
+
+  .grid-full {
+    background: blue;
+    div {
+      display: block;
+      width: 100%;
+    }
+    .left,
+    .right {
+      display: inline-block;
+    }
+    .left {
+      width: 30%;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+}
