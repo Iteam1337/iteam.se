@@ -33,6 +33,11 @@ social:
 
 <!--[if lte IE 9 ]>
   <link href="/css/ie.css" rel="stylesheet" type="text/css">
+  <script>
+if (window.location.pathname.match(/^\/ie(\/|$)/) === null) {
+  window.location = '/ie';
+}
+  </script>
 <![endif]-->
   </head>
   <body class="
@@ -48,7 +53,7 @@ social:
   {{slugify subtitle}}
 {{/if}}">
 <!--[if lte IE 9 ]>
-  {{> ie}}
+
 <![endif]-->
 {{> navbar }}
     <div class="container">

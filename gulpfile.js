@@ -77,7 +77,7 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('out/content'));
 });
 
-gulp.task('ie', function () {
+gulp.task('sass-ie', function () {
   gulp.src('./src/scss/ie.scss')
     .pipe($.plumber())
     .pipe($.autoprefixer({
@@ -116,7 +116,7 @@ gulp.task('assemble', function () {
 
 gulp.task('watch', function () {
   gulp.watch(['src/layouts/**/*.hbs', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
-  gulp.watch(['./src/scss/**/*.scss'], ['sass', 'ie']);
+  gulp.watch(['./src/scss/**/*.scss'], ['sass', 'sass-ie']);
   gulp.watch('src/content/**/*', ['copy']);
   gulp.watch(['src/helpers/**/*.js', 'src/test/**/*.js'], ['jshint', 'test']);
   gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts']);
@@ -168,7 +168,7 @@ gulp.task('build', [
   'jshint',
   'scripts',
   'sass',
-  'ie',
+  'sass-ie',
   'assemble'
 ]);
 
