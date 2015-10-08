@@ -58,12 +58,13 @@
   {{/if}}
   <div>
   {{#if content}}
-{{#markdown}}
-{{ content }}
-{{/markdown}}
+{{#markdown}}{{ content }}{{/markdown}}
   {{/if}}
   {{#if mdtext}}
     {{{md mdtext}}}
+  {{/if}}
+  {{#if hbs}}
+    {{{hb hbs}}}
   {{/if}}
   </div>
 </div>

@@ -1,0 +1,33 @@
+$base-size: 18px;
+html {
+  font-size: $base-size;
+}
+
+$i: 7;
+@for $j from 1 through 7 {
+  h#{$j} {
+    font-size: $base-size + ($i * 2);
+  }
+  $i: $i - 1;
+}
+
+body, body * {
+  zoom: 1 ;
+}
+.footer {
+  a {
+    i {
+      font-size: 30px;
+    }
+  }
+}
+
+.container {
+  padding: 0 0 50px;
+}
+
+.ie {
+  .grid-full {
+    margin: 50px auto 0;
+  }
+}

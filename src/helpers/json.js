@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports.json = function (element) {
-  return JSON.stringify(element, null, 2);
+module.exports.json = function (element, options) {
+  return options.fn(JSON.stringify(element, null, 2));
 };

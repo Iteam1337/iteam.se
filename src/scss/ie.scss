@@ -1,0 +1,61 @@
+body {
+  background: #000;
+}
+#logo {
+  margin: 50px 0;
+}
+.ie-header {
+  max-height: 150px;
+}
+.container {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  > div {
+    padding: 0!important;
+  }
+}
+.ie {
+  margin: 10px 0;
+  .grid-full {
+    display: block;
+    margin: 50px auto 0;
+    padding: 0 0 50px;
+    .row {
+      min-height: 100%;
+      height: auto;
+    }
+    p {
+      max-width: 70%;
+      display: inline-block;
+    }
+    > div {
+      min-height: 100px;
+    }
+    img {
+      width: inherit;
+      height: 100%;
+      margin: 0 auto;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.left,
+.right {
+  display: inline-block;
+  margin: 0;
+  vertical-align: bottom;
+}
+.left {
+  width: 50px;
+  min-height: 50px;
+}
+.right {
+  padding-left: 5%;
+  width: 65%;
+  * {
+    vertical-align: top;
+  }
+}

@@ -31,18 +31,7 @@
     </div>
     <div class="footer__block">
       <h4 class="footer__title">Events</h4>
-      {{#calendar}}
-        {{#each this}}
-          <article>
-            <a href="{{link}}">
-              <h4 class="title">
-                {{title}}
-              </h4>
-              <time class="date">{{time}}</time>
-            </a>
-          </article>
-        {{/each}}
-      {{/calendar}}
+      {{> calendar}}
     </div>
   </div>
 </div>

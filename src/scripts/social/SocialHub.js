@@ -3,7 +3,7 @@
 
   function SocialHub(type, count, resolution) {
     window.Social.apply(this, [type, count]);
-    this.url = '//insta-team.se/';
+    this.url = 'https://insta-team.se/';
     if (this.type === 'twitter') {
       this.url += 'twitter/';
     }

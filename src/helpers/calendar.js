@@ -18,10 +18,7 @@ module.exports.calendar = function (options) {
 
   if (filtered.length === 0) {
     filtered.push({
-      time: '',
-      title: 'no upcoming events, currently',
-      text: '\n',
-      link: '#'
+      title: 'Currently no upcoming events'
     });
   }
 

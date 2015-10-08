@@ -1,9 +1,13 @@
 'use strict';
 
-function formatPagePath (pagePath) {
+function formatPagePath(pagePath) {
   return pagePath
     .replace(path.resolve(process.cwd(), 'src/pages'), '')
     .replace(path.extname(pagePath), '.html');
+}
+
+function fileURL(relativeURL) {
+  return 'file://' + path.resolve(process.cwd(), relativeURL);
 }
 
 var gulp = require('gulp');
@@ -77,30 +81,48 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('out/content'));
 });
 
+gulp.task('test', function (done) {
+  gulp
+    .src(['src/test/**/*.js'], { read: false })
+    .pipe($.plumber())
+    .pipe($.mocha())
+    .on('end', done);
+});
+
 gulp.task('sass-ie', function () {
   gulp.src('./src/scss/ie.scss')
     .pipe($.plumber())
+    .pipe($.sass())
     .pipe($.autoprefixer({
-      browsers: ['last 2 versions'],
+      browsers: ['ie 7', 'ie 8', 'ie 9'],
       cascade: false
     }))
-    .pipe($.rename('ie.css'))
+    .pipe($.concat('ie.css'))
+    .pipe(gulp.dest(config.stylesOut));
+  gulp.src('./src/scss/ie-lt8.scss')
+    .pipe($.plumber())
+    .pipe($.sass())
+    .pipe($.autoprefixer({
+      browsers: ['ie 7', 'ie 8'],
+      cascade: false
+    }))
+    .pipe($.concat('ie-lt8.css'))
     .pipe(gulp.dest(config.stylesOut));
 });
 
 gulp.task('sass', function () {
-  gulp.src('./src/scss/all.scss')
+  gulp.src(['./src/scss/all.scss'])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      outputStyle: 'compressed'
-    }))
+    .pipe($.sass())
     .pipe($.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe($.sourcemaps.write())
-    .pipe($.rename('iteam.css'))
+    .pipe($.concat('iteam.css'))
+    .pipe($.sourcemaps.write('.', {
+      sourceRoot: 'src/scss'
+    }))
     .pipe(gulp.dest(config.stylesOut));
 });
 
@@ -154,6 +176,10 @@ gulp.task('default', function () {
       'watch'
     ]);
 });
+
+// gulp.task('sass', function () {
+//   runSequence(['sass', 'sass-ie']);
+// });
 
 // gulp.task('default', ['test'], function () {
 //   gulp.start([

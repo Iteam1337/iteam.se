@@ -22,15 +22,16 @@
           {{/each}}
         {{/pages}}
       </ul>
+      {{#remoteAssistance}}
+        <ul class="nav--remote">
+          <li>
+            <a href="{{ this.url }}">{{ this.subtitle }}</a>
+          </li>
+        </ul>
+      {{/remoteAssistance}}
     </div>
 
-    {{#remoteAssistance}}
-      <ul class="nav--remote">
-        <li>
-          <a href="{{ this.url }}">{{ this.subtitle }}</a>
-        </li>
-      </ul>
-    {{/remoteAssistance}}
+
 
     <div class="navicon"></div>
   </div>
