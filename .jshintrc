@@ -20,6 +20,8 @@
     "afterEach": true,
     "document": true,
     "window": true,
+    "XMLHttpRequest": true,
+    "URL": true,
     "escape": true,
     "Image": true,
     "Social": true,
