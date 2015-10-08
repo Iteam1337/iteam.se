@@ -5,14 +5,15 @@
  *
  */
 
- .row.partial.quote .grid-full {
-   flex-wrap: wrap;
-   justify-content: center;
- }
+.row.partial.quote .grid-full {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: stretch;
+}
 
 .quote {
   padding:$margin 0;
-  // text-align: center;
 
   @include mobile() { padding: $margin; }
 
@@ -24,7 +25,7 @@
     color: #000;
     font-style: italic;
     font-weight: bold;
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     width: 80%;
 

@@ -68,7 +68,6 @@ body > .container {
     padding-right: $top;
     max-width: 100%;
     min-width: 25%;
-    text-align: center;
 
     &:nth-child(n+5) { margin-top: $top; }
     &:nth-child(4n) { padding-right: 0; }
