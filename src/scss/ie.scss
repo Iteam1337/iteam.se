@@ -18,12 +18,29 @@ body, body * {
     }
   }
 }
+#logo {
+  margin: 50px 0;
+}
+.ie-header {
+  max-height: 50px;
+}
+.container {
+  margin: 0 0 50px;
+}
 .ie {
   margin: 10px 0;
   .grid-full {
     display: block;
-    margin: 0 auto;
+    margin: 50px auto 0;
     padding: 0;
+    .row {
+      min-height: 100%;
+      height: auto;
+    }
+    p {
+      max-width: 70%;
+      display: inline-block;
+    }
     > div {
       min-height: 100px;
     }
@@ -31,23 +48,26 @@ body, body * {
       width: inherit;
       height: 100%;
       margin: 0 auto;
-      display: block;
-    }
-    .left,
-    .right {
       display: inline-block;
-      margin: 0;
+      vertical-align: bottom;
     }
-    .left {
-      width: 30%;
-      min-height: 100px;
-    }
-    .right {
-      padding-left: 5%;
-      width: 65%;
-    }
-    p {
-      display: inline-block;
-    }
+  }
+}
+
+.left,
+.right {
+  display: inline-block;
+  margin: 0;
+  vertical-align: bottom;
+}
+.left {
+  width: 50px;
+  min-height: 50px;
+}
+.right {
+  padding-left: 5%;
+  width: 65%;
+  * {
+    vertical-align: top;
   }
 }
