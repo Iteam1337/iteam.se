@@ -7,7 +7,9 @@
       var URLObj = window.URL || window.webkitURL;
       var response = URLObj.createObjectURL(this.response);
       data(response);
-      URL.revokeObjectURL(response);
+      window.setTimeout(function () {
+        URL.revokeObjectURL(response);
+      });
     };
     xhr.open('GET', url, true);
     xhr.responseType = 'blob';

@@ -32,28 +32,37 @@
   position: relative;
 }
 
-// Element - Image of coworker (grabbed from Gravatar)
-.coworkers__image {
-  display: inline-block;
-}
-
 // Element - Name and job position
 .coworkers__coworker {
   color: $color--black;
-  width: 320px;
-  height: 280px;
-  max-width: 320px;
-  max-height: 280px;
+  width: 300px;
+  height: 200px;
+  max-width: 300px;
+  max-height: 200px;
+  margin: 0 0 0 20px;
   z-index: 1;
+  display: table-cell;
+  vertical-align: bottom;
+  position: relative;
 }
 
-.coworkers__coworker-name {
-  padding-top: 10px;
-  margin-bottom: 0;
+// Element - Image of coworker (grabbed from Gravatar)
+.coworkers__image {
+  vertical-align: top;
+  left: -5px;
+  bottom: -5px;
+  display: block;
+  position: absolute;
+  z-index: -1;
 }
+
 .coworkers__coworker-name,
 .coworkers__coworker-job {
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 0;
+  padding: 5px;
+  display: inline;
+  clear: both;
+  color: $color--white;
+  background: $color--cornflower-blue;
 }
 
