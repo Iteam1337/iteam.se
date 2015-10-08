@@ -3,49 +3,36 @@
  * -----------------------------
  * A listing of the team involved in a project.
  * Pictures via Gravatar, with name and job position for each team member.
- * 
+ *
  */
 
 // Block
 .team {
-  p {
-    margin: $margin / 2 auto;
-    width: 80%;
-  }
-}
+  // Team list
+  &__team {
+    @include flex();
 
-// Team list
-.team__team {
-  @include flex();
-
-  justify-content: center;
-}
-
-// Team members
-.team__team-member {
-  $spacing: $margin / 4;
-
-  @include box-sizing();
-  
-  color: $color--link;
-  text-align: center;
-  width: 25%;
-
-  @include mobile() {
-    margin-top: $spacing;
-    padding: 0 $spacing;
-    width: 100%;
+    justify-content: flex-start;
   }
 
-  &:nth-child(n+5) { margin-top: $spacing; }
+  // Team members
+  &__team-member {
+    max-width: 200px;
+    margin-bottom: 10px;
+    .coworker {
+      &__coworker-name {
+        font-size: 15px;
+      }
+      &__coworker-job {
+        font-size: 15px;
+      }
+      &__text {
+        padding: 5px;
+      }
+    }
 
-  img {
-    display: block;
-    margin: 0 auto $spacing;
-  }
-
-  .job {
-    color: $color--font;
-    font-size: 1.4rem;
+    @include mobile() {
+      width: 100%;
+    }
   }
 }

@@ -40,16 +40,30 @@ describe('#team', function () {
     front.loadFront.withArgs('./src/pages/coworkers/rickard/index.hbs').returns({ email: 'rickard.laurin@iteam.se' });
     front.loadFront.withArgs('./src/pages/coworkers/dennis/index.hbs').returns({ email: 'dennis.pettersson@iteam.se' });
     helper.team({ team: ['rickard', 'dennis'], 'gravatar-sizes': 200 }, options);
-    expect(options.fn).calledOnce.and.calledWith({
-      data: [{
+    expect(options.fn).calledOnce;
+
+    expect(options.fn.args[0][0].data[0])
+      .eql({
         frontmatter: { email: 'rickard.laurin@iteam.se' },
-        img: 'http://www.gravatar.com',
-        url: '/coworkers/rickard'
-      }, {
+        logo: 'http://www.gravatar.com',
+        url: '/coworkers/rickard',
+        size: 200,
+        name: {
+          first: '',
+          last: ''
+        }
+      });
+
+     expect(options.fn.args[0][0].data[1])
+      .eql({
         frontmatter: { email: 'dennis.pettersson@iteam.se' },
-        img: 'http://www.gravatar.com',
-        url: '/coworkers/dennis'
-      }]
-    });
+        logo: 'http://www.gravatar.com',
+        url: '/coworkers/dennis',
+        size: 200,
+        name: {
+          first: '',
+          last: ''
+        }
+      });
   });
 });

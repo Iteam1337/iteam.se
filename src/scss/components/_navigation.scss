@@ -1,10 +1,5 @@
 $navbar-bg: $background-footer;
 
-body.dark #navbar .nav a,
-body.invert #navbar .nav a {
-  color: $color--white;
-}
-
 #navbar {
   @include position(top,left,0,0);
   @include transition(top, 200ms, ease-in-out);
@@ -70,7 +65,7 @@ body.invert #navbar .nav a {
     height: 25px;
 
     @include mobile() {
-      @include position(top,left,12px,20px);
+      @include position(top, left, 35px, 20px);
     }
   }
 

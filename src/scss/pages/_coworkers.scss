@@ -6,63 +6,25 @@
  */
 
 // Block
+.coworkers {
+  // Element - Coworkers in list form
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
 
-// Element - Coworkers in list form
-.coworkers__list {
-  display: flex;
-  flex-wrap: wrap;
+    li {
+      width: 33%;
 
-  li {
-    width: 33%;
+      &:nth-child(n+4) {
+        margin-top: $margin--half / 2;
+      }
 
-    &:nth-child(n+4) {
-      margin-top: $margin--half / 2;
-    }
+      @include mobile() {
+        width: 100%;
 
-    @include mobile() {
-      width: 100%;
-
-      margin-top: $margin--half / 2;
+        margin-top: $margin--half / 2;
+      }
     }
   }
-}
-
-// Element - Coworkers content wrap
-.coworkers__content {
-  position: relative;
-}
-
-// Element - Name and job position
-.coworkers__coworker {
-  color: $color--black;
-  width: 300px;
-  height: 200px;
-  max-width: 300px;
-  max-height: 200px;
-  margin: 0 0 0 20px;
-  z-index: 1;
-  display: table-cell;
-  vertical-align: bottom;
-  position: relative;
-}
-
-// Element - Image of coworker (grabbed from Gravatar)
-.coworkers__image {
-  vertical-align: top;
-  left: -5px;
-  bottom: -5px;
-  display: block;
-  position: absolute;
-  z-index: -1;
-}
-
-.coworkers__coworker-name,
-.coworkers__coworker-job {
-  margin: 0;
-  padding: 5px;
-  display: inline;
-  clear: both;
-  color: $color--white;
-  background: $color--cornflower-blue;
 }
 

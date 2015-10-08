@@ -10,13 +10,9 @@
       {{#team this}}
         {{#each data}}
           <li class="team__team-member">
-            <a href="{{url}}">
-              <img src="{{img}}"/>
-              {{frontmatter.name}}
-              <div class="job">{{frontmatter.job}}</div>
-            </a>
+            {{> coworker this}}
           </li>
-        {{/each}}  
+        {{/each}}
       {{/team}}
     </ul>
   </div>

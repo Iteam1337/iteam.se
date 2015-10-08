@@ -22,21 +22,8 @@ image:
     <ul class="coworkers__list">
       {{#pages route="./src/pages/coworkers/" start="" type="coworker" size=300}}
         {{#each data}}
-
           <li>
-            <a href="{{ url }}" class="coworkers__content">
-              <div class="coworkers__coworker">
-                <template
-                  class="coworkers__image"
-                  width="320"
-                  height="200"
-                  image="{{logo}}">
-                </template>
-                <h4 class="coworkers__coworker-name">{{ this.name.first }} <span>{{ this.name.last }}</span></h4>
-                <br/>
-                <p class="coworkers__coworker-job">{{this.frontmatter.job}}</p>
-              </div>
-            </a>
+            {{> coworker this}}
           </li>
         {{/each}}
       {{/pages}}

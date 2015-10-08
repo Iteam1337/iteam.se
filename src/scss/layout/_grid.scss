@@ -1,3 +1,8 @@
+body > .container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 .rows > .row {
   padding: $margin 0;
 
@@ -29,6 +34,8 @@
     display: flex;
     margin: 0 auto;
     max-width: $max-width;
+    padding-left: 10px;
+    padding-right: 10px;
 
     @include devices(mobile-landscape, mobile) {
       flex-wrap: wrap;

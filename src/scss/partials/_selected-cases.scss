@@ -33,11 +33,13 @@
 
   &__image {
     display: block;
+    -webkit-filter: grayscale(1) saturate(10000%);
+    filter: grayscale(1) saturate(10000%);
   }
 
   hr {
     border: 0;
-    border-bottom: 1px solid $color--white;
+    border-bottom: 8px solid $color--white;
     height: 1px;
     opacity: .6;
     transition: width $transition--speed - 100 $transition--easing;
@@ -47,6 +49,6 @@
   &__overlay {
     @include position(top, left, 0, 0, absolute, true);
 
-    background: rgba($color--black, .3);
+    background: rgba($color--spring-green, .6);
   }
 }
