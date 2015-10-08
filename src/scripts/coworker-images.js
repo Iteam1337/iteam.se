@@ -1,29 +1,12 @@
 (function () {
   'use strict';
 
-  function get(url, data) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-      var URLObj = window.URL || window.webkitURL;
-      var response = URLObj.createObjectURL(this.response);
-      data(response);
-      URL.revokeObjectURL(response);
-    };
-    xhr.open('GET', url, true);
-    xhr.responseType = 'blob';
-    xhr.send();
-  }
 
-  function imageElement(src, className, saved) {
+  function imageElement(src, className) {
     var node = new Image();
-    if (!saved) {
-      get(src || '', function (response) {
-        node.src = response;
-      });
-    } else {
-      node.src = src;
-    }
-    node.crossOrigin = 'anonymous';
+    node.src = src;
+    // node.crossOrigin = 'Anonymous';
+    node.setAttribute('crossOrigin', 'anonymous');
     node.className = className;
     return node;
   }
@@ -111,7 +94,7 @@
     var saved = getSaved(src);
 
     if (saved !== null) {
-      image = imageElement(saved, className, true);
+      image = imageElement(saved, className);
       replace();
       return;
     }
@@ -144,8 +127,6 @@
       ctx.globalCompositeOperation = 'color';
       ctx.globalAlpha = 1;
       ctx.beginPath();
-
-      ctx.beginPath();
       ctx.fillStyle = '#668cff';
       ctx.fillRect(0, 0, width, height);
 
@@ -153,7 +134,7 @@
 
       update(src, base64);
 
-      image = imageElement(base64, className, true);
+      image = imageElement(base64, className);
 
       replace(true);
     };
