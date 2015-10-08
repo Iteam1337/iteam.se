@@ -1,5 +1,7 @@
 $base-size: 18px;
-html { font-size: $base-size; }
+html {
+  font-size: $base-size;
+}
 
 $i: 7;
 @for $j from 1 through 7 {
@@ -7,6 +9,9 @@ $i: 7;
     font-size: $base-size + ($i * 2);
   }
   $i: $i - 1;
+}
+body {
+  background: #000;
 }
 body, body * {
   zoom: 1 ;
@@ -25,7 +30,9 @@ body, body * {
   max-height: 50px;
 }
 .container {
-  margin: 0 0 50px;
+  background: #fff;
+  margin: 0;
+  padding: 0 0 50px;
 }
 .ie {
   margin: 10px 0;
