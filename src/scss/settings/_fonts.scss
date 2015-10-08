@@ -14,6 +14,7 @@ $icons: $ionicons-font-family;
 $slim: 200;
 $font--bold: 500;
 
+$h1: 5rem;
 $h2: 4.5rem;
 $h3: 2.5rem;
 $h4: 2rem;
@@ -36,6 +37,12 @@ h4 {
   }
 }
 
+h1 {
+  font-size: $h1;
+  @include mobile {
+    font-size: $h2;
+  }
+}
 
 h2 {
   font-size: $h2;

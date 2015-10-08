@@ -5,7 +5,7 @@
  *
  */
 
-$width: 40%;
+$width: 70%;
 $mobile-width: 100%;
 
 // Block
@@ -15,6 +15,8 @@ $mobile-width: 100%;
   position: relative;
   overflow: hidden;
 
+  max-height: 100vh;
+
   &.partial {
     padding: 0;
     margin-top: $margin;
@@ -22,6 +24,7 @@ $mobile-width: 100%;
 
   &.padding-top .numbered-list__overlay {
     padding-top: $margin * 1.5;
+    padding-top: 20vh;
   }
 
   &:hover {
@@ -45,10 +48,14 @@ $mobile-width: 100%;
 
 // Element - Faded overlay
 .numbered-list__overlay {
+  .grid-full {
+    padding: 40px;
+  }
   @include transition(background, 300ms, ease-in-out);
 
   background: rgba(0,0,0,0.7);
   padding: $margin 0;
+  height: 100%;
 
   @include mobile() {
     padding: $margin / 2 $margin / 5;
@@ -68,11 +75,13 @@ $mobile-width: 100%;
 
   h2 {
     color: #fff;
+    font-size: 2.5vmax;
   }
 
   // Text
   p {
-    width:$width;
+    width: $width;
+    font-size: 1.5vmax;
 
     @include mobile() {
       width: $mobile-width;

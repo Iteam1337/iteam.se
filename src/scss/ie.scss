@@ -1,20 +1,50 @@
-.grid-full {
-  background: red !important;
+$base-size: 18px;
+html { font-size: $base-size; }
+
+$i: 7;
+@for $j from 1 through 7 {
+  h#{$j} {
+    font-size: $base-size + ($i * 2);
+  }
+  $i: $i - 1;
+}
+body, body * {
+  zoom: 1 ;
+}
+.footer {
+  a {
+    i {
+      font-size: 30px;
+    }
+  }
 }
 .ie {
-
+  margin: 10px 0;
   .grid-full {
-    background: blue;
-    div {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    > div {
+      min-height: 100px;
+    }
+    img {
+      width: inherit;
+      height: 100%;
+      margin: 0 auto;
       display: block;
-      width: 100%;
     }
     .left,
     .right {
       display: inline-block;
+      margin: 0;
     }
     .left {
       width: 30%;
+      min-height: 100px;
+    }
+    .right {
+      padding-left: 5%;
+      width: 65%;
     }
     p {
       display: inline-block;

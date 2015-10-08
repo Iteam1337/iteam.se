@@ -81,8 +81,6 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('out/content'));
 });
 
-
-
 gulp.task('test', function (done) {
   gulp
     .src(['src/test/**/*.js'], { read: false })
@@ -94,16 +92,12 @@ gulp.task('test', function (done) {
 gulp.task('sass-ie', function () {
   gulp.src(['./src/scss/ie.scss'])
     .pipe($.plumber())
-    .pipe($.sourcemaps.init())
     .pipe($.sass())
     .pipe($.autoprefixer({
       browsers: ['ie 8', 'ie 9'],
       cascade: false
     }))
     .pipe($.concat('ie.css'))
-    .pipe($.sourcemaps.write('.', {
-      sourceRoot: 'src/scss'
-    }))
     .pipe(gulp.dest(config.stylesOut));
 });
 

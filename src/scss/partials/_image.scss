@@ -63,6 +63,9 @@
 }
 
 .row {
+  &.partial.image {
+    max-height: calc(100vh - 85px);
+  }
   .grid-full.image__content {
     width: 100%;
     position: relative;
