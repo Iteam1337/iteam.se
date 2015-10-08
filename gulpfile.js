@@ -90,14 +90,23 @@ gulp.task('test', function (done) {
 });
 
 gulp.task('sass-ie', function () {
-  gulp.src(['./src/scss/ie.scss'])
+  gulp.src('./src/scss/ie.scss')
     .pipe($.plumber())
     .pipe($.sass())
     .pipe($.autoprefixer({
-      browsers: ['ie 8', 'ie 9'],
+      browsers: ['ie 7', 'ie 8', 'ie 9'],
       cascade: false
     }))
     .pipe($.concat('ie.css'))
+    .pipe(gulp.dest(config.stylesOut));
+  gulp.src('./src/scss/ie-lt8.scss')
+    .pipe($.plumber())
+    .pipe($.sass())
+    .pipe($.autoprefixer({
+      browsers: ['ie 7', 'ie 8'],
+      cascade: false
+    }))
+    .pipe($.concat('ie-lt8.css'))
     .pipe(gulp.dest(config.stylesOut));
 });
 

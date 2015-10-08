@@ -1,45 +1,26 @@
-$base-size: 18px;
-html {
-  font-size: $base-size;
-}
-
-$i: 7;
-@for $j from 1 through 7 {
-  h#{$j} {
-    font-size: $base-size + ($i * 2);
-  }
-  $i: $i - 1;
-}
 body {
   background: #000;
-}
-body, body * {
-  zoom: 1 ;
-}
-.footer {
-  a {
-    i {
-      font-size: 30px;
-    }
-  }
 }
 #logo {
   margin: 50px 0;
 }
 .ie-header {
-  max-height: 50px;
+  max-height: 150px;
 }
 .container {
   background: #fff;
   margin: 0;
-  padding: 0 0 50px;
+  padding: 0;
+  > div {
+    padding: 0!important;
+  }
 }
 .ie {
   margin: 10px 0;
   .grid-full {
     display: block;
     margin: 50px auto 0;
-    padding: 0;
+    padding: 0 0 50px;
     .row {
       min-height: 100%;
       height: auto;
