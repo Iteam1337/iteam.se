@@ -1,11 +1,30 @@
 (function () {
   'use strict';
 
-  function imageElement(src, className) {
+  function get(url, data) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var URLObj = window.URL || window.webkitURL;
+      var response = URLObj.createObjectURL(this.response);
+      data(response);
+      URL.revokeObjectURL(response);
+    };
+    xhr.open('GET', url, true);
+    xhr.responseType = 'blob';
+    xhr.send();
+  }
+
+  function imageElement(src, className, saved) {
     var node = new Image();
+    if (!saved) {
+      get(src || '', function (response) {
+        node.src = response;
+      });
+    } else {
+      node.src = src;
+    }
     node.crossOrigin = 'anonymous';
     node.className = className;
-    node.src = src || '';
     return node;
   }
 
@@ -92,7 +111,7 @@
     var saved = getSaved(src);
 
     if (saved !== null) {
-      image = imageElement(saved, className);
+      image = imageElement(saved, className, true);
       replace();
       return;
     }
@@ -117,19 +136,10 @@
       var height = Math.min(template.getAttribute('height') || 200, image.height);
       var ctx = canvas.getContext('2d');
 
-      // var wh = Math.min(width, height);
-      // canvas.width = wh;
-      // canvas.height = wh;
-
       canvas.width = width;
       canvas.height = height;
 
-      ctx.drawImage(image,
-        // 0, 0,
-        // width, height,
-        // 0, 0,
-        // width, height);
-        0, 0);
+      ctx.drawImage(image, 0, 0);
 
       ctx.globalCompositeOperation = 'color';
       ctx.globalAlpha = 1;
@@ -143,7 +153,7 @@
 
       update(src, base64);
 
-      image = imageElement(base64, className);
+      image = imageElement(base64, className, true);
 
       replace(true);
     };
