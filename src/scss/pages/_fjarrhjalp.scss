@@ -1,17 +1,10 @@
 .remote-assistance {
-  .row.text {
-    img {
-      max-width: 40%;
-      height: auto;
-      display: inline-block;
-      max-height: 50px;
-    }
-    .left {
-      width: auto;
-    }
+  .text {
+    background: $color--cornflower-blue;
+    color: $color--white;
+    padding-bottom: 100px;
   }
-  span {
-    display: inline-block;
-    vertical-align: baseline;
+  .numbered-list.partial {
+    margin: 0;
   }
 }
