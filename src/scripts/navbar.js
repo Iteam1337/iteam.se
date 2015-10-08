@@ -1,15 +1,17 @@
 (function () {
   'use strict';
 
-  var navicon = document.getElementById('navicon');
-  var close = document.getElementById('close-navbar');
-
   function toggle () {
     document.getElementById('navbar').classList.toggle('open');
   }
 
-  if (navicon) {
-    navicon.addEventListener('click', toggle);
+  var navicon = document.getElementsByClassName('navicon');
+  var close = document.getElementById('close-navbar');
+
+  if (navicon && navicon.length) {
+    Array.prototype.slice.call(navicon).forEach(function (element) {
+      element.addEventListener('click', toggle);
+    });
     close.addEventListener('click', toggle);
   }
 
