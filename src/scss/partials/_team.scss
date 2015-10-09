@@ -19,15 +19,30 @@
   &__team-member {
     max-width: 200px;
     margin-bottom: 10px;
-    .coworker {
+    .coworker-element {
+      width: 100%;
+
+      &__coworker-name,
+      &__coworker-job {
+        padding: 0;
+        margin: 0;
+      }
       &__coworker-name {
         font-size: 15px;
       }
       &__coworker-job {
-        font-size: 15px;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
       }
       &__text {
         padding: 5px;
+        right: 5px;
       }
     }
 
