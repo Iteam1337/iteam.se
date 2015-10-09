@@ -2,29 +2,42 @@
 // Selected cases
 //
 //------------------------------------------------------------
-
+$bg-color: $color--spring-green;
 .selected-case {
-  align-items: center;
-  display: flex;
-  margin: 1%;
-  overflow: hidden;
-  position: relative;
-  max-width: 300px;
-  max-height: 300px;
-  background: $color--spring-green;
+  background: $bg-color;
   padding: 0;
+  margin: 1%;
 
-  a {
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+
+  &,
+  &__element {
+    position: relative;
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: flex-start;
+  }
+
+  &__element {
     border: none;
   }
 
-  &:hover {
-    .selected-case__title {
-      transform: scale(1.1);
-    }
+  &__overlay {
+    z-index: 1;
+    @include position(top, left, 0, 0, absolute, true);
+    background: rgba(darken($bg-color, 50%), .7);
+    transition: background $transition--speed - 100 $transition--easing;
+  }
 
-    hr {
-      width: 60%;
+  &:hover {
+    .selected-case__overlay {
+      transition: background $transition--speed - 100 $transition--easing;
+      background: rgba($bg-color, .7);
     }
   }
 
@@ -32,28 +45,22 @@
     color: $color--white;
     font-size: $h3;
     font-weight: $font--bold;
-    text-align: center !important;
-    transition: transform $transition--speed $transition--easing;
+
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    display: inline;
+    z-index: 10;
+    border-bottom: 4px solid $color--white;
   }
 
   &__image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
     display: block;
-    -webkit-filter: grayscale(1) saturate(10000%);
     filter: grayscale(1) saturate(10000%);
   }
 
-  hr {
-    border: 0;
-    border-bottom: 8px solid $color--white;
-    height: 1px;
-    opacity: .6;
-    transition: width $transition--speed - 100 $transition--easing;
-    width: 0%;
-  }
 
-  &__overlay {
-    @include position(top, left, 0, 0, absolute, true);
-
-    background: rgba($color--spring-green, .6);
-  }
 }

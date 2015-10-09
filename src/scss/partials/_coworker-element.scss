@@ -1,6 +1,7 @@
 .coworker-element {
-  // Element - Main element
   border: none !important;
+
+  // Element - Main element
   &,
   &__wrapper {
     position: relative;
@@ -32,7 +33,6 @@
 
   // Element - Image of coworker (grabbed from Gravatar)
   &__image {
-    -webkit-filter: grayscale(1);
     filter: grayscale(1);
     width: 100%;
     height: auto;

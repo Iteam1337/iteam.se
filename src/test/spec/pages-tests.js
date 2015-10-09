@@ -135,6 +135,7 @@ describe('#pages', function () {
         last: 'bar'
       },
       logo: 'https://www.gravatar.com',
+      menutitle: '',
       title: 'bar',
       url: 'bar'
     }, {
@@ -147,6 +148,7 @@ describe('#pages', function () {
         last: 'foo'
       },
       logo: 'https://www.gravatar.com',
+      menutitle: '',
       title: 'foo',
       url: 'foo'
     }])
