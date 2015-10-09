@@ -19,6 +19,7 @@ module.exports.pages = function (options) {
     var lastName;
 
     var title = frontmatter.subtitle || frontmatter.name;
+    var menuTitle = frontmatter['menu-title'] || '';
     var logo = frontmatter.logo ?
       frontmatter.logo :
       '';
@@ -26,6 +27,7 @@ module.exports.pages = function (options) {
     var element = {
       frontmatter: frontmatter,
       url: lead + folder,
+      menutitle: menuTitle,
       title: title,
       logo: logo
     };
