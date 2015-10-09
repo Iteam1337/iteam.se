@@ -29,6 +29,12 @@ $navbar-bg: $background-footer;
         }
       }
     }
+
+    .navicon {
+      &:before {
+        color: $color--black
+      }
+    }
   }
 
   .nav--remote {
@@ -40,14 +46,15 @@ $navbar-bg: $background-footer;
   .navicon {
     @include position(top,right, $margin / 4, $margin / 2);
 
-    cursor:pointer;
-    display:none;
+    cursor: pointer;
+    display: none;
     font-family: $icons;
 
     &:before {
       content: $ionicon-var-navicon;
       display: block;
       font-size: 3rem;
+      color: $color--white;
     }
 
     @include mobile() { display:block; }
