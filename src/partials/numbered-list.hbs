@@ -8,6 +8,9 @@
   {{#if min-height}}
     min-height: {{min-height}};
   {{/if}}
+  {{#if background-color}}
+    background-color: {{background-color}};
+  {{/if}}
 ">
   <div class="numbered-list__overlay">
     <div class="grid-full">
@@ -20,11 +23,8 @@
             {{/each}}
           </ul>
         {{/if}}
-        {{#if text}}
-{{#markdown}}
-{{ text }}
-{{/markdown}}
-        {{/if}}
+        {{#if text}}{{#markdown}}{{ text }}{{/markdown}}{{/if}}
+        {{#if mdtext}}{{{md mdtext}}}{{/if}}
       </div>
       {{#each side-images}}
         <img class="numbered-list__side-image image-{{@index}}" src="{{ this }}" alt="">
