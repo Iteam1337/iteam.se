@@ -2,6 +2,18 @@
   {{#if background-image}}
     background-image: url({{ background-image }});
   {{/if}}
+  {{#if height}}
+    height: {{height}};
+  {{/if}}
+  {{#if min-height}}
+    min-height: {{min-height}};
+  {{/if}}
+  {{#if background-color}}
+    background-color: {{background-color}};
+  {{/if}}
+  {{#if background-position}}
+    background-position: {{background-position}}
+  {{/if}}
 ">
   <div class="numbered-list__overlay">
     <div class="grid-full">
@@ -14,11 +26,8 @@
             {{/each}}
           </ul>
         {{/if}}
-        {{#if text}}
-{{#markdown}}
-{{ text }}
-{{/markdown}}
-        {{/if}}
+        {{#if text}}{{#markdown}}{{ text }}{{/markdown}}{{/if}}
+        {{#if mdtext}}{{{md mdtext}}}{{/if}}
       </div>
       {{#each side-images}}
         <img class="numbered-list__side-image image-{{@index}}" src="{{ this }}" alt="">

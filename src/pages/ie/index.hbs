@@ -1,0 +1,29 @@
+---
+subtitle: Hello from the future
+layout: default.hbs
+
+hide-navigation: true
+unpublished: true
+
+image:
+  background-color: "#38ffa1"
+  height: 300px
+  type: ie-header
+---
+
+{{> image image }}
+
+<div class="container">
+  <div class="row ie">
+    <div class="grid-full">
+      <h1>Your browser is not supported</h1>
+      <p>This page works with a wide range of browsers, preferably ones that are made/updated in this decennium.</p>
+      <p>Please upgrade to a modern, fully supported browser.</p>
+    </div>
+  </div>
+  <div class="row ie">
+    <div class="grid-full">
+      {{>hbs "./src/pages/remoteassistance/remoteassistance.hbs"}}
+    </div>
+  </div>
+</div>

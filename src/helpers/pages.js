@@ -15,26 +15,25 @@ module.exports.pages = function (options) {
 
   function getPage(path, folder) {
     var frontmatter = front.loadFront(path);
-    var title;
-    var logo;
     var firstName;
     var lastName;
 
-    title = frontmatter.subtitle || frontmatter.name;
-    logo = frontmatter.logo ?
+    var title = frontmatter.subtitle || frontmatter.name;
+    var menuTitle = frontmatter['menu-title'] || '';
+    var logo = frontmatter.logo ?
       frontmatter.logo :
       '';
 
     var element = {
       frontmatter: frontmatter,
       url: lead + folder,
+      menutitle: menuTitle,
       title: title,
       logo: logo
     };
 
     if (type === 'coworker') {
       var imgSize = size || false;
-
       element.logo = image.gravatar(frontmatter.email, imgSize);
       firstName = title.substr(0, title.indexOf(' '));
       lastName = title.substr(title.lastIndexOf(' ') + 1);
@@ -45,7 +44,7 @@ module.exports.pages = function (options) {
       };
     }
 
-    if(frontmatter.categories) {
+    if (frontmatter.categories) {
       frontmatter.categoriesHTMLFriendly = frontmatter.categories
         .map(function (category) {
           return category
@@ -70,7 +69,7 @@ module.exports.pages = function (options) {
 
       if (!data.category) {
         result.push(page);
-      } else if(categories && categories.indexOf(data.category) >= 0) {
+      } else if (categories && categories.indexOf(data.category) >= 0) {
         result.push(page);
       }
 
@@ -79,7 +78,13 @@ module.exports.pages = function (options) {
     .filter(function (page) {
       return !page.element.frontmatter.unpublished;
     })
-    .sort(function (a,b) {
+    .sort(function (a, b) {
+
+      // position 'You' last
+      if (type === 'coworker') {
+        if (a.order === 'You') { return 1; } else if (b.order === 'You') { return -1; }
+      }
+
       if (typeof a.order === 'number') {
         return a.order - b.order;
       } else if (typeof a.order === 'string') {

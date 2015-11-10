@@ -15,7 +15,7 @@ module.exports.selectedCases = function (options) {
   	frontmatter.url = caseName.toLowerCase();
     frontmatter.classes = "";
 
-    if( frontmatter.categories ) {
+    if (frontmatter.categories ) {
       frontmatter.categories.forEach(function (category) {
         frontmatter.classes += ' ' + slug.slugify(category);
       });

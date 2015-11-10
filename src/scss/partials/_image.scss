@@ -15,11 +15,16 @@
     width: 100%;
   }
 
+  &.row {
+    background: $color--black;
+  }
+
   &.parallax {
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+
   }
 }
 
@@ -36,20 +41,36 @@
 
 // Element - Optional title text
 .image__title {
-  @include center(y, left, 40px);
+  // @include center(y, left, 200px);
 
   color: $color--white;
-  font-size: 8rem;
+  font-size: 4rem;
   line-height: 1.15;
   max-width: 70%;
+
+  small {
+    font-size: 3rem;
+    display: block;
+  }
 
   @include mobile() {
     @include prefix('word-break', break-word);
 
     font-size: 4rem;
     line-height: 1;
-    text-align: center;
     width: 100%;
+  }
+}
+
+.row {
+  &.partial.image {
+    max-height: calc(100vh - 85px);
+  }
+  .grid-full.image__content {
+    width: 100%;
+    position: relative;
+    align-items: flex-end;
+    height: 100%;
   }
 }
 

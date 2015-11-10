@@ -1,5 +1,7 @@
 $img-width: 40%;
 
+body, body * {text-align:left !important;} /* Because so say the visual identity */
+
 .row.text {
   @include mobile() {
     padding: $margin--fifth;
@@ -29,6 +31,8 @@ $img-width: 40%;
 
   img {
     max-width: $img-width;
+    height: auto;
+    display: inline-block;
 
     &.right {
       margin-left: $margin;
@@ -99,6 +103,20 @@ $img-width: 40%;
 
   .left {
     text-align: left;
+  }
+
+  .left,
+  .right {
+    display: inline-block;
+    margin: 0;
+  }
+  .left {
+    width: 30%;
+    min-height: 100px;
+  }
+  .right {
+    padding-left: 5%;
+    width: 65%;
   }
 
   &.no-padding-top { padding-top: 0; }

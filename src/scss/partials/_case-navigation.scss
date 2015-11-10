@@ -3,7 +3,7 @@
  * -----------------------------
  * Navigate to next and previous case in order and also to top level.
  * Preferably placed at the bottom of a case.
- * 
+ *
  */
 
 $icon-margin: 10px;
@@ -23,7 +23,6 @@ $icon-margin: 10px;
   width: 33%;
 
   @include mobile() {
-    text-align: center;
     width:100%;
   }
 }
@@ -38,7 +37,7 @@ $icon-margin: 10px;
 // Element - Content block -- Modified for last block
 .case-navigation__block--next {
   text-align: right;
-  
+
   i { margin-left: $icon-margin; }
 
   @include mobile() { text-align: center; }

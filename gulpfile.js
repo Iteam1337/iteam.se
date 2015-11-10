@@ -1,20 +1,30 @@
 'use strict';
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-
-var rimraf = require('rimraf');
-var path = require('path');
-
-function formatPagePath (pagePath) {
+function formatPagePath(pagePath) {
   return pagePath
     .replace(path.resolve(process.cwd(), 'src/pages'), '')
     .replace(path.extname(pagePath), '.html');
 }
 
-gulp.task('clean', function () {
-  rimraf.sync('./out');
-});
+function fileURL(relativeURL) {
+  return 'file://' + path.resolve(process.cwd(), relativeURL);
+}
+
+var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
+
+
+var runSequence = require('run-sequence');
+var rimraf = require('rimraf');
+var path = require('path');
+
+var options = {
+  partials: 'src/partials/*.hbs',
+  layoutdir: 'src/layouts/',
+  helpers: [
+    'src/helpers/**/*.js'
+  ]
+};
 
 var config = {
   stylesOut: 'out/css/',
@@ -22,6 +32,10 @@ var config = {
     './src/pages/**/*.hbs'
   ]
 };
+
+gulp.task('clean', function () {
+  rimraf.sync('./out');
+});
 
 gulp.task('jshint', function () {
   gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'])
@@ -37,19 +51,23 @@ gulp.task('scripts', function () {
     './bower_components/wowjs/dist/wow.min.js'
   ])
     .pipe($.concat('all.js'))
-    // .pipe($.uglify())
+    .pipe($.uglify())
     .pipe(gulp.dest('./out/scripts'));
 });
 
-gulp.task('test', function () {
-  gulp.src(['src/test/**/*.js'], { read: false })
+
+gulp.task('test', function (done) {
+  gulp
+    .src(['src/test/**/*.js'], { read: false })
     .pipe($.plumber())
-    .pipe($.mocha());
+    .pipe($.mocha())
+    .on('end', done);
 });
 
 gulp.task('connect', function () {
   gulp.src('./out/')
     .pipe($.webserver({
+      host: process.env.host || 'localhost',
       livereload: true,
       port: 9000
     }));
@@ -63,29 +81,50 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('out/content'));
 });
 
+gulp.task('test', function (done) {
+  gulp
+    .src(['src/test/**/*.js'], { read: false })
+    .pipe($.plumber())
+    .pipe($.mocha())
+    .on('end', done);
+});
+
+gulp.task('sass-ie', function () {
+  gulp.src('./src/scss/ie.scss')
+    .pipe($.plumber())
+    .pipe($.sass())
+    .pipe($.autoprefixer({
+      browsers: ['ie 7', 'ie 8', 'ie 9'],
+      cascade: false
+    }))
+    .pipe($.concat('ie.css'))
+    .pipe(gulp.dest(config.stylesOut));
+  gulp.src('./src/scss/ie-lt8.scss')
+    .pipe($.plumber())
+    .pipe($.sass())
+    .pipe($.autoprefixer({
+      browsers: ['ie 7', 'ie 8'],
+      cascade: false
+    }))
+    .pipe($.concat('ie-lt8.css'))
+    .pipe(gulp.dest(config.stylesOut));
+});
+
 gulp.task('sass', function () {
-  gulp.src('./src/scss/all.scss')
+  gulp.src(['./src/scss/all.scss'])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      outputStyle: 'compressed'
-    }))
+    .pipe($.sass())
     .pipe($.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe($.sourcemaps.write())
-    .pipe($.rename('iteam.css'))
+    .pipe($.concat('iteam.css'))
+    .pipe($.sourcemaps.write('.', {
+      sourceRoot: 'src/scss'
+    }))
     .pipe(gulp.dest(config.stylesOut));
 });
-
-var options = {
-  partials: 'src/partials/*.hbs',
-  layoutdir: 'src/layouts/',
-  helpers: [
-    'src/helpers/**/*.js'
-  ]
-};
 
 gulp.task('assemble', function () {
   gulp.src(config.pages)
@@ -99,7 +138,7 @@ gulp.task('assemble', function () {
 
 gulp.task('watch', function () {
   gulp.watch(['src/layouts/**/*.hbs', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
-  gulp.watch(['./src/scss/**/*.scss'], ['sass']);
+  gulp.watch(['./src/scss/**/*.scss'], ['sass', 'sass-ie']);
   gulp.watch('src/content/**/*', ['copy']);
   gulp.watch(['src/helpers/**/*.js', 'src/test/**/*.js'], ['jshint', 'test']);
   gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts']);
@@ -130,18 +169,32 @@ gulp.task('s3', function () {
     .pipe($.awspublish.reporter())
 });
 
-gulp.task('default', [
-  'build',
-  'test',
-  'connect',
-  'watch'
-]);
+gulp.task('default', function () {
+    runSequence('test', [
+      'build',
+      'connect',
+      'watch'
+    ]);
+});
+
+// gulp.task('sass', function () {
+//   runSequence(['sass', 'sass-ie']);
+// });
+
+// gulp.task('default', ['test'], function () {
+//   gulp.start([
+//     'build',
+//     'connect',
+//     'watch'
+//   ]);
+// });
 
 gulp.task('build', [
   'copy',
   'jshint',
   'scripts',
   'sass',
+  'sass-ie',
   'assemble'
 ]);
 

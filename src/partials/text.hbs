@@ -30,6 +30,9 @@
   {{#if background-color}}
     has-background
   {{/if}}
+  {{#if color}}
+    inverted
+  {{/if}}
   "
   style="
   {{#if background-color}}
@@ -47,16 +50,24 @@
   ">
   <div class="grid-full">
   {{#if image}}
-    <img class="{{ image.position }}" src="{{ image.src }}" alt="{{ image.alt }}">
+    <img
+      class="{{ image.position }}"
+      src="{{ image.src }}"
+      alt="{{ image.alt }}"
+      style="
+        {{#if image.width}}width:{{image.width}};{{/if}}
+        {{#if image.height}}height:{{image.height}};{{/if}}
+      " />
   {{/if}}
   <div>
   {{#if content}}
-{{#markdown}}
-{{ content }}
-{{/markdown}}
+{{#markdown}}{{ content }}{{/markdown}}
   {{/if}}
   {{#if mdtext}}
     {{{md mdtext}}}
+  {{/if}}
+  {{#if hbs}}
+    {{{hb hbs}}}
   {{/if}}
   </div>
 </div>

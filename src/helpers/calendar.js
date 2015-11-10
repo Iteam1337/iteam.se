@@ -6,7 +6,7 @@ module.exports.calendar = function (options) {
   var frontmatter = front.loadFront('./src/pages/calendar.hbs');
   var calendar = frontmatter.calendar;
 
-  if(!calendar) {
+  if (!calendar) {
     return '';
   }
 
@@ -15,6 +15,12 @@ module.exports.calendar = function (options) {
   }).sort(function (a, b) {
     return moment(a.time).diff(moment(b.time));
   });
+
+  if (filtered.length === 0) {
+    filtered.push({
+      title: 'Currently no upcoming events'
+    });
+  }
 
   return options.fn(filtered);
 };

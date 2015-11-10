@@ -1,5 +1,5 @@
 // Case start page
-// 
+//
 
 .filters-list {
   @include user-select();
@@ -15,9 +15,9 @@
     cursor: pointer;
     display: inline-block;
     padding: 0 10px;
-    
+
     &.hidden { display: none; }
-    
+
     &:not(:last-child) { margin-right: 20px; }
 
     &:hover, &.active { background: $color__accent; }
@@ -51,7 +51,6 @@
       color: inherit;
       opacity: 1;
       position: relative;
-      text-align: center;
       width: 33.3%;
 
       &.visually-hidden { opacity: 0; }
@@ -61,7 +60,7 @@
         @include box-sizing();
         @include size(100%);
         @include transition(background, 200ms, ease-in-out);
-        
+
         background: inherit;
         color:inherit;
         display: block;

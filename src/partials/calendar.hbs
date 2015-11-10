@@ -1,32 +1,38 @@
-<div class="row partial {{ type }} {{ background }}" style="
-  {{#if background-color}}
-    background: {{ background-color }};
-  {{/if}}
-  {{#if background-image}}
-    background-image: {{ background-image }};
-  {{/if}}
-  {{#if color}}
-    color: {{ color }};
-  {{/if}}
-">
-  <div class="grid-full">
-    {{#if title}}
-      <h3>{{ title }}</h3>
-    {{/if}}
-    {{#calendar}}
-      <ul>
-        {{#each this}}
-          <li>
-            <div class="date">{{ time }}</div>
+{{#calendar}}
+  <ul>
+    {{#each this}}
+      <li>
+        {{#if time}}
+          <div class="date">{{time}}</div>
+        {{/if}}
+
+        {{#ifCond link '&&' title}}
+          <h3 class="title">
+            <a href="{{link}}">
+              {{title}}
+            </a>
+          </h3>
+        {{else}}
+
+          {{#if link}}
             <h3 class="title">
-              <a href="{{ link }}">
-                {{ title }}
-              </a>
+              {{#if time}}
+                <a href="{{link}}">{{time}}</a>
+              {{else}}
+                <a href="{{link}}">event</a>
+              {{/if}}
             </h3>
-            {{{ text }}}
-          </li>
-        {{/each}}
-      </ul>
-    {{/calendar}}
-  </div>
-</div>
+          {{/if}}
+
+          {{#if title}}
+            <stong>{{title}}</strong>
+          {{/if}}
+        {{/ifCond}}
+
+        {{#if text}}
+          {{{text}}}
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+{{/calendar}}

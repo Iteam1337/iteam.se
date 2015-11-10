@@ -1,3 +1,8 @@
+body > .container {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .rows > .row {
   padding: $margin 0;
 
@@ -29,6 +34,8 @@
     display: flex;
     margin: 0 auto;
     max-width: $max-width;
+    padding-left: 10px;
+    padding-right: 10px;
 
     @include devices(mobile-landscape, mobile) {
       flex-wrap: wrap;
@@ -61,7 +68,6 @@
     padding-right: $top;
     max-width: 100%;
     min-width: 25%;
-    text-align: center;
 
     &:nth-child(n+5) { margin-top: $top; }
     &:nth-child(4n) { padding-right: 0; }

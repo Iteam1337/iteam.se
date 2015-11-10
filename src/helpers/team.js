@@ -1,3 +1,5 @@
+'use strict';
+
 var front = require('yaml-front-matter');
 var image = require('./gravatar');
 
@@ -6,14 +8,22 @@ module.exports.team = function (data, options) {
   var size = data['gravatar-sizes'];
   var names = team.map(function (coworker) {
     var frontmatter = front.loadFront('./src/pages/coworkers/' + coworker + '/index.hbs');
-
     var imgSize = size || false;
+
+    var name = (frontmatter.name || ' ').split(' ');
     return {
       frontmatter: frontmatter,
-      img: image.gravatar(frontmatter.email, imgSize),
-      url: '/coworkers/' + coworker
+      logo: image.gravatar(frontmatter.email, imgSize),
+      url: '/coworkers/' + coworker,
+      size: size || 300,
+      name: {
+        first: name[0] || '',
+        last: name[1] || ''
+      }
     };
   });
 
-  return options.fn({ data: names });
+  return options.fn({
+    data: names
+  });
 };

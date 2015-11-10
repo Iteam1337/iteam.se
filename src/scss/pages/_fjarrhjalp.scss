@@ -1,13 +1,10 @@
-.fjarrhjalp {
-  p {
-    text-align: center;
+.remote-assistance {
+  .text {
+    background: $color--cornflower-blue;
+    color: $color--white;
+    padding-bottom: 100px;
   }
-
-  .button {
-    &:not(:last-child) { margin-right: $margin / 5; }
-
-    &:hover a {
-      color: #000;
-    }
+  .numbered-list.partial {
+    margin: 0;
   }
 }

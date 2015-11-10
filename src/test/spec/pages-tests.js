@@ -48,16 +48,15 @@ describe('#pages', function () {
     }
     helper.pages(options)
     expect(options.fn).calledOnce
-    expect(options.fn).calledWith({
-      data: [{
-        frontmatter: {
-          name: 'foo',
-          email: 'rickard.laurin@iteam.se'
-        },
-        logo: '',
-        title: 'foo',
-        url: '/foo'
-      }]
+    expect(options.fn.args[0][0].data[0]).eql({
+      frontmatter: {
+        name: 'foo',
+        email: 'rickard.laurin@iteam.se'
+      },
+      menutitle: '',
+      logo: '',
+      title: 'foo',
+      url: '/foo'
     })
   })
 
@@ -65,16 +64,15 @@ describe('#pages', function () {
     options.hash = { route: './src/pages/' }
     helper.pages(options)
     expect(options.fn).calledOnce
-    expect(options.fn).calledWith({
-      data: [{
-        frontmatter: {
-          name: 'foo',
-          email: 'rickard.laurin@iteam.se'
-        },
-        logo: '',
-        title: 'foo',
-        url: 'foo'
-      }]
+    expect(options.fn.args[0][0].data[0]).eql({
+      frontmatter: {
+        name: 'foo',
+        email: 'rickard.laurin@iteam.se'
+      },
+      logo: '',
+      title: 'foo',
+      menutitle: '',
+      url: 'foo'
     })
   })
 
@@ -99,17 +97,16 @@ describe('#pages', function () {
     })
     options.hash = { category: 'test' }
     helper.pages(options)
-    expect(options.fn).calledWith({
-      data: [{
-        frontmatter: {
-          name: 'bar',
-          categories: 'test',
-          categoriesHTMLFriendly: 'test'
-        },
-        logo: '',
-        title: 'bar',
-        url: 'bar'
-      }]
+    expect(options.fn.args[0][0].data[0]).eql({
+      frontmatter: {
+        name: 'bar',
+        categories: 'test',
+        categoriesHTMLFriendly: 'test'
+      },
+      logo: '',
+      menutitle: '',
+      title: 'bar',
+      url: 'bar'
     })
   })
 
@@ -128,32 +125,32 @@ describe('#pages', function () {
       type: 'coworker'
     }
     helper.pages(options)
-    expect(options.fn).calledWith({
-      data: [{
-        frontmatter: {
-          name: 'bar',
-          email: 'radu.achim@iteam.se'
-        },
-        name: {
-          first: '',
-          last: 'bar'
-        },
-        logo: 'https://www.gravatar.com',
-        title: 'bar',
-        url: 'bar'
-      }, {
-        frontmatter: {
-          name: 'foo',
-          email: 'rickard.laurin@iteam.se'
-        },
-        name: {
-          first: '',
-          last: 'foo'
-        },
-        logo: 'https://www.gravatar.com',
-        title: 'foo',
-        url: 'foo'
-      }]
-    })
+    expect(options.fn.args[0][0].data).eql([{
+      frontmatter: {
+        name: 'bar',
+        email: 'radu.achim@iteam.se'
+      },
+      name: {
+        first: '',
+        last: 'bar'
+      },
+      logo: 'https://www.gravatar.com',
+      menutitle: '',
+      title: 'bar',
+      url: 'bar'
+    }, {
+      frontmatter: {
+        name: 'foo',
+        email: 'rickard.laurin@iteam.se'
+      },
+      name: {
+        first: '',
+        last: 'foo'
+      },
+      logo: 'https://www.gravatar.com',
+      menutitle: '',
+      title: 'foo',
+      url: 'foo'
+    }])
   })
 })

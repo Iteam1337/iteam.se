@@ -1,42 +1,20 @@
 ---
 layout: partials.hbs
 no-navigation: true
-body-class: dark
+body-class: start
 partials:
   -
-    type: video
-    autoplay: true
-    loop: true
-    muted: true
-    file: /content/video/flythrough.mp4
-
-  -
-    type: vision
-    title: There is a better way
-    background: '#38ffa1'
-    image:
-      src: /content/images/icons/Iteam-icon-01.png
-      alt: Ruler icon
-      position: left
-    text: We are a purely agile company that develops stuff™ – primarily using web technologies. We prioritize delivering value over everything else. We challenge ideas, current paradigms and beliefs – be them technology, methodology or the thing our client just asked us for. We believe there is a better way.
-  -
-    type: text
-    mdtext: src/pages/startpage
-    image:
-      src: /content/images/icons/Iteam-icon-07.png
-      alt: Arrow icon
-      position: left
-  -
-    type: services
+    type: numbered-list
+    extra-classes: padding-top
+    background-color: '#ff3b5c'
+    background-image: /content/images/section-top/team_multiply.jpg
+    title: What the hell is Digital Transformation?
+    mdtext: src/pages/digitaltransformation
+    height: "500px; height: 100vh"
   -
     type: instagram
     social-media:
       instagram: iteam1337
     instagram-count: 4
     instagram-resolution: normal
-  -
-    type: contact
-    title: "Sounds about right? Lets meet!"
-    url: https://iteamsolutions.slack.com/services/hooks/incoming-webhook?token=QPESKvJRIkpT8aH46D7ttAQk
-    method: POST
 ---

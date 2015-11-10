@@ -1,0 +1,58 @@
+.coworker-element {
+  border: none !important;
+
+  // Element - Main element
+  &,
+  &__wrapper {
+    position: relative;
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: flex-start;
+
+  }
+
+  min-width: 150px;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+
+  &__wrapper {
+    color: $color--black;
+    margin: 0 0 0 20px;
+  }
+
+  &__overlay {
+    z-index: 1;
+    @include position(top, left, 0, 0, absolute, true);
+    background: rgba($color--cornflower-blue, .6);
+  }
+
+  // Element - Image of coworker (grabbed from Gravatar)
+  &__image {
+    filter: grayscale(1);
+    width: 100%;
+    height: auto;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    display: inline;
+  }
+
+  &__coworker-name,
+  &__coworker-job {
+    z-index: 1;
+    padding: 5px;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    color: $color--white;
+  }
+
+}
