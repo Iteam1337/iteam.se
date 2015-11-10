@@ -18,4 +18,9 @@
     background: $color--spring-green;
     color: $color--black;
   }
+
+  &.black {
+    background: black;
+    color: white;
+  }
 }

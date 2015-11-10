@@ -1,0 +1,2 @@
+## For the rebels
+You found us because you know there is a better way. You want to change how things are done and we love that. People like you are key for our society to start moving faster towards our goals. Maybe you want to [join us](/career/) or [call us](/coworkers/)?
