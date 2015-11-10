@@ -1,1 +1,4 @@
-We help established companies with their digital automation. By extracting the vision and goals using interviews, service design and innovation labs we can accelerate a fast iteration path to a fully automated digital service. We provide up to three world class teams that can SuperCharge&trade; your existing team to faster develop those API:s, App-backends, Realtime data analysis, Cloud infrastructure, AI/Deep Learning algorithms or web/hybrid service.
+We help you transform your business by using digital as the primary strategy for selling and delivering your products. We provide up to three world class programming teams that can SuperCharge&trade; your business to faster develop those API:s, App-backends, Realtime data analysis, Cloud infrastructure, AI/Deep Learning algorithms or web/hybrid service.
+
+## For the rebels
+You found us because you think there is a better way. You want to change how things are done and we love that. People like you are key for our society to start moving faster and deliver better products that creates real value. Maybe you want to [join us](/career/) or [hire us](/coworkers/)?
