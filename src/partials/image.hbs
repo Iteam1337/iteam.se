@@ -48,7 +48,7 @@
   {{#if start}}
     <div class="{{ type }}__content grid-full">
       <div class="{{ type }}__title {{#if animate}} animate fadeInUp {{/if}}">
-        <h1 class="{{ type }}__tile-main">{{{ title }}}{{#if sub-title}}<small class="{{ type }}__tile-sub">{{sub-title}}</small>{{/if}}</h1>
+        <h1 class="{{ type }}__tile-main">{{{ title }}}{{#if sub-title}}<small class="{{ type }}__tile-sub">{{sub-title}}</small>{{#if phone}}<small class="{{ type }}__tile-phone">{{{phone}}}</small>{{/if}}{{/if}}</h1>
       </div>
 
       {{#if image }}
