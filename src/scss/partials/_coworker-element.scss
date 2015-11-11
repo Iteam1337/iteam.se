@@ -47,12 +47,17 @@
 
   &__coworker-name,
   &__coworker-job {
-    z-index: 1;
-    padding: 5px;
-    margin: 0;
     display: inline-block;
-    position: relative;
+  }
+
+  &__coworker-name,
+  &__coworker-job,
+  &__coworker-phone {
     color: $color--white;
+    margin: 0;
+    padding: 5px;
+    z-index: 1;
+    position: relative;
   }
 
 }
