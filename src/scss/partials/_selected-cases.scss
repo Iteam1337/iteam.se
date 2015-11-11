@@ -3,6 +3,9 @@
 //
 //------------------------------------------------------------
 $bg-color: $color--spring-green;
+.selected-cases {
+  margin: 0 0 100px;
+}
 .selected-case {
   background: $bg-color;
   padding: 0;
