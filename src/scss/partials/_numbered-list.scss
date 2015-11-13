@@ -15,17 +15,10 @@ $mobile-width: 100%;
   position: relative;
   overflow: hidden;
 
-  max-height: 100vh;
 
-  @media screen and (max-height: 400px), screen and (max-width: 700px) {
-    &,
-    &__overlay  {
-      min-height: 100vh !important;
-      max-height: 100% !important;
-      height: 100% !important;
-    }
+  &.no-page-fill {
+    max-height: auto;
   }
-
 
   &.partial {
     padding: 0;
@@ -40,11 +33,32 @@ $mobile-width: 100%;
     }
   }
 
+  &.no-animation {
+    .numbered-list__overlay {
+      background: rgba(0,0,0,0.5);
+    }
+  }
+}
+
+.numbered-list:not(.no-page-fill) {
+  max-height: 100vh;
+
+  @media screen and (max-height: 400px),
+         screen and (max-width: 700px) {
+    &,
+    .numbered-list__overlay {
+      min-height: 100vh !important;
+      max-height: 100% !important;
+      height: 100% !important;
+    }
+  }
+}
+
+.numbered-list:not(.no-animation) {
   &:hover {
     .numbered-list__overlay {
       background: rgba(0,0,0,0.5);
     }
-
     .numbered-list__side-image {
       @include transform(translateY(120px));
 
@@ -52,9 +66,27 @@ $mobile-width: 100%;
         @include transform(translateY(210px));
       }
     }
-
     .numbered-list__content {
       @include transform(translateX(0));
+    }
+  }
+  .numbered-list__content {
+    @include transform(translateX(-20px));
+    @include transition(transform, 300ms, ease-in-out);
+
+    @include mobile() {
+      @include transform(translateX(0));
+    }
+  }
+  .numbered-list__overlay {
+    @include transition(background, 300ms, ease-in-out);
+  }
+  .numbered-list__side-image {
+    @include transform(translateY(180px));
+    @include transition(transform, 300ms, ease-in-out);
+
+    &.image-1 {
+      @include transform(translateY(240px));
     }
   }
 }
@@ -64,7 +96,6 @@ $mobile-width: 100%;
   .grid-full {
     padding: 40px;
   }
-  @include transition(background, 300ms, ease-in-out);
 
   background: rgba(0,0,0,0.7);
   padding: $margin 0;
@@ -77,14 +108,8 @@ $mobile-width: 100%;
 
 // Element - Text content
 .numbered-list__content {
-  @include transform(translateX(-20px));
-  @include transition(transform, 300ms, ease-in-out);
 
   color: #fff;
-
-  @include mobile() {
-    @include transform(translateX(0));
-  }
 
   h2 {
     color: #fff;
@@ -139,8 +164,6 @@ $mobile-width: 100%;
 // Element - Images
 .numbered-list__side-image {
   @include position(bottom,right,0,80px);
-  @include transform(translateY(180px));
-  @include transition(transform, 300ms, ease-in-out);
 
   width: 600px;
 
@@ -148,7 +171,6 @@ $mobile-width: 100%;
   @include mobile() { display: none; }
 
   &.image-1 {
-    @include transform(translateY(240px));
 
     right: 40px;
   }
