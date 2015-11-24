@@ -1,5 +1,6 @@
 FROM tutum.co/iteamdev/node-gulp:0.12
 
+ADD default.config /etc/nginx/
 ADD package.json /app/
 RUN npm install
 
