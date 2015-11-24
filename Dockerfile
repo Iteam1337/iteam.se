@@ -1,4 +1,4 @@
-FROM tutum.co/iteamdev/node-gulp:0.12-redirects
+FROM tutum.co/iteamdev/node-gulp:0.12
 
 ADD package.json /app/
 RUN npm install
