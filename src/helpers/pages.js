@@ -36,7 +36,8 @@ module.exports.pages = function (options) {
       var imgSize = size || false;
       element.logo = image.gravatar(frontmatter.email, imgSize);
       firstName = title.substr(0, title.indexOf(' '));
-      lastName = title.substr(title.lastIndexOf(' ') + 1);
+      lastName = title.substr(firstName.length + 1, title.length);
+      // lastName = title.substr(title.lastIndexOf(' ') + 1);
 
       element.name = {
         first: firstName,
