@@ -2,6 +2,7 @@ FROM tutum.co/iteamdev/node-gulp:0.12-redirects
 
 ADD package.json /app/
 RUN npm install
+COPY redirects.d /etc/nginx/
 
 ADD src /app/src
 ADD gulpfile.js /app/
