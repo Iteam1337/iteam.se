@@ -17,6 +17,7 @@ body > .container {
 }
 
 .row {
+  box-sizing: border-box;
   position: relative;
 
   @include mobile() {

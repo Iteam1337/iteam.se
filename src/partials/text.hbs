@@ -49,7 +49,7 @@
   {{/if}}
   ">
   <div class="grid-full">
-  {{#if image}}
+    {{#if image}}
     <img
       class="{{ image.position }}"
       src="{{ image.src }}"
@@ -58,17 +58,17 @@
         {{#if image.width}}width:{{image.width}};{{/if}}
         {{#if image.height}}height:{{image.height}};{{/if}}
       " />
-  {{/if}}
-  <div>
-  {{#if content}}
+    {{/if}}
+    <div class="row">
+      {{#if content}}
 {{#markdown}}{{ content }}{{/markdown}}
-  {{/if}}
-  {{#if mdtext}}
-    {{{md mdtext}}}
-  {{/if}}
-  {{#if hbs}}
-    {{{hb hbs}}}
-  {{/if}}
+      {{/if}}
+      {{#if mdtext}}
+{{{md mdtext}}}
+      {{/if}}
+      {{#if hbs}}
+{{{hb hbs}}}
+      {{/if}}
+    </div>
   </div>
-</div>
 </div>

@@ -50,11 +50,13 @@ img { max-width: 100%; }
 
 .partial {
   padding: $margin 0 0;
+  box-sizing: border-box;
 
   .partial { padding: 0; }
 
   &.has-background {
-    padding: $margin 0;
+    padding: $margin 20px;
+
   }
 
   @include mobile() {
