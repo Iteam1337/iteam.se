@@ -22,10 +22,14 @@ $navbar-bg: $background-footer;
 
     .nav {
       display: block;
+      margin: 0 auto;
       a {
         color: $color--black;
-        &:not(.active) {
-          border-bottom: 4.8px solid $color--black;
+        padding: 20px;
+        display: block;
+        text-align: center !important;
+        &:hover {
+          background: $color--spring-green;
         }
       }
     }
@@ -122,7 +126,7 @@ $navbar-bg: $background-footer;
         }
 
         &.active {
-          border-bottom: 4.8px solid $color--spring-green;
+          background: $color--spring-green;
 
           &:after {
             // @include transform(translateY(-3px));
