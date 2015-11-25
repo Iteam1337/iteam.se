@@ -50,13 +50,7 @@
 
   Blog.prototype.handleResponse = function (response) {
     response = JSON.parse(response).data;
-    var date;
-    try {
-      date = new Date(response[0].pubDate).getTime();
-    } catch (error) {
-      date = 0;
-    }
-    return [response, date];
+    return [response, response[0].pubDate];
   };
 
   Blog.prototype.constructor = window.Social;

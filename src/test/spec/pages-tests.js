@@ -113,11 +113,11 @@ describe('#pages', function () {
   it('should sort by last name', function () {
     read.directory.returns(['foo', 'bar'])
     front.loadFront.withArgs('./src/pages/coworkers/foo/index.hbs').returns({
-      name: 'foo',
+      name: 'foo foo',
       email: 'rickard.laurin@iteam.se'
     })
     front.loadFront.withArgs('./src/pages/coworkers/bar/index.hbs').returns({
-      name: 'bar',
+      name: 'bar bar',
       email: 'radu.achim@iteam.se'
     })
     options.hash = {
@@ -125,32 +125,33 @@ describe('#pages', function () {
       type: 'coworker'
     }
     helper.pages(options)
-    expect(options.fn.args[0][0].data).eql([{
+    expect(options.fn.args[0][0].data[0], 'first').eql({
       frontmatter: {
-        name: 'bar',
+        name: 'bar bar',
         email: 'radu.achim@iteam.se'
       },
       name: {
-        first: '',
+        first: 'bar',
         last: 'bar'
       },
       logo: 'https://www.gravatar.com',
       menutitle: '',
-      title: 'bar',
+      title: 'bar bar',
       url: 'bar'
-    }, {
+    });
+    expect(options.fn.args[0][0].data[1], 'second').eql({
       frontmatter: {
-        name: 'foo',
+        name: 'foo foo',
         email: 'rickard.laurin@iteam.se'
       },
       name: {
-        first: '',
+        first: 'foo',
         last: 'foo'
       },
       logo: 'https://www.gravatar.com',
       menutitle: '',
-      title: 'foo',
+      title: 'foo foo',
       url: 'foo'
-    }])
+    });
   })
 })

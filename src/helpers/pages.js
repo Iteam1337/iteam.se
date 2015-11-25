@@ -35,8 +35,13 @@ module.exports.pages = function (options) {
     if (type === 'coworker') {
       var imgSize = size || false;
       element.logo = image.gravatar(frontmatter.email, imgSize);
-      firstName = title.substr(0, title.indexOf(' '));
-      lastName = title.substr(firstName.length + 1, title.length);
+      var parts = title.split(' ');
+      if (parts.length <= 1) {
+        firstName = parts[0];
+      } else {
+        firstName = title.substr(0, title.indexOf(' '));
+        lastName = title.substr(firstName.length + 1, title.length);
+      }
       // lastName = title.substr(title.lastIndexOf(' ') + 1);
 
       element.name = {
