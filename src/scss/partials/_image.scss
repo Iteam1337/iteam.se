@@ -53,22 +53,28 @@
     display: block;
   }
 
-  @include mobile() {
+  @mixin view($size: 4rem) {
+    @include prefix('word-break', break-word);
     h1 {
-      font-size: 4rem;
+      font-size: $size;
     }
     small {
-      font-size: 2rem;
+      font-size: $size / 2;
     }
-  }
-
-  @include mobile() {
-    @include prefix('word-break', break-word);
-
-    font-size: 2.5rem;
+    font-size: $size / 2;
     line-height: 1;
     width: 100%;
-    max-width: 90%;
+    max-width: 100%;
+  }
+
+  @include mobile-landscape {
+    @include view;
+  }
+  @include mobile {
+    @include view;
+  }
+  @include tablet {
+    @include view(6rem);
   }
 }
 

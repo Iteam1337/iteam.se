@@ -22,14 +22,19 @@ $navbar-bg: $background-footer;
 
     .nav {
       display: block;
-      margin: 0 auto;
       a {
         color: $color--black;
         padding: 20px;
-        display: block;
-        text-align: center !important;
-        &:hover {
-          background: $color--spring-green;
+        &:not(.active) {
+          border-bottom: none !important; //4.8px solid $color--black;
+        }
+        @include mobile {
+          text-align: center !important;
+          margin: 0 auto;
+          display: block;
+          &:hover {
+            background: $color--spring-green;
+          }
         }
       }
     }
@@ -126,7 +131,7 @@ $navbar-bg: $background-footer;
         }
 
         &.active {
-          background: $color--spring-green;
+          border-bottom: 4.8px solid $color--spring-green;
 
           &:after {
             // @include transform(translateY(-3px));
