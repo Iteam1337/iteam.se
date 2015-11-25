@@ -23,14 +23,15 @@ if ($request_uri ~ medarbetare) {
 if ($request_uri ~ karriar) {
   rewrite /karriar/(.*) /career/$1 permanent; break;
 }
+if ($request_uri ~ remoteassistance) {
+  rewrite /remoteassistance/(.*) /operations/$1 permanent; break;
+}
+if ($request_uri ~ fjarrhjalp) {
+  rewrite /fjarrhjalp/(.*) /operations/$1 permanent; break;
+}
 
 # temporary redirects
 if ($request_uri ~ "vara-tjanster") {
   rewrite /vara\-tjanster/(.*) /$1 redirect; break;
 }
-if ($request_uri ~ fjarrhjalp) {
-  rewrite /fjarrhjalp/(.*) /remoteassistance/$1 redirect; break;
-}
-if ($request_uri ~ operations) {
-  rewrite /operations/(.*) /remoteassistance/$1 redirect; break;
-}
+
