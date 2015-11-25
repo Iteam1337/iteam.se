@@ -33,7 +33,7 @@ $bg-color: $color--spring-green;
   &__overlay {
     z-index: 1;
     @include position(top, left, 0, 0, absolute, true);
-    background: rgba(darken($bg-color, 50%), .7);
+    background: rgba(black, .3);
     transition: background $transition--speed - 100 $transition--easing;
   }
 

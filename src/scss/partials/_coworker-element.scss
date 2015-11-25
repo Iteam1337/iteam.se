@@ -28,7 +28,7 @@
   &__overlay {
     z-index: 1;
     @include position(top, left, 0, 0, absolute, true);
-    background: rgba($color--cornflower-blue, .6);
+    background: rgba(black, .4);
   }
 
   // Element - Image of coworker (grabbed from Gravatar)
