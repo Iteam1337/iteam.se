@@ -81,11 +81,13 @@
       if (response.error !== null) {
         console.error(response.error);
       }
-      return [response.data, response.data[0].created_at];
+      if (response.data && response.data.length && response.data[0].created_at) {
+        return [response.data, response.data[0].created_at];
+      }
     } catch (error) {
       console.error(error);
-      return [[], 0];
     }
+    return [[], 0];
 
   }
 

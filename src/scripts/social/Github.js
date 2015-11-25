@@ -13,13 +13,16 @@
   };
 
   Github.prototype.handleResponse = function (response) {
-    response = JSON.parse(response);
+    try {
+      response = JSON.parse(response);
 
-    if (!response.length) {
-      return;
+      if (response && response.length && response[0].pushed_at) {
+        return [response, response[0].pushed_at];
+      }
+    } catch (error) {
+      console.error(error);
     }
-
-    return [response, response[0].pushed_at];
+    return [[], 0];
   };
 
   Github.prototype.prerender = function (array) {

@@ -49,8 +49,17 @@
   };
 
   Blog.prototype.handleResponse = function (response) {
-    response = JSON.parse(response).data;
-    return [response, response[0].pubDate];
+    try {
+      response = JSON.parse(response).data;
+
+      if (response && response.length && response[0].pubDate) {
+        return [response, response[0].pubDate];
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    return [[], 0];
   };
 
   Blog.prototype.constructor = window.Social;
