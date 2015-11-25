@@ -68,10 +68,10 @@
 
     var local = this.getLocal();
     data.splice(this.count);
-    var ignoreSave = (local !== null && (local.data && local.latest) && (data.length === local.data.length && local.latest <= latest));
+    var ignoreSave = (local !== null && (local.data && local.latest) && (data.length === local.data.length && parseInt(local.latest, 10) <= latest));
 
     if (ignoreSave) {
-      console.info('ignoring save: %s', this.storageName());
+      // console.info('ignoring save: %s', this.storageName());
       return;
     }
 

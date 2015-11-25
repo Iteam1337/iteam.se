@@ -81,7 +81,7 @@
       if (response.error !== null) {
         console.error(response.error);
       }
-      return [response.data, response.data[0].created_at];
+      return [response.data, parseInt(response.data[0].created_at, 10)];
     } catch (error) {
       console.error(error);
       return [[], 0];
