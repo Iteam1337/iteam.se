@@ -88,7 +88,7 @@ module.exports.pages = function (options) {
 
       // position 'You' last
       if (type === 'coworker') {
-        if (a.order === 'You') { return 1; } else if (b.order === 'You') { return -1; }
+        if (a.order === undefined) { return 1; } else if (b.order === undefined) { return -1; }
       }
 
       if (typeof a.order === 'number') {
