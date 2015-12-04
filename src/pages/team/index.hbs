@@ -5,17 +5,17 @@ menu-title: Team
 body-class:
 
 layout: default.hbs
-image:
-  type: image
-  animate: true
-  parallax: true
-  background: fadeIn
-  title: Our team
-  start: true
-  height: 500px
-  background-image: url(/content/images/section-top/medarbetare_multiply.jpg)
+
+top-content:
+  type: numbered-list
+  extra-classes: padding-top
+  color: white
+  background-color: '#ff3b5c'
+  background-image: /content/images/section-top/medarbetare_multiply.jpg
+  mdtext: src/pages/team/main-block
+  height: "500px; height: 100vh"
 ---
-{{>image image}}
+{{>numbered-list top-content}}
 
 <div class="row partial team">
   <div class="grid-full">
