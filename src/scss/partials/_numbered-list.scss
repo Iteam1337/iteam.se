@@ -46,7 +46,7 @@ $mobile-width: 100%;
     &,
     .numbered-list__overlay {
       max-height: 100% !important;
-      min-height: 100vh !important;
+      min-height: calc(100vh - 20px) !important;
       height: 100% !important;
     }
   }
@@ -119,7 +119,6 @@ $mobile-width: 100%;
 
   p h1, h2, h3, h4, h5 {
     width: $width;
-
     @include mobile() {
       width: $mobile-width;
     }
