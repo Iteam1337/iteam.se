@@ -17,6 +17,9 @@ $mobile-width: 100%;
 
   height: 500px;
   height: 100vh;
+  &:first-child {
+    height: calc(100vh - 20px);
+  }
 
 
   &.no-page-fill {
@@ -42,8 +45,8 @@ $mobile-width: 100%;
          screen and (max-width: 700px) {
     &,
     .numbered-list__overlay {
-      min-height: 100vh !important;
       max-height: 100% !important;
+      min-height: 100vh !important;
       height: 100% !important;
     }
   }
@@ -108,7 +111,8 @@ $mobile-width: 100%;
   h2 {
     color: #fff;
     font-size: 2.5vmax;
-    @media screen and (max-height: 400px), screen and (max-width: 700px){
+    @media screen and (max-height: 400px),
+           screen and (max-width: 700px) {
       font-size: 24px;
     }
   }
