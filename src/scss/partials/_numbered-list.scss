@@ -11,9 +11,12 @@ $mobile-width: 100%;
 // Block
 .numbered-list {
   @include prefix('background-size', cover);
-
+  background-position: center center;
   position: relative;
   overflow: hidden;
+
+  height: 500px;
+  height: 100vh;
 
 
   &.no-page-fill {
@@ -35,7 +38,7 @@ $mobile-width: 100%;
 
   &.no-animation {
     .numbered-list__overlay {
-      background: rgba(0,0,0,0.5);
+      /* background: rgba(0,0,0,0.5); */
     }
   }
 }
@@ -57,7 +60,7 @@ $mobile-width: 100%;
 .numbered-list:not(.no-animation) {
   &:hover {
     .numbered-list__overlay {
-      background: rgba(0,0,0,0.5);
+      /* background: rgba(0,0,0,0.5); */
     }
     .numbered-list__side-image {
       @include transform(translateY(120px));
@@ -97,7 +100,7 @@ $mobile-width: 100%;
     padding: 40px;
   }
 
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.4);
   padding: $margin 0;
   height: 100%;
 
