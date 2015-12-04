@@ -1,3 +1,7 @@
+# Deliver early — evaluate and re-consider
+
+We enable you to deliver the stuff your clients crave. We can move fast since we embrace the fact that risk is opportunity in disguise. We deliver early MVP’s enabling an early means of getting feedback from the guys that matter the most — your target group. Our values help us to be open minded, to be ready to reconsider previous decisions, to dare choose new ways — and to revise priorities without letting prestige get in the way. This will let your business or organisation get ahead of your competition.
+
 ### Be market responsive
 
 Being market responsive is all about focusing your attention on prospects and customers. A key success factor is to be able to rapidly change your course. This means adjusting your business model to fulfil new customer needs, or adjusting your strategic heading to embrace new technologies. We will help you set up both management- and development models to do just that. The result is inevitable — you’ll score off-the-chart in consumer satisfaction. And hey, there's a nice effect in both revenue and profit margin growth as well. 
