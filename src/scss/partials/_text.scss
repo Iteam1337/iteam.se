@@ -61,6 +61,17 @@ body, body * {text-align:left !important;} /* Because so say the visual identity
     }
   }
 
+  &.contain-width {
+    .grid-full {
+      .row {
+        max-width: 70%;
+        @include mobile() {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
   &.center {
     background-position: center center;
   }
