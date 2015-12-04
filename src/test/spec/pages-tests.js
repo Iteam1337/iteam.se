@@ -78,7 +78,7 @@ describe('#pages', function () {
 
   it('should get the gravatars if it is a coworker', function () {
     options.hash = {
-      route: './src/pages/coworkers/',
+      route: './src/pages/team/',
       type: 'coworker'
     }
     helper.pages(options)
@@ -112,16 +112,16 @@ describe('#pages', function () {
 
   it('should sort by last name', function () {
     read.directory.returns(['foo', 'bar'])
-    front.loadFront.withArgs('./src/pages/coworkers/foo/index.hbs').returns({
+    front.loadFront.withArgs('./src/pages/team/foo/index.hbs').returns({
       name: 'foo foo',
       email: 'rickard.laurin@iteam.se'
     })
-    front.loadFront.withArgs('./src/pages/coworkers/bar/index.hbs').returns({
+    front.loadFront.withArgs('./src/pages/team/bar/index.hbs').returns({
       name: 'bar bar',
       email: 'radu.achim@iteam.se'
     })
     options.hash = {
-      route: './src/pages/coworkers/',
+      route: './src/pages/team/',
       type: 'coworker'
     }
     helper.pages(options)

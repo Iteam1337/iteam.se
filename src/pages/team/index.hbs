@@ -1,5 +1,5 @@
 ---
-subtitle: The Team
+subtitle: Our team
 order: 3
 menu-title: Team
 body-class:
@@ -10,17 +10,17 @@ image:
   animate: true
   parallax: true
   background: fadeIn
-  title: The Team
+  title: Our team
   start: true
   height: 500px
   background-image: url(/content/images/section-top/medarbetare_multiply.jpg)
 ---
 {{>image image}}
 
-<div class="row partial coworkers">
+<div class="row partial team">
   <div class="grid-full">
-    <ul class="coworkers__list">
-      {{#pages route="./src/pages/coworkers/" start="" type="coworker" size=300}}
+    <ul class="team__list">
+      {{#pages route="./src/pages/team/" start="" type="coworker" size=300}}
         {{#each data}}
           <li>
             {{> coworker this}}

@@ -15,5 +15,5 @@ Vi går i strumplästen och vi skrattar
 
 #### Vi älskar spontanansökningar
 Vi söker alltid nya kollegor som är engagerade. Du brinner gärna för dina privata projekt vid sidan om Iteam, och du pysslar gärna med dina egna grejer för att utvecklas. Det är lätt att säga att vi söker talang, vilket vi såklart gör, men vi vill fokusera på personligheter som bidrar.
-Är du intresserad av oss, tveka inte att kontakta [Christian Landgren](/coworkers/christian/).
+Är du intresserad av oss, tveka inte att kontakta [Christian Landgren](/team/christian/).
 

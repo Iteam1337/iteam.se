@@ -37,8 +37,8 @@ describe('#team', function () {
     expect(image.gravatar).calledOnce.and.calledWith('rickard.laurin@iteam.se', false);
   });
   it('should call options.fn with the correct parameter', function () {
-    front.loadFront.withArgs('./src/pages/coworkers/rickard/index.hbs').returns({ email: 'rickard.laurin@iteam.se' });
-    front.loadFront.withArgs('./src/pages/coworkers/dennis/index.hbs').returns({ email: 'dennis.pettersson@iteam.se' });
+    front.loadFront.withArgs('./src/pages/team/rickard/index.hbs').returns({ email: 'rickard.laurin@iteam.se' });
+    front.loadFront.withArgs('./src/pages/team/dennis/index.hbs').returns({ email: 'dennis.pettersson@iteam.se' });
     helper.team({ team: ['rickard', 'dennis'], 'gravatar-sizes': 200 }, options);
     expect(options.fn).calledOnce;
 
@@ -46,7 +46,7 @@ describe('#team', function () {
       .eql({
         frontmatter: { email: 'rickard.laurin@iteam.se' },
         logo: 'http://www.gravatar.com',
-        url: '/coworkers/rickard',
+        url: '/team/rickard',
         size: 200,
         name: {
           first: '',
@@ -58,7 +58,7 @@ describe('#team', function () {
       .eql({
         frontmatter: { email: 'dennis.pettersson@iteam.se' },
         logo: 'http://www.gravatar.com',
-        url: '/coworkers/dennis',
+        url: '/team/dennis',
         size: 200,
         name: {
           first: '',

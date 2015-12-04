@@ -1,13 +1,13 @@
 /**
- * Coworkers
+ * team
  * -----------------------------
- * List all the coworkers
+ * List all the team
  *
  */
 
 // Block
-.coworkers {
-  // Element - Coworkers in list form
+.team {
+  // Element - team in list form
   &__list {
     display: flex;
     flex-wrap: wrap;
