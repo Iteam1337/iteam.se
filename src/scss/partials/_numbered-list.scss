@@ -117,20 +117,19 @@ $mobile-width: 100%;
     }
   }
 
-  h1, h2, h3, h4, h5 {
+  p h1, h2, h3, h4, h5 {
     width: $width;
+
+    @include mobile() {
+      width: $mobile-width;
+    }
   }
   // Text
   p {
-    width: $width;
     font-size: 1.5vmax;
 
     @media screen and (max-height: 400px), screen and (max-width: 700px){
       font-size: 18px;
-    }
-
-    @include mobile() {
-      width: $mobile-width;
     }
   }
 }
