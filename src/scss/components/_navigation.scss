@@ -5,9 +5,9 @@ $navbar-bg: $background-footer;
   @include transition(top, 200ms, ease-in-out);
   @include user-select();
 
-  font-family:$header-font;
-  right:0;
-  z-index:2;
+  font-family: $header-font;
+  right: 0;
+  z-index: 2;
 
   &.open {
     height: 100%;
@@ -21,6 +21,7 @@ $navbar-bg: $background-footer;
     }
 
     .nav {
+      position: relative;
       display: block;
       a {
         color: $color--black;
@@ -28,7 +29,26 @@ $navbar-bg: $background-footer;
         &:not(.active) {
           border-bottom: none !important; //4.8px solid $color--black;
         }
-        @include mobile {
+      }
+
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: nowrap;
+        align-items: center;
+        height: 100%;
+        padding-top: 80px;
+        li {
+          margin: 0;
+          flex-shrink: 0;
+          flex-grow: 1;
+          flex-basis: auto;
+          width: 100%;
+          align-self: auto;
+        }
+        a {
           text-align: center !important;
           margin: 0 auto;
           display: block;
@@ -157,23 +177,21 @@ $navbar-bg: $background-footer;
     @include flex();
     @include justify-content(flex-end);
 
-    background:transparent;
-    list-style:none;
+    background: transparent;
+    list-style: none;
     margin-left: auto;
-    max-width:$max-width;
+    max-width: $max-width;
     padding: $margin / 5 * 2;
 
     @include mobile() {
-      @include center(both);
-
-      width:100%;
+      width: 100%;
       display: none;
     }
   }
 
   @include mobile() {
     z-index: 10;
-    height:55px;
+    height: 55px;
     padding: 0;
   }
 }
