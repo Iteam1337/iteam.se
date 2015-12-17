@@ -52,7 +52,7 @@ $mobile-width: 100%;
   }
 }
 
-.numbered-list:not(.no-animation) {
+/* .numbered-list:not(.no-animation) {
   &:hover {
     .numbered-list__side-image {
       @include transform(translateY(120px));
@@ -84,7 +84,7 @@ $mobile-width: 100%;
       @include transform(translateY(240px));
     }
   }
-}
+} */
 
 // Element - Faded overlay
 .numbered-list__overlay {
