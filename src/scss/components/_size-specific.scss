@@ -1,0 +1,45 @@
+.hidden-desktop,
+.hidden-mobile,
+.hidden-mobile-landscape,
+.hidden-tablet,
+.hidden-tablet-landscape {
+  display: block;
+}
+.hidden-desktop {
+  @include desktop { display: none; }
+}
+.hidden-mobile {
+  @include mobile { display: none; }
+}
+.hidden-mobile-landscape {
+  @include mobile-landscape { display: none; }
+}
+.hidden-tablet {
+  @include tablet { display: none; }
+}
+.hidden-tablet-landscape {
+  @include tablet-landscape { display: none; }
+}
+
+.visible-desktop,
+.visible-mobile,
+.visible-mobile-landscape,
+.visible-tablet,
+.visible-tablet-landscape {
+  display: none;
+}
+.visible-desktop {
+  @include desktop { display: block; }
+}
+.visible-mobile {
+  @include mobile { display: block; }
+}
+.visible-mobile-landscape {
+  @include mobile-landscape { display: block; }
+}
+.visible-tablet {
+  @include tablet { display: block; }
+}
+.visible-tablet-landscape {
+  @include tablet-landscape { display: block; }
+}

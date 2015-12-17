@@ -75,6 +75,8 @@ $navbar-bg: $background-footer;
   .navicon {
     @include position(top,right, $margin / 4, $margin / 2);
 
+    top: 15px;
+
     cursor: pointer;
     display: none;
     font-family: $icons;
@@ -95,13 +97,14 @@ $navbar-bg: $background-footer;
     @include mobile() { height: 100%; }
   }
 
+  #logo_i,
   #logo {
     @include center(y, left, 40px);
 
     height: 25px;
 
     @include mobile() {
-      @include position(top, left, 35px, 20px);
+      @include position(top, left, 26px, 20px);
     }
   }
 
@@ -117,7 +120,7 @@ $navbar-bg: $background-footer;
       a {
         @include transition(all, 200ms, ease-in-out);
 
-        color: $color--white;
+        /* color: $color--white; */
         position: relative;
 
         font-size: 18px;
@@ -141,7 +144,7 @@ $navbar-bg: $background-footer;
         }
 
         &:hover {
-          color: darken($color--white, 10%);
+          /* color: darken($color--white, 10%); */
 
           &:after {
             // @include transform(translateY(-3px));
@@ -151,7 +154,9 @@ $navbar-bg: $background-footer;
         }
 
         &.active {
-          border-bottom: 4.8px solid $color--spring-green;
+          /* border-bottom: 4.8px solid $color--spring-green; */
+          border-bottom-width: 4.8px;
+          border-bottom-style: solid;
 
           &:after {
             // @include transform(translateY(-3px));
