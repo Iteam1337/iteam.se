@@ -61,7 +61,7 @@ $overlay-opacity: .7;
   @include colored_elements(#ff8600);
 }
 .element__black {
-  @include colored_elements(#000);
+  @include colored_elements(#000, #fff, lighten(#000, 30%));
 }
 .element__white {
   @include colored_elements(#fff);
