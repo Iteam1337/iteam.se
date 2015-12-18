@@ -9,6 +9,12 @@ $color--flush-orange: rgb(255, 134, 0);          // #ff8600
 $color--black: rgb(0, 0, 0);                     // #000000
 $color--white: rgb(255, 255, 255);               // #ffffff
 
+$color--green: $color--spring-green;
+$color--orange: $color--flush-orange;
+$color--pink: $color--radical-red;
+$color--blue: $color--cornflower-blue;
+
+
 $color--font: $color--black;
 $color--accent: $color--flush-orange;
 $color--background: $color--white;
@@ -30,39 +36,3 @@ $twitter: #55ACEE;
 // Colors options
 // --------------------------------------------------
 $overlay-opacity: .7;
-
-@mixin colored_elements($color, $text-color: white, $active: darken($color, 20%)) {
-  &.background, .background {
-    background-color: $color;
-    color: $text-color;
-  }
-  &.color, .color {
-    color: $color;
-  }
-  &.border, .border {
-    color: $text-color;
-    border-bottom-color: white;
-    &.active {
-      border-bottom-color: $active;
-    }
-  }
-}
-
-.element__green {
-  @include colored_elements(#38ffa1);
-}
-.element__blue {
-  @include colored_elements(#668cff);
-}
-.element__pink {
-  @include colored_elements(#ff3b5c);
-}
-.element__orange {
-  @include colored_elements(#ff8600);
-}
-.element__black {
-  @include colored_elements(#000, #fff, lighten(#000, 30%));
-}
-.element__white {
-  @include colored_elements(#fff);
-}

@@ -1,26 +1,31 @@
 .row {
   &.blue {
-    background: $color--cornflower-blue;
+    background: $color--blue;
     color: $color--white;
   }
 
   &.orange {
-    background: $color--flush-orange;
+    background: $color--orange;
     color: $color--black;
   }
 
   &.red {
-    background: $color--radical-red;
+    background: $color--pink;
     color: $color--white;
   }
 
   &.green {
-    background: $color--spring-green;
+    background: $color--green;
     color: $color--black;
   }
 
   &.black {
-    background: black;
-    color: white;
+    background: $color--black;
+    color: $color--white;
+  }
+
+  &.white {
+    background: $color--white;
+    color: $color--black;
   }
 }

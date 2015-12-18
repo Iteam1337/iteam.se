@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  function toggle () {
+  function toggle() {
     document.getElementById('navbar').classList.toggle('open');
   }
 
@@ -18,4 +18,37 @@
   window.onscroll = function () {
     document.body.style.webkitPerspectiveOrigin = window.scrollX + 'px ' + window.scrollY + 'px';
   };
+
+  var header = document.getElementById('navbar');
+  if (header === null) {
+    return
+  }
+  var headerHeight = header.offsetHeight;
+  var visible = true;
+
+  function scrollEvent(event) {
+    if (!event.view || event.view.scrollY === undefined) {
+      return;
+    }
+    var y = event.view.scrollY;
+    if (y < headerHeight) {
+      if (!visible) {
+        visible = true;
+        document.documentElement.classList.remove('nav-off-screen');
+      }
+    } else {
+      if (visible) {
+        visible = false;
+        document.documentElement.classList.add('nav-off-screen');
+      }
+    }
+  }
+
+  window.addEventListener('resize', function () {
+    headerHeight = header.offsetHeight;
+  }, false)
+
+  window.addEventListener('scroll', scrollEvent, false);
+  window.addEventListener('touchmove', scrollEvent, false);
+  window.addEventListener('touchend', scrollEvent, false);
 })();

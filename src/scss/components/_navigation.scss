@@ -2,7 +2,7 @@ $navbar-bg: $background-footer;
 
 #navbar {
   @include position(top,left,0,0);
-  @include transition(top, 200ms, ease-in-out);
+  /* @include transition(top, 200ms, ease-in-out); */
   @include user-select();
 
   font-family: $header-font;
@@ -199,4 +199,7 @@ $navbar-bg: $background-footer;
     height: 55px;
     padding: 0;
   }
+
+  z-index: $max-z-index-32-bit;
+  position: fixed;
 }

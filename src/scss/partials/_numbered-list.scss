@@ -38,7 +38,7 @@ $mobile-width: 100%;
 
 }
 
-.numbered-list:not(.no-page-fill) {
+.numbered-list:not(.no-overlay) {
   max-height: 100vh;
 
   @media screen and (max-height: 400px),
@@ -52,40 +52,6 @@ $mobile-width: 100%;
   }
 }
 
-/* .numbered-list:not(.no-animation) {
-  &:hover {
-    .numbered-list__side-image {
-      @include transform(translateY(120px));
-
-      &.image-1 {
-        @include transform(translateY(210px));
-      }
-    }
-    .numbered-list__content {
-      @include transform(translateX(0));
-    }
-  }
-  .numbered-list__content {
-    @include transform(translateX(-20px));
-    @include transition(transform, 300ms, ease-in-out);
-
-    @include mobile() {
-      @include transform(translateX(0));
-    }
-  }
-  .numbered-list__overlay {
-    @include transition(background, 300ms, ease-in-out);
-  }
-  .numbered-list__side-image {
-    @include transform(translateY(180px));
-    @include transition(transform, 300ms, ease-in-out);
-
-    &.image-1 {
-      @include transform(translateY(240px));
-    }
-  }
-} */
-
 // Element - Faded overlay
 .numbered-list__overlay {
   display: flex;
@@ -97,10 +63,14 @@ $mobile-width: 100%;
   .grid-full {
     padding: 40px;
   }
-
-  background: rgba(0,0,0,0.4);
   /* padding: $margin 0; */
   height: 100%;
+}
+
+.numbered-list:not(.no-overlay) {
+  .numbered-list__overlay {
+    background: rgba(0,0,0,0.4);
+  }
 }
 
 // Element - Text content
