@@ -154,13 +154,14 @@ $navbar-bg: $background-footer;
         }
 
         &.active {
-          /* border-bottom: 4.8px solid $color--spring-green; */
           border-bottom-width: 4.8px;
           border-bottom-style: solid;
 
-          &:after {
-            // @include transform(translateY(-3px));
+          @include mobile {
+            border-bottom-color: $color--green;
+          }
 
+          &:after {
             opacity: 1;
           }
         }

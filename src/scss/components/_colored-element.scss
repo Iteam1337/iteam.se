@@ -1,12 +1,12 @@
 @mixin colored_elements($color, $text-color: white, $active: darken($color, 20%)) {
-  transition: background-color 200ms ease-in-out;
+  transition: top 300ms ease-in-out, background-color 200ms ease-in-out;
   &.background, .background {
     background-color: rgba($color, 0);
     color: $text-color;
   }
   .nav-off-screen & {
     &.background, .background {
-      transition: background-color 200ms ease-in-out;
+      transition: top 300ms ease-in-out, background-color 200ms ease-in-out;
       background-color: rgba($color, 0.95);
     }
   }
@@ -14,11 +14,13 @@
     color: $color;
   }
   &.border, .border {
+
     color: $text-color;
     border-bottom-color: white;
     &.active {
       border-bottom-color: $active;
     }
+
   }
 }
 
