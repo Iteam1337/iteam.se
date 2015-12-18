@@ -24,7 +24,12 @@
     return
   }
   var headerHeight = header.offsetHeight;
-  var visible = true;
+
+  var visible = window.scrollY < headerHeight;
+
+  if (!visible) {
+    document.documentElement.classList.add('nav-off-screen');
+  }
 
   function scrollEvent(event) {
     if (!event.view || event.view.scrollY === undefined) {

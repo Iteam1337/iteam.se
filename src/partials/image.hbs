@@ -16,7 +16,7 @@
     {{/if}}"
   style="
     {{#if background-color}}
-      background: {{ background-color }};
+      background-color: {{{ hexFromString background-color }}};
     {{/if}}
 
     {{#if background-size }}
@@ -70,7 +70,7 @@
         <div
           class="image__down-arrow"
           {{#if down-bg}}
-            style="background: {{ down-bg }}; color: {{ down-color }}"
+            style="background: {{{ hexFromString down-bg }}}; color: {{{ hexFromString down-color }}}"
           {{/if}}>
           <i class="ion-chevron-down"></i>
         </div>

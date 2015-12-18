@@ -1,8 +1,14 @@
 'use strict';
 
-/*jshint maxcomplexity:12 */
-module.exports.color = function (color) {
+/*jshint maxcomplexity:14 */
+module.exports.hexFromString = function (color) {
   color = typeof color === 'string' ? color : ''
+
+  var matchIfColor = /(?:^(?:(?:rgb(?:a)?\(|hsl(?:a)?\().+?$)|(?:\#+(?:(?:[a-f\d]){3,3}|(?:[a-f\d]){6,6}))(?:\;){0,1}$)/i;
+  if (color.match(matchIfColor) !== null) {
+    return color
+  }
+
   switch (color.toLowerCase()) {
   case 'green':
   case 'spring-green':

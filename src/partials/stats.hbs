@@ -1,4 +1,14 @@
-<div class="row partial-{{ type }} {{ background }}" style="{{#if background-color}}background: {{ background-color }}; {{/if}} {{#if color}} color: {{ color }} {{/if}} {{#if background-image}} background-image: {{ background-image }}; {{/if}}">
+<div class="row partial-{{ type }} {{ background }}"
+     style="
+{{#if background-color}}
+  background-color: {{{ hexFromString background-color }}};
+{{/if}}
+{{#if color}}
+  color: {{{ hexFromString color }}}
+{{/if}}
+{{#if background-image}}
+  background-image: {{ background-image }};
+{{/if}}">
   <div class="grid-full">
     {{#if title}}
       <h3>{{ title }}</h3>
@@ -15,7 +25,7 @@
         <div class="number">{{ number }}</div>
         <div class="text">{{ text }}</div>
       </li>
-    {{/each}}    
+    {{/each}}
     </ul>
   </div>
 </div>

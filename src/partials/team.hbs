@@ -1,4 +1,11 @@
-<div class="row partial {{ type }} {{ background }} {{#if center}} center {{/if}}" style="{{#if background-color}} background: {{ background-color }}; {{/if}} {{#if color}} color: {{ color }}; {{/if}}">
+<div class="row partial {{ type }} {{ background }} {{#if center}} center {{/if}}"
+     style="
+{{#if background-color}}
+  background-color: {{{ hexFromString background-color }}};
+{{/if}}
+{{#if color}}
+  color: {{{ hexFromString color }}};
+{{/if}}">
   <div class="grid-full">
     {{#if title}}
       <h3>{{ title }}</h3>
