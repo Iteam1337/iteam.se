@@ -32,10 +32,10 @@
   }
 
   function scrollEvent(event) {
-    if (!event.view || event.view.scrollY === undefined) {
+    var y = window.scrollY;
+    if (y === undefined) {
       return;
     }
-    var y = event.view.scrollY;
     if (y < headerHeight) {
       if (!visible) {
         visible = true;
@@ -54,6 +54,4 @@
   }, false)
 
   window.addEventListener('scroll', scrollEvent, false);
-  window.addEventListener('touchmove', scrollEvent, false);
-  window.addEventListener('touchend', scrollEvent, false);
 })();
