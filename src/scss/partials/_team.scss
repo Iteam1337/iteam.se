@@ -13,6 +13,21 @@
     @include flex();
 
     justify-content: flex-start;
+    &.centered {
+      justify-content: center;
+    }
+    &.small {
+      .team__team-member {
+        .coworker-element {
+          &__coworker {
+            &-email,
+            &-phone {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
 
   // Team members

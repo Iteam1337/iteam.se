@@ -33,6 +33,7 @@ $animation--fill: both;
 }
 
 .fadeIn {
+  z-index: -1;
   @include animationOptions;
 
   animation-name: fadeIn;

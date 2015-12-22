@@ -1,0 +1,33 @@
+---
+subtitle: Our team
+order: 3
+menu-title: Team
+
+body-class:
+page-color: blue
+
+layout: default.hbs
+
+top-content:
+  type: numbered-list
+  extra-classes: padding-top
+  color: white
+  background-color: blue
+  background-image: /content/images/section-top/medarbetare_multiply.jpg
+  mdtext: src/pages/team/main-block
+---
+{{>numbered-list top-content}}
+
+<div class="row partial team">
+  <div class="grid-full">
+    <ul class="team__list">
+      {{#pages route="./src/pages/team/" start="" type="coworker" size=300}}
+        {{#each data}}
+          <li>
+            {{> coworker this}}
+          </li>
+        {{/each}}
+      {{/pages}}
+    </ul>
+  </div>
+</div>

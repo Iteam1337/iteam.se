@@ -1,0 +1,30 @@
+/**
+ * team
+ * -----------------------------
+ * List all the team
+ *
+ */
+
+// Block
+.team {
+  // Element - team in list form
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: 33%;
+
+      &:nth-child(n+4) {
+        margin-top: $margin--half / 2;
+      }
+
+      @include mobile() {
+        width: 100%;
+
+        margin-top: $margin--half / 2;
+      }
+    }
+  }
+}
+

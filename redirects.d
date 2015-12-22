@@ -15,10 +15,10 @@ location ^~ /case/projektbevakning/ { return 404; }
 
 # permanent redirects
 if ($request_uri ~ "om-oss") {
-  rewrite /om\-oss/(.*) /aboutus/$1 permanent; break;
+  rewrite /om\-oss/(.*) /about/$1 permanent; break;
 }
 if ($request_uri ~ medarbetare) {
-  rewrite /medarbetare/(.*) /coworkers/$1 permanent; break;
+  rewrite /medarbetare/(.*) /team/$1 permanent; break;
 }
 if ($request_uri ~ karriar) {
   rewrite /karriar/(.*) /career/$1 permanent; break;
@@ -28,6 +28,12 @@ if ($request_uri ~ remoteassistance) {
 }
 if ($request_uri ~ fjarrhjalp) {
   rewrite /fjarrhjalp/(.*) /operations/$1 permanent; break;
+}
+if ($request_uri ~ aboutus) {
+  rewrite /aboutus/(.*) /about/$1 permanent; break;
+}
+if ($request_uri ~ coworkers) {
+  rewrite /coworkers/(.*) /team/$1 permanent; break;
 }
 
 # temporary redirects

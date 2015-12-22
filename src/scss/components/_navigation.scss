@@ -2,12 +2,15 @@ $navbar-bg: $background-footer;
 
 #navbar {
   @include position(top,left,0,0);
-  @include transition(top, 200ms, ease-in-out);
   @include user-select();
 
-  font-family:$header-font;
-  right:0;
-  z-index:2;
+  &.static {
+    position: relative;
+  }
+
+  font-family: $header-font;
+  right: 0;
+  z-index: 2;
 
   &.open {
     height: 100%;
@@ -21,6 +24,7 @@ $navbar-bg: $background-footer;
     }
 
     .nav {
+      position: relative;
       display: block;
       a {
         color: $color--black;
@@ -28,7 +32,26 @@ $navbar-bg: $background-footer;
         &:not(.active) {
           border-bottom: none !important; //4.8px solid $color--black;
         }
-        @include mobile {
+      }
+
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: nowrap;
+        align-items: center;
+        height: 100%;
+        padding-top: 80px;
+        li {
+          margin: 0;
+          flex-shrink: 0;
+          flex-grow: 1;
+          flex-basis: auto;
+          width: 100%;
+          align-self: auto;
+        }
+        a {
           text-align: center !important;
           margin: 0 auto;
           display: block;
@@ -55,6 +78,8 @@ $navbar-bg: $background-footer;
   .navicon {
     @include position(top,right, $margin / 4, $margin / 2);
 
+    top: 15px;
+
     cursor: pointer;
     display: none;
     font-family: $icons;
@@ -75,13 +100,14 @@ $navbar-bg: $background-footer;
     @include mobile() { height: 100%; }
   }
 
+  #logo_i,
   #logo {
     @include center(y, left, 40px);
 
     height: 25px;
 
     @include mobile() {
-      @include position(top, left, 35px, 20px);
+      @include position(top, left, 26px, 20px);
     }
   }
 
@@ -95,9 +121,9 @@ $navbar-bg: $background-footer;
       }
 
       a {
-        @include transition(all, 200ms, ease-in-out);
+        transition: all 200ms ease-in-out;
 
-        color: $color--white;
+        /* color: $color--white; */
         position: relative;
 
         font-size: 18px;
@@ -108,7 +134,7 @@ $navbar-bg: $background-footer;
 
         &:after {
           @include transform(translateY(10px));
-          @include transition(all, 200ms, ease-in-out);
+          transition: all 200ms ease-in-out;
 
           background: fade($color--white, 90%);
           content:"";
@@ -120,22 +146,15 @@ $navbar-bg: $background-footer;
           right: 0;
         }
 
-        &:hover {
-          color: darken($color--white, 10%);
-
-          &:after {
-            // @include transform(translateY(-3px));
-
-            opacity: 1;
-          }
-        }
-
         &.active {
-          border-bottom: 4.8px solid $color--spring-green;
+          border-bottom-width: 4.8px;
+          border-bottom-style: solid;
+
+          @include mobile {
+            border-bottom-color: $color--green;
+          }
 
           &:after {
-            // @include transform(translateY(-3px));
-
             opacity: 1;
           }
         }
@@ -157,23 +176,24 @@ $navbar-bg: $background-footer;
     @include flex();
     @include justify-content(flex-end);
 
-    background:transparent;
-    list-style:none;
+    background: transparent;
+    list-style: none;
     margin-left: auto;
-    max-width:$max-width;
+    max-width: $max-width;
     padding: $margin / 5 * 2;
 
     @include mobile() {
-      @include center(both);
-
-      width:100%;
+      width: 100%;
       display: none;
     }
   }
 
   @include mobile() {
     z-index: 10;
-    height:55px;
+    height: 55px;
     padding: 0;
   }
+
+  z-index: $max-z-index-32-bit;
+  position: fixed;
 }

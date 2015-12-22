@@ -30,16 +30,13 @@
   {{#if background-color}}
     has-background
   {{/if}}
-  {{#if color}}
-    inverted
-  {{/if}}
   "
   style="
   {{#if background-color}}
-    background:{{ background-color }};
+    background-color: {{{hexFromString background-color }}};
   {{/if}}
   {{#if color}}
-    color: {{ color }};
+    color: {{{ hexFromString color }}};
   {{/if}}
   {{#if background-image}}
     background-image: {{ background-image }};
@@ -59,7 +56,7 @@
         {{#if image.height}}height:{{image.height}};{{/if}}
       " />
     {{/if}}
-    <div class="row">
+    <div class="row {{#if background-color}}{{ background-color }}{{/if}}">
       {{#if content}}
 {{#markdown}}{{ content }}{{/markdown}}
       {{/if}}

@@ -6,9 +6,21 @@
  *
  */
 
+$start: 0;
+$end: 10px;
+
+@include keyframes(hint) {
+  0% { top: $start; }
+  12.5% { top: $end; }
+  25% { top: $start; }
+  100% { top: $start; }
+}
+
 // Block
 .image {
   position: relative;
+
+  &.fadeIn { z-index: 0; }
 
   img {
     vertical-align: bottom;
@@ -26,55 +38,78 @@
     background-repeat: no-repeat;
 
   }
-}
+  &__overlay {
+    @include position(top, left, 0, 0, absolute, true);
 
-.image__overlay {
-  @include position(top, left, 0, 0, absolute, true);
+    opacity: $overlay-opacity;
 
-  opacity: $overlay-opacity;
-
-  &.blue { background: $color--cornflower-blue; }
-  &.orange { background: $color--flush-orange; }
-  &.red { background: $color--radical-red; }
-  &.green { background: $color--spring-green; }
-}
-
-// Element - Optional title text
-.image__title {
-  // @include center(y, left, 200px);
-
-  color: $color--white;
-  font-size: 4rem;
-  line-height: 1.15;
-  max-width: 70%;
-
-  small {
-    font-size: 3rem;
-    display: block;
+    &.blue { background: $color--cornflower-blue; }
+    &.orange { background: $color--flush-orange; }
+    &.red { background: $color--radical-red; }
+    &.green { background: $color--spring-green; }
   }
 
-  @mixin view($size: 4rem) {
-    @include prefix('word-break', break-word);
-    h1 {
-      font-size: $size;
-    }
+  // Element - Optional title text
+  &__title {
+    // @include center(y, left, 200px);
+
+    /* color: $color--white; */
+    font-size: 4rem;
+    line-height: 1.15;
+    max-width: 70%;
+
     small {
-      font-size: $size / 2;
+      font-size: 3rem;
+      display: block;
     }
-    font-size: $size / 2;
-    line-height: 1;
-    width: 100%;
-    max-width: 100%;
+
+    @mixin view($size: 4rem) {
+      @include prefix('word-break', break-word);
+      h1 {
+        font-size: $size;
+      }
+      small {
+        font-size: $size / 2;
+      }
+      font-size: $size / 2;
+      line-height: 1;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @include mobile-landscape {
+      @include view;
+    }
+    @include mobile {
+      @include view;
+    }
+    @include tablet {
+      @include view(6rem);
+    }
   }
 
-  @include mobile-landscape {
-    @include view;
+  &__subtitle {
+    font-size: $h4;
   }
-  @include mobile {
-    @include view;
-  }
-  @include tablet {
-    @include view(6rem);
+
+  // Element - Arrow pointing downwards with animation
+  &__down-arrow {
+    $size: 100px;
+
+    @include border-radius($size);
+    @include center(x, bottom, -($size * 1.5));
+    @include size($size, $size * 2);
+
+    background: $color__background;
+    font-size: 4rem;
+    padding: 30px 20px 0;
+    text-align: center;
+
+    i {
+      @include transition(top, 500ms, ease-in-out);
+
+      will-change: top;
+    }
   }
 }
 
@@ -88,38 +123,4 @@
     align-items: flex-end;
     height: 100%;
   }
-}
-
-.image__subtitle {
-  font-size: $h4;
-}
-
-// Element - Arrow pointing downwards with animation
-.image__down-arrow {
-  $size: 100px;
-
-  @include border-radius($size);
-  @include center(x, bottom, -($size * 1.5));
-  @include size($size, $size * 2);
-
-  background: $color__background;
-  font-size: 4rem;
-  padding: 30px 20px 0;
-  text-align: center;
-
-  i {
-    @include transition(top, 500ms, ease-in-out);
-
-    will-change: top;
-  }
-}
-
-$start: 0;
-$end: 10px;
-
-@include keyframes(hint) {
-  0% { top: $start; }
-  12.5% { top: $end; }
-  25% { top: $start; }
-  100% { top: $start; }
 }

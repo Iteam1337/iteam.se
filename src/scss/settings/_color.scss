@@ -9,6 +9,12 @@ $color--flush-orange: rgb(255, 134, 0);          // #ff8600
 $color--black: rgb(0, 0, 0);                     // #000000
 $color--white: rgb(255, 255, 255);               // #ffffff
 
+$color--green: $color--spring-green;
+$color--orange: $color--flush-orange;
+$color--pink: $color--radical-red;
+$color--blue: $color--cornflower-blue;
+
+
 $color--font: $color--black;
 $color--accent: $color--flush-orange;
 $color--background: $color--white;

@@ -16,7 +16,7 @@
     {{/if}}"
   style="
     {{#if background-color}}
-      background: {{ background-color }};
+      background-color: {{{ hexFromString background-color }}};
     {{/if}}
 
     {{#if background-size }}
@@ -35,6 +35,10 @@
       background-image: url({{ background-image-url }});
     {{/if}}
 
+    {{#if color}}
+      color: {{{ hexFromString color }}};
+    {{/if}}
+
     {{#if background-position}}
        background-position: {{ background-position }};
     {{else}}
@@ -48,7 +52,18 @@
   {{#if start}}
     <div class="{{ type }}__content grid-full">
       <div class="{{ type }}__title {{#if animate}} animate fadeInUp {{/if}}">
-        <h1 class="{{ type }}__tile-main">{{{ title }}}{{#if sub-title}}<small class="{{ type }}__tile-sub">{{sub-title}}</small>{{#if phone}}<small class="{{ type }}__tile-phone">{{{phone}}}</small>{{/if}}{{/if}}</h1>
+        <h1 class="{{ type }}__tile-main">
+          {{{ title }}}
+          {{#if sub-title}}
+            <small class="{{ type }}__tile-sub">{{sub-title}}</small>
+          {{/if}}
+          {{#if email}}
+            <small class="{{ type }}__tile-email">{{{email}}}</small>
+          {{/if}}
+          {{#if phone}}
+            <small class="{{ type }}__tile-phone">{{{phone}}}</small>
+          {{/if}}
+        </h1>
       </div>
 
       {{#if image }}
@@ -59,7 +74,7 @@
         <div
           class="image__down-arrow"
           {{#if down-bg}}
-            style="background: {{ down-bg }}; color: {{ down-color }}"
+            style="background: {{{ hexFromString down-bg }}}; color: {{{ hexFromString down-color }}}"
           {{/if}}>
           <i class="ion-chevron-down"></i>
         </div>

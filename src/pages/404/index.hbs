@@ -3,13 +3,17 @@ title: '404'
 subtitle: 'Not found'
 layout: default.hbs
 
-hide-navigation: true
+page-color: blue
+
 unpublished: true
+
+top-content:
+  type: numbered-list
+  extra-classes: padding-top no-overlay text-center 404
+  color: white
+  background-color: blue
+  background-image: /content/images/section-top/medarbetare_multiply.jpg
+  title: 404
+  text: Content not found
 ---
-<div class="container">
-  <div class="row">
-    <div class="grid-full">
-      <h1>404</h1>
-    </div>
-  </div>
-</div>
+{{>numbered-list top-content}}

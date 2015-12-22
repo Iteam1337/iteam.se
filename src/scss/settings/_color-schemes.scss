@@ -1,26 +1,78 @@
 .row {
+  @mixin element($background, $color) {
+    background: $background;
+    &, & a {
+      color: $color;
+    }
+    a {
+      border-bottom-color: $color;
+    }
+  }
+
   &.blue {
-    background: $color--cornflower-blue;
-    color: $color--white;
+    @include element($color--blue, $color--white);
   }
-
   &.orange {
-    background: $color--flush-orange;
-    color: $color--black;
+    @include element($color--orange, $color--black);
   }
-
   &.red {
-    background: $color--radical-red;
-    color: $color--white;
+    @include element($color--pink, $color--white);
   }
-
   &.green {
-    background: $color--spring-green;
-    color: $color--black;
+    @include element($color--green, $color--black);
+  }
+  &.black {
+    @include element($color--black, $color--white);
+  }
+  &.white {
+    @include element($color--white, $color--black);
+  }
+}
+
+.colored-element {
+  @mixin colored_elements($color, $text-color: white, $active: darken($color, 20%)) {
+    &.background, .background {
+      background-color: rgba($color, 0);
+      color: $text-color;
+      transition: height 250ms ease-in-out, background-color 200ms ease-in-out;
+    }
+    .nav-off-screen & {
+      &.background, .background {
+        transition: height 250ms ease-in-out, background-color 200ms ease-in-out;
+        background-color: rgba($color, 0.95);
+      }
+    }
+    &.color, .color {
+      color: $color;
+    }
+    &.border, .border {
+
+      color: $text-color;
+      border-bottom-color: $color--white;
+      &.active {
+        border-bottom-color: $active;
+      }
+
+    }
   }
 
-  &.black {
-    background: black;
-    color: white;
+  &__,
+  &__green {
+    @include colored_elements($color--green);
+  }
+  &__blue {
+    @include colored_elements($color--blue);
+  }
+  &__pink {
+    @include colored_elements($color--pink);
+  }
+  &__orange {
+    @include colored_elements($color--orange);
+  }
+  &__black {
+    @include colored_elements($color--black, $color--white, lighten($color--black, 30%));
+  }
+  &__white {
+    @include colored_elements($color--white, $color--black, darken($color--white, 30%));
   }
 }

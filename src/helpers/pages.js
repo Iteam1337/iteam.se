@@ -64,7 +64,7 @@ module.exports.pages = function (options) {
 
     return {
       element: element,
-      order: frontmatter.order || lastName
+      order: frontmatter.order !== undefined ? frontmatter.order : lastName
     };
   }
 
@@ -90,9 +90,8 @@ module.exports.pages = function (options) {
       if (type === 'coworker') {
         if (a.order === undefined) { return 1; } else if (b.order === undefined) { return -1; }
       }
-
       if (typeof a.order === 'number') {
-        return a.order - b.order;
+        return a.order > b.order;
       } else if (typeof a.order === 'string') {
         return a.order.localeCompare(b.order);
       } else {

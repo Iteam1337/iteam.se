@@ -9,7 +9,7 @@
   text-align: right;
 
   li {
-    @include transition(background, 200ms, ease-in-out);
+    transition: background 200ms ease-in-out;
 
     background: $light;
     cursor: pointer;

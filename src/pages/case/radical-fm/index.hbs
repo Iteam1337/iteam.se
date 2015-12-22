@@ -1,7 +1,8 @@
 ---
 subtitle: Radical.FM
-background: rgb(233,0,32)
-color: "#fff"
+page-color: pink
+top-color: white
+
 thumbnail: /content/images/thumbnails/radical.jpg
 categories:
   - Proof-of-concept
@@ -18,26 +19,29 @@ partials:
     title: Radical.FM
     height: 400px
     start: true
-    animate: true
+    color: white
     background-position: center top
     background-image: url(/content/images/cases-top/radical.jpg)
   -
     type: text
-    color: "#000"
+    color: black
+    background-color: white
     mdtext: src/pages/case/radical-fm/text
   -
     type: image
-    animate: true
-    background-color: '#fff'
+    background-color: white
     image:
       src: /content/images/cases-top/brian.jpg
       alt: Brian på Radicals veranda
   -
     type: text
-    color: "#000"
+    color: black
+    background-color: white
     mdtext: src/pages/case/radical-fm/text2
   -
     type: team
+    centered: true
+    small: true
     gravatar-sizes: 200
     team:
       - johanna
@@ -47,9 +51,10 @@ partials:
       - johan
       - anders
       - rickard
+      - radu
   -
     type: video
-    background: light
+    background-color: white
     title: Video
     file: "/content/video/radical.mp4"
     autoplay: true

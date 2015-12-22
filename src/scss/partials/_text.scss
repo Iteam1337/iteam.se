@@ -3,6 +3,14 @@ $img-width: 40%;
 body, body * {text-align:left !important;} /* Because so say the visual identity */
 
 .row.text {
+  &.light-text {
+    &, a {
+      color: $color--white;
+    }
+    a {
+      border-bottom-color: $color--white;
+    }
+  }
   @include mobile() {
     padding: $margin--fifth;
   }
@@ -53,6 +61,17 @@ body, body * {text-align:left !important;} /* Because so say the visual identity
     }
   }
 
+  &.contain-width {
+    .grid-full {
+      .row {
+        max-width: 70%;
+        @include mobile() {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
   &.center {
     background-position: center center;
   }
@@ -78,7 +97,7 @@ body, body * {text-align:left !important;} /* Because so say the visual identity
     position: static;
     text-align: center;
     text-shadow: 1px 1px 0px rgba(33,33,33,0.8);
-    z-index: -1;
+    z-index: 0;
 
     h1,
     h2,

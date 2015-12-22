@@ -1,9 +1,9 @@
 <div class="row {{ type }} {{ background }}" style="
   {{#if background-color}}
-    background: {{ background-color }};
+    background-color: {{{ hexFromString background-color }}};
   {{/if}}
   {{#if color}}
-    color: {{ color }};
+    color: {{{ hexFromString color }}};
   {{/if}}
   {{#if background-image}}
     background-image: url({{ background-image }});

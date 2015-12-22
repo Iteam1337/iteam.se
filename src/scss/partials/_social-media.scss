@@ -1,6 +1,11 @@
-.row.social-media {
-  i {
-    font-size: 6rem;
+.social-media {
+  &.partial {
+    background: white;
+  }
+  &.row {
+    i {
+      font-size: 6rem;
+    }
   }
 }
 

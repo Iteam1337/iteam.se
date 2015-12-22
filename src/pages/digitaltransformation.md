@@ -1,1 +1,0 @@
-Digital should be the primary strategy for selling and delivering your products or services. We provide up to three world class programming teams that can SuperCharge&trade; your business to faster develop those API:s, App-backends, Realtime data analysis, Cloud infrastructure, AI/Deep Learning algorithms or web/hybrid service.

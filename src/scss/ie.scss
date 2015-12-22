@@ -1,5 +1,5 @@
 body {
-  background: #000;
+  background: #000 !important;
 }
 #logo {
   margin: 50px 0;
@@ -16,7 +16,7 @@ body {
     border-color: #000 !important;
   }
   > div {
-    padding: 0!important;
+    padding: 0;
   }
 }
 .ie {
