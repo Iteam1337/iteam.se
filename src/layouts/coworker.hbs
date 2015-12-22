@@ -17,16 +17,15 @@ blog-count: 5
     title=name
     email=email
     phone=social-media.mobile
-    animate="true"
-    background="fadeIn"
     background-image-url=top-image
+    color=top-color
   }}
 
   {{> social-media this}}
 
   <div class="row partial boxes">
     <div class="grid-full">
-      <div class="row boxes inverted">
+      <div class="row boxes">
         {{#each texts.about}}
         <div class="box-position {{position}}">
           <h3>{{title}}</h3>

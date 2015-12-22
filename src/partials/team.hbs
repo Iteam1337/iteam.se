@@ -1,4 +1,4 @@
-<div class="row partial {{ type }} {{ background }} {{#if center}} center {{/if}}"
+<div class="row partial {{ type }} {{ background }}"
      style="
 {{#if background-color}}
   background-color: {{{ hexFromString background-color }}};
@@ -13,7 +13,7 @@
     {{#if text}}
       <p>{{ text }}</p>
     {{/if}}
-    <ul class="team__team">
+    <ul class="team__team{{#if small}} small{{/if}}{{#if centered}} centered{{/if}}">
       {{#team this}}
         {{#each data}}
           <li class="team__team-member">

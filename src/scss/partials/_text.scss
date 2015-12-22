@@ -5,10 +5,10 @@ body, body * {text-align:left !important;} /* Because so say the visual identity
 .row.text {
   &.light-text {
     &, a {
-      color: white;
+      color: $color--white;
     }
     a {
-      border-bottom-color: white;
+      border-bottom-color: $color--white;
     }
   }
   @include mobile() {

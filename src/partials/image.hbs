@@ -35,6 +35,10 @@
       background-image: url({{ background-image-url }});
     {{/if}}
 
+    {{#if color}}
+      color: {{{ hexFromString color }}};
+    {{/if}}
+
     {{#if background-position}}
        background-position: {{ background-position }};
     {{else}}

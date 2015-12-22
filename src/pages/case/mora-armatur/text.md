@@ -1,5 +1,0 @@
-### Mora Armatur
-
-Allt för hemmafixaren till proffset
-
-Iteam, tillsammans med Supernative, fick uppdraget att ta fram Mora Armaturs globala sajt, www.moraarmatur.com. Sajten är anpassad för både hemmafixaren och proffset med skisser och exakta mått för varje produkt. Det gör det enkelt att veta om den nya köksblandaren passar i köket eller inte. Sajten är lättnavigerad och alla produkter presenteras med bilder och varianter. Iteam valde att integrera Mora Armaturs produktdatabas med sajten, vilket innebär att databasen uppdateras varje natt för att besökaren alltid ska få den senaste informationen. Vill man dyka ännu djupare i informationen kommer man snabbt åt den webbaserade produktkatalogen som också innehåller information om reservdelar och verktyg. Förutom produktinformationen har sajten, som finns på sex olika språk, en snabb och kraftfull sökmotor kopplad till Google Maps. Den gör det enkelt att hitta allmän information, företagshistoria eller kontaktuppgifter till någon av de 5000 återförsäljarna. Iteam har även utvecklat systersajten www.fmmattsson.com och Ostnor-koncernens webbplats www.ostnor.com.
