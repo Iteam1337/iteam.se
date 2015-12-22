@@ -4,6 +4,10 @@ $navbar-bg: $background-footer;
   @include position(top,left,0,0);
   @include user-select();
 
+  &.static {
+    position: relative;
+  }
+
   font-family: $header-font;
   right: 0;
   z-index: 2;
