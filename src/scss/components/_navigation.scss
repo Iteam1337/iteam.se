@@ -30,6 +30,11 @@ $navbar-bg: $background-footer;
         color: $color--black;
         padding: 20px;
         border-bottom: none;
+        &:before {
+          content: "—";
+          position: relative;
+          left: -15px;
+        }
         span {
           padding: 2px 5px;
         }
