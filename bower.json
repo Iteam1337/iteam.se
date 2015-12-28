@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "homepage": "https://github.com/believer/docpad-gulp",
   "authors": [
-    "Rickard Laurin <rickard.laurin@gmail.com>"
+    "Rickard Laurin <rickard.laurin@gmail.com>",
+    "Dennis Pettersson <mail@dennispettersson.se>"
   ],
   "license": "MIT",
   "devDependencies": {

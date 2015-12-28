@@ -1,3 +1,4 @@
+// this is used in ./cagetories.js
 var fs = require('fs');
 
 module.exports.directory = function (dir) {
