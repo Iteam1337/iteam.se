@@ -8,10 +8,14 @@
     "postinstall": "./node_modules/.bin/bower install --config.interactive=false",
     "start": "./node_modules/.bin/gulp"
   },
-  "engineStrict" : true,
+  "engine-strict": true,
   "engines": {
     "node": ">=0.10 <=0.12",
     "npm": "^2.11.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Iteam1337/iteam.se.git"
   },
   "author": "Rickard Laurin",
   "authors": [
@@ -33,6 +37,7 @@
     "gulp-awspublish": "^0.0.23",
     "gulp-changed": "^1.0.0",
     "gulp-concat": "^2.4.1",
+    "gulp-cssnano": "^2.0.0",
     "gulp-debug": "^1.0.1",
     "gulp-foreach": "0.0.1",
     "gulp-htmlmin": "^0.2.0",

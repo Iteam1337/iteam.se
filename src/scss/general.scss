@@ -67,3 +67,9 @@ img { max-width: 100%; }
 .open {
   overflow: hidden;
 }
+
+::-moz-selection,
+::selection {
+  background: $color--green;
+  color: $color--white;
+}

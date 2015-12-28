@@ -13,7 +13,6 @@ function fileURL(relativeURL) {
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
-
 var runSequence = require('run-sequence');
 var rimraf = require('rimraf');
 var path = require('path');
@@ -24,6 +23,10 @@ var options = {
   helpers: [
     'src/helpers/**/*.js'
   ]
+};
+
+var sassOptions = {
+  outputStyle: 'compressed'
 };
 
 var config = {
@@ -92,21 +95,23 @@ gulp.task('test', function (done) {
 gulp.task('sass-ie', function () {
   gulp.src('./src/scss/ie.scss')
     .pipe($.plumber())
-    .pipe($.sass())
+    .pipe($.sass(sassOptions))
     .pipe($.autoprefixer({
       browsers: ['ie 7', 'ie 8', 'ie 9'],
       cascade: false
     }))
     .pipe($.concat('ie.css'))
+    // .pipe($.cssnano())
     .pipe(gulp.dest(config.stylesOut));
   gulp.src('./src/scss/ie-lt8.scss')
     .pipe($.plumber())
-    .pipe($.sass())
+    .pipe($.sass(sassOptions))
     .pipe($.autoprefixer({
       browsers: ['ie 7', 'ie 8'],
       cascade: false
     }))
     .pipe($.concat('ie-lt8.css'))
+    .pipe($.cssnano())
     .pipe(gulp.dest(config.stylesOut));
 });
 
@@ -114,7 +119,7 @@ gulp.task('sass', function () {
   gulp.src(['./src/scss/all.scss'])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass())
+    .pipe($.sass(sassOptions))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
