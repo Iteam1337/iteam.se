@@ -4,10 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "./node_modules/.bin/bower install --config.interactive=false"
+    "test": "./node_modules/.bin/gulp test",
+    "postinstall": "./node_modules/.bin/bower install --config.interactive=false",
+    "start": "./node_modules/.bin/gulp"
+  },
+  "engineStrict" : true,
+  "engines": {
+    "node": ">=0.10 <=0.12",
+    "npm": "^2.11.3"
   },
   "author": "Rickard Laurin",
+  "authors": [
+    {
+      "name": "Dennis Pettersson",
+      "email": "mail@dennispettersson.se"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "assemble": "^0.4.42",
