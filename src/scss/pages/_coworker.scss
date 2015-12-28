@@ -117,6 +117,10 @@
       height: 0;
       visibility: hidden;
     }
+    a {
+      color: $color--black;
+      border-bottom-color: $color--black;
+    }
   }
 
   .box-position {
