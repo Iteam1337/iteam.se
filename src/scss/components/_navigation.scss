@@ -12,12 +12,12 @@ $navbar-bg: $background-footer;
   right: 0;
   z-index: 2;
 
-  &.open {
+  .open & {
     height: 100%;
     padding: 0;
     top: 0;
     position: fixed;
-    background: $color--white;
+    background: $color--orange;
 
     #close-navbar:before {
       font-size: 2rem;
@@ -29,18 +29,25 @@ $navbar-bg: $background-footer;
       a {
         color: $color--black;
         padding: 20px;
-        &:not(.active) {
-          border-bottom: none !important; //4.8px solid $color--black;
+        border-bottom: none;
+        span {
+          padding: 2px 5px;
+        }
+        &.active {
+          span {
+            color: $color--black;
+            background: $color--white;
+          }
         }
       }
 
       @include mobile {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-content: center;
+        justify-content: flex-start;
+        align-content: flex-start;
         flex-wrap: nowrap;
-        align-items: center;
+        align-items: flex-start;
         height: 100%;
         padding-top: 80px;
         li {
@@ -52,19 +59,20 @@ $navbar-bg: $background-footer;
           align-self: auto;
         }
         a {
-          text-align: center !important;
+          text-align: left;
           margin: 0 auto;
           display: block;
-          &:hover {
-            background: $color--spring-green;
-          }
+          color: $color--white;
+/*           &:hover {
+            background: $color--white;
+          } */
         }
       }
     }
 
     .navicon {
       &:before {
-        color: $color--black
+        color: $color--white;
       }
     }
   }
@@ -121,7 +129,7 @@ $navbar-bg: $background-footer;
       }
 
       a {
-        transition: all 200ms ease-in-out;
+        /* transition: all 200ms ease-in-out; */
 
         /* color: $color--white; */
         position: relative;
@@ -134,7 +142,7 @@ $navbar-bg: $background-footer;
 
         &:after {
           @include transform(translateY(10px));
-          transition: all 200ms ease-in-out;
+          /* transition: all 200ms ease-in-out; */
 
           background: fade($color--white, 90%);
           content:"";
@@ -151,7 +159,7 @@ $navbar-bg: $background-footer;
           border-bottom-style: solid;
 
           @include mobile {
-            border-bottom-color: $color--green;
+            border-bottom-color: $color--white;
           }
 
           &:after {

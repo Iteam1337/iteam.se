@@ -21,7 +21,9 @@
               {{#if this.logo}}
                 <img src="{{this.logo}}"/>
               {{/if}}
-              <a href="{{this.url}}" class="border">{{this.menutitle}}</a>
+              <a href="{{this.url}}" class="border">
+                <span>{{this.menutitle}}</span>
+              </a>
             </li>
           {{/each}}
         {{/pages}}

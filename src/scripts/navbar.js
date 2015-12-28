@@ -2,7 +2,7 @@
   'use strict';
 
   function toggle() {
-    document.getElementById('navbar').classList.toggle('open');
+    document.documentElement.classList.toggle('open');
   }
 
   var navicon = document.getElementsByClassName('navicon');
