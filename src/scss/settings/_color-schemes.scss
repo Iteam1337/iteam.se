@@ -34,11 +34,11 @@
     &.background, .background {
       background-color: rgba($color, 0);
       color: $text-color;
-      /* transition: height 250ms ease-in-out, background-color 200ms ease-in-out; */
+      transition: height 250ms ease-in-out, background-color 200ms ease-in-out;
     }
     .nav-off-screen & {
       &.background, .background {
-        /* transition: height 250ms ease-in-out, background-color 200ms ease-in-out; */
+        transition: height 250ms ease-in-out, background-color 200ms ease-in-out;
         background-color: rgba($color, 0.95);
       }
     }

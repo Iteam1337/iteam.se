@@ -1,3 +1,3 @@
-# Vi hjälper dig med din dator
+# Do you love your IT service partner?
 
-Ring [+46 826 70 90](callto:+46 826 70 90) och *välj 1* i telefonväxeln. Klicka därefter på följade länk: <a href="http://get.teamviewer.com/j8dvucq" target="_blank">ladda ner Teamviewer</a>
+If you do: congratulations. If you don’t: give us a call. The problem with most IT, both for user support, network and server setup and security management is that they focus on cost. Well — the simplest way to minimize cost is simply to get rid of all computers: BOOM — Zero cost!
