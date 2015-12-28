@@ -6,14 +6,14 @@
 {{#if color}}
   color: {{{ hexFromString color }}};
 {{/if}}">
-  <div class="grid-full">
+  <div class="grid-fullwidth">
     {{#if title}}
       <h3>{{ title }}</h3>
     {{/if}}
     {{#if text}}
       <p>{{ text }}</p>
     {{/if}}
-    <ul class="team__team{{#if small}} small{{/if}}{{#if centered}} centered{{/if}}">
+    <ul class="team__team{{#if preview}} preview{{/if}}{{#if centered}} centered{{/if}}">
       {{#team this}}
         {{#each data}}
           <li class="team__team-member">

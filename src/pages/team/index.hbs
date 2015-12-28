@@ -18,10 +18,10 @@ top-content:
 ---
 {{>numbered-list top-content}}
 
-<div class="row partial team">
-  <div class="grid-full">
+<div class="row partial team black">
+  <div class="grid-fullscreen">
     <ul class="team__list">
-      {{#pages route="./src/pages/team/" start="" type="coworker" size=300}}
+      {{#pages route="./src/pages/team/" start="" type="coworker" size=400}}
         {{#each data}}
           <li>
             {{> coworker this}}

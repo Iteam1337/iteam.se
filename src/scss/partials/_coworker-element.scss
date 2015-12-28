@@ -1,15 +1,17 @@
-.coworker-element {
+  .coworker-element {
   border: none !important;
 
   // Element - Main element
   &,
   &__wrapper {
     position: relative;
-    align-items: flex-end;
     display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    justify-content: flex-start;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+    flex-flow: row;
+    justify-content: center;
+    margin: 0;
 
   }
 
@@ -22,7 +24,8 @@
 
   &__wrapper {
     color: $color--black;
-    margin: 0 0 0 20px;
+    /* margin: 0 0 0 20px; */
+    margin: 0;
   }
 
   &__overlay {
@@ -45,20 +48,36 @@
     display: inline;
   }
 
-  &__coworker-name,
-  &__coworker-job {
-    display: inline-block;
-  }
+  &__coworker {
+    &-name,
+    &-job {
+      display: inline-block;
+    }
 
-  &__coworker-name,
-  &__coworker-job,
-  &__coworker-email,
-  &__coworker-phone {
-    color: $color--white;
-    margin: 0;
-    padding: 5px;
-    z-index: 1;
-    position: relative;
+    &-name,
+    &-job,
+    &-email,
+    &-phone {
+      color: $color--white;
+      margin: 0;
+      padding: 5px;
+      z-index: 1;
+      position: relative;
+    }
+/*     &-email,
+    &-phone {
+      @include tablet-landscape {
+        display: none;
+      }
+      @include tablet {
+        display: none;
+      }
+      @include mobile-landscape {
+        display: none;
+      }
+      @include mobile {
+        display: none;
+      }
+    } */
   }
-
 }

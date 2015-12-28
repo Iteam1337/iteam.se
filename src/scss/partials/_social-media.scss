@@ -12,8 +12,8 @@
 .blog-posts {
   @include prefix('flex-wrap', wrap);
 
-  display: inline-flex;
-  flex:1 1;
+  display: flex;
+  flex: 1 1;
 
   @include mobile() {
     padding: $margin / 2 $margin / 5;

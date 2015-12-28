@@ -7,24 +7,39 @@
 
 // Block
 .team {
+  padding-bottom: 0 !important;
   // Element - team in list form
   &__list {
     display: flex;
     flex-wrap: wrap;
-
     li {
-      width: 33%;
-
-      &:nth-child(n+4) {
-        margin-top: $margin--half / 2;
+      width: 25%;
+      /* @include desktop {
+        width: 25%;
+      } */
+      @include tablet-landscape {
+        width: 33%;
+      }
+      @include tablet {
+        width: 33%;
+      }
+      @include mobile-landscape {
+        width: 50%;
+      }
+      @include mobile {
+        width: 100%;
       }
 
-      @include mobile() {
+
+      &:nth-child(n+4) {
+        /* margin-top: $margin--half / 2; */
+      }
+
+      @include mobile {
         width: 100%;
 
-        margin-top: $margin--half / 2;
+        /* margin-top: $margin--half / 2; */
       }
     }
   }
 }
-

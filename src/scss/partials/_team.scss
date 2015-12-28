@@ -8,15 +8,21 @@
 
 // Block
 .team {
+  &.partial {
+    padding: 0;
+    margin: 0;
+  }
   // Team list
   &__team {
     @include flex();
+    padding: 0;
+    margin: 0;
 
     justify-content: flex-start;
     &.centered {
       justify-content: center;
     }
-    &.small {
+    &.preview {
       .team__team-member {
         .coworker-element {
           &__coworker {
