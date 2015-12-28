@@ -35,8 +35,8 @@ $navbar-bg: $background-footer;
         }
         &.active {
           span {
-            color: $color--black;
-            background: $color--white;
+            color: $color--white;
+            background: $color--blue;
           }
         }
       }
@@ -48,12 +48,12 @@ $navbar-bg: $background-footer;
         align-content: flex-start;
         flex-wrap: nowrap;
         align-items: flex-start;
-        height: 100%;
-        padding-top: 80px;
+        height: 50%;
+        padding: 0;
         li {
           margin: 0;
           flex-shrink: 0;
-          flex-grow: 1;
+          flex-grow: 0;
           flex-basis: auto;
           width: 100%;
           align-self: auto;
@@ -63,9 +63,6 @@ $navbar-bg: $background-footer;
           margin: 0 auto;
           display: block;
           color: $color--white;
-/*           &:hover {
-            background: $color--white;
-          } */
         }
       }
     }
