@@ -4,7 +4,7 @@
 //------------------------------------------------------------
 
 @mixin flex($wrap: wrap) {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
 
   @include mobile() {

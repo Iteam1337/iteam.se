@@ -7,6 +7,12 @@
 
 // Block
 .team {
+  &__team {
+    flex-direction: row;
+    @include mobile {
+      flex-direction: row;
+    }
+  }
   padding-bottom: 0 !important;
   // Element - team in list form
   &__list {
