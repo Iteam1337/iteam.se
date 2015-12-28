@@ -79,16 +79,10 @@ $navbar-bg: $background-footer;
     }
   }
 
-  .nav--remote {
-    position: absolute;
-    right: 40px;
-    top: 15px;
-  }
-
   .navicon {
     @include position(top,right, $margin / 4, $margin / 2);
 
-    top: 15px;
+    top: 25px;
 
     cursor: pointer;
     display: none;
@@ -107,12 +101,17 @@ $navbar-bg: $background-footer;
   .grid-full {
     position: relative;
 
-    @include mobile() { height: 100%; }
+    @include mobile() {
+      height: 100%;
+    }
   }
 
+  .logo {
+    border: none;
+  }
   #logo_i,
   #logo {
-    @include center(y, left, 40px);
+    /* @include center(y, left, 40px); */
 
     height: 25px;
 
@@ -123,16 +122,12 @@ $navbar-bg: $background-footer;
 
   ul {
     li {
-      line-height: 1;
-      margin-right:$margin / 5;
-
-      &:last-child {
-        margin-right: 0;
-      }
+      line-height: 2.5em;
+      margin-left: $margin / 10;
+      margin-right: $margin / 10;
 
       a {
         /* transition: all 200ms ease-in-out; */
-
         /* color: $color--white; */
         position: relative;
 
@@ -181,10 +176,14 @@ $navbar-bg: $background-footer;
       }
     }
   }
+
   .nav {
     @include box-sizing();
     @include flex();
     @include justify-content(flex-end);
+
+    width: 100%;
+    width: calc(100% - 140px);
 
     background: transparent;
     list-style: none;
@@ -203,6 +202,7 @@ $navbar-bg: $background-footer;
     height: 55px;
     padding: 0;
   }
+
 
   z-index: $max-z-index-32-bit;
   position: fixed;
