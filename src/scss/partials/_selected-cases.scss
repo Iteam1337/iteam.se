@@ -3,70 +3,80 @@
 //
 //------------------------------------------------------------
 $bg-color: $color--pink;
+
 .selected-cases {
-  &.partial,
-  & {
-    /* margin: 0 0 100px; */
-    margin: 0;
-    padding: 0;
-  }
-}
-.selected-case {
-  background: $bg-color;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  align-items: center;
 
-  &,
-  & * {
-    box-sizing: border-box;
+  @include mobile {
+    flex-flow: column;
   }
 
-  &,
-  &__element {
+  &__block {
     position: relative;
-    align-items: center;
-    display: flex;
+    flex: auto;
     overflow: hidden;
-  }
-
-  &__element {
-    border: none;
-  }
-
-  &__overlay {
-    z-index: 1;
-    @include position(top, left, 0, 0, absolute, true);
-    background: rgba(black, .3);
-    transition: background $transition--speed - 100 $transition--easing;
-  }
-
-  &:hover {
-    .selected-case__overlay {
-      transition: background $transition--speed - 100 $transition--easing;
-      background: rgba($bg-color, .7);
+    width: 33.3333333%;
+    width: calc(100%/3);
+    flex-grow: 0;
+    flex-shrink: 1;
+    @include mobile {
+      width: 100%;
+      flex-grow: 1;
     }
   }
 
-  &__title {
-    color: $color--white;
-    font-size: $h3;
-    font-weight: $font--bold;
+  .selected-case {
+    background: $bg-color;
 
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    display: inline;
-    z-index: 10;
-    border-bottom: 4px solid $color--white;
+    &__element {
+      position: relative;
+      align-items: center;
+      display: flex;
+      overflow: hidden;
+    }
+
+    &__element {
+      border: none;
+    }
+
+    &__overlay {
+      @include position(top, left, 0, 0, absolute, true);
+      z-index: 1;
+      background: rgba(black, .3);
+      transition: background $transition--speed - 100 $transition--easing;
+    }
+
+    &:hover {
+      .selected-case__overlay {
+        transition: background $transition--speed - 100 $transition--easing;
+        background: rgba($bg-color, .7);
+      }
+    }
+
+    &__title {
+      color: $color--white;
+      font-size: $h3;
+      /* font-size: 3.5rem; */
+      font-weight: $font--bold;
+
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      display: inline;
+      z-index: 10;
+      border-bottom: 4px solid $color--white;
+    }
+
+    &__image {
+      width: 100%;
+      /* max-width: 250px; */
+      height: auto;
+      display: block;
+      filter: grayscale(1) saturate(10000%);
+    }
   }
-
-  &__image {
-    width: 100%;
-    /* max-width: 250px; */
-    height: auto;
-    display: block;
-    filter: grayscale(1) saturate(10000%);
-  }
-
 
 }

@@ -24,27 +24,18 @@
         width: 25%;
       } */
       @include tablet-landscape {
-        width: 33%;
+        width: 33.3333333%;
+        width: calc(100%/3);
       }
       @include tablet {
-        width: 33%;
+        width: 33.3333333%;
+        width: calc(100%/3);
       }
       @include mobile-landscape {
         width: 50%;
       }
       @include mobile {
-        width: 100%;
-      }
-
-
-      &:nth-child(n+4) {
-        /* margin-top: $margin--half / 2; */
-      }
-
-      @include mobile {
-        width: 100%;
-
-        /* margin-top: $margin--half / 2; */
+        width: 50%;
       }
     }
   }

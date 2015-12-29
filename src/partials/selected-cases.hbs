@@ -1,16 +1,20 @@
-<div class="row partial {{ type }} selected-cases">
+<div class="row">
   <div class="grid-fullwidth">
-  {{#selectedCases cases=cases}}
-    {{#each data}}
-      <div class="selected-case">
-        <a href="{{ url }}" class="selected-case__element">
-          <span class="selected-case__overlay"></span>
-          <img class="selected-case__image" src={{ thumbnail }} />
+    <div class="selected-cases">
+      {{#selectedCases cases=cases}}
+        {{#each data}}
+          <div class="selected-cases__block">
+            <div class="selected-case">
+              <a href="{{ url }}" class="selected-case__element">
+                <span class="selected-case__overlay"></span>
+                <img class="selected-case__image" src={{ thumbnail }} />
 
-          <h1 class="selected-case__title">{{ subtitle }}</h1>
-        </a>
-      </div>
-    {{/each}}
-  {{/selectedCases}}
+                <h1 class="selected-case__title">{{ subtitle }}</h1>
+              </a>
+            </div>
+          </div>
+        {{/each}}
+      {{/selectedCases}}
+    </div>
   </div>
 </div>
