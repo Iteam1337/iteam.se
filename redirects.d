@@ -40,4 +40,7 @@ if ($request_uri ~ coworkers) {
 if ($request_uri ~ "vara-tjanster") {
   rewrite /vara\-tjanster/(.*) /$1 redirect; break;
 }
+if ($request_uri ~ about) {
+  rewrite /about/(.*) /process/$1 redirect; break;
+}
 
