@@ -21,7 +21,6 @@ $mobile-width: 100%;
     height: calc(100vh - 20px);
   }
 
-
   &.no-page-fill {
     max-height: auto;
   }
@@ -75,30 +74,12 @@ $mobile-width: 100%;
 
 // Element - Text content
 .numbered-list__content {
-
-  color: #fff;
-
-  h2 {
-    color: #fff;
-    font-size: 2.5vmax;
-    @media screen and (max-height: 400px),
-           screen and (max-width: 700px) {
-      font-size: 24px;
-    }
-  }
+  color: $color--white;
 
   p h1, h2, h3, h4, h5 {
     width: $width;
     @include mobile() {
       width: $mobile-width;
-    }
-  }
-  // Text
-  p {
-    font-size: 1.5vmax;
-
-    @media screen and (max-height: 400px), screen and (max-width: 700px){
-      font-size: 18px;
     }
   }
 }

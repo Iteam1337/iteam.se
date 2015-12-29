@@ -18,8 +18,18 @@ $h1: 5rem;
 $h2: 4.5rem;
 $h3: 2.5rem;
 $h4: 2rem;
+$h5: 1.8rem;
 $p-size: 1.75rem;
 $small-p-size: 1.6rem;
+
+
+$h1-vmax: 2.4vmax;
+$h2-vmax: 2.2vmax;
+$h3-vmax: 2.0vmax;
+$h4-vmax: 1.8vmax;
+$h5-vmax: 1.6vmax;
+$p-vmax: 1.5vmax;
+$small-p-vmax: 1.4vmax;
 
 /* Headings
 --------------------------------------------------------*/
@@ -37,32 +47,16 @@ h4 {
   }
 }
 
-h1 {
-  font-size: $h1;
+@mixin font-size($size, $vmax, $smaller) {
+  font-size: $size;
+  font-size: $vmax;
   @include mobile {
-    font-size: $h2;
+    font-size: $smaller;
   }
-}
-
-h2 {
-  font-size: $h2;
-
-  @include mobile {
-    font-size: $h3;
-  }
-}
-
-h3 {
-  font-size: $h3;
-}
-
-h4 {
-  font-size: $h4;
 }
 
 p {
   font-family: $body-font;
-  font-size: $p-size;
   font-weight: 200;
   letter-spacing: 0.025em;
   line-height: 1.5;
@@ -71,4 +65,20 @@ p {
 
 strong {
   font-weight: 400;
+}
+
+h1 {
+  @include font-size($h1, $h1-vmax, $h2);
+}
+h2 {
+  @include font-size($h2, $h2-vmax, $h3);
+}
+h3 {
+  @include font-size($h3, $h3-vmax, $h4);
+}
+h4 {
+  @include font-size($h4, $h4-vmax, $h5);
+}
+p {
+  @include font-size($p-size, $p-vmax, $small-p-size);
 }

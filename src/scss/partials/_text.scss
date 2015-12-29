@@ -1,6 +1,10 @@
 $img-width: 40%;
 
-body, body * {text-align:left !important;} /* Because so say the visual identity */
+body {
+  &, & * {
+    text-align: left !important; /* Because so say the visual identity */
+  }
+}
 
 .row.text {
   &.light-text {
@@ -11,6 +15,7 @@ body, body * {text-align:left !important;} /* Because so say the visual identity
       border-bottom-color: $color--white;
     }
   }
+
   @include mobile() {
     padding: $margin--fifth;
   }
