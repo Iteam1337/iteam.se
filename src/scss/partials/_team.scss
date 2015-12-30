@@ -35,24 +35,21 @@
 
   // Team members
   &__team-member {
-    max-width: 20%;
+    @include width(5);
     @include desktop {
-      max-width: 20%;
+      @include width(4);
     }
     @include tablet-landscape {
-      max-width: 33.3333333%;
-      max-width: calc(100%/3);
+      @include width(3);
     }
     @include tablet {
-      max-width: 33.3333333%;
-      max-width: calc(100%/3);
+      @include width(3);
     }
     @include mobile-landscape {
-      max-width: 33.3333333%;
-      max-width: calc(100%/3);
+      @include width(3);
     }
     @include mobile {
-      max-width: 50%;
+      @include width(2);
       padding: 0;
       margin: 0;
     }
@@ -66,7 +63,7 @@
         margin: 0;
       }
       &__coworker-name {
-        font-size: 15px;
+        font-size: 100%;
       }
       &__coworker-job {
         white-space: nowrap;
@@ -74,7 +71,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         display: block;
-        font-size: 12px;
+        font-size: 80%;
         margin: 0;
         padding: 0;
       }

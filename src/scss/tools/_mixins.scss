@@ -29,6 +29,14 @@
   display: inline-block;
 }
 
+@mixin width($parts) {
+  $size: (100%/$parts);
+  max-width: $size;
+  max-width: calc(#{$size});
+  width: $size;
+  width: calc(#{$size});
+}
+
 @mixin font-size($size, $vmax, $smaller, $max: $size) {
   font-size: $size;
   font-size: $vmax;
