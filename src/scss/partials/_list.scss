@@ -2,7 +2,7 @@
  * Partial list
  * -----------------------------
  * Bullet list. Is split in two columns by list handlebars helper.
- * 
+ *
  */
 
 // Block
@@ -17,7 +17,7 @@
   padding-left: $margin / 5;
   width: 49%;
 
-  @include mobile() {
+  @include mobile {
     width: 100%;
   }
 }

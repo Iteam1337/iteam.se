@@ -27,7 +27,7 @@ $mobile-width: 100%;
 
   &.partial {
     align-items: center;
-    @include mobile() {
+    @include mobile {
       padding: 0;
     }
   }
@@ -78,7 +78,7 @@ $mobile-width: 100%;
 
   p h1, h2, h3, h4, h5 {
     width: $width;
-    @include mobile() {
+    @include mobile {
       width: $mobile-width;
     }
   }
@@ -86,11 +86,11 @@ $mobile-width: 100%;
 
 // Element - Bullet list
 .numbered-list__bullets {
-  @include box-sizing();
+  @include box-sizing;
 
   width: $width;
 
-  @include mobile() {
+  @include mobile {
     width: $mobile-width;
   }
 
@@ -102,7 +102,7 @@ $mobile-width: 100%;
     text-indent: -$indent;
 
     &:before {
-      @include bullets();
+      @include bullets;
 
       content: "";
       display: inline-block;
@@ -113,15 +113,14 @@ $mobile-width: 100%;
 
 // Element - Images
 .numbered-list__side-image {
-  @include position(bottom,right,0,80px);
+  @include position(bottom, right, 0, 80px);
 
   width: 600px;
 
   &:hover { z-index: 20; }
-  @include mobile() { display: none; }
+  @include mobile { display: none; }
 
   &.image-1 {
-
     right: 40px;
   }
 }

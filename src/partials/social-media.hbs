@@ -1,34 +1,38 @@
 <div class="row partial social-media">
   <div class="grid-full">
-    {{#if social-media.linkedin}}
-      <a href="https://www.linkedin.com/{{ social-media.linkedin }}">
-        <i class="ion-social-linkedin"></i>
-      </a>
-    {{/if}}
-    {{#if social-media.github}}
-      <a href="https://www.github.com/{{ social-media.github }}">
-        <i class="ion-social-github"></i>
-      </a>
-    {{/if}}
-    {{#if social-media.instagram}}
-      <a href="https://www.instagram.com/{{ social-media.instagram }}">
-        <i class="ion-social-instagram"></i>
-      </a>
-    {{/if}}
-    {{#if social-media.twitter}}
-      <a href="https://www.twitter.com/{{ social-media.twitter }}">
-        <i class="ion-social-twitter"></i>
-      </a>
-    {{/if}}
-    {{#if social-media.mobile}}
-      <a href="callto:{{ social-media.mobile }}">
-        <i class="ion-iphone" title="{{ social-media.mobile }}"></i>
-      </a>
-    {{/if}}
-    {{#if email}}
-      <a href="mailto:{{ email }}">
-        <i class="ion-email" title="{{ email }}"></i>
-      </a>
-    {{/if}}
+    <div class="row">
+      <div class="grid-full">
+        {{#if social-media.linkedin}}
+          <a href="https://www.linkedin.com/{{ social-media.linkedin }}">
+            <i class="ion-social-linkedin"></i>
+          </a>
+        {{/if}}
+        {{#if social-media.github}}
+          <a href="https://www.github.com/{{ social-media.github }}">
+            <i class="ion-social-github"></i>
+          </a>
+        {{/if}}
+        {{#if social-media.instagram}}
+          <a href="https://www.instagram.com/{{ social-media.instagram }}">
+            <i class="ion-social-instagram"></i>
+          </a>
+        {{/if}}
+        {{#if social-media.twitter}}
+          <a href="https://www.twitter.com/{{ social-media.twitter }}">
+            <i class="ion-social-twitter"></i>
+          </a>
+        {{/if}}
+        {{#if social-media.mobile}}
+          <a href="callto:{{ social-media.mobile }}">
+            <i class="ion-iphone" title="{{ social-media.mobile }}"></i>
+          </a>
+        {{/if}}
+        {{#if email}}
+          <a href="mailto:{{ email }}">
+            <i class="ion-email" title="{{ email }}"></i>
+          </a>
+        {{/if}}
+      </div>
+    </div>
   </div>
 </div>

@@ -11,7 +11,7 @@
       width: 30%;
 
       a {
-        @include text-overflow();
+        @include text-overflow;
 
         display: block;
       }

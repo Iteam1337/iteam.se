@@ -33,7 +33,7 @@
     @include size(25%, 30%);
   }
 
-  @include mobile() {
+  @include mobile {
     display: block;
 
     video,

@@ -2,9 +2,8 @@
 //
 
 .filters-list {
-  @include user-select();
+  @include user-select;
 
-  font-size: 1.5rem;
   padding: $margin 0;
   text-align: right;
 
@@ -30,19 +29,19 @@
   .grid-full {
     min-width: $max-width;
 
-    @include mobile() {
+    @include mobile {
       min-width: 100%;
     }
   }
 
   ul {
-    @include flex();
+    @include flex;
 
     width:100%;
 
     li {
       @include size(300px);
-      @include mobile() {
+      @include mobile {
         width: 100%;
       }
       @include transition(opacity, 200ms, ease-in-out);
@@ -57,14 +56,13 @@
       &.hidden { display: none; }
 
       a {
-        @include box-sizing();
+        @include box-sizing;
         @include size(100%);
         @include transition(background, 200ms, ease-in-out);
 
         background: inherit;
-        color:inherit;
+        color: inherit;
         display: block;
-        font-size: 2rem;
         font-weight: 600;
         padding: 20px;
 
@@ -78,23 +76,22 @@
 
 // Individual case pages
 .case-title {
-  font-size:60px;
-  text-align:center;
-  text-transform:uppercase;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .team .flex {
-  justify-content:center;
+  justify-content: center;
 
   .grid-quarter {
-    padding:0 2% 20px 0;
+    padding: 0 2% 20px 0;
 
     .name {
-      color:#999;
-      font-family:$body-font;
-      font-size:1.5rem;
-      text-align:center;
-      text-transform:uppercase;
+      color: #999;
+      font-family: $body-font;
+      /* font-size: 1.5rem; */
+      text-align: center;
+      text-transform: uppercase;
     }
   }
 }

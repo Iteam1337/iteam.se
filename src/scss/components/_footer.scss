@@ -10,7 +10,7 @@
   align-items: flex-start;
   width: 970px;
 
-  @include mobile() {
+  @include mobile {
     width: 100%;
   }
 }
@@ -19,17 +19,27 @@
   background: $background-footer;
   padding: $margin 0;
 
-  @include mobile() {
+  @include mobile {
     padding: 20px;
+  }
+  a, li, i {
+    color: $color--white;
+    line-height: 145%;
+    @include mobile {
+      font-size: 1.5rem;
+    }
+    @include mobile-landscape {
+      font-size: 1.25rem;
+    }
   }
 
   a {
-    &,
     i {
-      color: #fff;
+      font-size: 4rem;
+      @include mobile-landscape {
+        font-size: 3rem;
+      }
     }
-
-    i { font-size: 4rem; }
   }
 
   time { font-size: 1.2rem; }

@@ -3,7 +3,7 @@
 
   .text {
     @extend %inline-block--top;
-    @include box-sizing();
+    @include box-sizing;
 
     padding: 0 20px 20px 20px;
     width: 50%;
@@ -12,10 +12,9 @@
 
     ul {
       list-style-type: none;
-      font-size: 1.5rem;
 
       li {
-        @include box-sizing();
+        @include box-sizing;
 
         padding: $margin / 2 $margin / 3;
         vertical-align: top;
@@ -31,7 +30,7 @@
       width: 100%;
 
       ul {
-        @include flex();
+        @include flex;
 
         width: 100%;
 
@@ -47,7 +46,7 @@
       margin-bottom: 0;
     }
 
-    @include mobile() {
+    @include mobile {
       padding: 0 $mobile-padding;
       width: 100%;
     }

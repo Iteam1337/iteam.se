@@ -6,7 +6,7 @@ body > .container {
 .rows > .row {
   padding: $margin 0;
 
-  @include mobile() { padding: $margin / 2; }
+  @include mobile { padding: $margin / 2; }
 }
 
 .center {
@@ -21,7 +21,7 @@ body > .container {
   box-sizing: border-box;
   position: relative;
 
-  @include mobile() {
+  @include mobile {
     &.text {
       padding: 40px;
     }
@@ -43,6 +43,10 @@ body > .container {
       padding-left: 10px;
       padding-right: 10px;
 
+      @include mobile {
+        padding: 0;
+      }
+
       @include devices(mobile-landscape, mobile) {
         flex-wrap: wrap;
       }
@@ -62,7 +66,7 @@ body > .container {
 
     &-half,
     &-quarter {
-      @include box-sizing();
+      @include box-sizing;
 
       align-self: center;
 
@@ -72,7 +76,7 @@ body > .container {
     &-half {
       width:50%;
 
-      @include mobile() { width: 100%; }
+      @include mobile { width: 100%; }
       &.text { padding: 0 $margin; }
     }
 
@@ -86,7 +90,7 @@ body > .container {
       &:nth-child(n+5) { margin-top: $top; }
       &:nth-child(4n) { padding-right: 0; }
 
-      @include mobile() { max-width: 100%; }
+      @include mobile { max-width: 100%; }
     }
   }
 

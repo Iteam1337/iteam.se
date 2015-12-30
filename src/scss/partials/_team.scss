@@ -14,7 +14,7 @@
   }
   // Team list
   &__team {
-    @include flex();
+    @include flex;
     padding: 0;
     margin: 0;
 

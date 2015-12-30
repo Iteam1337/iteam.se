@@ -13,9 +13,9 @@
 }
 
 .quote {
-  padding:$margin 0;
+  padding: $margin;
 
-  @include mobile() { padding: $margin; }
+  @include mobile { padding: $margin; }
 
   img {
     @include border-radius(200px);
@@ -31,13 +31,25 @@
 
     // Add correct quotation marks
     p {
-      font-size: 3rem;
+      $multiply: 190%;
+      $size-normal: font-size-reduce($p-size, $multiply);
+      $size-vmax: font-size-reduce($p-vmax, $multiply);
+      $size-smaller: font-size-reduce($small-p-size, $multiply, 140%);
+      @include font-size($size-normal, $size-vmax, $size-smaller);
+      padding-bottom: 0.1rem;
+      small {
+        $smaller-multiply: 90%;
+        $smaller-size-normal: font-size-reduce($size-normal, $smaller-multiply);
+        $smaller-size-vmax: font-size-reduce($size-vmax, $smaller-multiply, 120%);
+        $smaller-size-smaller: font-size-reduce($size-smaller, $smaller-multiply, 140%);
+        @include font-size($smaller-size-normal, $smaller-size-vmax, $smaller-size-smaller);
+      }
       &:before { content:'“'; }
       &:after { content: '”'; }
     }
   }
   &__quotee {
-    color: darken($light,30%);
+    color: darken($light, 30%);
     margin-top: $margin / 2;
   }
 }

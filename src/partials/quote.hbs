@@ -1,12 +1,16 @@
-<div class="row partial {{ type }} {{ background }}" {{#if background-color}} style="background-color: {{{ hexFromString background-color }}}" {{/if}}>
+<div class="row partial {{ type }} {{ background }}"
+  {{#if background-color}} style="background-color: {{{ hexFromString background-color }}}" {{/if}}>
   <div class="grid-full">
     {{#if image}}
       <img src="{{ image.src }}" alt="{{ image.alt }}">
     {{/if}}
     <div class="quote__quote">
-{{#markdown}}
-{{ quote }}
-{{/markdown}}
+{{#if quote}}
+{{#markdown}}{{ quote }}{{/markdown}}
+{{/if}}
+{{#if mdtext}}
+{{{md mdtext}}}
+{{/if}}
     </div>
     <div class="quote__quotee">
       {{ by }}

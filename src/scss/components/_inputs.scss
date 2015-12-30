@@ -7,8 +7,8 @@
 
 input:not([type="submit"]),
 textarea {
-  @include border-radius();
-  @include box-sizing();
+  @include border-radius;
+  @include box-sizing;
   transition: all 200ms ease-in-out;
 
   background: $background-input;

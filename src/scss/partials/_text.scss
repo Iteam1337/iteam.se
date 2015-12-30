@@ -16,7 +16,7 @@ body {
     }
   }
 
-  @include mobile() {
+  @include mobile {
     padding: $margin--fifth;
   }
 
@@ -51,7 +51,7 @@ body {
       margin-left: $margin;
     }
 
-    @include mobile() {
+    @include mobile {
       margin-bottom: $margin / 2;
       max-width: 100%;
     }
@@ -62,7 +62,7 @@ body {
     text-align: center;
 
     p {
-      margin:0;
+      margin: 0;
     }
   }
 
@@ -70,7 +70,7 @@ body {
     .grid-full {
       .row {
         max-width: 70%;
-        @include mobile() {
+        @include mobile {
           max-width: 100%;
         }
       }
@@ -86,7 +86,6 @@ body {
       @include center(y, left, 40px);
 
       color: $color--white;
-      font-size: 10rem;
     }
   }
 
@@ -96,7 +95,6 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    font-size: 4rem;
     margin-top: $margin;
     padding: $margin * 2 0;
     position: static;
@@ -108,20 +106,10 @@ body {
     h2,
     h3 {
       color: inherit;
-      line-height:1;
     }
 
-    p {
-      font-size: 2rem;
-    }
-
-    @include mobile() {
-      padding: 20px $margin;
-
-      h1,h2,h3 {
-        font-size: 4rem;
-        line-height: 1.2;
-      }
+    @include mobile {
+      padding: $margin 20px;
     }
   }
 

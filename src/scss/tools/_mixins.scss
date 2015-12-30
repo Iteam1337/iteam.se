@@ -2,21 +2,24 @@
 // Mixins
 //
 //------------------------------------------------------------
-
 @mixin flex($wrap: wrap) {
   display: flex;
   flex-wrap: wrap;
 
-  @include mobile() {
+  @include mobile {
     @include prefix('flex-direction', 'column');
   }
+}
+
+@function font-size-reduce($source, $multiply: 125%, $multiply-source: 100%) {
+  @return ($source/$multiply-source) * $multiply
 }
 
 @mixin justify-content($justify: center) {
   @include prefix('justify-content', $justify);
 }
 
-@mixin bullets() {
+@mixin bullets {
   @include border-radius(100%);
   @include scale(0.5);
   @include size(12px);
@@ -24,6 +27,25 @@
 
   background: $color__accent;
   display: inline-block;
+}
+
+@mixin font-size($size, $vmax, $smaller, $max: $size) {
+  font-size: $size;
+  font-size: $vmax;
+  line-height: font-size-reduce($size);
+  line-height: font-size-reduce($vmax);
+  letter-spacing: 0.025em;
+  word-spacing: -0.05em;
+  word-wrap: break-word;
+  @include mobile {
+    font-size: $smaller;
+    line-height: font-size-reduce($smaller);
+  }
+
+  @media (min-width: $max-width) {
+    font-size: $max;
+    line-height: font-size-reduce($max);
+  }
 }
 
 $max-z-index-64-bit: 2147483647;

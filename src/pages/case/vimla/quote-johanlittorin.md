@@ -1,0 +1,1 @@
+Vi ser vårt team hos Iteam mer som våra kollegor än som leverantör. Istället för att vi ställer krav som Iteam utför så jobbar vi tillsammans och sätter alla funktioner och lösningar för siten. Det har gjort att vi kommit mycket längre än vad vi skulle gjort annars

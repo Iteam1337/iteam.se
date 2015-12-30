@@ -12,19 +12,19 @@
     color: #fff;
     padding: $margin 0;
 
-    @include mobile() {
+    @include mobile {
       padding: $margin / 2 $margin / 5;
     }
 
     .grid-full {
-      @include flex();
+      @include flex;
 
       i {
         @include position(bottom,right,-120px,-120px);
 
         font-size: 50rem;
 
-        @include mobile() {
+        @include mobile {
           margin-bottom: $margin / 5;
           width: 100%;
         }
@@ -33,31 +33,31 @@
       ul {
         width: 100% - $icon-width;
 
-        @include mobile() {
+        @include mobile {
           width: 100%;
         }
 
         li {
-          @include flex();
+          @include flex;
 
           &:not(:last-child) { margin-bottom: 10px; }
 
           a {
-            @include text-overflow();
+            @include text-overflow;
 
             width: $href-width;
 
-            @include mobile() {
+            @include mobile {
               width: 100%;
             }
           }
 
           p {
-            @include text-overflow();
+            @include text-overflow;
 
             width: 70%;
 
-            @include mobile() {
+            @include mobile {
               width: 100%;
             }
           }
@@ -104,6 +104,13 @@
   .boxes {
     display: block;
     width: 100%;
+    padding-top: 0;
+    .grid-full {
+      /* padding: 0 20px; */
+      @include mobile {
+        padding: 0;
+      }
+    }
 
     &,
     & * {
@@ -147,7 +154,7 @@
   }
 
 
-  @include mobile() {
+  @include mobile {
     .box-position {
       &.left,
       &.right {

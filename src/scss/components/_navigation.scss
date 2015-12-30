@@ -2,7 +2,7 @@ $navbar-bg: $background-footer;
 
 #navbar {
   @include position(top,left,0,0);
-  @include user-select();
+  @include user-select;
 
   &.static {
     position: relative;
@@ -95,13 +95,13 @@ $navbar-bg: $background-footer;
       color: $color--white;
     }
 
-    @include mobile() { display:block; }
+    @include mobile { display:block; }
   }
 
   .grid-full {
     position: relative;
 
-    @include mobile() {
+    @include mobile {
       height: 100%;
     }
   }
@@ -115,7 +115,7 @@ $navbar-bg: $background-footer;
 
     height: 25px;
 
-    @include mobile() {
+    @include mobile {
       @include position(top, left, 26px, 20px);
     }
   }
@@ -165,7 +165,7 @@ $navbar-bg: $background-footer;
         }
       }
 
-      @include mobile() {
+      @include mobile {
         font-size: 3rem;
         margin-right: 0;
         text-align: center;
@@ -191,13 +191,13 @@ $navbar-bg: $background-footer;
     max-width: $max-width;
     padding: $margin / 5 * 2;
 
-    @include mobile() {
+    @include mobile {
       width: 100%;
       display: none;
     }
   }
 
-  @include mobile() {
+  @include mobile {
     z-index: 10;
     height: 80px;
     padding: 0;

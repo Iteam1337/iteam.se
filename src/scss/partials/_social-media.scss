@@ -1,8 +1,16 @@
 .social-media {
+
   &.partial {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    > .grid-full {
+      padding: 0;
+    }
+  }
+  .partial {
     background: white;
   }
-  &.row {
+  .row {
     i {
       font-size: 6rem;
     }
@@ -14,19 +22,17 @@
 
   display: flex;
   flex: 1 1;
-
-  @include mobile() {
-    padding: $margin / 2 $margin / 5;
-  }
+  padding: 0;
+  margin: 0;
 
   li {
-    margin-right:2%;
+    margin-right: 2%;
     max-width: 48%;
     min-width: 48%;
     vertical-align: top;
 
-    @include mobile() {
-      max-width:100%;
+    @include mobile {
+      max-width: 100%;
     }
 
     &:nth-child(3n-1) { margin-right:0; }

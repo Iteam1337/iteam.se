@@ -13,27 +13,17 @@ body {
   font-size: $small-p-size;
   font-weight: 300;
   letter-spacing: 0.025em;
-  line-height: 1.75em;
+  word-spacing: -0.05em;
+  word-wrap: break-word;
+  line-height: ($small-p-size / 100%) * 115%;
   margin: 0;
-}
-
-/* Fancyness
---------------------------------------------------------*/
-::-moz-selection {
-  background-color: $color--accent;
-  color: #fff;
-}
-
-::selection {
-  background-color: $color--accent;
-  color: #fff;
 }
 
 /* Base
 --------------------------------------------------------*/
 img { max-width: 100%; }
 
-.flex { @include flex(); }
+.flex { @include flex; }
 
 .hidden { display: none; }
 
@@ -56,10 +46,9 @@ img { max-width: 100%; }
 
   &.has-background {
     padding: $margin 20px;
-
   }
 
-  @include mobile() {
+  @include mobile {
     padding: 20px;
   }
 }

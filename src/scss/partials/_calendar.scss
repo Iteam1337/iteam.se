@@ -4,17 +4,17 @@
   text-align: center;
 
   ul {
-    @include flex();
-    @include justify-content();
+    @include flex;
+    @include justify-content;
 
-    @include mobile() {
+    @include mobile {
       padding: 20px;
     }
   }
 
   li {
     @extend %inline-block--top;
-    @include box-sizing();
+    @include box-sizing;
 
     background: #fff;
     font-size: 1.5rem;
@@ -23,7 +23,7 @@
     text-align: left;
     width: 32%;
 
-    @include mobile() {
+    @include mobile {
       width: 100%;
 
       &:not(:last-child) {
@@ -41,9 +41,9 @@
     }
 
     h3.title {
-      font-size:1.75rem;
+      font-size: 1.75rem;
       margin-bottom: 10px;
-      padding:0;
+      padding: 0;
       text-transform: initial;
       width: 100%;
     }
