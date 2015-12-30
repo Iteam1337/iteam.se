@@ -80,9 +80,7 @@ $navbar-bg: $background-footer;
   }
 
   .navicon {
-    @include position(top,right, $margin / 4, $margin / 2);
-
-    top: 25px;
+    @include position(top,right, 30px, 20px);
 
     cursor: pointer;
     display: none;
@@ -100,7 +98,7 @@ $navbar-bg: $background-footer;
 
   .grid-full {
     position: relative;
-
+    top: 0;
     @include mobile {
       height: 100%;
     }
@@ -108,21 +106,26 @@ $navbar-bg: $background-footer;
 
   .logo {
     border: none;
+    top: 50%;
+    left: 10px;
+    position: absolute;
+    height: 25px;
+    margin-top: -12.5px;
+    @include mobile {
+      top: 26px;
+      left: 20px;
+      margin: 0;
+    }
   }
   #logo_i,
   #logo {
-    /* @include center(y, left, 40px); */
-
     height: 25px;
-
-    @include mobile {
-      @include position(top, left, 26px, 20px);
-    }
   }
 
   ul {
+    margin: 20px;
     li {
-      line-height: 2.5em;
+      line-height: 140%;
       margin-left: $margin / 10;
       margin-right: $margin / 10;
 
@@ -189,7 +192,8 @@ $navbar-bg: $background-footer;
     list-style: none;
     margin-left: auto;
     max-width: $max-width;
-    padding: $margin / 5 * 2;
+    line-height: 100%;
+    padding: 10px 20px;
 
     @include mobile {
       width: 100%;
