@@ -107,7 +107,7 @@ $navbar-bg: $background-footer;
   .logo {
     border: none;
     top: 50%;
-    left: 10px;
+    left: 30px;
     position: absolute;
     height: 25px;
     margin-top: -12.5px;
@@ -181,8 +181,8 @@ $navbar-bg: $background-footer;
   }
 
   .nav {
-    @include box-sizing();
-    @include flex();
+    @include box-sizing;
+    @include flex;
     @include justify-content(flex-end);
 
     width: 100%;

@@ -78,6 +78,10 @@ h4 {
 p, ul, li, button, a, body {
   @include font-size($p-size, $p-vmax, $small-p-size, $p-max);
 }
+body {
+  padding: 0;
+  white-space: normal;
+}
 small {
   $small-size: $small-p-size;
   $small-vmax: font-size-reduce($p-vmax);

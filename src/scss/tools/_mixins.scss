@@ -45,6 +45,7 @@
   letter-spacing: 0.025em;
   word-spacing: -0.05em;
   word-wrap: break-word;
+  white-space: pre-line;
   @include mobile {
     font-size: $smaller;
     line-height: font-size-reduce($smaller);

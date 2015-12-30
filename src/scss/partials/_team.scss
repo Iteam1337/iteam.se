@@ -17,8 +17,14 @@
     @include flex;
     padding: 0;
     margin: 0;
-
     justify-content: center;
+    flex-wrap: wrap;
+    @include mobile-landscape {
+      justify-content: flex-start;
+    }
+    @include mobile {
+      justify-content: flex-start;
+    }
     &.preview {
       .team__team-member {
         .coworker-element {
