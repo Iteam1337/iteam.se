@@ -3,7 +3,7 @@
 
   function Blog(count) {
     window.Social.apply(this, ['blog', count]);
-    this.baseURL = '//feed.insta-team.se/rss?url={url}&count={count}';
+    this.baseURL = '//feed.iteamdev.se/rss?url={url}&count={count}';
   }
 
   Blog.prototype = Object.create(window.Social.prototype); // extending Social
