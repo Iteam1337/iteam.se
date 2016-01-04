@@ -27,7 +27,7 @@ if ($request_uri ~ remoteassistance) {
   rewrite /remoteassistance/(.*) /operations/$1 permanent; break;
 }
 if ($request_uri ~ fjarrhjalp) {
-  rewrite /fjarrhjalp/(.*) /operations/$1 permanent; break;
+  rewrite /fjarrhjalp/(.*) /operations/sv/$1 permanent; break;
 }
 if ($request_uri ~ aboutus) {
   rewrite /aboutus/(.*) /about/$1 permanent; break;
