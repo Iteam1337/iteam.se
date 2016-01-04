@@ -1,4 +1,5 @@
-  .coworker-element {
+.coworker-element {
+
   border: none !important;
 
   // Element - Main element
@@ -19,6 +20,7 @@
   &,
   & * {
     box-sizing: border-box;
+    display: block;
   }
 
   &__wrapper {
