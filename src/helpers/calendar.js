@@ -3,7 +3,7 @@ var front = require('yaml-front-matter');
 var moment = require('moment');
 
 module.exports.calendar = function (options) {
-  var frontmatter = front.loadFront('./src/pages/calendar.hbs');
+  var frontmatter = front.loadFront('./src/pages/calendar.yml');
   var calendar = frontmatter.calendar;
 
   if (!calendar) {

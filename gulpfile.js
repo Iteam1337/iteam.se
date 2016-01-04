@@ -32,7 +32,7 @@ var sassOptions = {
 var config = {
   stylesOut: 'out/css/',
   pages: [
-    './src/pages/**/*.hbs'
+    './src/pages/**/index.hbs'
   ]
 };
 
