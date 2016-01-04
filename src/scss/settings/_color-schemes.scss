@@ -52,7 +52,9 @@
       &.active {
         border-bottom-color: $active;
       }
-
+    }
+    &.icon-highlight, .icon-highlight {
+      background-color: $active;
     }
   }
 

@@ -232,10 +232,15 @@ $navbar-bg: $background-footer;
       }
 
       &-icon {
-        a:before {
-          content: "";
-          margin: 0;
-          padding: 0;
+        a {
+          &:before {
+            content: "";
+            margin: 0;
+            padding: 0;
+          }
+          &.active {
+            border: none;
+          }
         }
         img {
           padding: 0 10px;
