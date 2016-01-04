@@ -33,7 +33,7 @@ img { max-width: 100%; }
     padding-top: 0 !important;
   }
 
-  > div:last-of-type:not(.video):not(.image):not(.instagram):not(.numbered-list):not(.contact) {
+  > div:last-of-type:not(.video):not(.image):not(.instagram):not(.fullview):not(.contact) {
     padding-bottom: $margin;
   }
 }

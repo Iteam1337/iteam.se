@@ -1,5 +1,5 @@
 /**
- * Partial numbered list
+ * Partial fullview
  * -----------------------------
  * Bullet list with title and images to the right
  *
@@ -9,7 +9,7 @@ $width: 70%;
 $mobile-width: 100%;
 
 // Block
-.numbered-list {
+.fullview {
   @include prefix('background-size', cover);
   background-position: center center;
   position: relative;
@@ -44,13 +44,13 @@ $mobile-width: 100%;
 
 }
 
-.numbered-list:not(.no-overlay) {
+.fullview:not(.no-overlay) {
   max-height: 100vh;
 
   @media screen and (max-height: 400px),
          screen and (max-width: 700px) {
     &,
-    .numbered-list__overlay {
+    .fullview__overlay {
       max-height: 100% !important;
       min-height: calc(100vh - 20px) !important;
       height: 100% !important;
@@ -59,7 +59,7 @@ $mobile-width: 100%;
 }
 
 // Element - Faded overlay
-.numbered-list__overlay {
+.fullview__overlay {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,14 +73,14 @@ $mobile-width: 100%;
   height: 100%;
 }
 
-.numbered-list:not(.no-overlay) {
-  .numbered-list__overlay {
+.fullview:not(.no-overlay) {
+  .fullview__overlay {
     background: rgba(0,0,0,0.4);
   }
 }
 
 // Element - Text content
-.numbered-list__content {
+.fullview__content {
   color: $color--white;
 
   @include mobile-landscape {
@@ -99,7 +99,7 @@ $mobile-width: 100%;
 }
 
 // Element - Bullet list
-.numbered-list__bullets {
+.fullview__bullets {
   @include box-sizing;
 
   width: $width;
@@ -126,7 +126,7 @@ $mobile-width: 100%;
 }
 
 // Element - Images
-.numbered-list__side-image {
+.fullview__side-image {
   @include position(bottom, right, 0, 80px);
 
   width: 600px;

@@ -15,12 +15,12 @@
     background-position: {{background-position}}
   {{/if}}
 ">
-  <div class="numbered-list__overlay">
+  <div class="fullview__overlay">
     <div class="grid-full">
-      <div class="numbered-list__content">
+      <div class="fullview__content">
         <h2>{{ title }}</h2>
         {{#if bullets}}
-          <ul class="numbered-list__bullets">
+          <ul class="fullview__bullets">
             {{#each bullets}}
               <li>{{ this }}</li>
             {{/each}}
@@ -30,7 +30,7 @@
         {{#if mdtext}}{{{md mdtext}}}{{/if}}
       </div>
       {{#each side-images}}
-        <img class="numbered-list__side-image image-{{@index}}" src="{{ this }}" alt="">
+        <img class="fullview__side-image image-{{@index}}" src="{{ this }}" alt="">
       {{/each}}
     </div>
   </div>

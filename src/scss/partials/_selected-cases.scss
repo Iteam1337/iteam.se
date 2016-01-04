@@ -10,7 +10,17 @@ $bg-color: $color--pink;
   flex-flow: row;
   align-items: center;
 
-  padding: 20px 0;
+
+
+  &-fullview.partial {
+    padding: 0 5px;
+    background-color: $color--black;
+    @include mobile {
+      padding: 0;
+    }
+  }
+
+  /* padding: 20px 0; */
 
   @include mobile {
     flex-flow: column;
@@ -24,6 +34,7 @@ $bg-color: $color--pink;
     width: calc(100%/3);
     flex-grow: 0;
     flex-shrink: 1;
+    padding: 0 5px;
     @include mobile {
       width: 100%;
       flex-grow: 1;
@@ -60,8 +71,6 @@ $bg-color: $color--pink;
 
     &__title {
       color: $color--white;
-      /* font-size: $h3; */
-      /* font-size: 3.5rem; */
       font-weight: $font--bold;
 
       position: absolute;
@@ -70,11 +79,12 @@ $bg-color: $color--pink;
       display: inline;
       z-index: 10;
       border-bottom: 4px solid $color--white;
+      max-width: 100%;
+      width: auto;
     }
 
     &__image {
       width: 100%;
-      /* max-width: 250px; */
       height: auto;
       display: block;
       filter: grayscale(1) saturate(10000%);
