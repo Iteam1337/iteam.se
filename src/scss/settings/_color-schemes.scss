@@ -30,7 +30,7 @@
 }
 
 .colored-element {
-  @mixin colored_elements($color, $text-color: white, $active: darken($color, 20%)) {
+  @mixin colored_elements($color, $text-color: white, $active: lighten($color--black, 30%)) {
     &.background, .background {
       background-color: rgba($color, 0);
       color: $text-color;
@@ -60,19 +60,19 @@
 
   &__,
   &__green {
-    @include colored_elements($color--green);
+    @include colored_elements($color--green, $color--white);
   }
   &__blue {
-    @include colored_elements($color--blue);
+    @include colored_elements($color--blue, $color--white);
   }
   &__pink {
-    @include colored_elements($color--pink);
+    @include colored_elements($color--pink, $color--white);
   }
   &__orange {
-    @include colored_elements($color--orange);
+    @include colored_elements($color--orange, $color--white);
   }
   &__black {
-    @include colored_elements($color--black, $color--white, lighten($color--black, 30%));
+    @include colored_elements($color--black, $color--white);
   }
   &__white {
     @include colored_elements($color--white, $color--black, darken($color--white, 30%));

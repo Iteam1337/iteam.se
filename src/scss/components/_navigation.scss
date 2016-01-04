@@ -119,25 +119,27 @@ $navbar-bg: $background-footer;
   }
 
   .logo {
-
+    padding: 0;
+    margin: 0;
+    display: block;
     &,
     #logo_i,
     #logo {
-      height: $h1-max;
-      @include devices(tablet-landscape, tablet) {
-        height: $h4-max;
-      }
-      @include devices(mobile-landscape, mobile) {
+      line-height: ($h1-max / 2);
+      height: ($h1-max / 2);
+      @include devices(tablet-landscape, tablet, mobile-landscape, mobile) {
         height: $small-p-max;
+        line-height: $small-p-max;
       }
     }
-
-    margin-top: -($h1-max / 2);
-    @include devices(tablet-landscape, tablet) {
-      margin-top: -($h4-max / 2);
+    #logo_i,
+    #logo {
+      vertical-align: top;
     }
-    @include devices(mobile-landscape, mobile) {
-      margin-top: -($small-p-max / 2);
+    margin-top: -($h2-max / 4);
+    @include devices(tablet-landscape, tablet, mobile-landscape, mobile) {
+      height: $small-p-max;
+      line-height: $small-p-max;
     }
   }
 
