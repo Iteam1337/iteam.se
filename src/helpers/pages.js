@@ -4,11 +4,22 @@ var front = require('yaml-front-matter');
 var image = require('./gravatar');
 var read  = require('./read');
 
+/*jshint maxcomplexity:100 */
 module.exports.pages = function (options) {
   var orderedPages;
   var data = options.hash || {};
   var dir = data.route || './src/pages/case/';
-  var dirs = read.directory(dir);
+  var dirs = read
+    .directory(dir)
+    .reduce(function (directories, subDir) {
+      directories = directories
+        .concat([subDir], read
+          .directory(dir + subDir + '/')
+          .map(function (child) {
+            return subDir + '/' + child
+          }));
+      return directories;
+    }, []);
   var lead = data.start || '';
   var type = data.type;
   var size = data.size;
@@ -23,11 +34,36 @@ module.exports.pages = function (options) {
     var logo = frontmatter.logo ?
       frontmatter.logo :
       '';
+    var subCategories = frontmatter['menu-sub-category'] || null;
+    var menuSubTitle = frontmatter['menu-sub-title'] || null;
+
+    var subPages = null;
+
+    if (subCategories) {
+      var subDir = dir + subCategories + '/';
+      subPages = read
+        .directory(subDir)
+        .reduce(function (directories, directory) {
+          var subPath = subDir + directory;
+          var fm = front.loadFront(subPath + '/index.hbs');
+          if (!fm) {
+            return;
+          }
+          directories.push({
+            title: fm['menu-sub-title'] || null,
+            path: '/' + subCategories + '/' + directory,
+            icon: fm['menu-sub-icon'] || null
+          });
+          return directories;
+        }, []);
+    }
+
 
     var element = {
       frontmatter: frontmatter,
       url: lead + folder,
       menutitle: menuTitle,
+      subpages: subPages,
       title: title,
       logo: logo
     };
@@ -64,7 +100,11 @@ module.exports.pages = function (options) {
 
     return {
       element: element,
-      order: frontmatter.order !== undefined ? frontmatter.order : lastName
+      order: frontmatter['menu-order'] !== undefined ?
+        frontmatter['menu-order'] :
+        (frontmatter.order !== undefined ?
+         frontmatter.order :
+         lastName)
     };
   }
 
@@ -82,7 +122,12 @@ module.exports.pages = function (options) {
       return result;
     }, [])
     .filter(function (page) {
-      return !page.element.frontmatter.unpublished;
+      var fm = page.element.frontmatter;
+      if (fm.unpublished) {
+        return false;
+      }
+      return fm.hasOwnProperty('menu-order') ||
+        (type === 'coworker' && fm.layout && fm.layout.match(/coworker/i) !== null);
     })
     .sort(function (a, b) {
 

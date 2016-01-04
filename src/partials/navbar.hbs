@@ -24,6 +24,19 @@
               <a href="{{this.url}}" class="border">
                 <span>{{this.menutitle}}</span>
               </a>
+              {{#if this.subpages}}
+                {{#each this.subpages}}
+                  <span class="nav__sub{{#if this.icon}} nav__sub-icon{{/if}}">
+                    <a href="{{this.path}}">
+                      {{#if this.icon}}
+                        <img src="{{this.icon}}"/>
+                      {{else}}
+                        <span>{{this.title}}</span>
+                      {{/if}}
+                    </a>
+                  </span>
+                {{/each}}
+              {{/if}}
             </li>
           {{/each}}
         {{/pages}}

@@ -80,7 +80,9 @@ $navbar-bg: $background-footer;
   }
 
   .navicon {
-    @include position(top,right, 30px, 20px);
+    @include position(top, right, 0, 20px);
+
+    top: 30.425px;
 
     cursor: pointer;
     display: none;
@@ -105,21 +107,38 @@ $navbar-bg: $background-footer;
   }
 
   .logo {
+
+    &,
+    #logo_i,
+    #logo {
+      height: $h1-max;
+      @include devices(tablet-landscape, tablet) {
+        height: $h4-max;
+      }
+      @include devices(mobile-landscape, mobile) {
+        height: $small-p-max;
+      }
+    }
+
+    margin-top: -($h1-max / 2);
+    @include devices(tablet-landscape, tablet) {
+      margin-top: -($h4-max / 2);
+    }
+    @include devices(mobile-landscape, mobile) {
+      margin-top: -($small-p-max / 2);
+    }
+  }
+
+  .logo {
     border: none;
     top: 50%;
     left: 30px;
     position: absolute;
-    height: 25px;
-    margin-top: -12.5px;
     @include mobile {
       top: 26px;
       left: 20px;
       margin: 0;
     }
-  }
-  #logo_i,
-  #logo {
-    height: 25px;
   }
 
   ul {
@@ -130,19 +149,14 @@ $navbar-bg: $background-footer;
       margin-right: $margin / 10;
 
       a {
-        /* transition: all 200ms ease-in-out; */
-        /* color: $color--white; */
         position: relative;
 
-        font-size: $p-size;
-        line-height: 21.5px;
         letter-spacing: -1px;
         word-spacing: -1px;
         font-weight: normal;
 
         &:after {
           @include transform(translateY(10px));
-          /* transition: all 200ms ease-in-out; */
 
           background: fade($color--white, 90%);
           content:"";
@@ -155,7 +169,6 @@ $navbar-bg: $background-footer;
         }
 
         &.active {
-          border-bottom-width: 4.8px;
           border-bottom-style: solid;
 
           @include mobile {
@@ -194,6 +207,40 @@ $navbar-bg: $background-footer;
     max-width: $max-width;
     line-height: 100%;
     padding: 10px 20px;
+
+    &__sub {
+      padding: 0;
+      margin: 0;
+      vertical-align: baseline;
+      a {
+        font-size: 100%;
+        border: none;
+        @include mobile {
+          font-size: $small-p-size;
+        }
+        &:before {
+          content: "| ";
+          margin-left: 5px;
+          margin-right: 5px;
+          border: none;
+        }
+      }
+
+      &-icon {
+        a:before {
+          content: "";
+          margin: 0;
+          padding: 0;
+        }
+        img {
+          padding: 0 10px;
+          vertical-align: bottom;
+          max-width: 1em;
+          max-height: 1em;
+        }
+      }
+
+    }
 
     @include mobile {
       width: 100%;
