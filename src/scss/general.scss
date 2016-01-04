@@ -48,8 +48,10 @@ img { max-width: 100%; }
     padding: $margin 20px;
   }
 
-  @include mobile {
-    padding: 20px;
+  &:not(.image):not(.video):not(.team):not(.instagram):not(.fullview) {
+    @include mobile {
+      padding: 20px;
+    }
   }
 }
 
