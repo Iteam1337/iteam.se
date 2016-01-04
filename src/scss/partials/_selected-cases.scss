@@ -10,6 +10,8 @@ $bg-color: $color--pink;
   flex-flow: row;
   align-items: center;
 
+  padding: 20px 0;
+
   @include mobile {
     flex-flow: column;
   }

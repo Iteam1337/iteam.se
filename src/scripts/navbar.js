@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+
   function toggle() {
     document.documentElement.classList.toggle('open');
   }
