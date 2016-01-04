@@ -10,6 +10,8 @@ $bg-color: $color--pink;
   flex-flow: row;
   align-items: center;
 
+  padding: 5px 0 0;
+
   &-fullview.partial {
     padding: 0 5px;
     background-color: $color--black;
@@ -17,8 +19,6 @@ $bg-color: $color--pink;
       padding: 0;
     }
   }
-
-  /* padding: 20px 0; */
 
   @include mobile {
     flex-flow: column;
