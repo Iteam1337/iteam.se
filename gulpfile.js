@@ -1,15 +1,5 @@
 'use strict';
 
-function formatPagePath(pagePath) {
-  return pagePath
-    .replace(path.resolve(process.cwd(), 'src/pages'), '')
-    .replace(path.extname(pagePath), '.html');
-}
-
-function fileURL(relativeURL) {
-  return 'file://' + path.resolve(process.cwd(), relativeURL);
-}
-
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
@@ -21,7 +11,7 @@ var options = {
   partials: 'src/partials/*.hbs',
   layoutdir: 'src/layouts/',
   helpers: [
-    'src/helpers/**/*.js'
+    'src/helpers/*.js'
   ]
 };
 
@@ -153,27 +143,6 @@ gulp.on('err', function (e) {
   console.log(e.err.stack);
 });
 
-gulp.task('s3', function () {
-  var aws = {
-    key: process.env.AWS_ACCESS_KEY_ID,
-    secret: process.env.AWS_SECRET_ACCESS_KEY,
-    access: 'public-read',
-    region: 'eu-west-1',
-    bucket: 'test.iteam.se'
-  };
-
-  var publisher = $.awspublish.create(aws);
-
-  var headers = {
-    'Cache-Control': 'max-age=315360000, no-transform, public'
-  };
-
-  return gulp.src('./out/**/*')
-    // .pipe($.debug({verbose: true}))
-    .pipe(publisher.publish(headers))
-    .pipe($.awspublish.reporter())
-});
-
 gulp.task('default', function () {
     runSequence('test', [
       'build',
@@ -182,18 +151,6 @@ gulp.task('default', function () {
     ]);
 });
 
-// gulp.task('sass', function () {
-//   runSequence(['sass', 'sass-ie']);
-// });
-
-// gulp.task('default', ['test'], function () {
-//   gulp.start([
-//     'build',
-//     'connect',
-//     'watch'
-//   ]);
-// });
-
 gulp.task('build', [
   'copy',
   'jshint',
@@ -201,8 +158,4 @@ gulp.task('build', [
   'sass',
   'sass-ie',
   'assemble'
-]);
-
-gulp.task('deploy:master', [
-  's3'
 ]);

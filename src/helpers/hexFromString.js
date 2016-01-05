@@ -1,5 +1,5 @@
 'use strict';
-
+console.log('this!');
 /*jshint maxcomplexity:14 */
 module.exports.hexFromString = function (color) {
   color = typeof color === 'string' ? color : ''
