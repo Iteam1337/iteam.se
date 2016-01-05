@@ -1,18 +1,17 @@
 'use strict';
 
 var gulp = require('gulp');
+var assemble = require('assemble');
 var $ = require('gulp-load-plugins')();
 
 var runSequence = require('run-sequence');
 var rimraf = require('rimraf');
-var path = require('path');
 
 var options = {
   partials: 'src/partials/*.hbs',
+  layout: 'default.hbs',
   layoutdir: 'src/layouts/',
-  helpers: [
-    'src/helpers/*.js'
-  ]
+  helpers: 'src/helpers/*.js'
 };
 
 var sassOptions = {
@@ -21,9 +20,7 @@ var sassOptions = {
 
 var config = {
   stylesOut: 'out/css/',
-  pages: [
-    './src/pages/**/index.hbs'
-  ]
+  pages: 'src/pages/**/*.hbs'
 };
 
 gulp.task('clean', function () {
@@ -123,11 +120,12 @@ gulp.task('sass', function () {
 
 gulp.task('assemble', function () {
   gulp.src(config.pages)
-    .pipe($.plumber())
-    .pipe($.assemble(options))
+    // .pipe($.plumber())
+    .pipe($.assemble(assemble, options))
     .pipe($.htmlmin({
       collapseWhitespace: true
     }))
+    .pipe($.extname())
     .pipe(gulp.dest('./out'));
 });
 
