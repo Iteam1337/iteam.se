@@ -1,50 +1,37 @@
 <div
   class="
-    row partial
+    row
+    partial
+    image
     {{ type }}
-
-    {{#if background}}
-      {{ background }}
-    {{/if}}
-
-    {{#if animate}}
-      wow fadeIn
-    {{/if}}
-
-    {{#if parallax}}
-      parallax
-    {{/if}}"
+    {{#if color}} color-{{{color}}} {{/if}}
+    {{#if background-color}} background-{{{background-color}}} {{/if}}
+    {{#if animate}} wow fadeIn {{/if}}
+    {{#if parallax}} parallax {{/if}}"
   style="
     {{#if background-color}}
       background-color: {{{ hexFromString background-color }}};
     {{/if}}
-
     {{#if background-size }}
       background-size: {{ background-size }};
     {{/if}}
-
     {{#if height }}
       height: {{ height }};
     {{/if}}
-
     {{#if background-image}}
       background-image: {{ background-image }};
     {{/if}}
-
     {{#if background-image-url}}
       background-image: url({{ background-image-url }});
     {{/if}}
-
     {{#if color}}
       color: {{{ hexFromString color }}};
     {{/if}}
-
     {{#if background-position}}
        background-position: {{ background-position }};
     {{else}}
        background-position: center center;
     {{/if}}">
-
   {{#if overlay}}
     <div class="image__overlay {{overlay}}"></div>
   {{/if}}

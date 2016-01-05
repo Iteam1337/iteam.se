@@ -1,4 +1,12 @@
-<div class="row partial {{ type }} {{#if class}} {{ class }} {{/if}}">
+<div class="
+  row
+  partial
+  video
+  {{ type }}
+  {{#if class}} {{ class }} {{/if}}
+  {{#if color}} color-{{{color}}} {{/if}}
+  {{#if background-color}} background-{{{background-color}}} {{/if}}
+  ">
   <video
     {{#if autoplay}} autoplay="autoplay" {{/if}}
     {{#if loop}} loop {{/if}}

@@ -1,4 +1,9 @@
-<div class="row {{ type }}">
+<div class="
+  row
+  case-filter
+  {{ type }}
+  {{#if color}} color-{{{color}}} {{/if}}
+  {{#if background-color}} background-{{{background-color}}} {{/if}}">
   <div class="grid-full">
     <ul>
       {{#each categories.technology}}

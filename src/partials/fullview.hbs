@@ -1,20 +1,30 @@
-<div class="row partial {{ type }} {{ extra-classes }} {{{ background-color }}}" style="
-  {{#if background-image}}
-    background-image: url({{ background-image }});
-  {{/if}}
-  {{#if height}}
-    height: {{height}};
-  {{/if}}
-  {{#if min-height}}
-    min-height: {{min-height}};
-  {{/if}}
-  {{#if background-color}}
-    background-color: {{{ hexFromString background-color }}};
-  {{/if}}
-  {{#if background-position}}
-    background-position: {{background-position}}
-  {{/if}}
-">
+<div
+  class="
+    row
+    partial
+    fullview
+    {{ type }}
+    {{ extra-classes }}
+    {{#if color}} color-{{{color}}} {{/if}}
+    {{#if background-color}} background-{{{background-color}}} {{/if}}
+  "
+  style="
+    {{#if background-image}}
+      background-image: url({{ background-image }});
+    {{/if}}
+    {{#if height}}
+      height: {{height}};
+    {{/if}}
+    {{#if min-height}}
+      min-height: {{min-height}};
+    {{/if}}
+    {{#if background-color}}
+      background-color: {{{ hexFromString background-color }}};
+    {{/if}}
+    {{#if background-position}}
+      background-position: {{background-position}}
+    {{/if}}
+  ">
   <div class="fullview__overlay">
     <div class="grid-full">
       <div class="fullview__content">

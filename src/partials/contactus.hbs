@@ -1,0 +1,29 @@
+<div
+  class="
+    row
+    partial
+    contact-us
+    {{ type }}
+    {{ extra-classes }}
+    {{#if background-color}} background-{{{background-color}}} {{/if}}
+    {{#if color}} color-{{{color}}} {{/if}}
+  "
+  style="
+    {{#if background-image}}
+      background-image: url({{ background-image }});
+    {{/if}}
+    {{#if height}}
+      height: {{height}};
+    {{/if}}
+    {{#if background-color}}
+      background-color: {{{ hexFromString background-color }}};
+    {{/if}}
+    {{#if background-position}}
+      background-position: {{background-position}}
+    {{/if}}
+  ">
+  <div class="grid-full">
+    {{#if text}}{{#markdown}}{{ text }}{{/markdown}}{{/if}}
+    {{#if mdtext}}{{{md mdtext}}}{{/if}}
+  </div>
+</div>

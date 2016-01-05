@@ -1,4 +1,12 @@
-<div class="row partial {{ type }} {{ background }}"
+<div
+  class="
+    row
+    partial
+    quote
+    {{ type }}
+    {{#if background-color}} background-{{{background-color}}} {{/if}}
+    {{#if color}} color-{{{color}}} {{/if}}
+  "
   {{#if background-color}} style="background-color: {{{ hexFromString background-color }}}" {{/if}}>
   <div class="grid-full">
     {{#if image}}

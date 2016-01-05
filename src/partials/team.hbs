@@ -1,11 +1,20 @@
-<div class="row partial {{ type }} {{ background }}"
-     style="
-{{#if background-color}}
-  background-color: {{{ hexFromString background-color }}};
-{{/if}}
-{{#if color}}
-  color: {{{ hexFromString color }}};
-{{/if}}">
+<div
+  class="
+    row
+    partial
+    team
+    {{ type }}
+    {{#if background-color}} background-{{{background-color}}} {{/if}}
+    {{#if color}} color-{{{color}}} {{/if}}
+  "
+  style="
+    {{#if background-color}}
+      background-color: {{{ hexFromString background-color }}};
+    {{/if}}
+    {{#if color}}
+      color: {{{ hexFromString color }}};
+    {{/if}}
+  ">
   <div class="grid-fullwidth">
     {{#if title}}
       <h3>{{ title }}</h3>

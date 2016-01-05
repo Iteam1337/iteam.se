@@ -1,6 +1,5 @@
 .row {
-  @mixin element($background, $color) {
-    background: $background;
+  @mixin text-colors($color) {
     &, & a {
       color: $color;
     }
@@ -9,23 +8,39 @@
     }
   }
 
-  &.blue {
-    @include element($color--blue, $color--white);
+  @mixin element($background, $color) {
+    background: $background;
+    @include text-colors($color);
   }
-  &.orange {
-    @include element($color--orange, $color--black);
+
+  &.background {
+    &-blue {
+      @include element($color--blue, $color--white);
+    }
+    &-orange {
+      @include element($color--orange, $color--black);
+    }
+    &-red {
+      @include element($color--pink, $color--white);
+    }
+    &-green {
+      @include element($color--green, $color--black);
+    }
+    &-black {
+      @include element($color--black, $color--white);
+    }
+    &-white {
+      @include element($color--white, $color--black);
+    }
   }
-  &.red {
-    @include element($color--pink, $color--white);
-  }
-  &.green {
-    @include element($color--green, $color--black);
-  }
-  &.black {
-    @include element($color--black, $color--white);
-  }
-  &.white {
-    @include element($color--white, $color--black);
+
+  &.color {
+    &-black {
+      @include text-colors($color--black);
+    }
+    &-white {
+      @include text-colors($color--white);
+    }
   }
 }
 

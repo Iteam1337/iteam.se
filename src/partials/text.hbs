@@ -1,35 +1,18 @@
 <div class="
   row
   partial
+  text
   {{ type }}
-  {{ background }}
-  {{#if image-position}}
-    positioned
-  {{/if}}
-  {{#if one-line}}
-    one-line 
-  {{/if}}
-  {{#if parallax}}
-    parallax
-  {{/if}}
-  {{#if center}}
-    center
-  {{/if}}
-  {{#if divide}}
-    divide
-  {{/if}}
-  {{#if animate}}
-    wow fadeIn
-  {{/if}}
-  {{#if extra-classes}}
-    {{extra-classes}}
-  {{/if}}
-  {{#if background}}
-    has-background
-  {{/if}}
-  {{#if background-color}}
-    has-background
-  {{/if}}
+  {{#if image-position}} positioned {{/if}}
+  {{#if one-line}} one-line {{/if}}
+  {{#if parallax}} parallax{{/if}}
+  {{#if center}} center {{/if}}
+  {{#if divide}} divide {{/if}}
+  {{#if animate}} wow fadeIn {{/if}}
+  {{#if extra-classes}} {{extra-classes}} {{/if}}
+  {{#if background}} has-background {{/if}}
+  {{#if background-color}} background-{{{background-color}}} has-background {{/if}}
+  {{#if color}} color-{{{color}}} {{/if}}
   "
   style="
   {{#if background-color}}
