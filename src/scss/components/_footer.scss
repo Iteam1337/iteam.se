@@ -8,7 +8,7 @@
 // Block
 .row.footer .grid-full {
   align-items: flex-start;
-  width: 970px;
+  width: $max-width;
 
   @include mobile {
     width: 100%;

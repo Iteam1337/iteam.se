@@ -1,6 +1,40 @@
 body > .container {
   overflow-x: hidden;
   overflow-y: auto;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+
+  margin: 0 auto;
+
+  > .row {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  > .row:not(.image):not(.video):not(.team):not(.instagram):not(.fullview) {
+    flex-basis: auto;
+    flex-grow: 1;
+    @media screen and (min-width: ($max-width / 2)) {
+      flex-basis: ($max-width / 2);
+      margin: 0 auto;
+      display: inline-block;
+      vertical-align: top;
+      > .grid {
+        &,
+        &-full,
+        &-fullwidth,
+        &-wrapped,
+        &-quarter,
+        &-half {
+          align-self: flex-start;
+          max-width: ($max-width / 2);
+        }
+      }
+    }
+  }
 }
 
 .rows > .row {

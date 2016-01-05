@@ -10,8 +10,13 @@ $mobile-width: 100%;
 
 // Block
 .fullview {
-  @include prefix('background-size', cover);
-  background-position: center center;
+
+  &,
+  &.partial {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
   position: relative;
   overflow: hidden;
 
@@ -52,7 +57,6 @@ $mobile-width: 100%;
 
 .fullview:not(.no-overlay) {
   max-height: 100vh;
-
   @media screen and (max-height: 400px),
          screen and (max-width: 700px) {
     &,
@@ -72,11 +76,10 @@ $mobile-width: 100%;
   align-content: center;
   flex-wrap: wrap;
   align-items: center;
+  height: 100%;
   .grid-full {
     padding: 40px;
   }
-  /* padding: $margin 0; */
-  height: 100%;
 }
 
 .fullview:not(.no-overlay) {
@@ -88,7 +91,7 @@ $mobile-width: 100%;
 // Element - Text content
 .fullview__content {
   color: $color--white;
-
+  max-width: ($max-width / 2);
   @include mobile-landscape {
     width: 100%;
   }
