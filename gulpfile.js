@@ -1,86 +1,103 @@
-'use strict';
+'use strict'
 
-var gulp = require('gulp');
-var assemble = require('assemble');
-var $ = require('gulp-load-plugins')();
+const gulp = require('gulp')
+const $ = require('gulp-load-plugins')()
+const assemble = require('assemble')
+const runSequence = require('run-sequence')
+const rimraf = require('rimraf')
 
-var runSequence = require('run-sequence');
-var rimraf = require('rimraf');
+const outPaths = {
+  base: 'out/',
+  styles: 'out/css/',
+  scripts: 'out/scripts/',
+  content: 'out/content/',
+  fonts: 'out/content/fonts/'
+}
 
-var options = {
-  partials: 'src/partials/*.hbs',
-  layout: 'default.hbs',
-  layoutdir: 'src/layouts/',
-  helpers: 'src/helpers/*.js'
-};
-
-var sassOptions = {
+const sassOptions = {
   outputStyle: 'compressed'
-};
+}
 
-var config = {
-  stylesOut: 'out/css/',
-  pages: 'src/pages/**/*.hbs'
-};
+const assembleOptions = {
+  data: 'src/data/*.{json,yml}',
+  helpers: 'src/helpers/*.js',
+  layout: 'default.hbs',
+  layouts: 'src/layouts/*.hbs',
+  layoutdir: 'src/layouts',
+  partials: 'src/partials/**/*.hbs',
 
-gulp.task('clean', function () {
-  rimraf.sync('./out');
-});
+  defaultLayout: 'default.hbs',
+  mergePartials: false,
+  'default helpers': false,
+  preferLocals: true,
+  debugEngine: true
+}
 
-gulp.task('jshint', function () {
-  gulp.src(['src/helpers/**/*.js', 'src/test/**/*.js', 'src/scripts/**/*.js'])
+gulp.task('clean', () => {
+  rimraf.sync(outPaths.base)
+})
+
+gulp.task('jshint', () => {
+  gulp
+    .src([
+      'src/helpers/**/*.js',
+      'src/test/**/*.js',
+      'src/scripts/**/*.js'
+    ])
     .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'));
-});
+    .pipe($.jshint.reporter('jshint-stylish'))
+})
 
-gulp.task('scripts', function () {
-  gulp.src([
-    './src/scripts/social/Social.js',
-    './src/scripts/social/*.js',
-    './src/scripts/**/*.js',
-    './bower_components/wowjs/dist/wow.min.js'
-  ])
+gulp.task('scripts', () => {
+  gulp
+    .src([
+      './src/scripts/social/Social.js',
+      './src/scripts/social/*.js',
+      './src/scripts/**/*.js',
+      './bower_components/wowjs/dist/wow.min.js'
+    ])
     .pipe($.concat('all.js'))
     .pipe($.uglify())
-    .pipe(gulp.dest('./out/scripts'));
-});
+    .pipe(gulp.dest(outPaths.scripts))
+})
 
 
-gulp.task('test', function (done) {
+gulp.task('test', done => {
   gulp
     .src(['src/test/**/*.js'], { read: false })
     .pipe($.plumber())
     .pipe($.mocha())
-    .on('end', done);
-});
+    .on('end', done)
+})
 
-gulp.task('connect', function () {
+gulp.task('connect', () => {
   gulp.src('./out/')
     .pipe($.webserver({
       host: process.env.host || 'localhost',
       livereload: true,
       port: 9000
-    }));
-});
+    }))
+})
 
-gulp.task('copy', function () {
+gulp.task('copy', () => {
   gulp.src(['bower_components/ionicons/fonts/*'])
-    .pipe(gulp.dest('out/content/fonts'));
+    .pipe(gulp.dest(outPaths.fonts))
 
   gulp.src(['src/content/**/*'])
-    .pipe(gulp.dest('out/content'));
-});
+    .pipe(gulp.dest(outPaths.content))
+})
 
-gulp.task('test', function (done) {
+gulp.task('test', done => {
   gulp
     .src(['src/test/**/*.js'], { read: false })
     .pipe($.plumber())
     .pipe($.mocha())
-    .on('end', done);
-});
+    .on('end', done)
+})
 
-gulp.task('sass-ie', function () {
-  gulp.src('./src/scss/ie.scss')
+gulp.task('sass-ie', () => {
+  gulp
+    .src('./src/scss/ie.scss')
     .pipe($.plumber())
     .pipe($.sass(sassOptions))
     .pipe($.autoprefixer({
@@ -89,8 +106,9 @@ gulp.task('sass-ie', function () {
     }))
     .pipe($.concat('ie.css'))
     // .pipe($.cssnano())
-    .pipe(gulp.dest(config.stylesOut));
-  gulp.src('./src/scss/ie-lt8.scss')
+    .pipe(gulp.dest(outPaths.styles))
+  gulp
+    .src('./src/scss/ie-lt8.scss')
     .pipe($.plumber())
     .pipe($.sass(sassOptions))
     .pipe($.autoprefixer({
@@ -99,11 +117,12 @@ gulp.task('sass-ie', function () {
     }))
     .pipe($.concat('ie-lt8.css'))
     .pipe($.cssnano())
-    .pipe(gulp.dest(config.stylesOut));
-});
+    .pipe(gulp.dest(outPaths.styles))
+})
 
-gulp.task('sass', function () {
-  gulp.src(['./src/scss/all.scss'])
+gulp.task('sass', () => {
+  gulp
+    .src(['./src/scss/all.scss'])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass(sassOptions))
@@ -115,39 +134,45 @@ gulp.task('sass', function () {
     .pipe($.sourcemaps.write('.', {
       sourceRoot: 'src/scss'
     }))
-    .pipe(gulp.dest(config.stylesOut));
-});
+    .pipe(gulp.dest(outPaths.styles))
+})
 
-gulp.task('assemble', function () {
-  gulp.src(config.pages)
-    // .pipe($.plumber())
-    .pipe($.assemble(assemble, options))
-    .pipe($.htmlmin({
-      collapseWhitespace: true
-    }))
-    .pipe($.extname())
-    .pipe(gulp.dest('./out'));
-});
+gulp.task('assemble', done => {
+  gulp
+    .src('src/pages/**/index.hbs')
+    .pipe($.assemble(assemble, assembleOptions))
+    .pipe(gulp.dest(outPaths.base))
+    .on('end', done)
+})
 
-gulp.task('watch', function () {
-  gulp.watch(['src/layouts/**/*.hbs', config.pages, 'src/partials/**/*.hbs', 'src/**/*.md'], ['assemble']);
-  gulp.watch(['./src/scss/**/*.scss'], ['sass', 'sass-ie']);
-  gulp.watch('src/content/**/*', ['copy']);
-  gulp.watch(['src/helpers/**/*.js', 'src/test/**/*.js'], ['jshint', 'test']);
-  gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts']);
-});
+gulp.task('assemble:init', () => {
+  assemble.option(assembleOptions)
+  assemble.data(assembleOptions.data)
+  assemble.helpers(assembleOptions.helpers)
+  assemble.layouts(assembleOptions.layouts)
+  assemble.partials(assembleOptions.partials)
+  console.log(assemble)
+})
 
-gulp.on('err', function (e) {
-  console.log(e.err.stack);
-});
+gulp.task('watch', () => {
+  gulp.watch(['src/**/*.hbs', 'src/**/*.yml', 'src/helpers/*.js', 'src/**/*.md'], ['assemble'])
+  gulp.watch(['./src/scss/**/*.scss'], ['sass', 'sass-ie'])
+  gulp.watch('src/content/**/*', ['copy'])
+  gulp.watch(['src/helpers/**/*.js', 'src/test/**/*.js'], ['jshint', 'test'])
+  gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts'])
+})
 
-gulp.task('default', function () {
-    runSequence('test', [
-      'build',
-      'connect',
-      'watch'
-    ]);
-});
+gulp.on('err', event => {
+  console.error(event.err.stack)
+})
+
+gulp.task('default', () => {
+  runSequence('test', [
+    'build',
+    'connect',
+    'watch'
+  ])
+})
 
 gulp.task('build', [
   'copy',
@@ -155,5 +180,6 @@ gulp.task('build', [
   'scripts',
   'sass',
   'sass-ie',
+  'assemble:init',
   'assemble'
-]);
+])
