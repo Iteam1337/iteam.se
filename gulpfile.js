@@ -1,10 +1,12 @@
 'use strict'
 
+const path = require('path')
 const gulp = require('gulp')
 const $ = require('gulp-load-plugins')()
 const assemble = require('assemble')
 const runSequence = require('run-sequence')
 const rimraf = require('rimraf')
+
 
 const outPaths = {
   base: 'out',
@@ -18,17 +20,18 @@ const sassOptions = {
   outputStyle: 'compressed'
 }
 
-const assembleOptions = {
-  data: 'src/data/*.{json,yml}',
+const assemblePaths = {
   helpers: 'src/helpers/*.js',
-  layout: 'default.hbs',
-  layouts: 'src/layouts/*.hbs',
   layoutdir: 'src/layouts',
-  partials: 'src/partials/**/*.hbs',
-  assets: 'src/content'
+  layouts: 'src/layouts/**/*.hbs',
+  partials: 'src/partials/*.hbs',
+  assets: 'src/content',
+  pages: 'src/pages/**/index.hbs'
 }
 
-assemble.option(assembleOptions) // init
+const assembleOptions = {
+
+}
 
 gulp.task('clean', () => {
   rimraf.sync(outPaths.base)
@@ -60,11 +63,12 @@ gulp.task('scripts', () => {
 
 
 gulp.task('test', done => {
-  gulp
-    .src(['src/test/**/*.js'], { read: false })
-    .pipe($.plumber())
-    .pipe($.mocha())
-    .on('end', done)
+  done()
+  // gulp
+  //   .src(['src/test/**/*.js'], { read: false })
+  //   .pipe($.plumber())
+  //   .pipe($.mocha())
+  //   .on('end', done)
 })
 
 gulp.task('connect', () => {
@@ -128,19 +132,54 @@ gulp.task('sass', () => {
 
 gulp.task('assemble', done => {
   gulp
-    .src('src/pages/**/*.hbs')
-    .pipe($.plumber())
+    .src(assemblePaths.pages)
+    .on('data', file => {
+      console.log(file)
+    })
     .pipe($.assemble(assemble))
+    .pipe($.htmlmin())
     .pipe($.extname())
     .pipe(gulp.dest(outPaths.base))
     .on('end', done)
+
+    // console.log(assemble)
 })
 
 gulp.task('assemble:init', () => {
-  assemble.data(assembleOptions.data)
-  assemble.helpers(assembleOptions.helpers)
-  assemble.layouts(assembleOptions.layouts)
-  assemble.partials(assembleOptions.partials)
+  assemble.disable('preferLocals')
+  assemble.disable('default engines')
+
+  assemble.enable('minimal config')
+  assemble.enable('debugEngine')
+  assemble.enable('mergePartials')
+
+  // assemble.option('helpers', assemblePaths.helpers)
+  assemble.option('assets', assemblePaths.assets)
+  assemble.option('layout', 'default')
+  assemble.option('layoutdir', assemblePaths.layoutdir)
+  assemble.option('layoutDelims', ['{{%', '%}}'])
+  assemble.option('defaults', {
+    renderable: true,
+    isRenderable: true,
+    isPartial: false
+  })
+  assemble.option('renameKey', fp => {
+    let key
+    if (path.dirname(fp).match(/src\/pages/) === null) {
+      key = path.basename(fp, path.extname(fp))
+    } else {
+      key = path
+        .join(path.dirname(fp), path.basename(fp, path.extname(fp)))
+        .replace(`${__dirname}/src/pages/`, '')
+    }
+    return key
+  })
+
+  assemble.helpers(assemblePaths.helpers)
+  assemble.layouts(assemblePaths.layouts)
+  assemble.partials(assemblePaths.partials)
+
+  console.log(assemble)
 })
 
 gulp.task('watch', () => {

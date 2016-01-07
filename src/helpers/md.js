@@ -4,6 +4,7 @@ var marked = require('marked');
 var fs = require('fs');
 var path = require('path');
 
+console.log('md!');
 module.exports = function md(filePath, options) {
   var dirName;
 
