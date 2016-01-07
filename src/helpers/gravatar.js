@@ -1,21 +1,21 @@
-'use strict';
+'use strict'
 
-var crypto = require('crypto');
+const crypto = require('crypto')
 
-module.exports = function gravatar(email, size) {
-  var hash;
-  var url;
-
+function gravatar(email, size) {
   if (!email) {
-    return;
+    return
   }
 
-  hash = crypto.createHash('md5').update(email).digest('hex');
-  url = 'https://www.gravatar.com/avatar/' + hash + '.jpg';
+  const hash = crypto.createHash('md5').update(email).digest('hex')
+  let url = `https://www.gravatar.com/avatar/${hash}.jpg`
 
   if (size) {
-    url += '?s=' + size
+    url += `?s=${size}`
   }
 
-  return url;
+  return url
 }
+
+module.exports = gravatar
+module.exports.gravatar = gravatar

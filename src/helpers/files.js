@@ -1,9 +1,12 @@
-// this is used in ./cagetories.js
-var fs = require('fs');
+'use strict'
 
-module.exports = function files(dir) {
+const fs = require('fs')
+
+function files(dir) {
   // Load all cases from folder
-  return fs.readdirSync(dir).filter(function (file) {
-    return fs.statSync(dir + file).isFile();
-  });
-};
+  return fs.readdirSync(dir).filter(file =>
+    fs.statSync(dir + file).isFile())
+}
+
+module.exports = files
+module.exports.files = files

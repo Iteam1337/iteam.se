@@ -63,12 +63,11 @@ gulp.task('scripts', () => {
 
 
 gulp.task('test', done => {
-  done()
-  // gulp
-  //   .src(['src/test/**/*.js'], { read: false })
-  //   .pipe($.plumber())
-  //   .pipe($.mocha())
-  //   .on('end', done)
+  gulp
+    .src(['src/test/**/*.js'], { read: false })
+    .pipe($.plumber())
+    .pipe($.mocha())
+    .on('end', done)
 })
 
 gulp.task('connect', () => {
@@ -133,10 +132,10 @@ gulp.task('sass', () => {
 gulp.task('assemble', done => {
   gulp
     .src(assemblePaths.pages)
+    .pipe($.assemble(assemble, {}))
     .on('data', file => {
       console.log(file)
     })
-    .pipe($.assemble(assemble))
     .pipe($.htmlmin())
     .pipe($.extname())
     .pipe(gulp.dest(outPaths.base))
@@ -149,11 +148,9 @@ gulp.task('assemble:init', () => {
   assemble.disable('preferLocals')
   assemble.disable('default engines')
 
-  assemble.enable('minimal config')
   assemble.enable('debugEngine')
   assemble.enable('mergePartials')
 
-  // assemble.option('helpers', assemblePaths.helpers)
   assemble.option('assets', assemblePaths.assets)
   assemble.option('layout', 'default')
   assemble.option('layoutdir', assemblePaths.layoutdir)
@@ -163,6 +160,7 @@ gulp.task('assemble:init', () => {
     isRenderable: true,
     isPartial: false
   })
+
   assemble.option('renameKey', fp => {
     let key
     if (path.dirname(fp).match(/src\/pages/) === null) {
@@ -175,11 +173,11 @@ gulp.task('assemble:init', () => {
     return key
   })
 
-  assemble.helpers(assemblePaths.helpers)
-  assemble.layouts(assemblePaths.layouts)
-  assemble.partials(assemblePaths.partials)
+  assemble.helpers([assemblePaths.helpers])
+  assemble.layouts([assemblePaths.layouts])
+  assemble.partials([assemblePaths.partials])
 
-  console.log(assemble)
+   console.log(assemble)
 })
 
 gulp.task('watch', () => {

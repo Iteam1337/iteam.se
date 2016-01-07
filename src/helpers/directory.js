@@ -1,10 +1,10 @@
-var fs = require('fs');
+const fs = require('fs')
 
-module.exports = function directory(dir) {
+function directory(dir) {
   // Load all cases from folder
-  var dirs = fs.readdirSync(dir).filter(function (file) {
-    return fs.statSync(dir + file).isDirectory();
-  });
+  return fs.readdirSync(dir).filter(file =>
+    fs.statSync(dir + file).isDirectory())
+}
 
-  return dirs;
-};
+module.exports = directory
+module.exports.directory = directory

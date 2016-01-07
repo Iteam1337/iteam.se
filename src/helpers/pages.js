@@ -5,7 +5,7 @@ var image = require('./gravatar');
 var directory  = require('./directory');
 
 /*jshint maxcomplexity:100 */
-module.exports = function pages(options) {
+function pages(options) {
   var orderedPages;
   var data = options.hash || {};
   var dir = data.route || './src/pages/case/';
@@ -153,4 +153,7 @@ module.exports = function pages(options) {
   return options.fn({
     data: orderedPages
   });
-};
+}
+
+module.exports = pages
+module.exports.pages = pages

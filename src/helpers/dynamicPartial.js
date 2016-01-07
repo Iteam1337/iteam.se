@@ -1,38 +1,40 @@
-'use strict';
+'use strict'
 
-var Handlebars = require('handlebars');
-var fs = require('fs');
-var files = require('./files');
-var path = require('path');
+const Handlebars = require('handlebars')
+const fs = require('fs')
+const files = require('./files')
+const path = require('path')
 
-module.exports = function dynamicPartial(options) {
-  var data = options.hash.partial || {};
+function dynamicPartial(options) {
+  const data = options.hash.partial || {}
 
   if (!data.type) {
-    return 'No type defined';
+    return 'No type defined'
   }
 
-  var partials = {};
-  var dirPath = './src/partials/';
+  const partials = {}
+  const dirPath = './src/partials/'
 
-  files(dirPath).forEach(function (file) {
-    var partial = fs.readFileSync(dirPath + file, 'utf8');
-    partials[path.basename(file, '.hbs')] = partial;
-  });
+  files(dirPath)
+    .forEach(file => {
+      const partial = fs.readFileSync(dirPath + file, 'utf8')
+      partials[path.basename(file, '.hbs')] = partial
+    })
 
-  var html = partials[data.type];
+  const html = partials[data.type]
 
   if (typeof html === 'function') {
-    console.log(data);
-    console.log(html());
-    return 'Partial defined as function';
+    console.log(data)
+    console.log(html())
+    return 'Partial defined as function'
   }
 
-  if(!html) {
-    return 'No partial exists';
+  if (!html) {
+    return 'No partial exists'
   }
 
-  var template = Handlebars.compile(html);
+  return Handlebars.compile(html)(data, options)
+}
 
-  return template(data, options);
-};
+module.exports = dynamicPartial
+module.exports.dynamicPartial = dynamicPartial

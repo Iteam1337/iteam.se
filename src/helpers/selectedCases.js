@@ -1,31 +1,34 @@
 'use strict'
 
-var front = require('yaml-front-matter')
-var pages = require('./pages')
-var slugify = require('./slugify')
+const front = require('yaml-front-matter')
+const pages = require('./pages')
+const slugify = require('./slugify')
 
-module.exports = function selectedCases(options) {
-  var data = options.hash || {}
-  var cases = data.cases || []
-  var fmSelectedCases = []
+function selectedCases(options) {
+  const hash = options.hash || {}
+  const cases = hash.cases || []
+  const data = []
 
-  cases.forEach(function (caseName) {
-  	var frontmatter = front
-      .loadFront('./src/pages/case/' + caseName + '/index.hbs')
+  cases.forEach(caseName => {
+  	const frontmatter = front
+      .loadFront(`./src/pages/case/${caseName}/index.hbs`)
 
   	frontmatter.url = caseName.toLowerCase()
     frontmatter.classes = ''
 
     if (frontmatter.categories ) {
-      frontmatter.categories.forEach(function (category) {
-        frontmatter.classes += ' ' + slugify(category)
+      frontmatter.categories.forEach(category => {
+        frontmatter.classes += ` ${slugify(category)}`
       })
     }
 
-  	fmSelectedCases.push(frontmatter)
+  	data.push(frontmatter)
   })
 
   return options.fn({
-    data: fmSelectedCases
+    data
   })
 }
+
+module.exports = selectedCases
+module.exports.selectedCases = selectedCases

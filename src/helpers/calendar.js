@@ -1,26 +1,29 @@
-'use strict';
-var front = require('yaml-front-matter');
-var moment = require('moment');
+'use strict'
 
-module.exports = function calendar(options) {
-  var frontmatter = front.loadFront('./src/pages/calendar.yml');
-  var fmCalendar = frontmatter.calendar;
+const front = require('yaml-front-matter')
+const moment = require('moment')
+
+function calendar(options) {
+  const frontmatter = front.loadFront('./src/pages/calendar.yml')
+  const fmCalendar = frontmatter.calendar
 
   if (!fmCalendar) {
-    return '';
+    return ''
   }
 
-  var filtered = fmCalendar.filter(function (entry) {
-    return moment(entry.time).isAfter(moment().subtract(30, 'day'));
-  }).sort(function (a, b) {
-    return moment(a.time).diff(moment(b.time));
-  });
+  const filtered = fmCalendar.filter(entry =>
+    moment(entry.time).isAfter(moment().subtract(30, 'day')))
+  .sort((a, b) =>
+    moment(a.time).diff(moment(b.time)))
 
   if (filtered.length === 0) {
     filtered.push({
       title: 'Currently no upcoming events'
-    });
+    })
   }
 
-  return options.fn(filtered);
-};
+  return options.fn(filtered)
+}
+
+module.exports = calendar
+module.exports.calendar = calendar

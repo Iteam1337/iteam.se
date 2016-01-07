@@ -1,11 +1,14 @@
-'use strict';
+'use strict'
 
-module.exports = function slugify(string) {
+function slugify(string) {
   return string
     .replace(/\&/g,'och')
     .toLowerCase()
     .replace(/å/g,'aa')
     .replace(/ä/g,'ae')
     .replace(/ö/g,'oe')
-    .replace(/\s/g,'-');
-};
+    .replace(/\s/g,'-')
+}
+
+module.exports = slugify
+module.exports.slugify = slugify

@@ -1,40 +1,46 @@
-'use strict';
+'use strict'
 
-var front = require('yaml-front-matter');
-var directory = require('./directory');
+const front = require('yaml-front-matter')
+const directory = require('./directory')
 
-module.exports = function categories(data, options) {
-  var dir = './src/pages/case/';
-  var dirs = directory(dir);
-  var fmCategories = [];
-  dirs.forEach(function (folder) {
-    var frontmatter = front.loadFront(dir + folder + '/index.hbs');
+function categories(_, options) {
+  const dir = './src/pages/case/'
+  const dirs = directory(dir)
+  const fmCategories = []
 
-    if (!frontmatter.categories) { return; }
+  dirs
+    .forEach(folder => {
+      const frontmatter = front.loadFront(`${dir}${folder}/index.hbs`)
 
-    frontmatter.categories.map(function (category) {
-      if (category) {
-        fmCategories.push(category);
+      if (!frontmatter.categories) {
+        return
       }
-    });
 
-    return fmCategories;
-  });
+      frontmatter
+        .categories
+        .forEach(category => {
+          if (category) {
+            fmCategories.push(category)
+          }
+        })
+    })
 
-  var cases = fmCategories.reduce(function (result, element) {
-    if(result[element]) {
-      result[element].hits++;
-    } else {
-      result[element] = {
-        hits: 1
-      };
-    }
+  const data = fmCategories
+    .reduce((result, element) => {
+      if (result[element]) {
+        result[element].hits++
+      } else {
+        result[element] = {
+          hits: 1
+        }
+      }
 
-    result[element].visible = result[element].hits > 1;
-    return result;
-  }, {});
+      result[element].visible = result[element].hits > 1
+      return result
+    }, {})
 
-  return options.fn({
-    data: cases
-  });
-};
+  return options.fn({ data })
+}
+
+module.exports = categories
+module.exports.categories = categories

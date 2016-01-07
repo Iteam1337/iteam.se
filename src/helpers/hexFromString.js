@@ -1,32 +1,35 @@
-'use strict';
+'use strict'
 
 /*jshint maxcomplexity:14 */
-module.exports = function hexFromString(color) {
-  color = typeof color === 'string' ? color : '';
+function hexFromString(color) {
+  color = typeof color === 'string' ? color : ''
 
-  var matchIfColor = /(?:^(?:(?:rgb(?:a)?\(|hsl(?:a)?\().+?$)|(?:\#+(?:(?:[a-f\d]){3,3}|(?:[a-f\d]){6,6}))(?:\;){0,1}$)/i;
+  const matchIfColor = /(?:^(?:(?:rgb(?:a)?\(|hsl(?:a)?\().+?$)|(?:\#+(?:(?:[a-f\d]){3,3}|(?:[a-f\d]){6,6}))(?:\;){0,1}$)/i
   if (color.match(matchIfColor) !== null) {
-    return color;
+    return color
   }
 
   switch (color.toLowerCase()) {
   case 'green':
   case 'spring-green':
-    return '#38ffa1';
+    return '#38ffa1'
   case 'pink':
   case 'red':
   case 'radical-red':
-    return '#ff3b5c';
+    return '#ff3b5c'
   case 'orange':
   case 'flush-orange':
-    return '#ff8600';
+    return '#ff8600'
   case 'blue':
-    return '#668cff';
+    return '#668cff'
   case 'white':
-    return '#fff';
+    return '#fff'
   case 'black':
-    return '#000';
+    return '#000'
   default:
-    return '#38ffa1';
+    return '#38ffa1'
   }
-};
+}
+
+module.exports = hexFromString
+module.exports.hexFromString = hexFromString

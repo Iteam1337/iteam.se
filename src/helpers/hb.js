@@ -1,21 +1,24 @@
-'use strict';
+'use strict'
 
-var front = require('yaml-front-matter');
-var Handlebars = require('handlebars');
+const front = require('yaml-front-matter')
+const Handlebars = require('handlebars')
 
-module.exports = function hb(path, options) {
+function hb(path, options) {
   if (path.match(/^\//) !== null) {
-    path = '.' + path;
+    path = `.${path}`
   }
   if (path.match(/\.hbs$/i) === null) {
-    path += '.hbs';
+    path += '.hbs'
   }
 
-  var content = front.loadFront(path).__content;
+  var content = front.loadFront(path).__content
 
   if (!content) {
-    return 'File does not exist';
+    return 'File does not exist'
   }
 
-  return Handlebars.compile(content)();
-};
+  return Handlebars.compile(content)()
+}
+
+module.exports = hb
+module.exports.hb = hb
