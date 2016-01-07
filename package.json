@@ -1,6 +1,6 @@
 {
   "name": "iteam",
-  "version": "0.0.2",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
   },
   "engine-strict": true,
   "engines": {
-    "node": "^4.0.0",
-    "npm": "^2.11.3"
+    "node": "^4.2.4",
+    "npm": "^2.14.12"
   },
   "repository": {
     "type": "git",
@@ -32,12 +32,12 @@
     "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
-    "assemble": "^0.6.0-beta.3",
+    "assemble": "0.6.0-beta",
     "bower": "^1.3.12",
     "chai": "^3.4.1",
     "crypto": "0.0.3",
-    "gulp": "^3.8.8",
-    "gulp-assemble": "^0.3.2",
+    "gulp": "^3.8.11",
+    "gulp-assemble": "^0.3.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.4.1",
     "gulp-cssnano": "^2.0.0",
@@ -53,7 +53,7 @@
     "handlebars": "^4.0.5",
     "http-server": "^0.8.0",
     "jsdom": "^7.2.2",
-    "jshint": "^2.9.1-rc2",
+    "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
     "marked": "^0.3.2",
     "moment": "^2.8.3",
