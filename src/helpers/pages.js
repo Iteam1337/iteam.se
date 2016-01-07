@@ -1,158 +1,155 @@
-'use strict';
+'use strict'
 
-var front = require('yaml-front-matter');
-var image = require('./gravatar');
-var directory  = require('./directory');
+const front = require('yaml-front-matter')
+const gravatar = require('./gravatar')
+const directory = require('./directory')
 
-/*jshint maxcomplexity:100 */
+/*jshint maxcomplexity:14 */
 function pages(options) {
-  var orderedPages;
-  var data = options.hash || {};
-  var dir = data.route || './src/pages/case/';
-  var dirs = directory(dir)
-    .reduce(function (directories, subDir) {
+  const data = options.hash || {}
+  const dir = data.route || './src/pages/case/'
+
+  const dirs = directory(dir)
+    .reduce((directories, subDir) => {
       directories = directories
-        .concat([subDir], directory(dir + subDir + '/')
-          .map(function (child) {
-            return subDir + '/' + child
-          }));
-      return directories;
-    }, []);
-  var lead = data.start || '';
-  var type = data.type;
-  var size = data.size;
+        .concat([subDir], directory(`${dir}${subDir}/`)
+          .map(child => `${subDir}/${child}`))
+      return directories
+    }, [])
+
+  const start = data.start || ''
+  const type = data.type
+  const size = data.size
 
   function getPage(path, folder) {
-    var frontmatter = front.loadFront(path);
-    var firstName;
-    var lastName;
+    const frontmatter = front.loadFront(path)
+    let first
+    let last
 
-    var title = frontmatter.subtitle || frontmatter.name;
-    var menuTitle = frontmatter['menu-title'] || '';
-    var logo = frontmatter.logo ?
-      frontmatter.logo :
-      '';
-    var subCategories = frontmatter['menu-sub-category'] || null;
-    var menuSubTitle = frontmatter['menu-sub-title'] || null;
+    const title = frontmatter.subtitle || frontmatter.name
+    const menutitle = frontmatter['menu-title'] || ''
+    const logo = frontmatter.logo ? frontmatter.logo : ''
 
-    var subPages = null;
+    const subCategories = frontmatter['menu-sub-category'] || null
+    // const menuSubTitle = frontmatter['menu-sub-title'] || null
+
+    let subpages = null
 
     if (subCategories) {
-      var subDir = dir + subCategories + '/';
-      subPages = directory(subDir)
-        .reduce(function (directories, thisDirectory) {
-          var subPath = subDir + thisDirectory;
-          var fm = front.loadFront(subPath + '/index.hbs');
+      const subDir = `${dir}${subCategories}/`
+
+      subpages = directory(subDir)
+        .reduce((directories, thisDirectory) => {
+          const subPath = `${subDir}${thisDirectory}`
+          const fm = front.loadFront(`${subPath}/index.hbs`)
           if (!fm) {
-            return;
+            return
           }
           directories.push({
             title: fm['menu-sub-title'] || null,
-            path: '/' + subCategories + '/' + thisDirectory,
+            path: `/${subCategories}/${thisDirectory}`,
             icon: fm['menu-sub-icon'] || null
-          });
-          return directories;
-        }, []);
+          })
+          return directories
+        }, [])
+    }
+
+    const element = {
+      frontmatter,
+      url: `${start}${folder}`,
+      menutitle,
+      subpages,
+      title,
+      logo
     }
 
 
-    var element = {
-      frontmatter: frontmatter,
-      url: lead + folder,
-      menutitle: menuTitle,
-      subpages: subPages,
-      title: title,
-      logo: logo
-    };
-
     if (type === 'coworker') {
-      var imgSize = size || false;
-      element.logo = image.gravatar(frontmatter.email, imgSize);
-      var parts = title.split(' ');
+      element.logo = gravatar(frontmatter.email, (size || false))
+      const parts = title.split(' ')
+
       if (parts.length <= 1) {
-        firstName = parts[0];
+        first = parts[0]
+        last = null
       } else {
-        firstName = title.substr(0, title.indexOf(' '));
-        lastName = title.substr(firstName.length + 1, title.length);
+        first = title.substr(0, title.indexOf(' '))
+        last = title.substr(first.length + 1, title.length)
       }
-      // lastName = title.substr(title.lastIndexOf(' ') + 1);
 
       element.name = {
-        first: firstName,
-        last: lastName
-      };
+        first,
+        last
+      }
     }
 
     if (frontmatter.categories) {
-      frontmatter.categoriesHTMLFriendly = frontmatter.categories
-        .map(function (category) {
-          return category
+      frontmatter.categoriesHTMLFriendly = frontmatter
+        .categories
+        .map(category =>
+          category
             .replace(/[^\w\d]/g, '')
-            .replace(/^(\d){1,}/, '');
-        })
-        .join(' ');
+            .replace(/^(\d){1,}/, ''))
+        .join(' ')
 
-      frontmatter.categories = frontmatter.categories.join(' ');
+      frontmatter.categories = frontmatter.categories.join(' ')
     }
 
     return {
-      element: element,
+      element,
       order: frontmatter['menu-order'] !== undefined ?
         frontmatter['menu-order'] :
         (frontmatter.order !== undefined ?
          frontmatter.order :
-         lastName)
-    };
+         last)
+    }
   }
 
-  orderedPages = dirs
-    .reduce(function (result, folder) {
-      var page = getPage(dir + folder + '/index.hbs', folder);
-      var categories = page.element.frontmatter.categories;
+  const orderedPages = dirs
+    .reduce((result, folder) => {
+      const page = getPage(`${dir}${folder}index.hbs`, folder)
+      const categories = page.element.frontmatter.categories
 
       if (!data.category) {
-        result.push(page);
+        result.push(page)
       } else if (categories && categories.indexOf(data.category) >= 0) {
-        result.push(page);
+        result.push(page)
       }
 
-      return result;
+      return result
     }, [])
-    .filter(function (page) {
-      var fm = page.element.frontmatter;
+    .filter(page => {
+      const fm = page.element.frontmatter
+
       if (fm.unpublished) {
-        return false;
+        return false
       }
       return fm.hasOwnProperty('menu-order') ||
         (type === 'coworker' &&
          fm.layout &&
-         fm.layout.match(/coworker/i) !== null);
+         fm.layout.match(/coworker/i) !== null)
     })
-    .sort(function (a, b) {
-
+    .sort((a, b) => {
       // position 'You' last
       if (type === 'coworker') {
         if (a.order === undefined) {
-          return 1;
+          return 1
         } else if (b.order === undefined) {
-          return -1;
+          return -1
         }
       }
       if (typeof a.order === 'number') {
-        return a.order > b.order;
+        return a.order > b.order
       } else if (typeof a.order === 'string') {
-        return a.order.localeCompare(b.order);
+        return a.order.localeCompare(b.order)
       } else {
-        return false;
+        return false
       }
     })
-    .map(function (page) {
-      return page.element;
-    });
+    .map(page => page.element)
 
   return options.fn({
     data: orderedPages
-  });
+  })
 }
 
 module.exports = pages

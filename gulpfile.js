@@ -30,7 +30,33 @@ const assemblePaths = {
 }
 
 const assembleOptions = {
+  preferLocals: false,
+  'default engines': false,
 
+  debugEngine: true,
+  mergePartials: true,
+
+  assets: assemblePaths.assets,
+  layout: 'default',
+  layoutdir: assemblePaths.layoutdir,
+  layoutDelims: ['{{%', '%}}'],
+  defaults: {
+    renderable: true,
+    isRenderable: true,
+    isPartial: false
+  },
+
+  renameKey: fp => {
+    let key
+    if (path.dirname(fp).match(/src\/pages/) === null) {
+      key = path.basename(fp, path.extname(fp))
+    } else {
+      key = path
+        .join(path.dirname(fp), path.basename(fp, path.extname(fp)))
+        .replace(`${__dirname}/src/pages/`, '')
+    }
+    return key
+  }
 }
 
 gulp.task('clean', () => {
@@ -60,7 +86,6 @@ gulp.task('scripts', () => {
     .pipe($.uglify())
     .pipe(gulp.dest(outPaths.scripts))
 })
-
 
 gulp.task('test', done => {
   gulp
@@ -130,9 +155,8 @@ gulp.task('sass', () => {
 })
 
 gulp.task('assemble', done => {
-  gulp
-    .src(assemblePaths.pages)
-    .pipe($.assemble(assemble, {}))
+  assemble
+    .src(assemblePaths.pages, assembleOptions)
     .on('data', file => {
       console.log(file)
     })
@@ -145,39 +169,22 @@ gulp.task('assemble', done => {
 })
 
 gulp.task('assemble:init', () => {
-  assemble.disable('preferLocals')
-  assemble.disable('default engines')
-
-  assemble.enable('debugEngine')
-  assemble.enable('mergePartials')
-
-  assemble.option('assets', assemblePaths.assets)
-  assemble.option('layout', 'default')
-  assemble.option('layoutdir', assemblePaths.layoutdir)
-  assemble.option('layoutDelims', ['{{%', '%}}'])
-  assemble.option('defaults', {
-    renderable: true,
-    isRenderable: true,
-    isPartial: false
-  })
-
-  assemble.option('renameKey', fp => {
-    let key
-    if (path.dirname(fp).match(/src\/pages/) === null) {
-      key = path.basename(fp, path.extname(fp))
-    } else {
-      key = path
-        .join(path.dirname(fp), path.basename(fp, path.extname(fp)))
-        .replace(`${__dirname}/src/pages/`, '')
-    }
-    return key
-  })
+  assemble.option('preferLocals', assembleOptions.preferLocals)
+  assemble.option('default engines', assembleOptions['default engines'])
+  assemble.option('debugEngine', assembleOptions.debugEngine)
+  assemble.option('mergePartials', assembleOptions.mergePartials)
+  assemble.option('assets', assembleOptions.assets)
+  assemble.option('layout', assembleOptions.layout)
+  assemble.option('layoutdir', assembleOptions.layoutdir)
+  assemble.option('layoutDelims', assembleOptions.layoutDelims)
+  assemble.option('defaults', assembleOptions.defaults)
+  assemble.option('renameKey', assembleOptions.renameKey)
 
   assemble.helpers([assemblePaths.helpers])
   assemble.layouts([assemblePaths.layouts])
   assemble.partials([assemblePaths.partials])
 
-   console.log(assemble)
+  console.log(assemble)
 })
 
 gulp.task('watch', () => {

@@ -1,50 +1,48 @@
 'use strict'
 
-var chai = require('chai')
-var expect = chai.expect
-var sinon = require('sinon')
-var proxyquire = require('proxyquire')
+const chai = require('chai')
+const expect = chai.expect
+const sinon = require('sinon')
+const proxyquire = require('proxyquire')
 
-describe('#pages', function () {
-  var image
-  var pages
-  var options
-  var front
-  var read
+describe('#pages', () => {
+  let gravatar
+  let pages
+  let options
+  let front
+  let directory
 
-  beforeEach(function () {
+  beforeEach(() => {
     front = {
       loadFront: sinon.stub().returns({
         name: 'foo',
+        layout: 'coworker',
         email: 'rickard.laurin@iteam.se'
       })
     }
-    read = {
-      directory: sinon.stub().returns(['foo'])
-    }
-    image = {
-      gravatar: sinon.stub().returns('https://www.gravatar.com')
-    }
+    directory = sinon.stub().returns(['foo'])
+    gravatar = sinon.stub().returns('https://www.gravatar.com')
 
     options = {
       fn: sinon.spy()
     }
 
-    pages = proxyquire(process.cwd() + '/src/helpers/pages', {
-      './gravatar': image,
-      './read': read,
+    pages = proxyquire(`${process.cwd()}/src/helpers/pages`, {
+      './gravatar': gravatar,
+      './directory': directory,
       'yaml-front-matter': front
     })
   })
 
-  it('should be a function', function () {
+  it('should be a function', () => {
     expect(pages).to.be.a('function')
   })
 
-  it('should add a lead character to the url', function () {
+  it('should add a lead character to the url', () => {
     options.hash = {
       route: './src/pages/',
-      start: '/'
+      start: '/',
+      type: 'coworker'
     }
 
     pages(options)
@@ -53,17 +51,26 @@ describe('#pages', function () {
     expect(options.fn.args[0][0].data[0]).eql({
       frontmatter: {
         name: 'foo',
+        layout: 'coworker',
         email: 'rickard.laurin@iteam.se'
       },
       menutitle: '',
-      logo: '',
+      logo: 'https://www.gravatar.com',
       title: 'foo',
-      url: '/foo'
+      url: '/foo',
+      subpages: null,
+      name: {
+        first: 'foo',
+        last: null
+      }
     })
   })
 
-  it('should call the handler when given a route', function () {
-    options.hash = { route: './src/pages/' }
+  it('should call the handler when given a route', () => {
+    options.hash = {
+      route: './src/pages/',
+      type: 'coworker'
+    }
 
     pages(options)
 
@@ -71,16 +78,22 @@ describe('#pages', function () {
     expect(options.fn.args[0][0].data[0]).eql({
       frontmatter: {
         name: 'foo',
+        layout: 'coworker',
         email: 'rickard.laurin@iteam.se'
       },
-      logo: '',
+      logo: 'https://www.gravatar.com',
       title: 'foo',
       menutitle: '',
-      url: 'foo'
+      url: 'foo',
+      name: {
+        first: 'foo',
+        last: null
+      },
+      subpages: null
     })
   })
 
-  it('should get the gravatars if it is a coworker', function () {
+  it('should get the gravatars if it is a coworker', () => {
     options.hash = {
       route: './src/pages/team/',
       type: 'coworker'
@@ -88,43 +101,14 @@ describe('#pages', function () {
 
     pages(options)
 
-    expect(image.gravatar)
+    expect(gravatar)
       .called
       .and
       .calledWith('rickard.laurin@iteam.se', false)
   })
 
-  it('should filter pages by category if category is an option', function () {
-    read.directory.returns(['foo', 'bar'])
-    front.loadFront.withArgs('./src/pages/case/foo/index.hbs').returns({
-      name: 'foo',
-      categories: ['tldr']
-    })
-    front.loadFront.withArgs('./src/pages/case/bar/index.hbs').returns({
-      name: 'bar',
-      categories: ['test']
-    })
-    options.hash = {
-      category: 'test'
-    }
-
-    pages(options)
-
-    expect(options.fn.args[0][0].data[0]).eql({
-      frontmatter: {
-        name: 'bar',
-        categories: 'test',
-        categoriesHTMLFriendly: 'test'
-      },
-      logo: '',
-      menutitle: '',
-      title: 'bar',
-      url: 'bar'
-    })
-  })
-
-  it('should sort by last name', function () {
-    read.directory.returns(['foo', 'bar'])
+  xit('should sort by last name', () => {
+    directory.returns(['foo', 'bar'])
     front.loadFront.withArgs('./src/pages/team/foo/index.hbs').returns({
       name: 'foo foo',
       email: 'rickard.laurin@iteam.se'
@@ -138,6 +122,7 @@ describe('#pages', function () {
       type: 'coworker'
     }
     pages(options)
+
     expect(options.fn.args[0][0].data[0], 'first').eql({
       frontmatter: {
         name: 'bar bar',
