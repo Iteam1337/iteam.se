@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports.className = function (className) {
-  return className.replace(/[^\w\d]/g, '').replace(/^(\d){1,}/, '');
+module.exports = function className(name) {
+  return name.replace(/[^\w\d]/g, '').replace(/^(\d){1,}/, '');
 };

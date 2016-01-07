@@ -1,3 +1,5 @@
+'use strict'
+
 var chai = require('chai')
 var expect = chai.expect
 var sinon = require('sinon')
@@ -5,7 +7,7 @@ var proxyquire = require('proxyquire')
 
 describe('#employee', function () {
   var options
-  var helper
+  var employee
   var image
   var front
 
@@ -18,13 +20,13 @@ describe('#employee', function () {
       gravatar: sinon.stub().returns('https://www.gravatar.com')
     }
 
-    helper = proxyquire(process.cwd() + '/src/helpers/employee', {
+    employee = proxyquire(process.cwd() + '/src/helpers/employee', {
       './gravatar': image
     })
   })
 
   it('should be a function', function () {
-    expect(helper.employee).to.be.a('function')
+    expect(employee).to.be.a('function')
   })
 
   it('should get a picture of the employee from gravatar', function () {
@@ -32,7 +34,7 @@ describe('#employee', function () {
       name: 'rickard',
     }
 
-    helper.employee(options)
+    employee(options)
 
     expect(image.gravatar).calledOnce
     expect(image.gravatar).calledWith('rickard.laurin@iteam.se', 400)
@@ -43,7 +45,7 @@ describe('#employee', function () {
       name: 'rickard',
     }
 
-    helper.employee(options)
+    employee(options)
 
     expect(options.fn).calledOnce
   })

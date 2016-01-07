@@ -1,11 +1,11 @@
 'use strict';
 
 var Handlebars = require('handlebars');
-var fs         = require('fs');
-var read       = require('./read');
-var path       = require('path');
+var fs = require('fs');
+var files = require('./files');
+var path = require('path');
 
-module.exports.dynamicPartial = function (options) {
+module.exports = function dynamicPartial(options) {
   var data = options.hash.partial || {};
 
   if (!data.type) {
@@ -15,9 +15,7 @@ module.exports.dynamicPartial = function (options) {
   var partials = {};
   var dirPath = './src/partials/';
 
-  var files = read.files(dirPath);
-
-  files.forEach(function (file) {
+  files(dirPath).forEach(function (file) {
     var partial = fs.readFileSync(dirPath + file, 'utf8');
     partials[path.basename(file, '.hbs')] = partial;
   });
@@ -35,6 +33,6 @@ module.exports.dynamicPartial = function (options) {
   }
 
   var template = Handlebars.compile(html);
-  
+
   return template(data, options);
 };

@@ -25,20 +25,16 @@ const assembleOptions = {
   layouts: 'src/layouts/*.hbs',
   layoutdir: 'src/layouts',
   partials: 'src/partials/**/*.hbs',
-  assets: 'src/content',
-
-  defaultLayout: 'default.hbs',
-  mergePartials: false,
-  'default helpers': false,
-  preferLocals: true,
-  debugEngine: true
+  assets: 'src/content'
 }
 
-gulp.task('clean', function () {
+assemble.option(assembleOptions) // init
+
+gulp.task('clean', () => {
   rimraf.sync(outPaths.base)
 })
 
-gulp.task('jshint', function () {
+gulp.task('jshint', () => {
   gulp
     .src([
       'src/helpers/**/*.js',
@@ -49,7 +45,7 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('jshint-stylish'))
 })
 
-gulp.task('scripts', function () {
+gulp.task('scripts', () => {
   gulp
     .src([
       './src/scripts/social/Social.js',
@@ -63,16 +59,15 @@ gulp.task('scripts', function () {
 })
 
 
-gulp.task('test', function (done) {
-  done()
-  // gulp
-  //   .src(['src/test/**/*.js'], { read: false })
-  //   .pipe($.plumber())
-  //   .pipe($.mocha())
-  //   .on('end', done)
+gulp.task('test', done => {
+  gulp
+    .src(['src/test/**/*.js'], { read: false })
+    .pipe($.plumber())
+    .pipe($.mocha())
+    .on('end', done)
 })
 
-gulp.task('connect', function () {
+gulp.task('connect', () => {
   gulp.src('./out/')
     .pipe($.webserver({
       host: process.env.host || 'localhost',
@@ -81,7 +76,7 @@ gulp.task('connect', function () {
     }))
 })
 
-gulp.task('copy', function () {
+gulp.task('copy', () => {
   gulp.src(['bower_components/ionicons/fonts/*'])
     .pipe(gulp.dest(outPaths.fonts))
 
@@ -89,7 +84,7 @@ gulp.task('copy', function () {
     .pipe(gulp.dest(outPaths.content))
 })
 
-gulp.task('sass-ie', function () {
+gulp.task('sass-ie', () => {
   gulp
     .src('./src/scss/ie.scss')
     .pipe($.plumber())
@@ -114,7 +109,7 @@ gulp.task('sass-ie', function () {
     .pipe(gulp.dest(outPaths.styles))
 })
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   gulp
     .src(['./src/scss/all.scss'])
     .pipe($.plumber())
@@ -131,39 +126,37 @@ gulp.task('sass', function () {
     .pipe(gulp.dest(outPaths.styles))
 })
 
-gulp.task('assemble', function (done) {
+gulp.task('assemble', done => {
   gulp
-    .src(['src/pages/**/*.hbs'])
-    // .pipe($.plumber())
-    .pipe($.assemble(assemble, assembleOptions))
+    .src('src/pages/**/*.hbs')
+    .pipe($.plumber())
+    .pipe($.assemble(assemble))
+    .pipe($.extname())
     .pipe(gulp.dest(outPaths.base))
-    .on('end', function () {
-      console.log(assemble)
-      done()
-    })
+    .on('end', done)
 })
 
-gulp.task('assemble:init', function () {
-  assemble.option(assembleOptions)
+gulp.task('assemble:init', () => {
   assemble.data(assembleOptions.data)
-  assemble.helpers([assembleOptions.helpers])
-  assemble.layouts([assembleOptions.layouts])
-  assemble.partials([assembleOptions.partials])
+  assemble.helpers(assembleOptions.helpers)
+  assemble.layouts(assembleOptions.layouts)
+  assemble.partials(assembleOptions.partials)
 })
 
-gulp.task('watch', function () {
-  gulp.watch(['src/**/*.hbs', 'src/**/*.yml', 'src/helpers/*.js', 'src/**/*.md'], ['assemble'])
+gulp.task('watch', () => {
+  gulp.watch(['src/pages/**/*'], ['assemble'])
+  gulp.watch(['src/layouts/**/*', 'src/partials/**/*', 'src/helpers/**/*'], ['assemble:init', 'assemble'])
   gulp.watch(['./src/scss/**/*.scss'], ['sass', 'sass-ie'])
   gulp.watch('src/content/**/*', ['copy'])
   gulp.watch(['src/helpers/**/*.js', 'src/test/**/*.js'], ['jshint', 'test'])
   gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts'])
 })
 
-gulp.on('err', function (event) {
+gulp.on('err', event => {
   console.error(event.err.stack)
 })
 
-gulp.task('default', function () {
+gulp.task('default', () => {
   runSequence('test', [
     'build',
     'connect',

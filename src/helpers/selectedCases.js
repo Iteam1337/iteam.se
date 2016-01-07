@@ -1,28 +1,31 @@
-'use strict';
+'use strict'
 
-var front = require('yaml-front-matter');
-var pages = require('./pages');
-var slug = require('./slugify');
+var front = require('yaml-front-matter')
+var pages = require('./pages')
+var slugify = require('./slugify')
 
-module.exports.selectedCases = function (options) {
-  var data = options.hash || {};
-  var cases = data.cases || [];
-  var selectedCases = [];
+module.exports = function selectedCases(options) {
+  var data = options.hash || {}
+  var cases = data.cases || []
+  var fmSelectedCases = []
 
   cases.forEach(function (caseName) {
-  	var frontmatter = front.loadFront('./src/pages/case/' + caseName + '/index.hbs');
+  	var frontmatter = front
+      .loadFront('./src/pages/case/' + caseName + '/index.hbs')
 
-  	frontmatter.url = caseName.toLowerCase();
-    frontmatter.classes = "";
+  	frontmatter.url = caseName.toLowerCase()
+    frontmatter.classes = ''
 
     if (frontmatter.categories ) {
       frontmatter.categories.forEach(function (category) {
-        frontmatter.classes += ' ' + slug.slugify(category);
-      });
+        frontmatter.classes += ' ' + slugify(category)
+      })
     }
 
-  	selectedCases.push(frontmatter);
-  });
+  	fmSelectedCases.push(frontmatter)
+  })
 
-  return options.fn({ data: selectedCases });
-};
+  return options.fn({
+    data: fmSelectedCases
+  })
+}

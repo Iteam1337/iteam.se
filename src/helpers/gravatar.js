@@ -1,16 +1,21 @@
-var crypto = require('crypto')
+'use strict';
 
-module.exports.gravatar = function (email, size) {
-  var hash, url
+var crypto = require('crypto');
 
-  if (!email) { return; }
+module.exports = function gravatar(email, size) {
+  var hash;
+  var url;
 
-  hash = crypto.createHash('md5').update(email).digest('hex')
-  url = 'https://www.gravatar.com/avatar/' + hash + '.jpg'
+  if (!email) {
+    return;
+  }
+
+  hash = crypto.createHash('md5').update(email).digest('hex');
+  url = 'https://www.gravatar.com/avatar/' + hash + '.jpg';
 
   if (size) {
     url += '?s=' + size
   }
 
-  return url
+  return url;
 }

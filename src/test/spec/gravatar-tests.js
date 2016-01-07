@@ -1,15 +1,18 @@
-var chai = require('chai'),
-  expect = chai.expect,
-  crypto = require('crypto'),
-  sinon = require('sinon')
+'use strict'
 
-var helper = require('../../helpers/gravatar')
+var chai = require('chai')
+var expect = chai.expect
+var crypto = require('crypto')
+var sinon = require('sinon')
+
+var gravatar = require('../../helpers/gravatar')
 
 describe('#gravatar', function () {
-  var email, hash
+  var email
+  var hash
 
   it('should be a function', function () {
-    expect(helper.gravatar).to.be.a('function')
+    expect(gravatar).to.be.a('function')
   })
 
   beforeEach(function () {
@@ -18,10 +21,14 @@ describe('#gravatar', function () {
   })
 
   it('should return a url', function () {
-    expect(helper.gravatar(email)).to.eql('https://www.gravatar.com/avatar/' + hash + '.jpg')
+    expect(gravatar(email))
+      .to
+      .eql('https://www.gravatar.com/avatar/' + hash + '.jpg')
   })
 
   it('should return a url with a size if size is provided', function () {
-    expect(helper.gravatar(email, 200)).to.eql('https://www.gravatar.com/avatar/' + hash + '.jpg?s=200')
+    expect(gravatar(email, 200))
+      .to
+      .eql('https://www.gravatar.com/avatar/' + hash + '.jpg?s=200')
   })
 })

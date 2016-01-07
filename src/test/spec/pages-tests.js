@@ -7,7 +7,7 @@ var proxyquire = require('proxyquire')
 
 describe('#pages', function () {
   var image
-  var helper
+  var pages
   var options
   var front
   var read
@@ -30,7 +30,7 @@ describe('#pages', function () {
       fn: sinon.spy()
     }
 
-    helper = proxyquire(process.cwd() + '/src/helpers/pages', {
+    pages = proxyquire(process.cwd() + '/src/helpers/pages', {
       './gravatar': image,
       './read': read,
       'yaml-front-matter': front
@@ -38,7 +38,7 @@ describe('#pages', function () {
   })
 
   it('should be a function', function () {
-    expect(helper.pages).to.be.a('function')
+    expect(pages).to.be.a('function')
   })
 
   it('should add a lead character to the url', function () {
@@ -46,7 +46,9 @@ describe('#pages', function () {
       route: './src/pages/',
       start: '/'
     }
-    helper.pages(options)
+
+    pages(options)
+
     expect(options.fn).calledOnce
     expect(options.fn.args[0][0].data[0]).eql({
       frontmatter: {
@@ -62,7 +64,9 @@ describe('#pages', function () {
 
   it('should call the handler when given a route', function () {
     options.hash = { route: './src/pages/' }
-    helper.pages(options)
+
+    pages(options)
+
     expect(options.fn).calledOnce
     expect(options.fn.args[0][0].data[0]).eql({
       frontmatter: {
@@ -81,22 +85,31 @@ describe('#pages', function () {
       route: './src/pages/team/',
       type: 'coworker'
     }
-    helper.pages(options)
-    expect(image.gravatar).called.and.calledWith('rickard.laurin@iteam.se', false)
+
+    pages(options)
+
+    expect(image.gravatar)
+      .called
+      .and
+      .calledWith('rickard.laurin@iteam.se', false)
   })
 
   it('should filter pages by category if category is an option', function () {
     read.directory.returns(['foo', 'bar'])
     front.loadFront.withArgs('./src/pages/case/foo/index.hbs').returns({
       name: 'foo',
-      categories: ['tl;dr']
+      categories: ['tldr']
     })
     front.loadFront.withArgs('./src/pages/case/bar/index.hbs').returns({
       name: 'bar',
       categories: ['test']
     })
-    options.hash = { category: 'test' }
-    helper.pages(options)
+    options.hash = {
+      category: 'test'
+    }
+
+    pages(options)
+
     expect(options.fn.args[0][0].data[0]).eql({
       frontmatter: {
         name: 'bar',
@@ -124,7 +137,7 @@ describe('#pages', function () {
       route: './src/pages/team/',
       type: 'coworker'
     }
-    helper.pages(options)
+    pages(options)
     expect(options.fn.args[0][0].data[0], 'first').eql({
       frontmatter: {
         name: 'bar bar',
@@ -138,7 +151,7 @@ describe('#pages', function () {
       menutitle: '',
       title: 'bar bar',
       url: 'bar'
-    });
+    })
     expect(options.fn.args[0][0].data[1], 'second').eql({
       frontmatter: {
         name: 'foo foo',
@@ -152,6 +165,6 @@ describe('#pages', function () {
       menutitle: '',
       title: 'foo foo',
       url: 'foo'
-    });
+    })
   })
 })

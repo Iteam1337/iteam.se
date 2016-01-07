@@ -2,19 +2,17 @@
 
 var front = require('yaml-front-matter');
 var image = require('./gravatar');
-var read  = require('./read');
+var directory  = require('./directory');
 
 /*jshint maxcomplexity:100 */
-module.exports.pages = function (options) {
+module.exports = function pages(options) {
   var orderedPages;
   var data = options.hash || {};
   var dir = data.route || './src/pages/case/';
-  var dirs = read
-    .directory(dir)
+  var dirs = directory(dir)
     .reduce(function (directories, subDir) {
       directories = directories
-        .concat([subDir], read
-          .directory(dir + subDir + '/')
+        .concat([subDir], directory(dir + subDir + '/')
           .map(function (child) {
             return subDir + '/' + child
           }));
@@ -41,17 +39,16 @@ module.exports.pages = function (options) {
 
     if (subCategories) {
       var subDir = dir + subCategories + '/';
-      subPages = read
-        .directory(subDir)
-        .reduce(function (directories, directory) {
-          var subPath = subDir + directory;
+      subPages = directory(subDir)
+        .reduce(function (directories, thisDirectory) {
+          var subPath = subDir + thisDirectory;
           var fm = front.loadFront(subPath + '/index.hbs');
           if (!fm) {
             return;
           }
           directories.push({
             title: fm['menu-sub-title'] || null,
-            path: '/' + subCategories + '/' + directory,
+            path: '/' + subCategories + '/' + thisDirectory,
             icon: fm['menu-sub-icon'] || null
           });
           return directories;
@@ -127,13 +124,19 @@ module.exports.pages = function (options) {
         return false;
       }
       return fm.hasOwnProperty('menu-order') ||
-        (type === 'coworker' && fm.layout && fm.layout.match(/coworker/i) !== null);
+        (type === 'coworker' &&
+         fm.layout &&
+         fm.layout.match(/coworker/i) !== null);
     })
     .sort(function (a, b) {
 
       // position 'You' last
       if (type === 'coworker') {
-        if (a.order === undefined) { return 1; } else if (b.order === undefined) { return -1; }
+        if (a.order === undefined) {
+          return 1;
+        } else if (b.order === undefined) {
+          return -1;
+        }
       }
       if (typeof a.order === 'number') {
         return a.order > b.order;
@@ -147,5 +150,7 @@ module.exports.pages = function (options) {
       return page.element;
     });
 
-  return options.fn({ data: orderedPages });
+  return options.fn({
+    data: orderedPages
+  });
 };

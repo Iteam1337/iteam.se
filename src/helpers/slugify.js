@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.slugify = function (string) {
+module.exports = function slugify(string) {
   return string
     .replace(/\&/g,'och')
     .toLowerCase()

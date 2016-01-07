@@ -3,7 +3,7 @@
 var front = require('yaml-front-matter');
 var Handlebars = require('handlebars');
 
-module.exports.hb = function (path, options) {
+module.exports = function hb(path, options) {
   if (path.match(/^\//) !== null) {
     path = '.' + path;
   }

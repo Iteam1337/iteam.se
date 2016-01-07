@@ -3,10 +3,9 @@
 var front = require('yaml-front-matter');
 var image = require('./gravatar');
 
-module.exports.team = function (data, options) {
-  var team = data.team;
+module.exports = function team(data, options) {
   var size = data['gravatar-sizes'];
-  var names = team.map(function (coworker) {
+  var names = data.team.map(function (coworker) {
     var frontmatter = front.loadFront('./src/pages/team/' + coworker + '/index.hbs');
     var imgSize = size || false;
 

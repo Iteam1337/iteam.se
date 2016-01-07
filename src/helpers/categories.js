@@ -1,26 +1,27 @@
 'use strict';
 
 var front = require('yaml-front-matter');
-var read  = require('./read');
+var directory = require('./directory');
 
-module.exports.categories = function (data, options) {
+module.exports = function categories(data, options) {
   var dir = './src/pages/case/';
-  var dirs = read.directory(dir);
-  var categories = [];
+  var dirs = directory(dir);
+  var fmCategories = [];
   dirs.forEach(function (folder) {
     var frontmatter = front.loadFront(dir + folder + '/index.hbs');
 
     if (!frontmatter.categories) { return; }
-    
+
     frontmatter.categories.map(function (category) {
-      if(category) {
-        categories.push(category);
+      if (category) {
+        fmCategories.push(category);
       }
     });
-    return categories;
+
+    return fmCategories;
   });
 
-  var cases = categories.reduce(function (result, element) {
+  var cases = fmCategories.reduce(function (result, element) {
     if(result[element]) {
       result[element].hits++;
     } else {
@@ -33,5 +34,7 @@ module.exports.categories = function (data, options) {
     return result;
   }, {});
 
-  return options.fn({ data: cases });
+  return options.fn({
+    data: cases
+  });
 };

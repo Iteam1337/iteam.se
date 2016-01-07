@@ -1,4 +1,4 @@
-module.exports.list = function (items) {
+module.exports = function list(items) {
   items = items || [];
   var split = Math.ceil(items.length / 2);
 
@@ -13,6 +13,6 @@ module.exports.list = function (items) {
 
   var ul = '<ul class="list__list">';
 
-  return ul + colOne.join().replace(/\,/g,'') + '</ul>'+
-          ul + colTwo.join().replace(/\,/g,'') + '</ul>';
+  return ul + colOne.join().replace(/\,/g,'') + '</ul>' +
+    ul + colTwo.join().replace(/\,/g,'') + '</ul>';
 };
