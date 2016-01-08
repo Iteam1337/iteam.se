@@ -9,8 +9,6 @@ const runSequence = require('run-sequence')
 const rimraf = require('rimraf')
 
 const mergeContext = require('./lib/mergeContext')
-const renameKey = require('./lib/renameKey')
-const indexOnLoad = require('./lib/indexOnLoad')
 
 const outPaths = {
   base: 'out',
@@ -34,25 +32,14 @@ const assemblePaths = {
 }
 
 const assembleOptions = {
-  // assets: assemblePaths.assets,
-  // layoutdir: assemblePaths.layoutdir,
-  // layout: 'default',
-  // helpers: ['handlebars-helpers', assemblePaths.helpers],
   layoutDelims: ['{%', '%}'],
-  // namespace: false,
-  // helpers: [assemblePaths.helpers],
-  // partials: [assemblePaths.partials],
-  // layouts: [assemblePaths.layouts],
-  // renameKey: renameKey,
-  // mergeContext: mergeContext,
   defaults: require('./src/data/defaults')
 }
 
-gulp.task('clean', () => {
-  rimraf.sync(outPaths.base)
-})
+gulp.task('clean', () =>
+  rimraf.sync(outPaths.base))
 
-gulp.task('jshint', () => {
+gulp.task('jshint', () =>
   gulp
     .src([
       'src/helpers/**/*.js',
@@ -60,10 +47,9 @@ gulp.task('jshint', () => {
       'src/scripts/**/*.js'
     ])
     .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-})
+    .pipe($.jshint.reporter('jshint-stylish')))
 
-gulp.task('scripts', () => {
+gulp.task('scripts', () =>
   gulp
     .src([
       './src/scripts/social/Social.js',
@@ -73,8 +59,7 @@ gulp.task('scripts', () => {
     ])
     .pipe($.concat('all.js'))
     .pipe($.uglify())
-    .pipe(gulp.dest(outPaths.scripts))
-})
+    .pipe(gulp.dest(outPaths.scripts)))
 
 gulp.task('test', done => {
   done()
@@ -85,14 +70,13 @@ gulp.task('test', done => {
   //   .on('end', done)
 })
 
-gulp.task('connect', () => {
+gulp.task('connect', () =>
   gulp.src('./out/')
     .pipe($.webserver({
       host: process.env.host || 'localhost',
       livereload: true,
       port: 9000
-    }))
-})
+    })))
 
 gulp.task('copy', () => {
   gulp.src(['bower_components/ionicons/fonts/*'])
@@ -127,7 +111,7 @@ gulp.task('sass-ie', () => {
     .pipe(gulp.dest(outPaths.styles))
 })
 
-gulp.task('sass', () => {
+gulp.task('sass', () =>
   gulp
     .src(['./src/scss/all.scss'])
     .pipe($.plumber())
@@ -141,15 +125,10 @@ gulp.task('sass', () => {
     .pipe($.sourcemaps.write('.', {
       sourceRoot: 'src/scss'
     }))
-    .pipe(gulp.dest(outPaths.styles))
-})
+    .pipe(gulp.dest(outPaths.styles)))
 
-gulp.task('assemble', done => {
-  app.build('content', _ => {
-    // console.log(app)
-    done()
-  })
-})
+gulp.task('assemble', done =>
+  app.build('content', _ => done()))
 
 gulp.task('watch', () => {
   gulp.watch(['src/pages/**/*'], ['assemble'])
@@ -160,9 +139,7 @@ gulp.task('watch', () => {
   gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts'])
 })
 
-gulp.on('err', event => {
-  console.error(event.err.stack)
-})
+gulp.on('err', event => console.error(event.err.stack))
 
 gulp.task('default', () => {
   runSequence('test', [
@@ -182,42 +159,29 @@ gulp.task('build', [
 ])
 
 app.task('init', done => {
-  // app.enable('verbose')
-  // app.option('assets', assembleOptions.assets)
-  // app.option('layoutdir', assembleOptions.layoutdir)
   app.option('layoutDelims', assembleOptions.layoutDelims)
   app.option('defaults', assembleOptions.defaults)
-  // app.option('namespace', assembleOptions.namespace)
-  // app.option('renameKey', renameKey)
   app.option('mergeContext', mergeContext)
-  // app.option('helpers', assembleOptions.helpers)
-  // app.option('layouts', assembleOptions.layouts)
-  // app.option('layout', assembleOptions.layout)
-  // app.option('helpers', assembleOptions.helpers)
-  // app.option('partials', assembleOptions.partials)
 
-  // app.pages(assemblePaths.pages)
   app.helpers(assemblePaths.helpers)
   app.partials(assemblePaths.partials)
   app.layouts(assemblePaths.layouts)
 
-  // app.onLoad(/index\.hbs/, indexOnLoad)
   done()
 })
 
 app.task('content', ['init'], () =>
   app
-    // .pages
+    .pages
     // .src(assemblePaths.pages, assembleOptions)
     .src('src/pages/index.hbs', assembleOptions)
     .pipe(app.renderFile())
     .on('data', file => {
       console.log('file', file)
     })
-    .on('err', err => {
-      console.log('err', err)
+    .on('error', error => {
+      console.log('error', error)
     })
-    // .pipe($.assemble(assemble, assembleOptions))
-    // .pipe($.htmlmin({collapseWhitespace: true}))
+    .pipe($.htmlmin({collapseWhitespace: true}))
     .pipe($.extname())
     .pipe(gulp.dest(outPaths.base)))
