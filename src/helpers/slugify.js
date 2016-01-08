@@ -11,4 +11,3 @@ function slugify(string) {
 }
 
 module.exports = slugify
-module.exports.slugify = slugify

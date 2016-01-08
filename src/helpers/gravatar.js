@@ -18,4 +18,3 @@ function gravatar(email, size) {
 }
 
 module.exports = gravatar
-module.exports.gravatar = gravatar

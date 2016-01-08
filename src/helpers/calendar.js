@@ -26,4 +26,3 @@ function calendar(options) {
 }
 
 module.exports = calendar
-module.exports.calendar = calendar

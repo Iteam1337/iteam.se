@@ -31,4 +31,3 @@ function md(filePath, options) {
 }
 
 module.exports = md
-module.exports.md = md

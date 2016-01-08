@@ -7,4 +7,3 @@ function directory(dir) {
 }
 
 module.exports = directory
-module.exports.directory = directory

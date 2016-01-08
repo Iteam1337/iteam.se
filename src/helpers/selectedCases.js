@@ -31,4 +31,3 @@ function selectedCases(options) {
 }
 
 module.exports = selectedCases
-module.exports.selectedCases = selectedCases

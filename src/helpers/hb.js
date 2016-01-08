@@ -28,4 +28,3 @@ function hb(path, options) {
 }
 
 module.exports = hb
-module.exports.hb = hb

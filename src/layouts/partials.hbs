@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+{% body %}
+
 {{#each partials}}
   {{#if this.type}}
     {{{dynamicPartial partial=this}}}

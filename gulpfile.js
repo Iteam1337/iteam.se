@@ -1,11 +1,16 @@
 'use strict'
 
-const path = require('path')
+const assemble = require('assemble')
+const app = assemble()
+
 const gulp = require('gulp')
 const $ = require('gulp-load-plugins')()
-const assemble = require('assemble')
 const runSequence = require('run-sequence')
 const rimraf = require('rimraf')
+
+const mergeContext = require('./lib/mergeContext')
+const renameKey = require('./lib/renameKey')
+const indexOnLoad = require('./lib/indexOnLoad')
 
 const outPaths = {
   base: 'out',
@@ -25,45 +30,22 @@ const assemblePaths = {
   layouts: 'src/layouts/**/*.hbs',
   partials: 'src/partials/*.hbs',
   assets: 'src/content',
-  pages: 'src/pages/**/index.hbs',
-  data: 'src/data/**/*.yml',
-  defaultsData: './src/data/defaults'
+  pages: 'src/pages/**/index.hbs'
 }
 
 const assembleOptions = {
-  assets: assemblePaths.assets,
-  layoutdir: assemblePaths.layoutdir,
-  layoutDelims: ['{{', '}}'],
-  helpers: assemblePaths.helpers,
-  partials: assemblePaths.partials,
-
-  'default engines': true,
-  preferLocals: true,
-
-  data: assemblePaths.data,
-  defaults: require(assemblePaths.defaultsData),
-
-  renameKey: fp => {
-    let key
-    if (path.dirname(fp).match(/src\/pages/) === null) {
-      key = path.basename(fp, path.extname(fp))
-    } else {
-      key = path
-        .join(path.dirname(fp), path.basename(fp, path.extname(fp)))
-        .replace(`${__dirname}/src/pages/`, '')
-    }
-    return key
-  },
-
-  mergeContext: (template, locals) => {
-     if (!locals.options || !locals.options.defaults) {
-      return
-    }
-    if (!template.data) {
-      template.data = {}
-    }
-    template.data = Object.assign({}, locals.options.defaults, template.data)
-  }
+  // assets: assemblePaths.assets,
+  // layoutdir: assemblePaths.layoutdir,
+  // layout: 'default',
+  // helpers: ['handlebars-helpers', assemblePaths.helpers],
+  layoutDelims: ['{%', '%}'],
+  // namespace: false,
+  // helpers: [assemblePaths.helpers],
+  // partials: [assemblePaths.partials],
+  // layouts: [assemblePaths.layouts],
+  // renameKey: renameKey,
+  // mergeContext: mergeContext,
+  defaults: require('./src/data/defaults')
 }
 
 gulp.task('clean', () => {
@@ -163,45 +145,15 @@ gulp.task('sass', () => {
 })
 
 gulp.task('assemble', done => {
-  gulp
-    .src(assemblePaths.pages)
-    .pipe($.assemble(assemble, assembleOptions))
-    .on('data', file => {
-      console.log(file)
-    })
-    .pipe($.htmlmin({collapseWhitespace: true}))
-    .pipe($.extname())
-    .pipe(gulp.dest(outPaths.base))
-    .on('end', done)
-})
-
-gulp.task('assemble:init', done => {
-  assemble.option('default engines', assembleOptions['default engines'])
-  assemble.option('preferLocals', assembleOptions.preferLocals)
-  assemble.option('assets', assembleOptions.assets)
-  assemble.option('layoutdir', assembleOptions.layoutdir)
-  assemble.option('layoutDelims', assembleOptions.layoutDelims)
-  assemble.option('helpers', assembleOptions.helpers)
-  assemble.option('renameKey', assembleOptions.renameKey)
-  assemble.option('defaults', assembleOptions.defaults)
-  assemble.option('mergeContext', assembleOptions.mergeContext)
-
-  assemble.helpers(assemblePaths.helpers)
-  assemble.layouts(assemblePaths.layouts)
-  assemble.partials(assemblePaths.partials)
-
-  assemble.onLoad(/index\.hbs/, (file, next) => {
-    if (file.content === '') {
-      file.content = ' '
-    }
-    next()
+  app.build('content', _ => {
+    // console.log(app)
+    done()
   })
-  done()
 })
 
 gulp.task('watch', () => {
   gulp.watch(['src/pages/**/*'], ['assemble'])
-  gulp.watch(['src/layouts/**/*', 'src/partials/**/*', 'src/helpers/**/*'], ['assemble:init', 'assemble'])
+  gulp.watch(['src/layouts/**/*', 'src/partials/**/*', 'src/helpers/**/*'], ['assemble'])
   gulp.watch(['./src/scss/**/*.scss'], ['sass', 'sass-ie'])
   gulp.watch('src/content/**/*', ['copy'])
   gulp.watch(['src/helpers/**/*.js', 'src/test/**/*.js'], ['jshint', 'test'])
@@ -226,6 +178,46 @@ gulp.task('build', [
   'scripts',
   'sass',
   'sass-ie',
-  'assemble:init',
   'assemble'
 ])
+
+app.task('init', done => {
+  // app.enable('verbose')
+  // app.option('assets', assembleOptions.assets)
+  // app.option('layoutdir', assembleOptions.layoutdir)
+  app.option('layoutDelims', assembleOptions.layoutDelims)
+  app.option('defaults', assembleOptions.defaults)
+  // app.option('namespace', assembleOptions.namespace)
+  // app.option('renameKey', renameKey)
+  app.option('mergeContext', mergeContext)
+  // app.option('helpers', assembleOptions.helpers)
+  // app.option('layouts', assembleOptions.layouts)
+  // app.option('layout', assembleOptions.layout)
+  // app.option('helpers', assembleOptions.helpers)
+  // app.option('partials', assembleOptions.partials)
+
+  // app.pages(assemblePaths.pages)
+  app.helpers(assemblePaths.helpers)
+  app.partials(assemblePaths.partials)
+  app.layouts(assemblePaths.layouts)
+
+  // app.onLoad(/index\.hbs/, indexOnLoad)
+  done()
+})
+
+app.task('content', ['init'], () =>
+  app
+    // .pages
+    // .src(assemblePaths.pages, assembleOptions)
+    .src('src/pages/index.hbs', assembleOptions)
+    .pipe(app.renderFile())
+    .on('data', file => {
+      console.log('file', file)
+    })
+    .on('err', err => {
+      console.log('err', err)
+    })
+    // .pipe($.assemble(assemble, assembleOptions))
+    // .pipe($.htmlmin({collapseWhitespace: true}))
+    .pipe($.extname())
+    .pipe(gulp.dest(outPaths.base)))

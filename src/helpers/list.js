@@ -18,4 +18,3 @@ function list(items) {
 }
 
 module.exports = list
-module.exports.list = list

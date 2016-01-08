@@ -24,4 +24,3 @@ function ifCond(v1, operator, v2, options) {
 }
 
 module.exports = ifCond
-module.exports.ifCond = ifCond

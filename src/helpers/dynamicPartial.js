@@ -37,4 +37,3 @@ function dynamicPartial(options) {
 }
 
 module.exports = dynamicPartial
-module.exports.dynamicPartial = dynamicPartial

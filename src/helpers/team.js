@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
 const front = require('yaml-front-matter')
-const image = require('./gravatar')
+const gravatar = require('./gravatar')
 
 function team(dataOption, options) {
-  const size = dataOption['gravatar-sizes'];
+  const size = dataOption['gravatar-sizes']
   const data = dataOption.team.map(coworker => {
     const frontmatter = front
       .loadFront(`./src/pages/team/${coworker}/index.hbs`)
@@ -13,7 +13,7 @@ function team(dataOption, options) {
     const name = (frontmatter.name || ' ').split(' ')
     return {
       frontmatter,
-      logo: image.gravatar(frontmatter.email, imgSize),
+      logo: gravatar(frontmatter.email, imgSize),
       url: `/team/${coworker}`,
       size: size || 300,
       name: {
@@ -29,4 +29,3 @@ function team(dataOption, options) {
 }
 
 module.exports = team
-module.exports.team = team

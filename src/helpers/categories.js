@@ -43,4 +43,3 @@ function categories(_, options) {
 }
 
 module.exports = categories
-module.exports.categories = categories

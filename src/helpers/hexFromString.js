@@ -32,4 +32,3 @@ function hexFromString(color) {
 }
 
 module.exports = hexFromString
-module.exports.hexFromString = hexFromString

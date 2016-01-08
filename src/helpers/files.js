@@ -9,4 +9,3 @@ function files(dir) {
 }
 
 module.exports = files
-module.exports.files = files

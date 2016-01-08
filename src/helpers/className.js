@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 function className(name) {
   return name
@@ -7,4 +7,3 @@ function className(name) {
 }
 
 module.exports = className
-module.exports.className = className

@@ -153,4 +153,3 @@ function pages(options) {
 }
 
 module.exports = pages
-module.exports.pages = pages
