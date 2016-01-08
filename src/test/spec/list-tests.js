@@ -1,18 +1,18 @@
 'use strict'
 
-var chai = require('chai')
-var expect = chai.expect
-var sinon = require('sinon')
+const chai = require('chai')
+const expect = chai.expect
+const sinon = require('sinon')
 
-var list = require('../../helpers/list')
+const list = require('../../helpers/list')
 
-describe('#list', function () {
-  it('should be a function', function () {
+describe('#list', () => {
+  it('should be a function', () => {
     expect(list).to.be.a('function')
   })
 
-  it('should return two lists', function () {
-    var items = [
+  it('should return two lists', () => {
+    const items = [
       'ett',
       'två',
       'tre'

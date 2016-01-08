@@ -1,20 +1,20 @@
 'use strict'
 
-var chai = require('chai')
-var expect = chai.expect
-var sinon = require('sinon')
-var proxyquire = require('proxyquire')
+const chai = require('chai')
+const expect = chai.expect
+const sinon = require('sinon')
+const proxyquire = require('proxyquire')
 
 chai.use(require('sinon-chai'))
 
-describe('md', function () {
-  var md
-  var fs
-  var marked
-  var path
-  var options
+describe('md', () => {
+  let md
+  let fs
+  let marked
+  let path
+  let options
 
-  beforeEach(function () {
+  beforeEach(() => {
     options = {
       data: {
         orig: {
@@ -40,19 +40,19 @@ describe('md', function () {
     })
   })
 
-  describe('#md', function () {
-    it('reads the file if the filePath is specified', function () {
+  describe('#md', () => {
+    it('reads the file if the filePath is specified', () => {
       md('/users/foo/test', options)
       expect(fs.readFileSync).calledOnce
       expect(fs.readFileSync).calledWith('/users/foo/test.md', 'utf8')
     })
-    it('reads the file from the src specified in options', function () {
+    it('reads the file from the src specified in options', () => {
       md('bar', options)
       expect(fs.readFileSync).calledOnce
       expect(fs.readFileSync).calledWith('/users/foo/bar.md', 'utf8')
     })
-    it('returns a parsed text', function () {
-      var result = md('bar', options)
+    it('returns a parsed text', () => {
+      const result = md('bar', options)
       expect(result).to.equal('lorem ipsum dolor sit amet')
     })
   })

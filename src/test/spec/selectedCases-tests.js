@@ -1,27 +1,29 @@
-var chai = require('chai')
-var expect = chai.expect
-var sinon = require('sinon')
-var proxyquire = require('proxyquire')
+'use strict'
 
-describe('#selectedCases', function () {
-  var options
-  var selectedCases
-  var image
-  var front
+const chai = require('chai')
+const expect = chai.expect
+const sinon = require('sinon')
+const proxyquire = require('proxyquire')
 
-  beforeEach(function () {
+describe('#selectedCases', () => {
+  let options
+  let selectedCases
+  let image
+  let front
+
+  beforeEach(() => {
     options = {
       fn: sinon.spy()
     }
 
-    selectedCases = proxyquire(process.cwd() + '/src/helpers/selectedCases', {})
+    selectedCases = proxyquire(`${process.cwd()}/src/helpers/selectedCases`, {})
   })
 
-  it('should be a function', function () {
+  it('should be a function', () => {
     expect(selectedCases).to.be.a('function')
   });
 
-  it('should return empty array if no cases have been added', function() {
+  it('should return empty array if no cases have been added', () => {
     options.hash = {
       cases: []
     }
@@ -33,7 +35,7 @@ describe('#selectedCases', function () {
     })
   })
 
-  it('should return data', function () {
+  it('should return data', () => {
     options.hash = {
       cases: ['Vimla']
     }

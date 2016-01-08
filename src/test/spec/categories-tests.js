@@ -1,30 +1,33 @@
 'use strict'
 
-var chai = require('chai')
-var expect = chai.expect
-var sinon = require('sinon')
-var proxyquire = require('proxyquire')
+const chai = require('chai')
+const expect = chai.expect
+const sinon = require('sinon')
+const proxyquire = require('proxyquire')
 
 chai.use(require('sinon-chai'))
 
-describe('categories', function () {
-  var categories = proxyquire(process.cwd() + '/src/helpers/categories', {})
-  var options
-  var filters
+describe('categories', () => {
+  const categories = proxyquire(`${process.cwd()}/src/helpers/categories`, {})
+  let options
+  let filters
 
-  beforeEach(function () {
-    filters = ['systemutveckling', 'musik']
+  beforeEach(() => {
+    filters = [
+      'systemutveckling',
+      'musik'
+    ]
     options = {
       fn: sinon.stub().returns(filters)
     }
   })
 
-  describe('#categories', function () {
-    it('should be a function', function () {
+  describe('#categories', () => {
+    it('should be a function', () => {
       expect(categories).to.be.a('function')
     })
 
-    it('should return an array with all categories', function () {
+    it('should return an array with all categories', () => {
       expect(categories(null, options))
         .to
         .be

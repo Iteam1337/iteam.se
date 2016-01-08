@@ -1,37 +1,36 @@
 'use strict'
 
-var chai = require('chai')
-var expect = chai.expect
-var sinon = require('sinon')
-var proxyquire = require('proxyquire')
+const chai = require('chai')
+const expect = chai.expect
+const sinon = require('sinon')
+const proxyquire = require('proxyquire')
 
 chai.use(require('sinon-chai'))
 
-describe('#team', function () {
-  var image
-  var team
-  var options
-  var front
+describe('#team', () => {
+  let gravatar
+  let team
+  let options
+  let front
 
-  beforeEach(function () {
+  beforeEach(() => {
     options = {
       fn: sinon.spy()
     }
 
-    image = {
-      gravatar: sinon.stub().returns('http://www.gravatar.com')
-    }
+    gravatar = sinon.stub().returns('http://www.gravatar.com')
 
     front = {
       loadFront: sinon.stub()
     }
 
-    team = proxyquire(process.cwd() + '/src/helpers/team', {
-      './gravatar': image,
+    team = proxyquire(`${process.cwd()}/src/helpers/team`, {
+      './gravatar': gravatar,
       'yaml-front-matter': front
     })
   })
-  it('should call for a gravatar', function () {
+
+  it('should call for a gravatar', () => {
     front.loadFront.returns({
       email: 'rickard.laurin@iteam.se'
     })
@@ -40,12 +39,13 @@ describe('#team', function () {
       team: ['rickard']
     }, options)
 
-    expect(image.gravatar)
+    expect(gravatar)
       .calledOnce
       .and
       .calledWith('rickard.laurin@iteam.se', false)
   })
-  it('should call options.fn with the correct parameter', function () {
+
+  it('should call options.fn with the correct parameter', () => {
     front
       .loadFront
       .withArgs('./src/pages/team/rickard/index.hbs')

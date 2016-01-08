@@ -1,46 +1,44 @@
 'use strict'
 
-var chai = require('chai')
-var expect = chai.expect
-var sinon = require('sinon')
-var proxyquire = require('proxyquire')
+const chai = require('chai')
+const expect = chai.expect
+const sinon = require('sinon')
+const proxyquire = require('proxyquire')
 
-describe('#employee', function () {
-  var options
-  var employee
-  var image
-  var front
+describe('#employee', () => {
+  let options
+  let employee
+  let gravatar
+  let front
 
-  beforeEach(function () {
+  beforeEach(() => {
     options = {
       fn: sinon.spy()
     }
 
-    image = {
-      gravatar: sinon.stub().returns('https://www.gravatar.com')
-    }
+    gravatar = sinon.stub().returns('https://www.gravatar.com')
 
-    employee = proxyquire(process.cwd() + '/src/helpers/employee', {
-      './gravatar': image
+    employee = proxyquire(`${process.cwd()}/src/helpers/employee`, {
+      './gravatar': gravatar
     })
   })
 
-  it('should be a function', function () {
+  it('should be a function', () => {
     expect(employee).to.be.a('function')
   })
 
-  it('should get a picture of the employee from gravatar', function () {
+  it('should get a picture of the employee from gravatar', () => {
     options.hash = {
       name: 'rickard',
     }
 
     employee(options)
 
-    expect(image.gravatar).calledOnce
-    expect(image.gravatar).calledWith('rickard.laurin@iteam.se', 400)
+    expect(gravatar).calledOnce
+    expect(gravatar).calledWith('rickard.laurin@iteam.se', 400)
   })
 
-  it('should get information for an employee', function () {
+  it('should get information for an employee', () => {
     options.hash = {
       name: 'rickard',
     }

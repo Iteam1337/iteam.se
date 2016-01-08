@@ -62,20 +62,19 @@ gulp.task('scripts', () =>
     .pipe(gulp.dest(outPaths.scripts)))
 
 gulp.task('test', done => {
-  done()
-  // gulp
-  //   .src(['src/test/**/*.js'], { read: false })
-  //   .pipe($.plumber())
-  //   .pipe($.mocha())
-  //   .on('end', done)
+  gulp
+    .src(['src/test/**/*.js'], {read: false})
+    .pipe($.plumber())
+    .pipe($.mocha())
+    .on('end', done)
 })
 
 gulp.task('connect', () =>
-  gulp.src('./out/')
+  gulp.src('./out/', {read: false})
     .pipe($.webserver({
       host: process.env.host || 'localhost',
-      livereload: true,
-      port: 9000
+      livereload: process.env.livereload || true,
+      port: process.env.port || 9000
     })))
 
 gulp.task('copy', () => {
@@ -132,22 +131,24 @@ gulp.task('assemble', done =>
 
 gulp.task('watch', () => {
   gulp.watch(['src/pages/**/*'], ['assemble'])
-  gulp.watch(['src/layouts/**/*', 'src/partials/**/*', 'src/helpers/**/*'], ['assemble'])
-  gulp.watch(['./src/scss/**/*.scss'], ['sass', 'sass-ie'])
-  gulp.watch('src/content/**/*', ['copy'])
-  gulp.watch(['src/helpers/**/*.js', 'src/test/**/*.js'], ['jshint', 'test'])
-  gulp.watch('./src/scripts/**/*.js', ['jshint', 'scripts'])
+  gulp.watch([
+    'src/layouts/**/*',
+    'src/partials/**/*',
+    'src/helpers/**/*'
+  ], ['assemble'])
+  gulp.watch(['src/scss/**/*'], ['sass', 'sass-ie'])
+  gulp.watch(['src/content/**/*'], ['copy'])
+  gulp.watch([
+    'src/helpers/**/*.js',
+    'src/test/**/*.js'
+  ], ['jshint', 'test'])
+  gulp.watch(['src/scripts/**/*.js'], ['jshint', 'scripts'])
 })
 
 gulp.on('err', event => console.error(event.err.stack))
 
-gulp.task('default', () => {
-  runSequence('test', [
-    'build',
-    'connect',
-    'watch'
-  ])
-})
+gulp.task('default', () =>
+  runSequence('test', 'build', 'connect', 'watch'))
 
 gulp.task('build', [
   'copy',
