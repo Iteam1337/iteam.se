@@ -11,13 +11,20 @@ function hb(path, options) {
     path += '.hbs'
   }
 
-  var content = front.loadFront(path).__content
+  const content = front.loadFront(path).__content
 
   if (!content) {
     return 'File does not exist'
   }
 
-  return Handlebars.compile(content)()
+  let compiled
+  try {
+    compiled = Handlebars.compile(content)()
+  } catch (error) {
+    console.error(error)
+    compiled = content
+  }
+  return compiled
 }
 
 module.exports = hb

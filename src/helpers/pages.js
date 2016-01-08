@@ -26,7 +26,7 @@ function pages(options) {
     let first
     let last
 
-    const title = frontmatter.subtitle || frontmatter.name
+    const title = frontmatter.subtitle || frontmatter.name || ''
     const menutitle = frontmatter['menu-title'] || ''
     const logo = frontmatter.logo ? frontmatter.logo : ''
 

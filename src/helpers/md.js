@@ -27,7 +27,6 @@ function md(filePath, options) {
   } catch (e) {
     return `Markdown text does not exist at path: ${filePath}`
   }
-
   return marked(text)
 }
 
