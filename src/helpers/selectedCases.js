@@ -1,7 +1,6 @@
 'use strict'
 
 const front = require('yaml-front-matter')
-const pages = require('./pages')
 const slugify = require('./slugify')
 
 function selectedCases(options) {

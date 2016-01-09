@@ -61,13 +61,13 @@ gulp.task('scripts', () =>
     .pipe($.uglify())
     .pipe(gulp.dest(outPaths.scripts)))
 
-gulp.task('test', done =>
-  done())
-  // gulp
-  //   .src(['src/test/**/*.js'], {read: false})
-  //   .pipe($.plumber())
-  //   .pipe($.mocha())
-  //   .on('end', done))
+gulp.task('test', done => {
+  gulp
+    .src(['src/test/**/*.js'], {read: false})
+    .pipe($.plumber())
+    .pipe($.mocha())
+    .on('end', done)
+})
 
 gulp.task('connect', () =>
   gulp.src('./out/', {read: false})

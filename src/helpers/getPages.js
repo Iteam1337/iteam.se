@@ -17,7 +17,6 @@ function getPage(path, opts) {
   // const menuSubTitle = frontmatter['menu-sub-title'] || null
 
   let subpages = null
-
   if (subCategories) {
     const subDir = `${opts.dir}${subCategories}/`
 
@@ -45,7 +44,6 @@ function getPage(path, opts) {
     title,
     logo
   }
-
 
   if (opts.type === 'coworker') {
     element.logo = gravatar(frontmatter.email, (opts.size || false))
@@ -76,7 +74,6 @@ function getPage(path, opts) {
 
     frontmatter.categories = frontmatter.categories.join(' ')
   }
-
   return {
     element,
     order: frontmatter['menu-order'] !== undefined ?
@@ -87,7 +84,7 @@ function getPage(path, opts) {
   }
 }
 
-/*jshint maxcomplexity:14 */
+/*jshint maxcomplexity:16 */
 function getPages(options, engine) {
   const data = options.hash || options
   const dir = data.route || './src/pages/case/'
@@ -97,9 +94,13 @@ function getPages(options, engine) {
 
   const orderedPages = directory(dir)
     .reduce((directories, subDir) => {
-      directories = directories
-        .concat([subDir], directory(`${dir}${subDir}/`)
-          .map(child => `${subDir}/${child}`))
+      if (data.includeSubdirectories) {
+        directories = directories
+          .concat([subDir], directory(`${dir}${subDir}/`)
+            .map(child => `${subDir}/${child}`))
+      } else {
+        directories = directories.concat([subDir])
+      }
       return directories
     }, [])
     .reduce((result, folder) => {

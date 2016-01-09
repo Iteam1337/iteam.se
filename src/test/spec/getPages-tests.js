@@ -5,9 +5,9 @@ const expect = chai.expect
 const sinon = require('sinon')
 const proxyquire = require('proxyquire')
 
-describe('#pages', () => {
+describe('#getPages', () => {
   let gravatar
-  let pages
+  let getPages
   let options
   let front
   let directory
@@ -27,7 +27,7 @@ describe('#pages', () => {
       fn: sinon.spy()
     }
 
-    pages = proxyquire(`${process.cwd()}/src/helpers/pages`, {
+    getPages = proxyquire(`${process.cwd()}/src/helpers/getPages`, {
       './gravatar': gravatar,
       './directory': directory,
       'yaml-front-matter': front
@@ -35,7 +35,7 @@ describe('#pages', () => {
   })
 
   it('should be a function', () => {
-    expect(pages).to.be.a('function')
+    expect(getPages).to.be.a('function')
   })
 
   it('should add a lead character to the url', () => {
@@ -45,7 +45,7 @@ describe('#pages', () => {
       type: 'coworker'
     }
 
-    pages(options)
+    getPages(options)
 
     expect(options.fn).calledOnce
     expect(options.fn.args[0][0].data[0]).eql({
@@ -72,7 +72,7 @@ describe('#pages', () => {
       type: 'coworker'
     }
 
-    pages(options)
+    getPages(options)
 
     expect(options.fn).calledOnce
     expect(options.fn.args[0][0].data[0]).eql({
@@ -99,7 +99,7 @@ describe('#pages', () => {
       type: 'coworker'
     }
 
-    pages(options)
+    getPages(options)
 
     expect(gravatar)
       .called
@@ -107,26 +107,39 @@ describe('#pages', () => {
       .calledWith('rickard.laurin@iteam.se', false)
   })
 
-  xit('should sort by last name', () => {
+  it('should sort by last name', () => {
     directory.returns(['foo', 'bar'])
-    front.loadFront.withArgs('./src/pages/team/foo/index.hbs').returns({
-      name: 'foo foo',
-      email: 'rickard.laurin@iteam.se'
-    })
-    front.loadFront.withArgs('./src/pages/team/bar/index.hbs').returns({
-      name: 'bar bar',
-      email: 'radu.achim@iteam.se'
-    })
+
+    front
+      .loadFront
+      .withArgs('./src/pages/team/foo/index.hbs')
+      .returns({
+        name: 'foo foo',
+        email: 'rickard.laurin@iteam.se',
+        layout: 'coworker'
+      })
+    front
+      .loadFront
+      .withArgs('./src/pages/team/bar/index.hbs')
+      .returns({
+        name: 'bar bar',
+        email: 'radu.achim@iteam.se',
+        layout: 'coworker'
+      })
+
     options.hash = {
       route: './src/pages/team/',
-      type: 'coworker'
+      type: 'coworker',
+      start: ''
     }
-    pages(options)
 
-    expect(options.fn.args[0][0].data[0], 'first').eql({
+    getPages(options)
+
+    expect(options.fn.args[0][0].data[0], 'should be first').eql({
       frontmatter: {
         name: 'bar bar',
-        email: 'radu.achim@iteam.se'
+        email: 'radu.achim@iteam.se',
+        layout: 'coworker'
       },
       name: {
         first: 'bar',
@@ -134,13 +147,15 @@ describe('#pages', () => {
       },
       logo: 'https://www.gravatar.com',
       menutitle: '',
+      subpages: null,
       title: 'bar bar',
       url: 'bar'
     })
-    expect(options.fn.args[0][0].data[1], 'second').eql({
+    expect(options.fn.args[0][0].data[1], 'should be second').eql({
       frontmatter: {
         name: 'foo foo',
-        email: 'rickard.laurin@iteam.se'
+        email: 'rickard.laurin@iteam.se',
+        layout: 'coworker'
       },
       name: {
         first: 'foo',
@@ -148,6 +163,7 @@ describe('#pages', () => {
       },
       logo: 'https://www.gravatar.com',
       menutitle: '',
+      subpages: null,
       title: 'foo foo',
       url: 'foo'
     })
