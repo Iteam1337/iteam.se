@@ -1,10 +1,5 @@
 ---
 layout: default
-
-instagram-count: 4
-instagram-resolution: normal
-github-count: 5
-blog-count: 5
 ---
 <div class="coworker">
 
@@ -26,16 +21,15 @@ blog-count: 5
     <div class="grid-full">
       <div class="row boxes">
         {{#each texts.about}}
-        <div class="box-position {{position}}">
-          <h3>{{title}}</h3>
-          <p>{{{content}}}</p>
-        </div>
+          <div class="box-position {{position}}">
+            <h3>{{title}}</h3>
+            <p>{{{content}}}</p>
+          </div>
         {{/each}}
       </div>
     </div>
   </div>
 
-  <div>{% body %}</div>
 
   {{#if social-media.instagram}}
     <div class="partial instagram wow fadeIn">
@@ -48,4 +42,6 @@ blog-count: 5
       {{> blog this}}
     </div>
   {{/if}}
+
+  {% body %}
 </div>

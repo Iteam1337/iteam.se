@@ -8,7 +8,10 @@ const $ = require('gulp-load-plugins')()
 const runSequence = require('run-sequence')
 const rimraf = require('rimraf')
 
+const glob = require('glob')
+
 const mergeContext = require('./lib/mergeContext')
+const getConfigs = require('./lib/getConfigs')
 
 const outPaths = {
   base: 'out',
@@ -23,6 +26,7 @@ const sassOptions = {
 }
 
 const assemblePaths = {
+  data: 'src/data/**/*.yml',
   helpers: 'src/helpers/*.js',
   layoutdir: 'src/layouts',
   layouts: 'src/layouts/**/*.hbs',
@@ -32,8 +36,7 @@ const assemblePaths = {
 }
 
 const assembleOptions = {
-  layoutDelims: ['{%', '%}'],
-  defaults: require('./src/data/defaults')
+  layoutDelims: ['{%', '%}']
 }
 
 gulp.task('clean', () =>
@@ -44,6 +47,7 @@ gulp.task('jshint', () =>
     .src([
       'src/helpers/**/*.js',
       'src/test/**/*.js',
+      'lib/**/*.js',
       'src/scripts/**/*.js'
     ])
     .pipe($.jshint())
@@ -140,7 +144,8 @@ gulp.task('watch', () => {
   gulp.watch(['src/content/**/*'], ['copy'])
   gulp.watch([
     'src/helpers/**/*.js',
-    'src/test/**/*.js'
+    'src/test/**/*.js',
+    'lib/**/*.js'
   ], ['jshint', 'test'])
   gulp.watch(['src/scripts/**/*.js'], ['jshint', 'scripts'])
 })
@@ -161,14 +166,16 @@ gulp.task('build', [
 
 app.task('init', done => {
   app.option('layoutDelims', assembleOptions.layoutDelims)
-  app.option('defaults', assembleOptions.defaults)
   app.option('mergeContext', mergeContext)
-
-  app.helpers(assemblePaths.helpers)
-  app.partials(assemblePaths.partials)
-  app.layouts(assemblePaths.layouts)
-
-  done()
+  getConfigs(assemblePaths.data)
+    .then(config => {
+      assembleOptions.defaults = config
+      app.option('defaults', config)
+      app.helpers(assemblePaths.helpers)
+      app.partials(assemblePaths.partials)
+      app.layouts(assemblePaths.layouts)
+      done()
+    })
 })
 
 app.task('content', ['init'], () =>

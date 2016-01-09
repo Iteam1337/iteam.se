@@ -11,10 +11,11 @@ function calendar(options) {
     return ''
   }
 
-  const filtered = fmCalendar.filter(entry =>
-    moment(entry.time).isAfter(moment().subtract(30, 'day')))
-  .sort((a, b) =>
-    moment(a.time).diff(moment(b.time)))
+  const filtered = fmCalendar
+    .filter(entry =>
+      moment(entry.time).isAfter(moment().subtract(30, 'day')))
+    .sort((a, b) =>
+      moment(a.time).diff(moment(b.time)))
 
   if (filtered.length === 0) {
     filtered.push({
