@@ -91,7 +91,6 @@ $mobile-width: 100%;
 // Element - Text content
 .fullview__content {
   color: $color--white;
-  max-width: ($max-width / 2);
   @include mobile-landscape {
     width: 100%;
   }
