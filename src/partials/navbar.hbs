@@ -15,7 +15,7 @@
       </a>
       <div id="close-navbar"></div>
       <ul class="nav">
-        {{#pages route="./src/pages/" start="/"}}
+        {{#getPages route="./src/pages/" start="/"}}
           {{#each data}}
             <li class="{{this.frontmatter.categories}}">
               {{#if this.logo}}
@@ -39,7 +39,7 @@
               {{/if}}
             </li>
           {{/each}}
-        {{/pages}}
+        {{/getPages}}
       </ul>
     </div>
     <div class="navicon"></div>

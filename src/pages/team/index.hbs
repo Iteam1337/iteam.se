@@ -15,19 +15,23 @@ top-content:
   background-color: blue
   background-image: /content/images/section-top/medarbetare_multiply.jpg
   mdtext: src/pages/team/main-block
+
+listing-options:
+  route: "./src/pages/team/"
+  start: ""
+  type: "coworker"
+  size: 400
 ---
 {{>fullview top-content}}
 
 <div class="row partial team black">
   <div class="grid-fullscreen">
     <ul class="team__list">
-      {{#pages route="./src/pages/team/" start="" type="coworker" size=400}}
+      {{#getPages listing-options}}
         {{#each data}}
-          <li>
-            {{> coworker this}}
-          </li>
+          <li>{{> coworker this}}</li>
         {{/each}}
-      {{/pages}}
+      {{/getPages}}
     </ul>
   </div>
 </div>
