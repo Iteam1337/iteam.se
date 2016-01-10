@@ -200,7 +200,6 @@ $navbar-bg: $background-footer;
       @include mobile {
         font-size: 3rem;
         margin-right: 0;
-        text-align: center;
 
         &:not(:last-child) {
           margin-bottom: $margin / 2;

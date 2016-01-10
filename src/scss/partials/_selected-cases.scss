@@ -5,55 +5,87 @@
 $bg-color: $color--pink;
 
 .selected-cases {
-  display: flex;
-  flex-wrap: wrap;
-  flex-flow: row;
-  align-items: center;
+  display: table;
 
-  padding: 5px 0 0;
-
-  &-fullview.partial {
-    padding: 0 5px;
+  &.partial {
+    padding: 0;
+    margin: 0;
     background-color: $color--black;
+    box-sizing: content-box;
     @include mobile {
-      padding: 0;
+      padding: 0 !important;
     }
   }
 
   @include mobile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row;
+    align-items: center;
     flex-flow: column;
   }
 
   &__block {
     position: relative;
-    flex: auto;
     overflow: hidden;
-    width: 33.3333333%;
-    width: calc(100%/3);
-    flex-grow: 0;
-    flex-shrink: 1;
-    padding: 0 5px;
-    &.no-image {
-      height: 100%;
-    }
-    @include mobile {
+    padding: 0;
+    min-height: 100%;
+    max-height: 100%;
+    display: table-cell;
+    .count-1 & {
       width: 100%;
-      flex-grow: 1;
+    }
+    .count-2 & {
+      width: 50%;
+    }
+    .count-3 & {
+      width: 33.3333333%;
+      width: calc(100%/3);
+    }
+    .count-4 & {
+      width: 25%;
+    }
+    .count-5 & {
+      width: 20%;
+    }
+
+    @include mobile {
+      display: block;
+      width: 100% !important;
+      max-height: 140px;
     }
   }
 
+
   .selected-case {
     background: $bg-color;
+    height: 100%;
+
+    @include mobile {
+      max-height: 100%;
+    }
+    &, &__element {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        left: 0;
+      }
+    }
 
     &__element {
       position: relative;
       align-items: center;
       display: flex;
       overflow: hidden;
-    }
-
-    &__element {
       border: none;
+
+      @include mobile {
+        max-height: 100%;
+        display: block;
+      }
     }
 
     &__overlay {
@@ -82,13 +114,29 @@ $bg-color: $color--pink;
       border-bottom: 4px solid $color--white;
       max-width: 100%;
       width: auto;
+      @include mobile {
+        bottom: initial;
+        top: 70px;
+      }
     }
 
     &__image {
-      width: 100%;
-      height: auto;
-      display: block;
       filter: grayscale(1) saturate(10000%);
+      &, &-block {
+        height: auto;
+        width: 100%;
+        display: block;
+      }
+      &-block {
+        max-width: 100%;
+        max-height: 100%;
+        .fill {
+          background-color: $color--black;
+          position: relative;
+          height: 450px;
+          display: block;
+        }
+      }
     }
   }
 
