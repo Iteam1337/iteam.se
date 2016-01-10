@@ -16,34 +16,34 @@
     }
   }
 }
+.blog {
+  .blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1;
+    padding: 0;
+    margin: 0;
 
-.blog-posts {
-  @include prefix('flex-wrap', wrap);
+    li {
+      margin-right: 2%;
+      max-width: 48%;
+      min-width: 48%;
+      vertical-align: top;
 
-  display: flex;
-  flex: 1 1;
-  padding: 0;
-  margin: 0;
+      @include mobile {
+        max-width: 100%;
+      }
 
-  li {
-    margin-right: 2%;
-    max-width: 48%;
-    min-width: 48%;
-    vertical-align: top;
+      &:nth-child(3n-1) { margin-right:0; }
+      &:nth-child(n+3) {
+        margin-top: $margin / 5;
 
-    @include mobile {
-      max-width: 100%;
-    }
+        p { margin-bottom: 0; }
+      }
 
-    &:nth-child(3n-1) { margin-right:0; }
-    &:nth-child(n+3) {
-      margin-top: $margin / 5;
-
-      p { margin-bottom: 0; }
-    }
-
-    p {
-      margin: $margin / 5 0;
+      p {
+        margin: $margin / 5 0;
+      }
     }
   }
 }

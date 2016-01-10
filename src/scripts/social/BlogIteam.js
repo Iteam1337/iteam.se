@@ -1,29 +1,24 @@
 (function () {
   'use strict';
 
-  function Blog(count) {
-    window.Social.apply(this, ['blog', count]);
-    this.baseURL = '//feed.iteamdev.se/rss?url={url}&count={count}';
+  function BlogIteam(count) {
+    window.Social.apply(this, ['blog-iteam', count]);
+    this.url = '//feed.iteamdev.se/iteam?count={count}';
   }
 
-  Blog.prototype = Object.create(window.Social.prototype); // extending Social
-  Blog.prototype.super = Blog.prototype.init;
+  BlogIteam.prototype = Object.create(window.Social.prototype);
+  BlogIteam.prototype.super = BlogIteam.prototype.init;
 
-  Blog.prototype.init = function (container, url) {
-    if (url === 'iteam') {
-      this.baseURL = '//feed.iteamdev.se/iteam?count={count}'
-    }
-    this.url = url;
-    return this.super(container, url.replace(/\W/g, ''));
+  BlogIteam.prototype.init = function (container) {
+    return this.super(container, this.url);
   };
 
-  Blog.prototype.URL = function () {
-    return this.baseURL
-      .replace('{url}', escape(this.url))
+  BlogIteam.prototype.URL = function () {
+    return this.url
       .replace('{count}', this.count);
   };
 
-  Blog.prototype.prerender = function (array) {
+  BlogIteam.prototype.prerender = function (array) {
     var newElement = document.createElement('ul');
 
     array.forEach(function (data, i) {
@@ -45,13 +40,22 @@
       node.appendChild(h3);
       node.appendChild(p);
 
+      if (data.image) {
+        var imageElement = document.createElement('div');
+        node.className = 'contains-background';
+        imageElement.className = 'background-element';
+        imageElement.style.backgroundImage = 'url(' + data.image + ')';
+        node.appendChild(imageElement)
+      }
+
       newElement.appendChild(node);
     });
 
     return newElement;
   };
 
-  Blog.prototype.handleResponse = function (response) {
+
+  BlogIteam.prototype.handleResponse = function (response) {
     try {
       response = JSON.parse(response).data;
 
@@ -65,7 +69,7 @@
     return [[], 0];
   };
 
-  Blog.prototype.constructor = window.Social;
+  BlogIteam.prototype.constructor = window.BlogIteam;
 
-  window.Blog = Blog;
+  window.BlogIteam = BlogIteam;
 })();

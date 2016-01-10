@@ -44,7 +44,10 @@
     if (hide) {
       this.hideOnEmpty.className += ' hidden';
     } else {
-      this.hideOnEmpty.className = this.hideOnEmpty.className.replace(hidden, '');
+      this.hideOnEmpty.className = this
+        .hideOnEmpty
+        .className
+        .replace(hidden, '');
     }
   };
 
@@ -65,10 +68,13 @@
     if (array instanceof Array === false || latest === undefined) {
       return;
     }
-
+    latest = parseInt(latest, 10);
     var local = this.getLocal();
     data.splice(this.count);
-    var ignoreSave = (local !== null && (local.data && local.latest) && (data.length === local.data.length && local.latest === latest));
+    var ignoreSave = (local !== null &&
+                      (local.data && local.latest) &&
+                      (data.length === local.data.length &&
+                       local.latest === latest));
 
     if (ignoreSave) {
       // console.info('ignoring save: %s', this.storageName());

@@ -8,45 +8,49 @@
     'data-{type}-hide-on-empty'
   ];
 
-  ['twitter', 'instagram', 'github', 'blog', 'meetup'].forEach(function (type) {
-    function getAttributeString(pos) {
-      return attr[pos].replace('{type}', type);
-    }
-    function getAttributeValue(string) {
-      return container.getAttribute(string);
-    }
+  ['twitter', 'instagram', 'github', 'blog', 'blog-iteam', 'meetup']
+    .forEach(function (type) {
+      function getAttributeString(pos) {
+        return attr[pos].replace('{type}', type);
+      }
+      function getAttributeValue(string) {
+        return container.getAttribute(string);
+      }
 
-    var query = getAttributeString(0);
-    var count = getAttributeString(1);
+      var query = getAttributeString(0);
+      var count = getAttributeString(1);
 
-    var resolution = getAttributeString(2);
+      var resolution = getAttributeString(2);
 
-    var container = document.querySelectorAll('[' + query + ']');
-    if (!container.length) {
-      return;
-    }
-    container = container[0];
+      var container = document.querySelectorAll('[' + query + ']');
+      if (!container.length) {
+        return;
+      }
+      container = container[0];
 
-    query = getAttributeValue(query);
-    count = getAttributeValue(count) || 3;
-    resolution = getAttributeValue(resolution) || '';
+      query = getAttributeValue(query);
+      count = getAttributeValue(count) || 3;
+      resolution = getAttributeValue(resolution) || '';
 
-    var clearOnEmpty = document.querySelectorAll('[' + getAttributeString(3) + ']');
+      var clearOnEmpty = document.querySelectorAll('[' + getAttributeString(3) + ']');
 
-    switch (type) {
-    case 'twitter':
-    case 'instagram':
-      new SocialHub(type, count, resolution).init(container, query, clearOnEmpty);
-      break;
-    case 'blog':
-      new Blog(count).init(container, query, clearOnEmpty);
-      break;
-    case 'github':
-      new Github(count).init(container, query, clearOnEmpty);
-      break;
-    case 'meetup':
-      new Meetup(count).init(container, query, clearOnEmpty);
-      break;
-    }
-  });
+      switch (type) {
+      case 'twitter':
+      case 'instagram':
+        new SocialHub(type, count, resolution).init(container, query, clearOnEmpty);
+        break;
+      case 'blog':
+        new Blog(count).init(container, query, clearOnEmpty);
+        break;
+      case 'blog-iteam':
+        new BlogIteam(count).init(container, clearOnEmpty);
+        break;
+      case 'github':
+        new Github(count).init(container, query, clearOnEmpty);
+        break;
+      case 'meetup':
+        new Meetup(count).init(container, query, clearOnEmpty);
+        break;
+      }
+    });
 })();

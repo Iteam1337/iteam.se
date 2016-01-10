@@ -75,7 +75,7 @@
     margin-right: 20px;
   }
 
-  @include mobile() {
+  @include mobile {
     h4 { margin-top: 20px; }
 
     .date { display: none; }
