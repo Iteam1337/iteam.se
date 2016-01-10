@@ -38,7 +38,7 @@ layout: default
   {{/if}}
 
   {{#if social-media.blog}}
-    <div class="partial blog">
+    <div class="partial blog" data-blog-hide-on-empty="true">
       {{> blog this}}
     </div>
   {{/if}}

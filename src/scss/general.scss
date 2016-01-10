@@ -33,7 +33,7 @@ img { max-width: 100%; }
     padding-top: 0 !important;
   }
 
-  > div:last-of-type:not(.video):not(.image):not(.instagram):not(.fullview):not(.contact) {
+  > div:last-of-type:not(.video):not(.image):not(.instagram):not(.fullview):not(.contact):not(.coworker) {
     padding-bottom: $margin;
   }
 }
@@ -47,8 +47,18 @@ img { max-width: 100%; }
   &.has-background {
     padding: $margin 20px;
   }
-
-  &:not(.image):not(.video):not(.team):not(.instagram):not(.fullview) {
+  &.blog {
+    padding: $margin 0;
+    @include mobile {
+      padding: 0;
+    }
+    .social-media {
+      @include mobile {
+        padding: $margin 20px;
+      }
+    }
+  }
+  &:not(.image):not(.video):not(.team):not(.instagram):not(.fullview):not(.blog) {
     @include mobile {
       padding: 20px;
     }
