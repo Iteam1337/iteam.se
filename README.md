@@ -1,281 +1,101 @@
-docpad-gulp
-===========
+# iteam.se
 
-A try at making a Docpad clone with Gulp
+The project requires `node@4.2.4`
 
-[![Build Status](http://drone.iteam.se/github.com/Iteam1337/docpad-gulp/status.svg?branch=master)](http://drone.iteam.se/github.com/Iteam1337/docpad-gulp)
+Project uses `assemble` and `gulp`
 
-First clone the repo
+**First clone the repo**
+```bash
+git clone https://github.com/Iteam1337/iteam.se.git
+```
 
-    git clone https://github.com/believer/docpad-gulp.git
+**Step in to the folder**
+```bash
+cd iteam.se
+```
 
-Step in to the folder
+**Install dependencies**
+```bash
+npm install
+```
 
-    cd docpad-gulp
+**Run tasks**
+```bash
+npm start
+```
 
-Install dependencies
-    
-    npm install -g gulp
-    npm install
-    
-Run gulp
+# Structure
 
-    gulp
-    
-# Partials
+## Pages
+**directory: `src/pages/`**
 
-All `HEX` colors need to be surrounded by quotation marks i.e. "#bada55"
-Gravatar images default to 80 pixels x 80 pixels if no size is supplied.
 
-## Shared optionals
-Most partials share similar optionals. They are referenced in each partial if it allows the variables.
+`index.hbs` gets rendered (this included sub-directories)
 
-* background: class name (color schemes are coming)
-* background-color: `HEX` / `RGB`
-* background-image: URL ( i.e. url(http://...) )
-* color: `HEX` / `RGB`
-* parallax: `Boolean` (if true background-image becomes static)
+## Layout
+**directory: `src/layouts/`**
 
-## Image list
+Add them as `.hbs`-files
 
-**Mandatory**
+To include layouts, define the partial in the top-`yaml` as followed:
 
-* type
-* content
+```yml
+---
+partial: default
+---
+```
 
-**Example**
+**If default options should be used for layouts**, place them in `src/data/layouts/` as an `.yml`-file, with the same name as the layout
 
-    type: image-list
-    content:
-        -
-            image:
-                src: path/to/img.jpg
-                alt: Alt text
-            texts:
-                - Text to the left of the image
-                - Text to the right of the image
-                
-## Image
+## Partials
+**directory: `src/partials/`**
 
-**Mandatory**
+`.hbs`-files should be used
 
-* `type`
-* `image` or `background` (if start is true)
+They are included by using `{{>partial}}` or using the `partials`-layout and
+including the `partials:` in the top-`yaml`
 
-**Optional**
+An example for the top-`yaml`:
 
-* background: `HEX` `RGB` 
-* title: `String`
-* start: `Boolean` (Tells template that image is first on page and allows title etc.)
-* hasDown: `Boolean` (Shows arrow pointing down)
-* height: `Pixels`
-* downBg: `HEX` / `RGB` (background color of down arrow)
+```yml
+---
+layout: partials
+partials:
+    -
+        type: partial-file-name
+        options: data to send to partial
+        options-2: can be multiple options
+---
+```
 
-**Example**
-    
-    type: image
-    image:
-        src: /images/case.jpg
-        alt: Case image
-    start: true
-    title: Case title
-    hasDown: true
+## Data
+**directory: `src/data/`**
 
-## List
+Not used more than default options for layouts, at the moment
 
-Splits items in to a two column layout
+## Content
+**directory: `src/content/`**
 
-**Mandatory**
+The content that should be copied to the final project should be placed in this folder
 
-* type
-* items
+This can include images and fonts
 
-**Example**
+## Scripts
+**directory: `src/scripts/`**
 
-    type: list
-    items:
-        - First item
-        - Second item
-        - Third item
+All scripts used on the page should be placed in `src/scripts/`
 
-## Map
+They are all concatinated and uglified
 
-**Mandatory**
+## Stylesheets
+**directory: `src/scss/`**
 
-* type
+This project uses `scss` for the stylesheet
 
-**Example**
+The first file included is `all.scss`. So if there should be new files included, do try to follow the structure that the project uses
 
-    type: map
+## Tests
+**directory: `src/test/`**
 
-## Mosaic
+The testframework used is `mocha`
 
-**Mandatory**
-
-* type: `String`
-* images: `Array`
-
-**Optional**
-
-* background
-* background-color
-
-**Example**
-
-    type: mosaic
-    images:
-        - URL to image
-        - URL to second image
-
-## Offers
-
-**Mandatory**
-
-* type
-
-**Optional**
-
-* background
-* background-color
-
-**Example**
-
-    type: offers
-
-## Quote
-
-**Mandatory**
-
-* type
-* quote
-
-**Optional**
-* by (Name of quotee)
-* background
-* background-color
-
-**Example**
-
-    type: quote
-    quote: I wish developing great products was as easy as writing a check.
-    by: Steve Jobs
-
-## Side image
-
-**Mandatory**
-
-* type
-* text
-* image
-
-**Optional**
-
-* background
-* background-color
-* color
-
-**Example**
-
-    type: side-image
-    text: Lorem ipsum...
-    image:
-        src: path/to/img.jpg
-        alt: alt-text
-
-## Slider
-
-**Mandatory**
-
-* type
-* content
-
-**Example**
-
-    type: slider
-    content:
-        -
-            image: path/to/img.jpg
-        -
-            image: path/to/img.jpg
-            text: Lorem ipsum...
-        -
-            text: Lorem ipsum...
-        -
-            image: path/to/img.jpg
-            title: Iteam
-
-## Stats
-
-**Mandatory**
-
-* type
-* items
-    * number
-    * title
-
-**Optional**
-* background
-* background-color
-* color
-* description
-* title
-
-**Example**
-
-    type: stats
-    title: Statistics
-    description: Lorem ipsum...
-    items:
-        -
-            number: 9001
-            text: It's over
-
-## Team
-
-**Mandatory**
-
-* `type`
-* `team` (array of selected folder names in medarbetare)
-
-**Optional**
-
-* gravatar-sizes: `int`
-* background
-* background-color
-
-**Example**
-
-    type: team
-    gravatar-sizes: 200
-    team:
-        - rickard
-        - dennis
-
-
-## Text
-
-**Mandatory**
-
-* type
-* content or mdtext
-
-**Optional**
-
-* background
-* background-color
-* background-image
-* color
-* parallax
-* one-line (Text is on one line strips some padding and centers text)
-
-**Example**
-
-    type: text
-    mdtext: text (automatically looks in the same folder as the index file and adds .md)
-    
-or
-    
-    type: text
-    content: Lorem ipsum...
-    background-color: "#333"
-    color: "#fff"
