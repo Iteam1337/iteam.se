@@ -5,7 +5,10 @@
 $bg-color: $color--pink;
 
 .selected-cases {
-  display: table;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  align-items: center;
 
   &.partial {
     padding: 0;
@@ -18,10 +21,6 @@ $bg-color: $color--pink;
   }
 
   @include mobile {
-    display: flex;
-    flex-wrap: wrap;
-    flex-flow: row;
-    align-items: center;
     flex-flow: column;
   }
 
@@ -31,7 +30,7 @@ $bg-color: $color--pink;
     padding: 0;
     min-height: 100%;
     max-height: 100%;
-    display: table-cell;
+    display: block;
     .count-1 & {
       width: 100%;
     }
@@ -50,7 +49,6 @@ $bg-color: $color--pink;
     }
 
     @include mobile {
-      display: block;
       width: 100% !important;
       max-height: 140px;
     }
