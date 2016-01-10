@@ -135,9 +135,9 @@ function getPages(options, engine) {
     .sort((a, b) => {
       // position 'You' last
       if (type === 'coworker') {
-        if (a.order === undefined) {
+        if (a.order === null) {
           return 1
-        } else if (b.order === undefined) {
+        } else if (b.order === null) {
           return -1
         }
       }
