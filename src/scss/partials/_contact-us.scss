@@ -17,6 +17,16 @@
     width: 50%;
     text-align: center;
     margin: 0 auto;
+
+    &:first-child {
+      @include mobile {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__link,

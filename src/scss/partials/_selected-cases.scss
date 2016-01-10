@@ -33,6 +33,9 @@ $bg-color: $color--pink;
     flex-grow: 0;
     flex-shrink: 1;
     padding: 0 5px;
+    &.no-image {
+      height: 100%;
+    }
     @include mobile {
       width: 100%;
       flex-grow: 1;

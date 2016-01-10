@@ -11,13 +11,15 @@
   <div class="fullview__overlay">
     <div class="grid-fullwidth">
       <div class="fullview__content selected-cases">
-        {{#selectedCases cases=cases}}
+        {{#selectedCases cases=cases default=default}}
           {{#each data}}
-            <div class="selected-cases__block">
+            <div class="selected-cases__block{{#unless thumbnail}} no-image{{/unless}}">
               <div class="selected-case">
                 <a href="{{ url }}" class="selected-case__element">
                   <span class="selected-case__overlay"></span>
-                  <img class="selected-case__image" src={{ thumbnail }} />
+                  {{#if thumbnail}}
+                    <img class="selected-case__image" src={{ thumbnail }} />
+                  {{/if}}
 
                   <h3 class="selected-case__title">{{ subtitle }}</h3>
                 </a>
@@ -25,7 +27,7 @@
             </div>
           {{/each}}
         {{/selectedCases}}
-     </div>
+      </div>
     </div>
   </div>
 </div>

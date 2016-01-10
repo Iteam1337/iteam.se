@@ -6,7 +6,12 @@ const slugify = require('./slugify')
 function selectedCases(options) {
   const hash = options.hash || {}
   const cases = hash.cases || []
+  const defaultCase = hash.default || null
   const data = []
+
+  if (defaultCase) {
+    data.push(defaultCase)
+  }
 
   cases.forEach(caseName => {
   	const frontmatter = front
@@ -25,7 +30,8 @@ function selectedCases(options) {
   })
 
   return options.fn({
-    data
+    data,
+    count: data.length
   })
 }
 

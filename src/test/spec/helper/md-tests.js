@@ -7,7 +7,7 @@ const proxyquire = require('proxyquire')
 
 chai.use(require('sinon-chai'))
 
-describe('md', () => {
+describe('helper', () => {
   let md
   let fs
   let marked
@@ -33,7 +33,7 @@ describe('md', () => {
 
     path = {}
 
-    md = proxyquire(process.cwd() + '/src/helpers/md', {
+    md = proxyquire(`${process.cwd()}/src/helpers/md`, {
       'marked': marked,
       'fs': fs,
       'path': path

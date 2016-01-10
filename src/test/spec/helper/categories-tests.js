@@ -7,7 +7,7 @@ const proxyquire = require('proxyquire')
 
 chai.use(require('sinon-chai'))
 
-describe('categories', () => {
+describe('helper', () => {
   const categories = proxyquire(`${process.cwd()}/src/helpers/categories`, {})
   let options
   let filters
