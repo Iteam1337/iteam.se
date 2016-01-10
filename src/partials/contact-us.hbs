@@ -7,26 +7,20 @@
     {{extra-classes}}
     {{#if background-color}} background-{{{background-color}}} {{/if}}
     {{#if color}} color-{{{color}}} {{/if}}
-  "
-  style="
-    {{#if background-image}}
-      background-image: url({{background-image}});
-    {{/if}}
-    {{#if height}}
-      height: {{height}};
-    {{/if}}
-    {{#if background-color}}
-      background-color: {{{hexFromString background-color}}};
-    {{/if}}
-    {{#if background-position}}
-      background-position: {{background-position}};
-    {{/if}}
+    {{#if overflow}} overflow transparent {{/if}}
   ">
   <div class="grid-full">
-    {{#if button-href}}
-      {{#if text}}{{{markdown text}}}{{/if}}
-      {{#if mdtext}}{{{md mdtext}}}{{/if}}
-        <a href="{{{button-href}}}">{{button-text}}</a>
-    {{/if}}
+    <div class="contact-us__container">
+      {{#if button-href}}
+        <div class="contact-us__item">
+          <div class="contact-us__text">
+            {{#if text}}{{{markdown text}}}{{/if}}{{#if mdtext}}{{{md mdtext}}}{{/if}}
+          </div>
+        </div>
+        <div class="contact-us__item">
+          <a class="contact-us__link" href="{{{button-href}}}">{{button-text}}</a>
+        </div>
+      {{/if}}
+    </div>
   </div>
 </div>

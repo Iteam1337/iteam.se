@@ -10,6 +10,9 @@
 
   @mixin element($background, $color) {
     background: $background;
+    &.transparent {
+      background: rgba($background, .5);
+    }
     @include text-colors($color);
   }
 
@@ -20,6 +23,7 @@
     &-orange {
       @include element($color--orange, $color--black);
     }
+    &-pink,
     &-red {
       @include element($color--pink, $color--white);
     }
