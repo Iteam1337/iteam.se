@@ -1,20 +1,30 @@
 .contact-us {
-
+  width: 100%;
   &.partial {
     padding: 20px 0;
   }
 
   &.overflow {
-    margin-top: -75px;
+    position: absolute;
+    margin-top: -70px;
+    width: 100%;
+    @include devices(mobile-landscape, tablet) {
+      margin-top: -65px;
+    }
+    @include mobile {
+      margin-top: -60px;
+    }
   }
 
   &__container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
     width: 100%;
   }
 
   &__item {
-    display: inline-block;
-    width: 50%;
+    flex: 1 1 auto;
     text-align: center;
     margin: 0 auto;
 
