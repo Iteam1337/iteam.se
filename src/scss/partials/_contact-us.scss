@@ -5,15 +5,8 @@
   }
 
   &.overflow {
-    position: absolute;
-    margin-top: -70px;
+    position: static;
     width: 100%;
-    @include devices(mobile-landscape, tablet) {
-      margin-top: -65px;
-    }
-    @include mobile {
-      margin-top: -60px;
-    }
   }
 
   &__container {
