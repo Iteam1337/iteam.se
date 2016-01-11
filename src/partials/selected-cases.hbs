@@ -21,7 +21,7 @@
             </div>
           {{/if}}
 
-          <h3 class="selected-case__title">{{ subtitle }}</h3>
+          <h3 class="selected-case__title">{{#if case-title}}{{case-title}}{{else}}{{subtitle}}{{/if}}</h3>
         </a>
       </div>
     </div>
