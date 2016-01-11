@@ -38,7 +38,7 @@
 
       var p = document.createElement('p');
       var pText = (tempNode.textContent || tempNode.innerText || '');
-      if (pText.length >= 120) {
+      if (pText.length >= 80) {
         pText = dashesAtFirstSpace(pText, 80);
       }
       p.innerHTML = pText;
