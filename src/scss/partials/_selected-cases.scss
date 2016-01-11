@@ -79,6 +79,7 @@ $bg-color: $color--pink;
       display: flex;
       overflow: hidden;
       border: none;
+      margin: 0;
 
       @include mobile {
         max-height: 100%;
