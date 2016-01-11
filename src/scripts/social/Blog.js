@@ -37,7 +37,11 @@
       tempNode.innerHTML = data.content;
 
       var p = document.createElement('p');
-      p.innerHTML = (tempNode.textContent || tempNode.innerText || '').slice(0, 120) + ' …';
+      var pText = (tempNode.textContent || tempNode.innerText || '');
+      if (pText.length >= 120) {
+        pText = dashesAtFirstSpace(pText, 80);
+      }
+      p.innerHTML = pText;
 
       var node = document.createElement('li');
 

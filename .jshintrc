@@ -29,6 +29,7 @@
     "Github": true,
     "Blog": true,
     "BlogIteam": true,
-    "Meetup": true
+    "Meetup": true,
+    "dashesAtFirstSpace": true
   }
 }

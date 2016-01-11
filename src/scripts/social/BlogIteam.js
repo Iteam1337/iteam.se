@@ -23,29 +23,29 @@
 
     array.forEach(function (data, i) {
       var node = document.createElement('li');
-      var h3 = document.createElement('h3');
+      var h4 = document.createElement('h4');
       var a = document.createElement('a');
-      var span = document.createElement('span');
+      var small = document.createElement('small');
       var tempNode = document.createElement('pre');
       a.setAttribute('href', data.link);
       a.setAttribute('target', '_blank');
 
       tempNode.innerHTML = data.content;
-      var spanHTML = (tempNode.textContent || tempNode.innerText || '');
-      if (spanHTML.length >= 120) {
-        spanHTML = spanHTML.slice(0, 120) + ' …';
+      var smallHTML = (tempNode.textContent || tempNode.innerText || '');
+      if (smallHTML.length >= 80) {
+        smallHTML = dashesAtFirstSpace(smallHTML, 80);
       }
-      span.innerHTML = spanHTML;
+      small.innerHTML = smallHTML;
 
       tempNode.innerHTML = data.title;
       var titleHTML = (tempNode.textContent || tempNode.innerText || '');
-      if (titleHTML.length >= 25) {
-        titleHTML = titleHTML.slice(0, 25) + ' …';
+      if (titleHTML.length >= 30) {
+        titleHTML = dashesAtFirstSpace(titleHTML, 30);
       }
-      h3.innerHTML = titleHTML;
+      h4.innerHTML = titleHTML;
 
-      a.appendChild(h3);
-      a.appendChild(span);
+      a.appendChild(h4);
+      a.appendChild(small);
       node.appendChild(a);
 
       if (data.image) {
