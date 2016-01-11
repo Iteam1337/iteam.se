@@ -22,23 +22,31 @@
     var newElement = document.createElement('ul');
 
     array.forEach(function (data, i) {
+      var node = document.createElement('li');
       var h3 = document.createElement('h3');
       var a = document.createElement('a');
+      var span = document.createElement('span');
+      var tempNode = document.createElement('pre');
       a.setAttribute('href', data.link);
       a.setAttribute('target', '_blank');
-      a.innerHTML = data.title;
 
-      var tempNode = document.createElement('pre');
       tempNode.innerHTML = data.content;
+      var spanHTML = (tempNode.textContent || tempNode.innerText || '');
+      if (spanHTML.length >= 120) {
+        spanHTML = spanHTML.slice(0, 120) + ' …';
+      }
+      span.innerHTML = spanHTML;
 
-      var p = document.createElement('p');
-      p.innerHTML = (tempNode.textContent || tempNode.innerText || '').slice(0, 120) + ' …';
+      tempNode.innerHTML = data.title;
+      var titleHTML = (tempNode.textContent || tempNode.innerText || '');
+      if (titleHTML.length >= 25) {
+        titleHTML = titleHTML.slice(0, 25) + ' …';
+      }
+      h3.innerHTML = titleHTML;
 
-      var node = document.createElement('li');
-
-      h3.appendChild(a);
-      node.appendChild(h3);
-      node.appendChild(p);
+      a.appendChild(h3);
+      a.appendChild(span);
+      node.appendChild(a);
 
       if (data.image) {
         var imageElement = document.createElement('div');
