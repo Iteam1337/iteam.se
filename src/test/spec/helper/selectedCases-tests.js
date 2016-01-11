@@ -65,7 +65,7 @@ describe('helper', () => {
         data: [{
           classes: '',
           foo: 'bar',
-          url: 'vimla'
+          url: '/case/vimla'
         }]
       })
     })
@@ -97,7 +97,7 @@ describe('helper', () => {
           }, {
             classes: '',
             foo: 'bar',
-            url: 'vimla'
+            url: '/case/vimla'
           }]
         })
     })

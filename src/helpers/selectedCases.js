@@ -17,7 +17,7 @@ function selectedCases(options) {
   	const frontmatter = front
       .loadFront(`./src/pages/case/${caseName}/index.hbs`)
 
-  	frontmatter.url = caseName.toLowerCase()
+  	frontmatter.url = `/case/${caseName.toLowerCase()}`
     frontmatter.classes = ''
 
     if (frontmatter.categories ) {
