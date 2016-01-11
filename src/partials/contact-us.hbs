@@ -10,16 +10,22 @@
   ">
   <div class="grid-full">
     <div class="contact-us__container">
-      {{#if button-href}}
-        <div class="contact-us__item">
-          <div class="contact-us__text">
-            {{#if text}}{{{markdown text}}}{{/if}}{{#if mdtext}}{{{md mdtext}}}{{/if}}
-          </div>
+      <div class="contact-us__item">
+        <div class="contact-us__text">
+          {{#if text}}{{{markdown text}}}{{/if}}{{#if mdtext}}{{{md mdtext}}}{{/if}}
         </div>
-        <div class="contact-us__item">
+      </div>
+
+      <div class="contact-us__item">
+        {{#if button-href}}
           <a class="contact-us__link" href="{{{button-href}}}">{{button-text}}</a>
-        </div>
-      {{/if}}
+        {{/if}}
+        {{#if button-coworker}}
+          <a class="contact-us__link" href="{{contact coworker=button-coworker subject=button-subject}}">
+            {{button-text}}
+          </a>
+        {{/if}}
+      </div>
     </div>
   </div>
 </div>
