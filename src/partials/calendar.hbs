@@ -6,15 +6,14 @@
           <div class="date">{{time}}</div>
         {{/if}}
 
-        {{#ifCond link '&&' title}}
-          <h3 class="title">
-            <a href="{{link}}">
-              {{title}}
-            </a>
-          </h3>
-        {{else}}
-
-          {{#if link}}
+        {{#if link}}
+          {{#if title}}
+            <h3 class="title">
+              <a href="{{link}}">
+                {{title}}
+              </a>
+            </h3>
+          {{else}}
             <h3 class="title">
               {{#if time}}
                 <a href="{{link}}">{{time}}</a>
@@ -23,11 +22,11 @@
               {{/if}}
             </h3>
           {{/if}}
-
+        {{else}}
           {{#if title}}
-            <stong>{{title}}</strong>
+            <strong>{{title}}</strong>
           {{/if}}
-        {{/ifCond}}
+        {{/if}}
 
         {{#if text}}
           {{{text}}}

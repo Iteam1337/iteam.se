@@ -23,7 +23,10 @@ function calendar(options) {
     })
   }
 
+  // if (options.fn) {
   return options.fn(filtered)
+  // }
+  // return filtered
 }
 
 module.exports = calendar
