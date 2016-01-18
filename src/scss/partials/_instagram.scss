@@ -44,3 +44,13 @@
     }
   }
 }
+
+.instagram__header {
+  display: flex;
+  flex-wrap: wrap;
+
+  img,
+  video {
+    @include size(10%);
+  }
+}

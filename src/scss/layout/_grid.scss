@@ -49,6 +49,10 @@ body > .container {
       @include devices(mobile-landscape, mobile) {
         flex-wrap: wrap;
       }
+
+      &.wider {
+        max-width: 1200px;
+      }
     }
 
     &-fullwidth {

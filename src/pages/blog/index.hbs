@@ -1,0 +1,39 @@
+---
+subtitle: Blog posts
+menu-order: 4
+menu-title: Blog
+
+body-class:
+unpublished: true
+page-color: green
+
+top-content:
+  type: fullview
+  extra-classes: padding-top
+  color: white
+  hasArrow: true
+  background-color: blue
+  background-image: /content/images/section-top/medarbetare_multiply.jpg
+  mdtext: src/pages/blog/main-block
+
+layout: partials
+partials:
+---
+{{>fullview top-content}}
+
+<div class="
+  row
+  blogs
+  partial
+  {{#if color}} color-{{{color}}} {{/if}}
+  {{#if background-color}} background-{{{background-color}}} {{/if}}">
+  <div class="grid-full">
+    <div class="row">
+      <div
+        class="blog-posts-full"
+        data-blog-iteam-full-information="true"
+        data-blog-iteam-query=""
+        data-blog-iteam-count="50"></div>
+    </div>
+  </div>
+</div>
