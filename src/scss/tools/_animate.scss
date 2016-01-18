@@ -14,6 +14,18 @@ Animate.css - http://daneden.me/animate
   }
 }
 
+@include keyframes(fadeInDown) {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @include keyframes(fadeIn) {
   from {
     opacity: 0;
@@ -43,4 +55,14 @@ $animation--fill: both;
   @include animationOptions;
 
   animation-name: fadeInUp;
+}
+
+.fadeInDown {
+  @include animationOptions;
+
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-fill-mode: $animation--fill;
+  animation-iteration-count: infinite;
+  animation-name: fadeInDown;
 }
