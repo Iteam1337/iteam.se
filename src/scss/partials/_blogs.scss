@@ -89,7 +89,7 @@
         @include element($color--black, $color--white);
       }
       &:nth-child(6n+6) {
-        @include element($color--orange, $color--white);
+        @include element($color--blue, $color--white);
       }
       &.contains-background {
         position: relative;

@@ -38,32 +38,37 @@
     }
     var newElement = document.createElement('div');
     array.forEach(function (data, i) {
+      var elm = null;
       var node = null;
       var source = null;
       var video = null;
       var image = null;
+      var link = null;
+
       if (data.type === 'twitter') {
         node = document.createElement('div');
         node.innerHTML = _this.parseLinks(data.text);
       } else if (data.type === 'image') {
-        node = document.createElement('img');
+        node = document.createElement('a');
+        elm = document.createElement('img');
         image = data.image[_this.resolution];
-        node.setAttribute('src', image.url);
-        node.setAttribute('width', image.width);
-        node.setAttribute('height', image.height);
-        node.setAttribute('href', data.link);
+        elm.setAttribute('src', image.url);
+
         node.setAttribute('target', '_blank');
+        node.setAttribute('href', data.link);
+        node.appendChild(elm);
       } else if (data.type === 'video') {
-        node = document.createElement('video');
+        node = document.createElement('a');
+        elm = document.createElement('video');
         source = document.createElement('source');
         video = data.video[_this.resolution];
-        node.setAttribute('poster', data.image[_this.resolution].url);
-        node.setAttribute('width', video.width);
-        node.setAttribute('height', video.height);
-        node.setAttribute('controls', 'controls');
+        elm.setAttribute('poster', data.image[_this.resolution].url);
+        elm.setAttribute('controls', 'controls');
         source.setAttribute('src', video.url);
         source.setAttribute('type', getType(video.url));
-        node.appendChild(source);
+        elm.appendChild(source);
+
+        node.appendChild(elm);
       } else {
         node = document.createElement('span');
       }

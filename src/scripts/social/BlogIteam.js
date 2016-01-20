@@ -100,8 +100,7 @@
       arrow.classList.add('blog__arrow')
 
       readMoreLink.setAttribute('href', '/blog');
-
-      readMore.innerHTML = 'Read more posts  from us';
+      readMore.innerHTML = 'Read more posts from us';
 
       readMoreLink.appendChild(readMore);
       readMoreLink.appendChild(arrow);
