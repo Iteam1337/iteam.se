@@ -32,7 +32,7 @@
       query = getAttributeValue(query);
       count = getAttributeValue(count) || 3;
       resolution = getAttributeValue(resolution) || '';
-      fullInformation = getAttributeValue(fullInformation) === 'true' ? true : false;
+      fullInformation = getAttributeValue(fullInformation) === 'true';
 
       var clearOnEmpty = document.querySelectorAll('[' + getAttributeString(3) + ']');
 
