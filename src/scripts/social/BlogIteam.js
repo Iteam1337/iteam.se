@@ -24,7 +24,7 @@
     var newElement = document.createElement('ul');
     var self = this;
 
-    array.forEach(function (data, i) {
+    array.forEach(function (data) {
       var node = document.createElement('li');
       var h4 = document.createElement('h4');
       var a = document.createElement('a');
@@ -84,7 +84,7 @@
         node.className = 'contains-background';
         imageElement.className = 'background-element';
         imageElement.style.backgroundImage = 'url(' + data.image + ')';
-        node.appendChild(imageElement)
+        node.appendChild(imageElement);
       }
 
       newElement.appendChild(node);
@@ -97,7 +97,7 @@
       var arrow = new Image();
       readMore.classList.add('blog__title');
       arrow.src = '/content/images/icons/Iteam-icon-13.png';
-      arrow.classList.add('blog__arrow')
+      arrow.classList.add('blog__arrow');
 
       readMoreLink.setAttribute('href', '/blog');
       readMore.innerHTML = 'Read more posts from us';

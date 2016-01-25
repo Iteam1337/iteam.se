@@ -8,8 +8,6 @@ const $ = require('gulp-load-plugins')()
 const runSequence = require('run-sequence')
 const rimraf = require('rimraf')
 
-const glob = require('glob')
-
 const mergeContext = require('./lib/mergeContext')
 const getConfigs = require('./lib/getConfigs')
 
@@ -45,8 +43,6 @@ gulp.task('clean', () =>
 gulp.task('jshint', () =>
   gulp
     .src([
-      'src/helpers/**/*.js',
-      'src/test/**/*.js',
       'lib/**/*.js',
       'src/scripts/**/*.js'
     ])

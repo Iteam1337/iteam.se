@@ -40,7 +40,6 @@
 
   Social.prototype.toggleVisibility = function (hide) {
     var hidden = /(?:^|\\s)hidden(?:$|\\s)/gi;
-    var isVisible = (this.hideOnEmpty.className.match(hidden) !== null);
     if (hide) {
       this.hideOnEmpty.className += ' hidden';
     } else {
@@ -108,7 +107,9 @@
    * @param  {array}       array
    * @return {HTMLElement}
    */
-  Social.prototype.prerender = function (array) {};
+  Social.prototype.prerender = function (array) {
+    console.info('constructor', array);
+  };
 
   Social.prototype.render = function (array) {
     if (!array ||
@@ -128,7 +129,7 @@
    * @return {[array, timestamp]}
    */
   Social.prototype.handleResponse = function (response) {
-    console.info('constructor');
+    console.info('constructor', response);
   };
 
   Social.prototype.getContent = function () {

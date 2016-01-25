@@ -1,5 +1,5 @@
 (function () {
-  'use strict'
+  'use strict';
 
   function SocialHub(type, count, resolution) {
     window.Social.apply(this, [type, count]);
@@ -19,15 +19,19 @@
   SocialHub.prototype = Object.create(window.Social.prototype);
 
   SocialHub.prototype.parseLinks = function (text) {
-    var regex = /((http(s)?:\/\/)|\b|^)[a-zA-Z0-9\-_\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?([a-zA-Z0-9åäö\!\&\-\.\_\?\,\'\/\\\+\;\%\$\#\=\~\:\(\)\@])*/gi;
+    var regex;
+    /* jshint ignore:start */
+    regex = /((http(s)?:\/\/)|\b|^)[a-zA-Z0-9\-_\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?([a-zA-Z0-9åäö\!\&\-\.\_\?\,\'\/\\\+\;\%\$\#\=\~\:\(\)\@])*/gi;
+    /* jshint ignore:end */
     return text.replace(regex, function (str) {
-      return '<a target="_blank" href="' + ((!arguments[2]) ? '//' + str : str) + '">' + str + '</a>';
+      var href = !arguments[2] ? '//' + str : str;
+      return '<a target="_blank" href="' + href + '">' + str + '</a>';
     });
-  }
+  };
 
   SocialHub.prototype.URL = function () {
     return this.url + this.handle + '?count=' + this.count;
-  }
+  };
 
   SocialHub.prototype.prerender = function (array) {
     var _this = this;
@@ -37,13 +41,12 @@
       return 'video/' + str.substr(i + 1);
     }
     var newElement = document.createElement('div');
-    array.forEach(function (data, i) {
+    array.forEach(function (data) {
       var elm = null;
       var node = null;
       var source = null;
       var video = null;
       var image = null;
-      var link = null;
 
       if (data.type === 'twitter') {
         node = document.createElement('div');
@@ -75,7 +78,7 @@
       newElement.appendChild(node);
     });
     return newElement;
-  }
+  };
 
   SocialHub.prototype.handleResponse = function (response) {
     if ('function' === typeof response) {
@@ -86,15 +89,16 @@
       if (response.error !== null) {
         console.error(response.error);
       }
+      /* jshint ignore:start */
       if (response.data && response.data.length && response.data[0].created_at) {
         return [response.data, response.data[0].created_at];
       }
+      /* jshint ignore:end */
     } catch (error) {
       console.error(error);
     }
     return [[], 0];
-
-  }
+  };
 
   SocialHub.prototype.constructor = window.Social;
   window.SocialHub = SocialHub;

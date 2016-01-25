@@ -3,7 +3,7 @@
 const front = require('yaml-front-matter')
 const Handlebars = require('handlebars')
 
-function hb(path, options) {
+function hb(path) {
   if (path.match(/^\//) !== null) {
     path = `.${path}`
   }

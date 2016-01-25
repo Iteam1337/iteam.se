@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+
   var paths = window.location.pathname.split('/');
   var firstPath = '/' + paths[1];
   var secondPath = '/' + paths[1] + '/' + paths[2];

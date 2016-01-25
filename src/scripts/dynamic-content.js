@@ -11,6 +11,8 @@
 
   ['twitter', 'instagram', 'github', 'blog', 'blog-iteam', 'meetup']
     .forEach(function (type) {
+      var container;
+
       function getAttributeString(pos) {
         return attr[pos].replace('{type}', type);
       }
@@ -23,7 +25,7 @@
       var resolution = getAttributeString(2);
       var fullInformation = getAttributeString(4);
 
-      var container = document.querySelectorAll('[' + query + ']');
+      container = document.querySelectorAll('[' + query + ']');
       if (!container.length) {
         return;
       }
