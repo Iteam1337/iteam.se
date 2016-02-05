@@ -41,6 +41,7 @@ $mobile-width: 100%;
   &.partial {
     align-items: center;
     min-height: 100%;
+    padding-bottom: 0;
     @include mobile {
       padding: 0;
     }

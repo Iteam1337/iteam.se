@@ -1,0 +1,27 @@
+<div
+  class="
+    row
+    partial
+    contributions
+    {{#if background-color}} background-{{{background-color}}} {{/if}}
+    {{#if color}} color-{{{color}}} {{/if}}
+  "
+  style="
+    {{#if background-color}}
+      background-color: {{{ hexFromString background-color }}};
+    {{/if}}
+    {{#if color}}
+      color: {{{ hexFromString color }}};
+    {{/if}}
+  ">
+  <div class="grid-full">
+    <h3>Contributions</h3>
+    <ul>
+        {{#each category}}
+          <li>
+            {{this}}
+          </li>
+        {{/each}}
+    </ul>
+  </div>
+</div>
