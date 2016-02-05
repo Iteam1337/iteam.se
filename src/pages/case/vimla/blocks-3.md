@@ -1,3 +1,0 @@
-### Utmaningen
-
-Det var ont om tid och mycket skulle göras på kort tid. Uppdraget startade med att vi på Iteam tog fram en prototyp av Vimla, som vid det laget inte hette Vimla och vars grafiska profil inte heller var fastställd. Prototypen förmedlade en känsla för hur resultatet skulle kunna se ut så att det resterande Vimlagruppen enkelt kunde återkomma med feedback på färg, form och funktionalitet. Genom vägen fram arbetade Iteams frontendutvecklare och Made to orders designer mycket tätt och bredvid varandra för att snabbt jobba fram den slutgiltiga formen. Samtidigt som designen formades arbetade Iteams systemutvecklare med funktionaliteten på baksidan. Det skapade effektivitet i framtagandet av Vimla.
