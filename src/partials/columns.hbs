@@ -1,0 +1,17 @@
+<div class="
+  row
+  partial
+  columns
+  has-background
+  columns-count-{{ blocks.length }}
+  {{#if background-color}} background-{{{background-color}}} {{/if}}
+">
+  <div class="grid-full">
+    {{#each blocks}}
+      <div class="column">
+        <img class="column--image" src="http://lorempixel.com/g/150/150/" />
+        <h4 class="column--title">{{ title }}</h4>
+      </div>
+    {{/each}}
+  </div>
+</div>
