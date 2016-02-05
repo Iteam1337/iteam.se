@@ -1,0 +1,31 @@
+.columns {
+  .column {
+    text-align: center;
+  }
+
+  &-count-2 {
+    .column {
+      width: 50%;
+    }
+  }
+  &-count-3 {
+    .column {
+      width: 33.333333%;
+    }
+  }
+  &-count-4 {
+    .column {
+      width: 25%;
+    }
+  }
+}
+
+.column--image {
+  display: inline-block;
+}
+
+.column--title {
+  text-align: center;
+  font-size: 21px;
+  font-weight: 500;
+}
