@@ -15,10 +15,11 @@
   Github.prototype.handleResponse = function (response) {
     try {
       response = JSON.parse(response);
-
+      /* jshint ignore:start */
       if (response && response.length && response[0].pushed_at) {
         return [response, response[0].pushed_at];
       }
+      /* jshint ignore:end */
     } catch (error) {
       console.error(error);
     }
@@ -28,9 +29,11 @@
   Github.prototype.prerender = function (array) {
     var newElement = document.createElement('ul');
 
-    array.forEach(function (data, i) {
+    array.forEach(function (data) {
       var a = document.createElement('a');
+      /* jshint ignore:start */
       a.setAttribute('href', data.html_url);
+      /* jshint ignore:end */
       a.setAttribute('target', '_blank');
       a.innerHTML = data.name;
 

@@ -12,4 +12,6 @@ Johan Littorin, Telenor, 0734 41 72 85
 
 ### Samarbetspartner
 
-[Made to order](http://www.madetoorder.se/)
+* [Made to order](http://www.madetoorder.se/)
+* [Antrop](http://www.antrop.se/)
+* [Kärnhuset](http://karnhuset.net/)

@@ -53,7 +53,7 @@
 
   @media (min-width: $max-width) {
     font-size: $max;
-    line-height: font-size-reduce($max);
+    line-height: font-size-reduce($max, 175%);
   }
 }
 

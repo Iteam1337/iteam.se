@@ -25,22 +25,39 @@
 // Element - Instagram content
 .instagram__content {
   display: flex;
-  flex: 1;
-  width: 100%;
 
-  video,
-  img {
-    @include size(25%, 30%);
+  a {
+    border: 0;
+    display: block;
+    line-height: 0;
+    margin: 0;
+
+    img,
+    video {
+      max-width: 100%;
+    }
   }
 
   @include mobile {
     display: block;
 
-    video,
-    img {
-      @include size(100%);
+    a {
+      video,
+      img {
+        @include size(100%);
 
-      display: block;
+        display: block;
+      }
     }
+  }
+}
+
+.instagram__header {
+  display: flex;
+  flex-wrap: wrap;
+
+  img,
+  video {
+    @include size(10%);
   }
 }

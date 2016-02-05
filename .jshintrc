@@ -4,11 +4,14 @@
   "eqeqeq": true,
   "expr": true,
   "undef": true,
+  "unused": true,
   "maxcomplexity": 10,
   "node": true,
   "esnext": true,
   "asi": true,
-  "laxcomma":true,
+  "laxcomma": true,
+  "camelcase": true,
+  "quotmark": "single",
   "globals": {
     "describe": true,
     "xdescribe": true,
@@ -18,18 +21,6 @@
     "beforeEach": true,
     "after": true,
     "afterEach": true,
-    "document": true,
-    "window": true,
-    "XMLHttpRequest": true,
-    "URL": true,
-    "escape": true,
-    "Image": true,
-    "Social": true,
-    "SocialHub": true,
-    "Github": true,
-    "Blog": true,
-    "BlogIteam": true,
-    "Meetup": true,
-    "dashesAtFirstSpace": true
+    "escape": true
   }
 }
