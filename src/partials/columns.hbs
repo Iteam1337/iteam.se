@@ -9,8 +9,13 @@
   <div class="grid-full">
     {{#each blocks}}
       <div class="column">
-        <img class="column--image" src="http://lorempixel.com/g/150/150/" />
-        <h4 class="column--title">{{ title }}</h4>
+        {{#if image}}
+          <img class="column--image" src="{{ image }}" />
+        {{/if}}
+          <h3 class="column--title">{{ title }}</h3>
+        {{#if text}}
+          <div class="column--text">{{ text }}</div>
+        {{/if}}
       </div>
     {{/each}}
   </div>
