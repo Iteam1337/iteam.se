@@ -1,17 +1,3 @@
-### Om Vimla
+### Utmaningen
 
-Vimla är en annorlunda mobiloperatör med ett enkelt fastprisabonnemang utan bindningstid, uppsägningstid eller dolda avgifter. Vimlas idé bygger på öppenhet och samarbete — man är inte kund, man är medlem. Om du hjälper andra medlemmar belönas du för det. Om du rekryterar nya medlemmar, får ni båda rabatt på månadskostnaden så länge ni är medlemmar.
-
-Den nya abonnemangsformen lanserades den 12 februari på [vimla.se](http://vimla.se/).
-
-### Pressfrågor
-
-[Johan Öbrink](/team/johan/)
-
-Johan Littorin, Telenor, 0734 41 72 85
-
-### Samarbetspartner
-
-* [Made to order](http://www.madetoorder.se/)
-* [Antrop](http://www.antrop.se/)
-* [Kärnhuset](http://karnhuset.net/)
+Det var ont om tid och mycket skulle göras på kort tid. Uppdraget startade med att vi på Iteam tog fram en prototyp av Vimla, som vid det laget inte hette Vimla och vars grafiska profil inte heller var fastställd. Prototypen förmedlade en känsla för hur resultatet skulle kunna se ut så att det resterande Vimlagruppen enkelt kunde återkomma med feedback på färg, form och funktionalitet. Genom vägen fram arbetade Iteams frontendutvecklare och Made to orders designer mycket tätt och bredvid varandra för att snabbt jobba fram den slutgiltiga formen. Samtidigt som designen formades arbetade Iteams systemutvecklare med funktionaliteten på baksidan. Det skapade effektivitet i framtagandet av Vimla.

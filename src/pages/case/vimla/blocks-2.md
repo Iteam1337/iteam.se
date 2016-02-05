@@ -1,3 +1,3 @@
-### Lösningen
+### Samarbetet är nyckeln
 
-Det unika i lösningen är att alla samarbetspartner har ett gemensamt och tydligt mål. Alla ville utveckla en produkt som vi tror mycket starkt på. Därför har arbetet för oss på Iteam inte bara handlat om systemutveckling utan det har även handlat om att utveckla varumärket och se till att Telenor har kunnat bygga sin produkt i den takt och i den ordning de önskat.
+Vimla bygger på öppenhet, som kund är du inte kund utan du är medlem och du är en stor del av Vimlas framtid. Emma-Klara Wächter och Johan Littorin på Vimla har arbetat hela tiden med att alla samarbetspartner ska uppleva en teamkänsla – vi är inte samarbetspartner, vi är kollegor. Detta har varit en viktig nyckel till framgång i vårt samarbete. Vi på Iteam har varit strategiskt involverade från starten av samarbetet, både vad gäller form och funktion. Samarbetet där vi som samarbetspartner är en del av Vimlagruppen, gör det enkelt för oss att förmedla vidare denna känsla till Vimlas medlemmar.
