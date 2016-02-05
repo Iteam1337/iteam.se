@@ -1,23 +1,26 @@
 .columns {
-  .column {
-    text-align: center;
-  }
+  display: flex;
+  justify-content: flex-start;
 
-  &-count-2 {
-    .column {
-      width: 50%;
-    }
+  .column {
+    flex: 1;
   }
-  &-count-3 {
-    .column {
-      width: 33.333333%;
-    }
-  }
-  &-count-4 {
-    .column {
-      width: 25%;
-    }
-  }
+  //
+  // &-count-2 {
+  //   .column {
+  //     width: 50%;
+  //   }
+  // }
+  // &-count-3 {
+  //   .column {
+  //     width: 33.333333%;
+  //   }
+  // }
+  // &-count-4 {
+  //   .column {
+  //     width: 25%;
+  //   }
+  // }
 }
 
 .column--image {
@@ -28,4 +31,9 @@
   text-align: center;
   font-size: 21px;
   font-weight: 500;
+}
+
+.column--text ul {
+  column-count: 2;
+  column-gap: 20px;
 }
