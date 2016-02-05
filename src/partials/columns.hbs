@@ -4,17 +4,19 @@
   columns
   has-background
   columns-count-{{ blocks.length }}
+  {{#if extra-classes}} {{extra-classes}} {{/if}}
   {{#if background-color}} background-{{{background-color}}} {{/if}}
+  {{#if color}} color-{{{color}}} {{/if}}
 ">
   <div class="grid-full">
     {{#each blocks}}
-      <div class="column">
+      <div class="column {{#if extra-classes}} {{extra-classes}} {{/if}}">
         {{#if image}}
           <img class="column--image" src="{{ image }}" />
         {{/if}}
           <h3 class="column--title">{{ title }}</h3>
-        {{#if text}}
-          <div class="column--text">{{ text }}</div>
+        {{#if mdtext}}
+          <div class="column--text">{{{md mdtext}}}</div>
         {{/if}}
       </div>
     {{/each}}
