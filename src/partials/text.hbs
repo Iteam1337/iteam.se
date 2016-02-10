@@ -1,7 +1,4 @@
 <div class="
-  row
-  partial
-  text
   {{#if image-position}} positioned {{/if}}
   {{#if one-line}} one-line {{/if}}
   {{#if parallax}} parallax{{/if}}
@@ -27,10 +24,10 @@
     padding-top: {{ padding-top }};
   {{/if}}
   ">
-  <div class="grid-full">
+  <div class="grid-full row text">
     {{#if image}}
     <img
-      class="{{ image.position }}"
+      class="{{ image.position }} col-lg-5"
       src="{{ image.src }}"
       alt="{{ image.alt }}"
       style="
@@ -38,15 +35,22 @@
         {{#if image.height}}height:{{image.height}};{{/if}}
       " />
     {{/if}}
-    <div class="row {{#if background-color}}{{ background-color }}{{/if}}">
+
+    {{#if title}}
+      <div class="col-xs-5">
+        <h3 class="title">{{ title }}</h3>
+        </div>
+    {{/if}}
+
+    <div class="col-xs {{#if background-color}}{{ background-color }}{{/if}}">
       {{#if content}}
-{{#markdown}}{{ content }}{{/markdown}}
+        {{#markdown}}{{ content }}{{/markdown}}
       {{/if}}
       {{#if mdtext}}
-{{{md mdtext}}}
+        {{{md mdtext}}}
       {{/if}}
       {{#if hbs}}
-{{{hb hbs}}}
+        {{{hb hbs}}}
       {{/if}}
     </div>
   </div>

@@ -1,118 +1,118 @@
-body > .container {
-  overflow: hidden;
-}
-
-.rows > .row {
-  padding: $margin 0;
-
-  @include mobile { padding: $margin / 2; }
-}
-
-.center {
-  @include center(both);
-
-  width: 100%;
-  z-index: 1;
-}
-
-.row {
-  z-index: 1;
-  box-sizing: border-box;
-  position: relative;
+.grid-full {
+  display: flex;
+  margin: 0 auto;
+  max-width: $max-width;
+  padding-left: 10px;
+  padding-right: 10px;
 
   @include mobile {
-    &.text {
-      padding: 40px;
-    }
+    padding: 0;
   }
 
-  .grid {
-    flex: 1 1;
-
-    &:not(.last) {
-      margin-right: 2%;
-    }
-
-    &-fullwidth,
-    &-full {
-      align-items: center;
-      display: flex;
-      margin: 0 auto;
-      max-width: $max-width;
-      padding-left: 10px;
-      padding-right: 10px;
-
-      @include mobile {
-        padding: 0;
-      }
-
-      @include devices(mobile-landscape, mobile) {
-        flex-wrap: wrap;
-      }
-
-      &.wider {
-        max-width: 1200px;
-      }
-    }
-
-    &-fullwidth {
-      padding: 0;
-      max-width: 100%;
-      width: 100%;
-      flex-flow: row;
-      justify-content: center;
-    }
-
-    &-wrapped {
-      flex-wrap: wrap;
-    }
-
-    &-half,
-    &-quarter {
-      @include box-sizing;
-
-      align-self: center;
-
-      &.top { align-self: flex-start; }
-    }
-
-    &-half {
-      width:50%;
-
-      @include mobile { width: 100%; }
-      &.text { padding: 0 $margin; }
-    }
-
-    &-quarter {
-      $top: 40px;
-
-      padding-right: $top;
-      max-width: 100%;
-      min-width: 25%;
-
-      &:nth-child(n+5) { margin-top: $top; }
-      &:nth-child(4n) { padding-right: 0; }
-
-      @include mobile { max-width: 100%; }
-    }
+  @include devices(mobile-landscape, mobile) {
+    flex-wrap: wrap;
   }
 
-  .align-top {
-    align-self: flex-start;
-  }
-
-  &.divide {
-    &:before {
-      @include center(x, top, 0);
-      @include size(100px, 3px);
-
-      background: $color__accent;
-      content: "";
-      display: block;
-    }
+  &.wider {
+    max-width: 1200px;
   }
 }
-
-.left {
-  margin-right: $margin / 2;
-}
+// body > .container {
+//   overflow: hidden;
+// }
+//
+// .rows > .row {
+//   padding: $margin 0;
+//
+//   @include mobile { padding: $margin / 2; }
+// }
+//
+// .center {
+//   @include center(both);
+//
+//   width: 100%;
+//   z-index: 1;
+// }
+//
+// .row {
+//   z-index: 1;
+//   box-sizing: border-box;
+//   position: relative;
+//
+//   @include mobile {
+//     &.text {
+//       padding: 40px;
+//     }
+//   }
+//
+//   .grid {
+//     flex: 1 1;
+//
+//     &:not(.last) {
+//       margin-right: 2%;
+//     }
+//
+//     &-fullwidth,
+//     }
+//
+//     &-fullwidth {
+//       padding: 0;
+//       max-width: 100%;
+//       width: 100%;
+//       flex-flow: row;
+//       justify-content: center;
+//     }
+//
+//     &-wrapped {
+//       flex-wrap: wrap;
+//     }
+//
+//     &-half,
+//     &-quarter {
+//       @include box-sizing;
+//
+//       align-self: center;
+//
+//       &.top { align-self: flex-start; }
+//     }
+//
+//     &-half {
+//       width:50%;
+//
+//       @include mobile { width: 100%; }
+//       &.text { padding: 0 $margin; }
+//     }
+//
+//     &-quarter {
+//       $top: 40px;
+//
+//       padding-right: $top;
+//       max-width: 100%;
+//       min-width: 25%;
+//
+//       &:nth-child(n+5) { margin-top: $top; }
+//       &:nth-child(4n) { padding-right: 0; }
+//
+//       @include mobile { max-width: 100%; }
+//     }
+//   }
+//
+//   .align-top {
+//     align-self: flex-start;
+//   }
+//
+//   &.divide {
+//     &:before {
+//       @include center(x, top, 0);
+//       @include size(100px, 3px);
+//
+//       background: $color__accent;
+//       content: "";
+//       display: block;
+//     }
+//   }
+// }
+//
+// .left {
+//   margin-right: $margin / 2;
+// }

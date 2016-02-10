@@ -1,5 +1,3 @@
-### Tools
-
 * .NET
 * N2CMS
 * MySQL
