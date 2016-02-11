@@ -49,14 +49,14 @@ describe('helper', () => {
     it('should call options.fn with the correct parameter', () => {
       front
         .loadFront
-        .withArgs('./src/pages/team/rickard/index.hbs')
+        .withArgs('./src/pages/contact/rickard/index.hbs')
         .returns({
           email: 'rickard.laurin@iteam.se'
         })
 
       front
         .loadFront
-        .withArgs('./src/pages/team/dennis/index.hbs')
+        .withArgs('./src/pages/contact/dennis/index.hbs')
         .returns({
           email: 'dennis.pettersson@iteam.se'
         })
@@ -74,7 +74,7 @@ describe('helper', () => {
             email: 'rickard.laurin@iteam.se'
           },
           logo: 'http://www.gravatar.com',
-          url: '/team/rickard',
+          url: '/contact/rickard',
           size: 200,
           name: {
             first: '',
@@ -88,7 +88,7 @@ describe('helper', () => {
             email: 'dennis.pettersson@iteam.se'
           },
           logo: 'http://www.gravatar.com',
-          url: '/team/dennis',
+          url: '/contact/dennis',
           size: 200,
           name: {
             first: '',

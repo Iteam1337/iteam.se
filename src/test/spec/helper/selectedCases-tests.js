@@ -58,14 +58,14 @@ describe('helper', () => {
       expect(options.fn).calledOnce
       expect(front.loadFront)
         .calledOnce
-        .calledWith('./src/pages/case/Vimla/index.hbs')
+        .calledWith('./src/pages/cases/Vimla/index.hbs')
 
       expect(options.fn).calledWith({
         count: 1,
         data: [{
           classes: '',
           foo: 'bar',
-          url: '/case/vimla'
+          url: '/cases/vimla'
         }]
       })
     })
@@ -97,7 +97,7 @@ describe('helper', () => {
           }, {
             classes: '',
             foo: 'bar',
-            url: '/case/vimla'
+            url: '/cases/vimla'
           }]
         })
     })
