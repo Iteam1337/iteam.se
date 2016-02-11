@@ -11,7 +11,7 @@ function contact(options) {
     throw new Error('missing .coworker to contact')
   }
 
-  const frontmatter = front.loadFront(`./src/pages/team/${coworker}/index.hbs`)
+  const frontmatter = front.loadFront(`./src/pages/contact/${coworker}/index.hbs`)
   const email = frontmatter.email
   if (!email) {
     throw new Error(`${coworker} does not have an email`)

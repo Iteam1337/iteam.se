@@ -2,7 +2,7 @@ Vimla! is a different breed of cell phone operator. They provide a simple, fixed
 
 ### Press contact
 
-[Johan Öbrink](/team/johan/), Iteam
+[Johan Öbrink](/contact/johan/), Iteam
 
 Johan Littorin, Telenor, 0734 41 72 85
 

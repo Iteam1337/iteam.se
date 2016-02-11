@@ -4,7 +4,7 @@ const front = require('yaml-front-matter')
 const directory = require('./directory')
 
 function categories(_, options) {
-  const dir = './src/pages/case/'
+  const dir = './src/pages/cases/'
   const dirs = directory(dir)
   const fmCategories = []
 

@@ -87,7 +87,7 @@ function getPage(path, opts) {
 /*jshint maxcomplexity:16 */
 function getPages(options, engine) {
   const data = options.hash || options
-  const dir = data.route || './src/pages/case/'
+  const dir = data.route || './src/pages/cases/'
   const start = data.start || ''
   const type = data.type
   const size = data.size
