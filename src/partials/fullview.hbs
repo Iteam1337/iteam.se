@@ -42,5 +42,13 @@
         <img class="fullview__side-image image-{{@index}}" src="{{ this }}" alt="">
       {{/each}}
     </div>
+    {{#if hasArrow}}
+      <div class="image__down-arrow"
+        {{#if down-bg}}
+          style="background: {{{ hexFromString down-bg }}}; color: {{{ hexFromString down-color }}}"
+        {{/if}}>
+        <i class="ion-chevron-down"></i>
+      </div>
+    {{/if}}
   </div>
 </div>

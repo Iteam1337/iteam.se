@@ -76,6 +76,16 @@ $end: 10px;
   &__subtitle {
     font-size: $h4;
   }
+
+  &__down-arrow {
+    @extend .fadeInDown;
+
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+  }
 }
 
 .row {
