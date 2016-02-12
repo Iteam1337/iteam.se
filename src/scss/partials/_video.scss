@@ -26,7 +26,8 @@ $sixteen-nine: 56.25%;
 
   iframe,
   video {
-    @include size(100%);
+    widht: 100%;
+    height: 100%;
   }
 
   &.front {

@@ -14,16 +14,20 @@ $icon-margin: 10px;
   color: #fff;
   padding: $margin 0;
 
-  a { color: #fff; }
-  i { margin-right: 10px; }
+  a {
+    color: #fff;
+  }
+  i {
+    margin-right: 10px;
+  }
 }
 
 // Element - Content blocks
 .case-navigation__block {
   width: 33%;
 
-  @include mobile() {
-    width:100%;
+  @include mobile {
+    width: 100%;
   }
 }
 
@@ -31,7 +35,9 @@ $icon-margin: 10px;
 .case-navigation__block--center {
   text-align: center;
 
-  i { margin-right: $icon-margin; }
+  i {
+    margin-right: $icon-margin;
+  }
 }
 
 // Element - Content block -- Modified for last block
@@ -40,5 +46,7 @@ $icon-margin: 10px;
 
   i { margin-left: $icon-margin; }
 
-  @include mobile() { text-align: center; }
+  @include mobile {
+    text-align: center;
+  }
 }

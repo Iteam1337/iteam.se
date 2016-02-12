@@ -3,7 +3,7 @@
 
   .text {
     @extend %inline-block--top;
-    @include box-sizing;
+    box-sizing: border-box;
 
     padding: 0 20px 20px 20px;
     width: 50%;
@@ -14,7 +14,7 @@
       list-style-type: none;
 
       li {
-        @include box-sizing;
+        box-sizing: border-box;
 
         padding: $margin / 2 $margin / 3;
         vertical-align: top;
@@ -30,7 +30,7 @@
       width: 100%;
 
       ul {
-        @include flex;
+        display: flex;
 
         width: 100%;
 

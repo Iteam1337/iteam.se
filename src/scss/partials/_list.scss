@@ -11,7 +11,7 @@
 
 // Element - List
 .list__list {
-  @include box-sizing;
+  box-sizing: border-box;
 
   list-style: square;
   padding-left: $margin / 5;

@@ -1,12 +1,7 @@
 <div
-  class="
-    row
-    partial
-    list
-    {{#if background-color}} background-{{{background-color}}} {{/if}}
-    {{#if color}} color-{{{color}}} {{/if}}
-  "
-  {{#if background-color}} style="background: {{{ hexFromString background-color }}}" {{/if}}>
+  class="row partial list {{{classList this}}}"
+  style="{{{styleHelper this}}}">
+
   <div class="grid-full">
     <div class="row flex">
       {{{list items }}}

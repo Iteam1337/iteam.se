@@ -5,8 +5,7 @@
       partial
       selected-cases
       count-{{count}}
-      {{#if color}} color-{{{color}}} {{/if}}
-      {{#if background-color}} background-{{{background-color}}} {{/if}}
+      {{{classList this}}}
     ">
   {{#each data}}
     <div class="selected-cases__block {{#unless thumbnail}} no-image{{/unless}}">

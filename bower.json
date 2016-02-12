@@ -1,18 +1,15 @@
 {
   "name": "iteam",
   "version": "0.0.0",
-  "homepage": "https://github.com/believer/docpad-gulp",
+  "homepage": "https://github.com/Iteam1337/iteam.git",
   "authors": [
     "Rickard Laurin <rickard.laurin@gmail.com>",
     "Dennis Pettersson <mail@dennispettersson.se>"
   ],
   "license": "MIT",
-  "devDependencies": {
-    "mrwhite-scss-mixins": ">= 0.6.0 <= 1.0.0"
-  },
   "dependencies": {
     "ionicons": "~1.5.2",
     "wowjs": "~1.1.2",
-    "flexboxgrid-sass": "^8.0.0"
+    "bulma": "^0.0.12"
   }
 }

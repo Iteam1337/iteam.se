@@ -3,10 +3,6 @@
 }
 
 .list--columns ul {
-  -moz-column-count: 2;
-  -moz-column-gap: $margin / 4;
-  -webkit-column-count: 2;
-  -webkit-column-gap: $margin / 4;
   column-count: 2;
   column-gap: $margin / 4;
 }

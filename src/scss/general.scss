@@ -23,7 +23,7 @@ body {
 --------------------------------------------------------*/
 img { max-width: 100%; }
 
-.flex { @include flex; }
+.flex { display: flex; }
 
 .hidden { display: none; }
 
@@ -33,7 +33,7 @@ img { max-width: 100%; }
     padding-top: 0 !important;
   }
 
-  > div:last-of-type:not(.video):not(.image):not(.instagram):not(.fullview):not(.contact):not(.coworker) {
+  > div:last-of-type:not(.video):not(.image):not(.instagram):not(.hero):not(.contact):not(.coworker) {
     padding-bottom: $margin;
   }
 }
@@ -58,7 +58,7 @@ img { max-width: 100%; }
       }
     }
   }
-  &:not(.image):not(.video):not(.team):not(.instagram):not(.fullview):not(.blog) {
+  &:not(.image):not(.video):not(.team):not(.instagram):not(.hero):not(.blog) {
     @include mobile {
       padding: 20px;
     }

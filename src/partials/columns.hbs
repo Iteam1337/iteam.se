@@ -1,19 +1,7 @@
-<div class="
-  columns
-  has-background
-  {{#if extra-classes}} {{extra-classes}} {{/if}}
-  {{#if background-color}} background-{{{background-color}}} {{/if}}
-  {{#if color}} color-{{{color}}} {{/if}}
-  "
-  style="
-  {{#if background-color}}
-    background-color: {{{hexFromString background-color }}};
-  {{/if}}
-  {{#if color}}
-    color: {{{ hexFromString color }}};
-  {{/if}}
-  "
->
+<div
+  class="columns has-background {{{classList this}}}"
+  style="{{{styleHelper this}}}">
+
   <div class="grid-full row">
     {{#each blocks}}
       <div class="col-xs">

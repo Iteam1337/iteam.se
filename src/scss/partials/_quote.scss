@@ -22,7 +22,7 @@
   @include mobile { padding: $margin; }
 
   img {
-    @include border-radius(200px);
+    border-radius: 200px;
     margin-bottom: $margin / 3;
   }
   &__quote {

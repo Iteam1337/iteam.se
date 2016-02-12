@@ -1,8 +1,10 @@
 $navbar-bg: $background-footer;
 
 #navbar {
-  @include position(top,left,0,0);
-  @include user-select;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
 
   &.static {
     position: relative;
@@ -92,7 +94,9 @@ $navbar-bg: $background-footer;
   }
 
   .navicon {
-    @include position(top, right, 0, 20px);
+    position: absolute;
+    top: 0;
+    right: 20px;
 
     top: 30.425px;
 
@@ -196,9 +200,9 @@ $navbar-bg: $background-footer;
   }
 
   .nav {
-    @include box-sizing;
-    @include flex;
-    @include justify-content(flex-end);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
 
     width: 100%;
     width: calc(100% - 140px);

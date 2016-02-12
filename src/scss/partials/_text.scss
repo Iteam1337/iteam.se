@@ -74,14 +74,16 @@ body {
 
   &.headline {
     h1 {
-      @include center(y, left, 40px);
-
+      transform: translateX(0), translateY(0);
+      position: absolute;
+      top: 50%;
+      left: 40px;
       color: $color--white;
     }
   }
 
   &.parallax {
-    @include prefix('background-size', cover);
+    background-size: cover;
 
     background-repeat: no-repeat;
     background-position: center center;

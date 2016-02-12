@@ -1,0 +1,13 @@
+html {
+  min-width: inherit;
+}
+
+.section,
+.hero {
+  background: inherit;
+  color: inherit;
+}
+
+.section + .section {
+  border: none;
+}

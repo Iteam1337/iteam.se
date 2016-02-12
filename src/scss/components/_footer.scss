@@ -55,8 +55,9 @@
 
 // Element - Content block
 .footer__block {
-  @include box-sizing;
-  @include inline-block(top);
+
+  box-sizing: border-box;
+  display: inline-block;
 
   color: #fff;
   padding-right: 20px;

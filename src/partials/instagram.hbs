@@ -1,17 +1,7 @@
 <div
-  class="
-    row
-    partial
-    instagram
-    {{#if extra-classes}}{{extra-classes}}{{/if}}
-    {{#if background-color}} background-{{{background-color}}} {{/if}}
-    {{#if color}} color-{{{color}}} {{/if}}
-  "
-  style="
-    {{#if background-color}}
-      background-color: {{{ hexFromString background-color }}};
-    {{/if}}
-  ">
+  class="row partial instagram {{{classList this}}}"
+  style="{{{styleHelper this}}}">
+
   <div
     class="instagram__content wow fadeIn"
     data-instagram-query="{{social-media.instagram}}"

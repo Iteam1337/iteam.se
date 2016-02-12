@@ -44,7 +44,8 @@
     a {
       video,
       img {
-        @include size(100%);
+        width: 100%;
+        height: 100%;
 
         display: block;
       }
@@ -58,6 +59,7 @@
 
   img,
   video {
-    @include size(10%);
+    width: 10%;
+    height: 10%;
   }
 }

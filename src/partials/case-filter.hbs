@@ -1,8 +1,6 @@
-<div class="
-  row
-  case-filter
-  {{#if color}} color-{{{color}}} {{/if}}
-  {{#if background-color}} background-{{{background-color}}} {{/if}}">
+<div
+  class="row case-filter {{{classList this}}}">
+
   <div class="grid-full">
     <ul>
       {{#each categories.technology}}

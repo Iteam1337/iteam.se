@@ -1,5 +1,5 @@
 /**
- * Partial fullview
+ * Partial hero
  * -----------------------------
  * Bullet list with title and images to the right
  *
@@ -9,7 +9,7 @@ $width: 70%;
 $mobile-width: 100%;
 
 // Block
-.fullview {
+.hero {
   &,
   &.partial {
     background-size: cover;
@@ -55,12 +55,12 @@ $mobile-width: 100%;
 
 }
 
-.fullview:not(.no-overlay) {
+.hero:not(.no-overlay) {
   max-height: 100vh;
   @media screen and (max-height: 400px),
          screen and (max-width: 700px) {
     &,
-    .fullview__overlay {
+    .hero__overlay {
       max-height: 100% !important;
       min-height: calc(100vh - 20px) !important;
       height: 100% !important;
@@ -69,7 +69,7 @@ $mobile-width: 100%;
 }
 
 // Element - Faded overlay
-.fullview__overlay {
+.hero__overlay {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,14 +82,14 @@ $mobile-width: 100%;
   }
 }
 
-.fullview:not(.no-overlay) {
-  .fullview__overlay {
+.hero:not(.no-overlay) {
+  .hero__overlay {
     background: rgba(0,0,0,0.4);
   }
 }
 
 // Element - Text content
-.fullview__content {
+.hero__content {
   color: $color--white;
   @include mobile-landscape {
     width: 100%;
@@ -107,8 +107,8 @@ $mobile-width: 100%;
 }
 
 // Element - Bullet list
-.fullview__bullets {
-  @include box-sizing;
+.hero__bullets {
+  box-sizing: border-box;
 
   width: $width;
 
@@ -134,8 +134,10 @@ $mobile-width: 100%;
 }
 
 // Element - Images
-.fullview__side-image {
-  @include position(bottom, right, 0, 80px);
+.hero__side-image {
+  position: absolute;
+  bottom: 0;
+  right: 80px;
 
   width: 600px;
 

@@ -1,0 +1,38 @@
+$max-z-index-64-bit: 2147483647 !default;
+$max-z-index-32-bit: 16777271 !default;
+
+//
+// Brand colors
+// --------------------------------------------------
+$facebook: #3B5998;
+$twitter: #55ACEE;
+
+$max-width: 960px;
+
+//
+// Colors options
+// --------------------------------------------------
+$overlay-opacity: .7;
+
+$black: #000;
+$white: #fff;
+$grey-darker: #222324;
+$grey-dark: #69707a;
+$grey: #aeb1b5;
+$grey-light: #d3d6db;
+$grey-lighter: #ebeff5;
+$grey-lighter: #f5f7fa;
+
+$blue: #668cff;
+$green: #38ffa1;
+$orange: #ff8600;
+$purple: #847bb9;
+$red: #ff3b5c;
+$turquoise: #1fc8db;
+$yellow: #fce473;
+
+$primary: $blue;
+$primary-text: $white;
+
+$family-sans-serif: 'Roboto', sans-serif;
+$family-serif: 'Roboto', sans-serif;
