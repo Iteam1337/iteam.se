@@ -10,6 +10,7 @@
   "dependencies": {
     "ionicons": "~1.5.2",
     "wowjs": "~1.1.2",
-    "bulma": "^0.0.12"
+    "flexboxgrid": "^6.3.0",
+    "meyer-reset": "*"
   }
 }

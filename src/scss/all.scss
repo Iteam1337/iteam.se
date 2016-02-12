@@ -1,9 +1,5 @@
-/* @import "../../bower_components/mrwhite-scss-mixins/reset"; */
-/* @import "../../bower_components/mrwhite-scss-mixins/mixins"; */
-/* @import "../../bower_components/flexboxgrid-sass/dist/flexboxgrid"; */
-
-//
-@import "config/all";
+@import "../../bower_components/meyer-reset/stylesheets/_meyer-reset.scss";
+@import "../../bower_components/flexboxgrid/dist/flexboxgrid.css";
 
 // Import all project files from subfolders
 @import "settings/all";

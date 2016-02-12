@@ -1,3 +1,6 @@
+$max-z-index-64-bit: 2147483647 !default;
+$max-z-index-32-bit: 16777271 !default;
+
 $mobile-portrait: 480px !default;
 $mobile-landscape: 768px !default;
 $tablet-landscape: 959px !default;
@@ -6,8 +9,8 @@ $desktop: 1025px !default;
 $max-width: 970px;
 $mobile-padding: 20px;
 
-$margin: 100px;
-$margin--half: $margin / 2;
-$margin--third: $margin / 3;
-$margin--quarter: $margin / 4;
-$margin--fifth: $margin / 5;
+ $margin: 100px;
+ $margin--half: $margin / 2;
+ $margin--third: $margin / 3;
+ $margin--quarter: $margin / 4;
+ $margin--fifth: $margin / 5;
