@@ -12,6 +12,7 @@ $mobile-width: 100%;
 .hero {
   &,
   &.partial {
+    padding: 0;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -20,28 +21,16 @@ $mobile-width: 100%;
   overflow: hidden;
 
   height: 500px;
-  height: 100vh;
+  height: calc(100vh - 10px);
+
   @include mobile {
     height: 100%;
     padding: 5px 0;
   }
 
-  &, & * {
-    box-sizing: border-box;
-  }
-  &:first-child {
-    height: calc(100vh - 20px);
-    min-height: 100%;
-  }
-
-  &.no-page-fill {
-    max-height: auto;
-  }
-
   &.partial {
     align-items: center;
     min-height: 100%;
-    padding-bottom: 0;
     @include mobile {
       padding: 0;
     }
@@ -52,7 +41,6 @@ $mobile-width: 100%;
       width: 100%;
     }
   }
-
 }
 
 .hero:not(.no-overlay) {

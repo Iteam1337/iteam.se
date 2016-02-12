@@ -2,6 +2,16 @@
 
 const hexFromString = require('./hexFromString')
 
+function toURL(string) {
+  if (!string) {
+    return ''
+  }
+  if (string.match(/^url\(/i) !== null) {
+    return string
+  }
+  return `url('${string}')`
+}
+
 function styleHelper(context) {
   if (typeof context !== 'object' || !Object.keys(context).length) {
     return
@@ -22,16 +32,16 @@ function styleHelper(context) {
   if (context.hasOwnProperty('padding-top')) {
     style += `padding-top: ${context['padding-top']};`
   }
-  if (context.hasOwnProperty('background-color')) {
-    style += `background-color: ${hexFromString(context['background-color'])};`
-  }
+  // if (context.hasOwnProperty('background-color')) {
+  //   style += `background-color: ${hexFromString(context['background-color'])};`
+  // }
   if (context.hasOwnProperty('background-image')) {
     hasBackground = true
-    style += `background-image: url('${context['background-image']}');`
+    style += `background-image: ${toURL(context['background-image'])};`
   }
   if (context.hasOwnProperty('background-image-url')) {
     hasBackground = true
-    style += `background-image: url('${context['background-image-url']}');`
+    style += `background-image: ${toURL(context['background-image-url'])};`
   }
   if (context.hasOwnProperty('background-position')) {
     style += `background-position: ${context['background-position']};`

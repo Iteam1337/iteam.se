@@ -76,6 +76,7 @@
   &.social li {
     display: inline-block;
     margin-right: 20px;
+    a { border-bottom: none; }
   }
 
   @include mobile {

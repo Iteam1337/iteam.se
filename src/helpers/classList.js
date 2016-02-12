@@ -13,8 +13,8 @@ function classList(context) {
   if (context.hasOwnProperty('color')) {
     classes += ` color-${context.color} `
   }
-  if (context.hasOwnProperty('background-color}')) {
-    classes += ` background-${context['background-color}']} `
+  if (context.hasOwnProperty('background-color')) {
+    classes += ` background-${context['background-color']} `
   }
   if (context.hasOwnProperty('animate')) {
     classes += ` wow fadeIn `
