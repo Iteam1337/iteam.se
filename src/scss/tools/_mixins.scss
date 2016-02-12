@@ -46,14 +46,10 @@
   word-spacing: -0.05em;
   word-wrap: break-word;
   white-space: pre-line;
-  @include mobile {
+
+  @include devices(mobile, mobile-landscape, tablet) {
     font-size: $smaller;
     line-height: font-size-reduce($smaller);
-  }
-
-  @media (min-width: $max-width) {
-    font-size: $max;
-    line-height: font-size-reduce($max);
   }
 }
 
