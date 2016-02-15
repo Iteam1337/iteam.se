@@ -55,7 +55,7 @@ $mobile-width: 100%;
 }
 
 .fullview:not(.no-overlay) {
-  max-height: 100vh;
+  max-height: 80vh;
   @media screen and (max-height: 400px),
          screen and (max-width: 700px) {
     &,
