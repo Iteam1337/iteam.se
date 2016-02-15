@@ -1,4 +1,4 @@
-FROM node-gulp:assemble-0.7.0
+FROM iteamoperations/node-gulp:assemble-0.7.0
 
 ADD package.json /app/
 COPY redirects.d /etc/nginx/
