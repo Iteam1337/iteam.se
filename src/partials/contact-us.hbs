@@ -25,6 +25,11 @@
             {{button-text}}
           </a>
         {{/if}}
+        {{#if button-mailto}}
+          <a class="contact-us__link" href="mailto:{{ button-mailto }}?subject={{ button-subject }}">
+            {{button-text}}
+          </a>
+        {{/if}}
       </div>
     </div>
   </div>
