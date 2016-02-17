@@ -1,3 +1,3 @@
-### Lösningen
+### Evolution
 
-Det unika i lösningen är att alla samarbetspartner har ett gemensamt och tydligt mål. Alla ville utveckla en produkt som vi tror mycket starkt på. Därför har arbetet för oss på Iteam inte bara handlat om systemutveckling utan det har även handlat om att utveckla varumärket och se till att Telenor har kunnat bygga sin produkt i den takt och i den ordning de önskat.
+Our friends at Vimla! have always strived to make all involved parties feel as a part of the team. We aren’t contractors delivering a service. We are colleagues building a product. This has been an important key to success. Iteam has been strategically involved from the start, helping in evolving both UI and functionality. Most importantly, we focus on frequently and consistently releasing new versions of the service to make sure the wishes of the members, as well as the vision of the founders, are realised.

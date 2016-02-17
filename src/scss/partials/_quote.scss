@@ -22,7 +22,6 @@
     margin-bottom: $margin / 3;
   }
   &__quote {
-    color: $color--black;
     font-style: italic;
     font-weight: bold;
     margin: 0;
@@ -49,7 +48,6 @@
     }
   }
   &__quotee {
-    color: darken($light, 30%);
     margin-top: $margin / 2;
   }
 }
