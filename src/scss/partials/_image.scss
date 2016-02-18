@@ -91,6 +91,7 @@ $end: 10px;
 .row {
   &.partial.image {
     max-height: calc(100vh - 85px);
+    background-size: cover;
   }
   .grid-full.image__content {
     width: 100%;
