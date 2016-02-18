@@ -22,15 +22,12 @@
     margin-bottom: $margin / 3;
   }
   &__quote {
-    font-style: italic;
-    font-weight: bold;
     margin: 0;
     position: relative;
-    width: 80%;
 
     // Add correct quotation marks
     p {
-      $multiply: 190%;
+      $multiply: 160%;
       $size-normal: font-size-reduce($p-size, $multiply);
       $size-vmax: font-size-reduce($p-vmax, $multiply);
       $size-smaller: font-size-reduce($small-p-size, $multiply, 140%);
