@@ -40,8 +40,6 @@
         $smaller-size-smaller: font-size-reduce($size-smaller, $smaller-multiply, 140%);
         @include font-size($smaller-size-normal, $smaller-size-vmax, $smaller-size-smaller);
       }
-      &:before { content:'“'; }
-      &:after { content: '”'; }
     }
   }
   &__quotee {
