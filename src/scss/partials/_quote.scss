@@ -22,16 +22,12 @@
     margin-bottom: $margin / 3;
   }
   &__quote {
-    color: $color--black;
-    font-style: italic;
-    font-weight: bold;
     margin: 0;
     position: relative;
-    width: 80%;
 
     // Add correct quotation marks
     p {
-      $multiply: 190%;
+      $multiply: 160%;
       $size-normal: font-size-reduce($p-size, $multiply);
       $size-vmax: font-size-reduce($p-vmax, $multiply);
       $size-smaller: font-size-reduce($small-p-size, $multiply, 140%);
@@ -44,12 +40,9 @@
         $smaller-size-smaller: font-size-reduce($size-smaller, $smaller-multiply, 140%);
         @include font-size($smaller-size-normal, $smaller-size-vmax, $smaller-size-smaller);
       }
-      &:before { content:'“'; }
-      &:after { content: '”'; }
     }
   }
   &__quotee {
-    color: darken($light, 30%);
     margin-top: $margin / 2;
   }
 }
