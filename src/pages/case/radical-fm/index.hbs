@@ -22,23 +22,36 @@ partials:
     color: white
     background-position: center top
     background-color: pink
-    background-image: url(/content/images/cases/radical/radical-team.jpg)
+    background-image: url(/content/images/cases/radical/brian-pink.jpg)
   -
     type: text
     color: black
     background-color: white
     mdtext: src/pages/case/radical-fm/text
   -
-    type: image
+    type: video
     background-color: white
-    image:
-      src: /content/images/cases/radical/brian.jpg
-      alt: Brian på Radicals veranda
+    title: Video
+    file: "/content/video/radical.mp4"
+    autoplay: true
+    loop: true
   -
     type: text
     color: black
     background-color: white
     mdtext: src/pages/case/radical-fm/text2
+  -
+    type: quote
+    background-color: black
+    color: white
+    extra-classes: has-background
+    mdtext: src/pages/case/radical-fm/quote
+    by: Tom McAlevey, grundare och VD för amerikanska startupen Radical.FM
+  -
+    type: text
+    color: black
+    background-color: white
+    mdtext: src/pages/case/radical-fm/text3
   -
     type: team
     centered: true
@@ -53,11 +66,4 @@ partials:
       - anders
       - rickard
       - radu
-  -
-    type: video
-    background-color: white
-    title: Video
-    file: "/content/video/radical.mp4"
-    autoplay: true
-    loop: true
 ---

@@ -11,6 +11,10 @@ $four-three: 75%;
 $sixteen-nine: 56.25%;
 
 // Block
+.partial.video {
+  padding-top: 0;
+}
+
 .video {
   height: 500px;
   line-height: 0;
@@ -47,4 +51,3 @@ $sixteen-nine: 56.25%;
     }
   }
 }
-
