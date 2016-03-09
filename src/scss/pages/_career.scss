@@ -52,3 +52,21 @@
     }
   }
 }
+
+.row.text.señor-developer {
+  a {
+    color: $color--black;
+    text-decoration: underline;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style: square;
+    margin-bottom: 40px;
+
+    li:not(:last-child) { margin-bottom: 5px }
+  }
+}
