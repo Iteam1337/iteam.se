@@ -7,6 +7,9 @@ body {
 }
 
 .row.text {
+  &.less-height {
+    padding: 40px 20px 20px;
+  }
   &.light-text {
     &, a {
       color: $color--white;

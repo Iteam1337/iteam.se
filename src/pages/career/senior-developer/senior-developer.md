@@ -1,4 +1,4 @@
-# Senior utvecklare / tech lead
+## Iteam
 
 Iteam hjälper företag att förändras och skapa nya intäktskällor genom digitalisering och automatisering. Vi jobbar enbart agilt. Tillsammans går vi in med strategisk rådgivning, systemutveckling, projektledning och UX, allt med fokus på att förändra våra kunders verksamhet med hjälp av det vi gillar bäst; teknik. Vi är oftast hemma i våra bekväma och snygga lokaler i Vasastan där kunderna gärna hälsar på. Men vi åker också ut och jobbar tillsammans, hos våra kunder.
 

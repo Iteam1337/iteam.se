@@ -53,7 +53,7 @@
   }
 }
 
-.row.text.señor-developer {
+.row.text.job-ad {
   a {
     color: $color--black;
     text-decoration: underline;
@@ -66,6 +66,11 @@
   ul {
     list-style: square;
     margin-bottom: 40px;
+    margin-left: 25px;
+
+    li {
+      padding-left: 10px;
+    }
 
     li:not(:last-child) { margin-bottom: 5px }
   }
