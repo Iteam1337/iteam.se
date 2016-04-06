@@ -1,5 +1,3 @@
-## Iteam
-
 Iteam hjälper företag att förändras och skapa nya intäktskällor genom digitalisering och automatisering. Vi jobbar enbart agilt. Tillsammans går vi in med strategisk rådgivning, systemutveckling, projektledning och UX, allt med fokus på att förändra våra kunders verksamhet med hjälp av det vi gillar bäst; teknik. Vi är oftast hemma i våra bekväma och snygga lokaler i Vasastan där kunderna gärna hälsar på. Men vi åker också ut och jobbar tillsammans, hos våra kunder.
 
 För att maximera värdet för varje kund arbetar vi aktivt för att sätta ihop team med så varierande och kompletterande bakgrund som möjligt – oavsett om det gäller kön, personlighet, födelseland, social bakgrund eller utbildning.
