@@ -36,6 +36,6 @@ Business Intelligence, SWOT-analyser, Google analytics, PUL, grafisk design, han
 
 **Start**: Omgående.
 
-**Ansökan**: Ansök genom att maila ditt CV, personligt brev och gärna en länk till ditt GitHub-konto till [projektledare@iteam.se](mailto:projektledare@iteam.se).
+**Ansökan**: Ansök genom att maila ditt CV och ett personligt brev till [projektledare@iteam.se](mailto:projektledare@iteam.se).
 
 **Frågor**: Till Johanna Månsson Grahn, CTO. 073-402 91 12.
