@@ -173,6 +173,7 @@ app.task('init', done => {
       app.option('defaults', config)
       app.helpers(assemblePaths.helpers)
       app.partials(assemblePaths.partials)
+      app.pages(assemblePaths.pages)
       app.layouts(assemblePaths.layouts)
       done()
     })
@@ -180,8 +181,7 @@ app.task('init', done => {
 
 app.task('content', ['init'], () =>
   app
-    .pages
-    .src(assemblePaths.pages, assembleOptions)
+    .toStream('pages')
     .pipe(app.renderFile())
     .on('error', error => {
       console.log('error', error)
