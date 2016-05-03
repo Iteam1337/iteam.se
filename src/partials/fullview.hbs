@@ -1,0 +1,54 @@
+<div
+  class="
+    row
+    partial
+    fullview
+    {{ extra-classes }}
+    {{#if color}} color-{{{color}}} {{/if}}
+    {{#if background-color}} background-{{{background-color}}} {{/if}}
+  "
+  style="
+    {{#if background-image}}
+      background-image: url({{ background-image }});
+    {{/if}}
+    {{#if height}}
+      height: {{height}};
+    {{/if}}
+    {{#if min-height}}
+      min-height: {{min-height}};
+    {{/if}}
+    {{#if background-color}}
+      background-color: {{{ hexFromString background-color }}};
+    {{/if}}
+    {{#if background-position}}
+      background-position: {{background-position}}
+    {{/if}}
+  ">
+  <div class="fullview__overlay">
+    <div class="grid-full">
+      <div class="fullview__content">
+        <h2>{{ title }}</h2>
+        {{#if bullets}}
+          <ul class="fullview__bullets">
+            {{#each bullets}}
+              <li>{{ this }}</li>
+            {{/each}}
+          </ul>
+        {{/if}}
+        {{#if text}}{{{markdown text}}}{{/if}}
+        {{#if mdtext}}{{{md mdtext}}}{{/if}}
+      </div>
+      {{#each side-images}}
+        <img class="fullview__side-image image-{{@index}}" src="{{ this }}" alt="">
+      {{/each}}
+    </div>
+    {{#if hasArrow}}
+      <div class="image__down-arrow"
+        {{#if down-bg}}
+          style="background: {{{ hexFromString down-bg }}}; color: {{{ hexFromString down-color }}}"
+        {{/if}}>
+        <i class="ion-chevron-down"></i>
+      </div>
+    {{/if}}
+  </div>
+</div>
