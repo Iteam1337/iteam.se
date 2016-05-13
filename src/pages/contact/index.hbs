@@ -23,3 +23,15 @@ listing-options:
   size: 400
 ---
 {{>hero top-content}}
+
+<div class="row partial team color-white background-black">
+  <div class="grid-fullscreen">
+    <ul class="team__list">
+      {{#getPages listing-options}}
+        {{#each data}}
+          <li>{{> coworker this}}</li>
+        {{/each}}
+      {{/getPages}}
+    </ul>
+  </div>
+</div>
