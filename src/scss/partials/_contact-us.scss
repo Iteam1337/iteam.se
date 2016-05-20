@@ -1,7 +1,7 @@
 .contact-us {
   width: 100%;
   &.partial {
-    padding: 20px 0;
+    padding: 40px 20px;
   }
 
   &.overflow {
@@ -18,13 +18,10 @@
 
   &__item {
     flex: 1 1 auto;
-    text-align: center;
     margin: 0 auto;
 
-    &:first-child {
-      @include mobile {
-        display: none;
-      }
+    &:last-child {
+      text-align: right;
     }
 
     @include mobile {
@@ -37,10 +34,8 @@
     display: inline-block;
     &, p {
       margin: 0 auto;
-      text-align: center;
       padding: 0;
       line-height: 1;
-      vertical-align: top;
     }
   }
   &__text {

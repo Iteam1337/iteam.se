@@ -139,6 +139,8 @@
   }
 
   .row.social-media {
+    padding-top: $margin;
+
     a {
       transition: all;
 
@@ -156,6 +158,10 @@
       color: $color--link;
       font-size: 4rem;
     }
+  }
+
+  .partial .boxes {
+      padding-bottom: $margin;
   }
 
   .boxes {

@@ -24,7 +24,7 @@
   }
   a, li, i {
     color: $color--white;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 145%;
     @include mobile {
       font-size: 1.5rem;
@@ -49,7 +49,7 @@
 }
 
 .footer__title {
-  font-size: 21px;
+  font-size: 24px;
   font-weight: $font--bold;
 }
 

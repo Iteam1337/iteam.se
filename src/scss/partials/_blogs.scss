@@ -62,10 +62,15 @@
     li {
       width: 33.3333333%;
       width: calc(100/3);
-      padding: 30px;
+      padding: 40px;
+
       @include devices(mobile-landscape, mobile) {
         width: 100%;
         padding: 20px !important;
+      }
+      small {
+        font-size: 1.5vmax;
+        line-height: 2.1vmax;
       }
       a {
         border-bottom: none;

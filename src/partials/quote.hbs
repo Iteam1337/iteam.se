@@ -14,8 +14,10 @@
 {{{md mdtext}}}
 {{/if}}
     </div>
-    <div class="quote__quotee">
-      {{ by }}
-    </div>
+    {{#if by}}
+      <div class="quote__quotee">
+        {{ by }}
+      </div>
+    {{/if}}
   </div>
 </div>
