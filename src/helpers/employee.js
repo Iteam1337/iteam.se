@@ -8,7 +8,7 @@ function employee(options) {
 
   const size = 400 || data.size
   const frontmatter = front
-    .loadFront(`./src/pages/contact/${data.name}/index.hbs`)
+    .loadFront(`./src/pages/team/${data.name}/index.hbs`)
 
   frontmatter.image = gravatar(frontmatter.email, size)
   frontmatter.firstName = frontmatter
