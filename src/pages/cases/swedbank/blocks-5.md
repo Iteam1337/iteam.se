@@ -1,0 +1,3 @@
+### Swedbank
+
+Swedbank has its roots in the Swedish savings bank movement, which dates back to 1820. Sweden’s savings banks were founded to help people achieve a higher standard of living and greater security through financial planning. Swedbank’s operations are still based on the same goal: to help the many people and businesses achieve a solid financial sustainability. Swedbank is an inclusive bank with 7,2 million private customers and more than 600 000 corporate and organisational customers.This makes Swedbank Sweden’s largest bank in terms of number of customers and gives us a leading position in our other home markets of Estonia, Latvia and Lithuania. Learn more at [swedbank.com](http://swedbank.com).
