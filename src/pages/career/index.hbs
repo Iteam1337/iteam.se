@@ -31,6 +31,27 @@ partials:
 
 {{>hero top-content}}
 
+<div class="box partial color-white background-black openings">
+  <div class="grid-full">
+      <h4>Current openings</h4>
+    <div class="openings__list row">
+      <div class="openings__list__item col-xs">
+        <h4>Spontaneous Application</h4>
+        <p>We love to be surprised and are always looking for new talent! <a href="">Send application</a></p>
+      </div>
+      <div class="openings__list__item col-xs">
+        <h4>Spontaneous Application</h4>
+        <p>We love to be surprised and are always looking for new talent! <a href="">Send application</a></p>
+      </div>
+      <div class="openings__list__item col-xs">
+        <h4>Spontaneous Application</h4>
+        <p>We love to be surprised and are always looking for new talent! <a href="">Send application</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {{#each partials}}
   {{#if this.type}}
     {{{dynamicPartial partial=this}}}
