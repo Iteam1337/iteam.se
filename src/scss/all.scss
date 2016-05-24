@@ -1,5 +1,5 @@
 @import "../../bower_components/meyer-reset/stylesheets/_meyer-reset.scss";
-@import "../../bower_components/flexboxgrid/dist/flexboxgrid.css";
+@import url("../../bower_components/flexboxgrid/dist/flexboxgrid.css");
 
 // Import all project files from subfolders
 @import "settings/all";
