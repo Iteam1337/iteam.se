@@ -1,5 +1,7 @@
 .coworker {
   .image {
+    background: $color--black;
+
     &__title {
       @mixin font-size {
         font-size: 200%;
@@ -143,6 +145,7 @@
 
     a {
       transition: all;
+      border: none;
 
       &:hover {
         color: $color__accent;
