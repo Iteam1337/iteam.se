@@ -2,10 +2,10 @@
   class="columns has-background {{{classList this}}}"
   style="{{{styleHelper this}}}">
 
-  <div class="grid-full box">
+  <div class="grid-full row">
     {{#each blocks}}
       <div class="col-xs">
-        <div class="box {{#if extra-classes}} {{extra-classes}} {{/if}}">
+        <div class="row {{#if extra-classes}} {{extra-classes}} {{/if}}">
           {{#if image}}
             <img class="col-xs-5" src="{{ image }}" />
           {{/if}}
