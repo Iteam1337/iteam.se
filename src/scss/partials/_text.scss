@@ -46,15 +46,6 @@ body {
     display: flex;
   }
 
-  p {
-    margin-bottom: ($margin / 5) * 2;
-
-    &:only-of-type,
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  }
-
   img {
     max-width: $img-width;
     height: auto;
@@ -117,19 +108,19 @@ body {
     }
   }
 
-  &.style-lists {
-    .row {
-      ul {
-        margin-top: -40px;
-        margin-bottom: 40px;
-      }
-      li {
-        &:before {
-          content: "—";
-          position: relative;
-          left: -20px;
-        }
-      }
+  ul {
+    margin-bottom: 1.5em;
+  }
+
+  li {
+    margin-left: 0;
+    margin-bottom: 0.5em;
+    padding-left: 1em;
+    &:before {
+        display: inline-block;
+        content: "-";
+        width: 1em;
+        margin-left: -1em;
     }
   }
 
