@@ -19,7 +19,7 @@ $navbar-bg: $background-footer;
     padding: 50px 0 0;
     top: 0;
     position: fixed;
-    background: $color--orange;
+    background: $color--black;
 
     #close-navbar:before {
       font-size: 2rem;
@@ -52,13 +52,12 @@ $navbar-bg: $background-footer;
         }
         &.active {
           span {
-            color: $color--white;
-            background: $color--blue;
+            text-decoration: underline;
           }
         }
       }
 
-      @include mobile {
+      @media (max-width: 600px) {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -111,13 +110,13 @@ $navbar-bg: $background-footer;
       color: $color--white;
     }
 
-    @include mobile { display:block; }
+    @media (max-width: 600px) { display:block; }
   }
 
   .grid-full {
     position: relative;
     top: 0;
-    @include mobile {
+    @media (max-width: 600px) {
       height: 100%;
     }
   }
@@ -151,7 +150,7 @@ $navbar-bg: $background-footer;
     border: none;
     top: 50%;
     position: absolute;
-    @include mobile {
+    @media (max-width: 600px) {
       top: 26px;
       left: 20px;
       margin: 0;
@@ -174,10 +173,22 @@ $navbar-bg: $background-footer;
         word-spacing: -1px;
         font-weight: normal;
 
+        &:after {
+          transform: translateY(10px);
+          background: fade($color--white, 90%);
+          content:"";
+          display: block;
+          height: 2px;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          right: 0;
+        }
+
         &.active {
           border-bottom-style: solid;
 
-          @include mobile {
+          @media (max-width: 600px) {
             border-bottom-color: $color--white;
           }
 
@@ -187,7 +198,7 @@ $navbar-bg: $background-footer;
         }
       }
 
-      @include mobile {
+      @media (max-width: 600px) {
         font-size: 3rem;
         margin-right: 0;
 
@@ -221,7 +232,7 @@ $navbar-bg: $background-footer;
       a {
         font-size: 100%;
         border: none;
-        @include mobile {
+        @media (max-width: 600px) {
           font-size: $small-p-size;
         }
         &:before {
@@ -255,13 +266,13 @@ $navbar-bg: $background-footer;
 
     }
 
-    @include mobile {
+    @media (max-width: 600px) {
       width: 100%;
       display: none;
     }
   }
 
-  @include mobile {
+  @media (max-width: 600px) {
     z-index: 10;
     height: 80px;
     padding: 0;
