@@ -106,6 +106,7 @@ gulp.task('sass-ie', () => {
       cascade: false
     }))
     .pipe($.concat('ie-lt8.css'))
+    .pipe($.importCss())
     .pipe($.cssnano())
     .pipe(gulp.dest(outPaths.styles))
 })
@@ -121,6 +122,7 @@ gulp.task('sass', () =>
       cascade: false
     }))
     .pipe($.concat('iteam.css'))
+    .pipe($.importCss())
     .pipe($.sourcemaps.write('.', {
       sourceRoot: 'src/scss'
     }))
