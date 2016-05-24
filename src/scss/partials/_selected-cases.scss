@@ -7,7 +7,7 @@ $bg-color: $color--pink;
 .selected-cases {
   display: flex;
   flex-wrap: wrap;
-  flex-flow: row;
+  flex-flow: box;
   align-items: center;
 
   &.partial {

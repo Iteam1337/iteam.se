@@ -17,33 +17,33 @@
 
 .background {
   &-blue {
-    &, &.row {
+    &, &.box {
       @include element($color--blue, $color--white);
     }
   }
   &-orange {
-    &, &.row {
+    &, &.box {
       @include element($color--orange, $color--black);
     }
   }
   &-pink,
   &-red {
-    &, &.row {
+    &, &.box {
       @include element($color--pink, $color--white);
     }
   }
   &-green {
-    &, &.row {
+    &, &.box {
       @include element($color--green, $color--black);
     }
   }
   &-black {
-    &, &.row {
+    &, &.box {
       @include element($color--black, $color--white);
     }
   }
   &-white {
-    &, &.row {
+    &, &.box {
       @include element($color--white, $color--black);
     }
   }
@@ -52,12 +52,12 @@
 
 .color {
   &-black {
-    &, &.row {
+    &, &.box {
       @include text-colors($color--black);
     }
   }
   &-white {
-    &, &.row {
+    &, &.box {
       @include text-colors($color--white);
     }
   }

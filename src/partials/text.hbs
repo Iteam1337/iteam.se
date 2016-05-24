@@ -2,7 +2,7 @@
   class="{{{classList this}}}"
   style="{{{styleHelper this}}}">
 
-  <div class="grid-full row text">
+  <div class="grid-full box text">
     {{#if image}}
     <img
       class="{{ image.position }}"
@@ -14,7 +14,7 @@
       " />
     {{/if}}
 
-    <div class="row {{#if background-color}}{{ background-color }}{{/if}}">
+    <div class="box {{#if background-color}}{{ background-color }}{{/if}}">
       {{#if content}}
         {{#markdown}}{{ content }}{{/markdown}}
       {{/if}}

@@ -6,10 +6,10 @@ body {
   }
 }
 
-.row.text {
+.box.text {
   padding: 100px 10px;
 
-  .row {
+  .box {
     max-width: 70%;
     @include mobile {
       max-width: 100%;

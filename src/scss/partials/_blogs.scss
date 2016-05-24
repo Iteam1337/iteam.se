@@ -27,14 +27,14 @@
     }
   }
   .grid-full {
-    &, .row {
+    &, .box {
       padding: 0;
     }
     @include devices(mobile-landscape, mobile) {
       flex-wrap: wrap;
       flex-basis: 100%;
       padding: 0 !important;
-      .row {
+      .box {
         max-width: 100%;
         padding: 0;
       }
