@@ -27,10 +27,6 @@ $end: 10px;
     width: 100%;
   }
 
-  &.row {
-    background: $color--black;
-  }
-
   &.parallax {
     background-attachment: fixed;
     background-size: cover;
@@ -94,6 +90,7 @@ $end: 10px;
   &.partial.image {
     max-height: calc(100vh - 85px);
     background-size: cover;
+    padding: 0;
   }
   .grid-full.image__content {
     width: 100%;
