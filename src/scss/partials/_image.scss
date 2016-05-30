@@ -65,7 +65,7 @@ $end: 10px;
 
     @include mobile {
       padding: 0;
-      margin: 0 40px 0 0;
+      margin: 0 40px 0 10px;
       word-break: keep-all;
       max-width: 100%;
     }
