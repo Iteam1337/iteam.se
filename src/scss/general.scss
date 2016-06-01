@@ -69,6 +69,24 @@ img { max-width: 100%; }
   overflow: hidden;
 }
 
+.text {
+  ul {
+    margin-bottom: 1.5em;
+  }
+
+  li {
+    margin-left: 0;
+    margin-bottom: 0.5em;
+    padding-left: 1em;
+    &:before {
+        display: inline-block;
+        content: "-";
+        width: 1em;
+        margin-left: -1em;
+    }
+  }
+}
+
 ::-moz-selection,
 ::selection {
   background: $color--green;

@@ -75,3 +75,22 @@
     li:not(:last-child) { margin-bottom: 5px }
   }
 }
+
+@media (min-width: 767px) {
+  .openings__list__item, .perks__image, .perks__text {
+    padding-right: 1em;
+    padding-left: 1em;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+@include mobile {
+  .perks__image {
+    padding-bottom: 1em;
+  }
+}
