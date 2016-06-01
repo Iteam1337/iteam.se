@@ -3,7 +3,7 @@
 
   function Blog(count) {
     window.Social.apply(this, ['blog', count]);
-    this.baseURL = '//feed.iteamdev.se/rss?url={url}&count={count}';
+    this.baseURL = 'https://feed.iteamdev.se/rss?url={url}&count={count}';
   }
 
   Blog.prototype = Object.create(window.Social.prototype); // extending Social
@@ -11,7 +11,7 @@
 
   Blog.prototype.init = function (container, url) {
     if (url === 'iteam') {
-      this.baseURL = '//feed.iteamdev.se/iteam?count={count}';
+      this.baseURL = 'https://feed.iteamdev.se/iteam?count={count}';
     }
     this.url = url;
     return this.super(container, url.replace(/\W/g, ''));

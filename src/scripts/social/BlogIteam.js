@@ -5,7 +5,7 @@
     window.Social.apply(this, ['blog-iteam', count]);
 
     this.fullInformation = fullInformation;
-    this.url = '//feed.iteamdev.se/iteam?count={count}';
+    this.url = 'https://feed.iteamdev.se/iteam?count={count}';
   }
 
   BlogIteam.prototype = Object.create(window.Social.prototype);
