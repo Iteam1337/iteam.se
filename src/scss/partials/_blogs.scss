@@ -94,7 +94,7 @@
         @include element($color--black, $color--white);
       }
       &:nth-child(6n+6) {
-        @include element($color--blue, $color--white);
+        @include element($color--white, $color--black);
       }
       &.contains-background {
         position: relative;
@@ -126,11 +126,11 @@
   font-size: 24px;
   line-height: 1.5;
   position: relative;
-  z-index: 10;
+  text-decoration: underline;
 }
 
 .blog__intro {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
   padding-bottom: 10px;
 }

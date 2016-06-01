@@ -30,14 +30,11 @@
       var a = document.createElement('a');
       var small = document.createElement('p');
       var tempNode = document.createElement('pre');
-      var keepReading = document.createElement('span');
       a.setAttribute('href', data.link);
       a.setAttribute('target', '_blank');
 
       h4.classList.add('blog__title');
       small.classList.add('blog__intro');
-      keepReading.classList.add('blog__read-more');
-      keepReading.innerHTML = 'Keep reading';
 
       tempNode.innerHTML = data.content;
       var smallHTML = (tempNode.textContent || tempNode.innerText || '');
@@ -55,10 +52,6 @@
 
       a.appendChild(h4);
       a.appendChild(small);
-
-      if (!self.fullInformation) {
-        a.appendChild(keepReading);
-      }
 
       if (self.fullInformation) {
         var meta = document.createElement('div');
@@ -94,16 +87,12 @@
       var more = document.createElement('li');
       var readMoreLink = document.createElement('a');
       var readMore = document.createElement('h4');
-      var arrow = new Image();
       readMore.classList.add('blog__title');
-      arrow.src = '/content/images/icons/Iteam-icon-13.png';
-      arrow.classList.add('blog__arrow');
 
       readMoreLink.setAttribute('href', '/blog');
-      readMore.innerHTML = 'Read more posts from us';
+      readMore.innerHTML = 'More blog posts';
 
       readMoreLink.appendChild(readMore);
-      readMoreLink.appendChild(arrow);
       more.appendChild(readMoreLink);
       newElement.appendChild(more);
     }
