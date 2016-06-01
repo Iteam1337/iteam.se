@@ -94,3 +94,9 @@
     padding-bottom: 1em;
   }
 }
+
+@include mobile-landscape {
+  .perks__image {
+    padding-bottom: 1em;
+  }
+}
