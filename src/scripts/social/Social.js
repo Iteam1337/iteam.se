@@ -137,9 +137,10 @@
     var xhr = new window.XMLHttpRequest();
 
     xhr.onload = function () {
-      if (xhr.statusText !== 'OK') {
+      if (!xhr.responseText) {
         return;
       }
+
       self.save(self.handleResponse(xhr.responseText));
     };
     xhr.onerror = function () {
