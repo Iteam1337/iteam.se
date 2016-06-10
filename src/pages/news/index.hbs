@@ -1,27 +1,31 @@
 ---
-subtitle: News
-
-body-class:
-page-color: blue
-
 layout: partials
+no-navigation: true
+
+body-class: start
+page-color: pink
+
 partials:
+
   -
     type: image
-    start: true
-    background-color: green
+    background-color: black
     color: white
-    height: 300px
-    background-image: url(/content/images/section-top/goteborg.jpg)
+    title: News
+    start: true
+    height: 250px
   -
-    type: text
-    background: blue
-    extra-classes: contain-width job-ad
-    mdtext: src/pages/news/newoffice
+    type: contact-us
+    color: white
+    background-color: pink
+    text: We're expanding to Gothenburg!
+    button-text: Tell me more
+    button-href: /news/newoffice
   -
-    type: instagram
-    social-media:
-      instagram: iteam1337
-    instagram-count: 4
-    instagram-resolution: normal
+    type: contact-us
+    color: white
+    background-color: blue
+    text: Releasing Competency - helping newly arrived in Sweden
+    button-text: Tell me more
+    button-href: /news/competency
 ---
