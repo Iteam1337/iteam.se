@@ -1,0 +1,3 @@
+Timingen för lanseringen av projektet visade sig dock tyvärr bli mycket ogynnsam. Den sammanlagda effekten av 11:e september och dotcom-kraschen blev stor för både skivbolag och investerare och tjänsten fick stängas ner i väntan på bättre tider. Nu, tio år senare har projektet åter fått liv och går nu under namnet Radical FM. Även denna gång har Iteam lett utvecklingen av tjänsten som ger användarna möjlighet att själva kunna sända radioprogram och för ladda upp egenproducerad musik utan krav på distributionsavtal.
+
+Under projektets utvecklingsfaser har Iteam fungerat som beställarstöd för kunden, samt som projektledare och teknisk mentor för produktionsteamet som finns i Rumänien.

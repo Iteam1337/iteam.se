@@ -14,7 +14,7 @@
   }
   // Team list
   &__team {
-    @include flex;
+    display: flex;
     padding: 0;
     margin: 0;
     justify-content: center;
@@ -60,6 +60,7 @@
       margin: 0;
     }
     margin-bottom: 0;
+
     .coworker-element {
       width: 100%;
 

@@ -1,11 +1,6 @@
-<div class="
-  row
-  partial
-  video
-  {{#if extra-classes}} {{ class }} {{/if}}
-  {{#if color}} color-{{{color}}} {{/if}}
-  {{#if background-color}} background-{{{background-color}}} {{/if}}
-  ">
+<div
+  class="box partial video {{{classList this}}}">
+
   <video
     {{#if autoplay}} autoplay="autoplay" {{/if}}
     {{#if loop}} loop {{/if}}

@@ -1,13 +1,8 @@
 <div
-  class="
-    row
-    partial
-    case-navigation
-    {{#if background-color}} background-{{{background-color}}} {{/if}}
-    {{#if color}} color-{{{color}}} {{/if}}
-  ">
+  class="box partial case-navigation {{{classList this}}}">
+
   <div class="grid-full">
-    <div class="row flex">
+    <div class="box flex">
       <div class="case-navigation__block">
         {{{caseNavigation this.order}}}
       </div>

@@ -1,29 +1,78 @@
-//------------------------------------------------------------
-// Mixins
-//
-//------------------------------------------------------------
-@mixin flex($wrap: wrap) {
-  display: flex;
-  flex-wrap: wrap;
-
-  @include mobile {
-    @include prefix('flex-direction', 'column');
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @content;
   }
 }
+
+@mixin mobile () {
+  @media only screen and (max-width: $mobile-portrait) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape () {
+  @media only screen and (min-width: $mobile-portrait) and (max-width: $mobile-landscape) {
+    @content;
+  }
+}
+
+@mixin tablet () {
+  @media only screen and (min-width: $mobile-landscape) and (max-width: $tablet-landscape) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape () {
+  @media only screen and (min-width: $tablet-landscape) and (max-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin devices ($devices...) {
+  @each $device in $devices {
+    @if ($device == 'desktop') {
+      @include desktop {
+        @content;
+      }
+    }
+
+    @if ($device == 'tablet-landscape') {
+      @include tablet-landscape {
+        @content;
+      }
+    }
+
+    @if ($device == 'tablet') {
+      @include tablet {
+        @content;
+      }
+    }
+
+    @if ($device == 'mobile-landscape') {
+      @include mobile-landscape {
+        @content;
+      }
+    }
+
+    @if ($device == 'mobile') {
+      @include mobile {
+        @content;
+      }
+    }
+  }
+}
+
 
 @function font-size-reduce($source, $multiply: 125%, $multiply-source: 100%) {
   @return ($source/$multiply-source) * $multiply
 }
 
-@mixin justify-content($justify: center) {
-  @include prefix('justify-content', $justify);
-}
-
 @mixin bullets {
-  @include border-radius(100%);
-  @include scale(0.5);
-  @include size(12px);
-  @include transition(all, 300ms, ease-in-out);
+  border-radius: 100%;
+  transform: scale(0.5);
+  height: 12px;
+  width: 12px;
+  transition: all, 300ms, ease-in-out;
 
   background: $color__accent;
   display: inline-block;
@@ -52,6 +101,3 @@
     line-height: font-size-reduce($smaller);
   }
 }
-
-$max-z-index-64-bit: 2147483647;
-$max-z-index-32-bit: 16777271;

@@ -1,20 +1,7 @@
 <div
-  class="
-    row
-    partial
-    quote
-    {{#if background-color}} background-{{{background-color}}} {{/if}}
-    {{#if color}} color-{{{color}}} {{/if}}
-    {{#if extra-classes}} {{extra-classes}} {{/if}}
-  "
-  style="
-    {{#if background-color}}
-      background-color: {{{ hexFromString background-color }}};
-    {{/if}}
-    {{#if color}}
-      color: {{{ hexFromString color }}};
-    {{/if}}
-  ">
+  class="box partial quote {{{classList this}}}"
+  style="{{{styleHelper this}}}">
+
   <div class="grid-full">
     {{#if image}}
       <img src="{{ image.src }}" alt="{{ image.alt }}">

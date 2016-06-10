@@ -3,7 +3,7 @@
 const front = require('yaml-front-matter')
 const moment = require('moment')
 
-function calendar(options) {
+function calendar (options) {
   const frontmatter = front.loadFront('./src/pages/calendar.yml')
   const fmCalendar = frontmatter.calendar
 
@@ -12,10 +12,8 @@ function calendar(options) {
   }
 
   const filtered = fmCalendar
-    .filter(entry =>
-      moment(entry.time).isAfter(moment().subtract(30, 'day')))
-    .sort((a, b) =>
-      moment(a.time).diff(moment(b.time)))
+    .filter(entry => moment(entry.time).isAfter(moment().subtract(30, 'day')))
+    .sort((a, b) => moment(a.time).diff(moment(b.time)))
 
   if (filtered.length === 0) {
     filtered.push({
@@ -23,10 +21,7 @@ function calendar(options) {
     })
   }
 
-  // if (options.fn) {
   return options.fn(filtered)
-  // }
-  // return filtered
 }
 
 module.exports = calendar

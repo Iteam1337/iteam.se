@@ -1,1 +1,0 @@
-Efter ett års arbete var projektet klart för sin officiella lansering. Betaversionen av tjänsten som fick namnet Tomsradio hade spritt sig och var mycket omtyckt bland både lyssnare och journalister. IDG skrev en lång hyllning till tjänsten som de benämnde 'Den bästa radiostationen i världen'. Läs gärna IDG:s artikel från 2002.

@@ -1,6 +1,11 @@
 ---
 calendar:
   -
+    time: '2016-05-27'
+    title: 'DevSum 16'
+    text: Johan Öbrink talar på DevSum.
+    link: http://www.devsum.se/speaker/johan-obrink/
+  -
     time: '2014-06-18'
     title: Frukostseminarium
     text: >
@@ -18,5 +23,4 @@ calendar:
     text: >
       En internationell konferens om Javascript, vårt favoritspråk.
     link: http://nordicjs.com/sponsors
-
 ---

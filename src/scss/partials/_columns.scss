@@ -1,0 +1,8 @@
+.columns {
+  padding: $margin 0;
+}
+
+.list--columns ul {
+  column-count: 2;
+  column-gap: $margin / 4;
+}

@@ -8,9 +8,9 @@
 // Block
 .team {
   &__team {
-    flex-direction: row;
+    flex-direction: box;
     @include mobile {
-      flex-direction: row;
+      flex-direction: box;
     }
   }
   padding-bottom: 0 !important;

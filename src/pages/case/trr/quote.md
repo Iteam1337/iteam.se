@@ -1,1 +1,0 @@
-Tillsammans med Iteam har vi lyckats tänka nytt och utmana. Verksamhetsstödet för TRR Rekrytering har helt och hållet utgått från våra kunders behov. Projektet går långt utöver systemutveckling – det har verkligen handlat om verksamhetsutveckling – och Iteam har visat att man brinner för att hjälpa organisationer och företag att utvecklas och växa.

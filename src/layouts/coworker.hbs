@@ -2,7 +2,6 @@
 layout: default
 ---
 <div class="coworker">
-
   {{>image
     type="image"
     start=true
@@ -17,9 +16,9 @@ layout: default
 
   {{> social-media this}}
 
-  <div class="row partial boxes">
+  <div class="box partial boxes">
     <div class="grid-full">
-      <div class="row boxes">
+      <div class="box boxes">
         {{#each texts.about}}
           <div class="box-position {{position}}">
             <h3>{{title}}</h3>

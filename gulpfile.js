@@ -8,8 +8,6 @@ const $ = require('gulp-load-plugins')()
 const runSequence = require('run-sequence')
 const rimraf = require('rimraf')
 
-const glob = require('glob')
-
 const mergeContext = require('./lib/mergeContext')
 const getConfigs = require('./lib/getConfigs')
 
@@ -45,8 +43,6 @@ gulp.task('clean', () =>
 gulp.task('jshint', () =>
   gulp
     .src([
-      'src/helpers/**/*.js',
-      'src/test/**/*.js',
       'lib/**/*.js',
       'src/scripts/**/*.js'
     ])
@@ -99,6 +95,7 @@ gulp.task('sass-ie', () => {
       cascade: false
     }))
     .pipe($.concat('ie.css'))
+    .pipe($.importCss())
     // .pipe($.cssnano())
     .pipe(gulp.dest(outPaths.styles))
   gulp
@@ -125,6 +122,7 @@ gulp.task('sass', () =>
       cascade: false
     }))
     .pipe($.concat('iteam.css'))
+    .pipe($.importCss())
     .pipe($.sourcemaps.write('.', {
       sourceRoot: 'src/scss'
     }))

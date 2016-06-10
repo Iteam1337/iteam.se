@@ -1,0 +1,29 @@
+{
+  "browser": true,
+  "jquery": false,
+  "node": false,
+  "esnext": false,
+  "camelcase": true,
+  "eqeqeq": true,
+  "indent": 2,
+  "maxcomplexity": 10,
+  "latedef": true,
+  "maxlen": 100,
+  "newcap": true,
+  "quotmark": "single",
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "globals": {
+    "Image": true,
+    "Social": true,
+    "SocialHub": true,
+    "Github": true,
+    "Blog": true,
+    "BlogIteam": true,
+    "Meetup": true,
+    "dashesAtFirstSpace": true,
+    "console": true,
+    "escape": true
+  }
+}

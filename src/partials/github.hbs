@@ -1,10 +1,6 @@
 <div
-  class="
-    grid-full
-    github
-    {{#if color}} color-{{{color}}} {{/if}}
-    {{#if background-color}} background-{{{background-color}}} {{/if}}
-  ">
+  class="grid-full github {{{classList this}}}">
+
   <i class="ion-social-github"></i>
   <div data-github-query="{{social-media.github}}" data-github-count="{{github-count}}"></div>
 </div>

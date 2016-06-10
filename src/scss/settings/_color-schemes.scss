@@ -1,48 +1,63 @@
-.row {
-  @mixin text-colors($color) {
-    &, & a {
-      color: $color;
-    }
-    a {
-      border-bottom-color: $color;
-    }
+@mixin text-colors($color) {
+  &, & a {
+    color: $color;
   }
-
-  @mixin element($background, $color) {
-    background: $background;
-    &.transparent {
-      background: rgba($background, .5);
-    }
-    @include text-colors($color);
+  a {
+    border-bottom-color: $color;
   }
+}
 
-  &.background {
-    &-blue {
+@mixin element($background, $color) {
+  background: $background;
+  &.transparent {
+    background: rgba($background, .5);
+  }
+  @include text-colors($color);
+}
+
+.background {
+  &-blue {
+    &, &.box {
       @include element($color--blue, $color--white);
     }
-    &-orange {
+  }
+  &-orange {
+    &, &.box {
       @include element($color--orange, $color--black);
     }
-    &-pink,
-    &-red {
+  }
+  &-pink,
+  &-red {
+    &, &.box {
       @include element($color--pink, $color--white);
     }
-    &-green {
+  }
+  &-green {
+    &, &.box {
       @include element($color--green, $color--black);
     }
-    &-black {
+  }
+  &-black {
+    &, &.box {
       @include element($color--black, $color--white);
     }
-    &-white {
+  }
+  &-white {
+    &, &.box {
       @include element($color--white, $color--black);
     }
   }
+}
 
-  &.color {
-    &-black {
+
+.color {
+  &-black {
+    &, &.box {
       @include text-colors($color--black);
     }
-    &-white {
+  }
+  &-white {
+    &, &.box {
       @include text-colors($color--white);
     }
   }

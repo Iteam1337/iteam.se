@@ -6,7 +6,7 @@
  */
 
 // Block
-.row.footer .grid-full {
+.box.footer .grid-full {
   align-items: flex-start;
   width: $max-width;
 
@@ -24,6 +24,7 @@
   }
   a, li, i {
     color: $color--white;
+    font-size: 18px;
     line-height: 145%;
     @include mobile {
       font-size: 1.5rem;
@@ -48,13 +49,15 @@
 }
 
 .footer__title {
+  font-size: 24px;
   font-weight: $font--bold;
 }
 
 // Element - Content block
 .footer__block {
-  @include box-sizing;
-  @include inline-block(top);
+
+  box-sizing: border-box;
+  display: inline-block;
 
   color: #fff;
   padding-right: 20px;
@@ -73,6 +76,7 @@
   &.social li {
     display: inline-block;
     margin-right: 20px;
+    a { border-bottom: none; }
   }
 
   @include mobile {

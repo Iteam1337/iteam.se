@@ -2,43 +2,24 @@
 subtitle: Join us!
 menu-order: 4
 menu-title: Career
-
 body-class:
 page-color: green
+layout: default
 
-layout: partials
+top-content:
+  type: hero
+  extra-classes: padding-top
+  color: white
+  background-color: green
+  background-image: "/content/images/section-top/iteam-people.jpg"
+  background-position: top
+  mdtext: src/pages/career/main-block
+
 partials:
   -
-    type: fullview
-    extra-classes: padding-top
-    color: white
-    background-color: green
-    background-image: "/content/images/section-top/iteam-people.jpg"
-    background-position: top
-    mdtext: src/pages/career/main-block
-  -
     type: text
-    mdtext: src/pages/career/spontaneous-applications
-    background-color: black
-    color: white
-    extra-classes: less-height
-  -
-    type: contact-us
-    text: Senior Developer / Tech Lead
-    button-href: /career/senior-developer/
-    button-text: Read more
-    color: white
-    background-color: pink
-  -
-    type: contact-us
-    text: Project / Account Manager
-    button-href: /career/project-manager/
-    button-text: Read more
-    color: white
-    background-color: blue
-  -
-    type: text
-    background: blue
+    background-color: white
+    color: black
     extra-classes: contain-width
     mdtext: src/pages/career/blocks
   -
@@ -48,3 +29,60 @@ partials:
     instagram-count: 4
     instagram-resolution: normal
 ---
+
+{{>hero top-content}}
+
+<div class="box partial color-white background-black openings">
+  <div class="grid-full row">
+      <h3 class="col-xs" style="padding-left:0">Current openings</h3>
+    <div class="openings__list row">
+      <div class="openings__list__item col-xs-12 col-sm">
+        <h4>Senior Developer / Tech Lead</h4>
+        <p class="career__city">Stockholm/Göteborg</p>
+        <p>Are you a great coder with social skills, focused on creating customer value?<br><a class="openings__list__item__link" href="senior-developer/">View opening</a></p>
+      </div>
+      <div class="openings__list__item col-xs-12 col-sm">
+        <h4>Project/Account Manager</h4>
+        <p class="career__city">Stockholm</p>
+        <p>Are you a social, number keeping, enabler of great things?<br><a class="openings__list__item__link" href="project-manager/">View opening</a></p>
+      </div>
+      <div class="openings__list__item col-xs-12 col-sm">
+        <h4>System <br /> developer</h4>
+        <p class="career__city">Stockholm</p>
+        <p>Up and coming System developer? Join us!<br><a class="openings__list__item__link" href="system-developer/">View opening</a></p>
+      </div>
+      <div class="openings__list__item col-xs-12 col-sm">
+        <h4>Spontaneous Application</h4>
+        <p class="career__city">Stockholm/Göteborg</p>
+        <p>We love to be surprised and are always looking for new talent!<br><a href="mailto:joinus@iteam.se?subject=I want to work at Iteam!">Apply</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box partial color-black background-green perks">
+  <div class="grid-full row middle-xs">
+    <div class="col-xs-12 col-sm-6 perks__image">
+        <img src="/content/images/perks.jpg" alt="Iteam activities and perks"/>
+    </div>
+    <div class="col-xs-12 col-sm-6 text perks__text">
+        <h3>We take care of our people</h3>
+        <p>We want to make sure that the people at Iteam love coming to work. Therefore we offer a bunch of nice perks.</p>
+        <ul>
+          <li>Flex time and 6 weeks vacation</li>
+          <li>Generous health benefits</li>
+          <li>Christmas bonus</li>
+          <li>Monday breakfast and code lunches</li>
+          <li>Lunch workouts</li>
+          <li>Game nights (both analogue and digital)</li>
+          <li>Fika</li>
+          <li>And more!</li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+{{#each partials}}
+  {{#if this.type}}
+    {{{dynamicPartial partial=this}}}
+  {{/if}}
+{{/each}}

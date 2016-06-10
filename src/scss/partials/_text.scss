@@ -6,7 +6,16 @@ body {
   }
 }
 
-.row.text {
+.box.text {
+  padding: 100px 10px;
+
+  .box {
+    max-width: 70%;
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
   &.less-height {
     padding: 40px 20px 20px;
   }
@@ -25,7 +34,8 @@ body {
 
   h3 {
     margin-top: $margin / 2;
-
+    padding-right: $margin / 2;
+    line-height: 1.2em;
     &:first-of-type {
       margin-top:0;
     }
@@ -34,15 +44,6 @@ body {
   &.positioned .grid-full {
     align-items: center;
     display: flex;
-  }
-
-  p {
-    margin-bottom: ($margin / 5) * 2;
-
-    &:only-of-type,
-    &:last-of-type {
-      margin-bottom: 0;
-    }
   }
 
   img {
@@ -69,31 +70,22 @@ body {
     }
   }
 
-  &.contain-width {
-    .grid-full {
-      .row {
-        max-width: 70%;
-        @include mobile {
-          max-width: 100%;
-        }
-      }
-    }
-  }
-
   &.center {
     background-position: center center;
   }
 
   &.headline {
     h1 {
-      @include center(y, left, 40px);
-
+      transform: translateX(0), translateY(0);
+      position: absolute;
+      top: 50%;
+      left: 40px;
       color: $color--white;
     }
   }
 
   &.parallax {
-    @include prefix('background-size', cover);
+    background-size: cover;
 
     background-repeat: no-repeat;
     background-position: center center;
@@ -113,22 +105,6 @@ body {
 
     @include mobile {
       padding: $margin 20px;
-    }
-  }
-
-  &.style-lists {
-    .row {
-      ul {
-        margin-top: -40px;
-        margin-bottom: 20px;
-      }
-      li {
-        &:before {
-          content: "—";
-          position: relative;
-          left: -20px;
-        }
-      }
     }
   }
 

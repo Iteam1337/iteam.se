@@ -1,0 +1,38 @@
+---
+subtitle: Blog posts
+menu-order: 4
+menu-title: Blog
+
+body-class:
+unpublished: true
+page-color: pink
+
+top-content:
+  type: image
+  background-color: pink
+  color: white
+  title: Blog
+  start: true
+  height: 250px
+
+layout: partials
+partials:
+---
+{{>image top-content}}
+
+<div class="
+  box
+  blogs
+  partial
+  {{#if color}} color-{{{color}}} {{/if}}
+  {{#if background-color}} background-{{{background-color}}} {{/if}}">
+  <div class="grid-full">
+    <div class="box">
+      <div
+        class="blog-posts-full"
+        data-blog-iteam-full-information="true"
+        data-blog-iteam-query=""
+        data-blog-iteam-count="50"></div>
+    </div>
+  </div>
+</div>

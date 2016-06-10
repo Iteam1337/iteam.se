@@ -1,5 +1,7 @@
 .coworker {
   .image {
+    background: $color--black;
+
     &__title {
       @mixin font-size {
         font-size: 200%;
@@ -70,10 +72,12 @@
     }
 
     .grid-full {
-      @include flex;
+      display: flex;
 
       i {
-        @include position(bottom,right,-120px,-120px);
+        position: absolute;
+        bottom: -120px;
+        right: -120px;
 
         font-size: 50rem;
 
@@ -91,35 +95,32 @@
         }
 
         li {
-          @include flex;
+          display: flex;
 
           &:not(:last-child) { margin-bottom: 10px; }
 
-          a {
-            @include text-overflow;
-
-            width: $href-width;
-
+          a, p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             @include mobile {
               width: 100%;
             }
           }
 
+          a {
+            width: $href-width;
+          }
+
           p {
-            @include text-overflow;
-
             width: 70%;
-
-            @include mobile {
-              width: 100%;
-            }
           }
         }
       }
     }
   }
 
-  .row.flex,
+  .box.flex,
   .instagram-content {
     justify-content: center;
   }
@@ -139,11 +140,12 @@
     }
   }
 
-  .row.social-media {
+  .box.social-media {
     padding-top: $margin;
 
     a {
-      @include transition(all);
+      transition: all;
+      border: none;
 
       &:hover {
         color: $color__accent;
@@ -178,7 +180,7 @@
 
     &,
     & * {
-      @include box-sizing;
+      box-sizing: border-box;
     }
 
     &:after {

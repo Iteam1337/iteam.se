@@ -1,0 +1,136 @@
+/**
+ * Partial hero
+ * -----------------------------
+ * Bullet list with title and images to the right
+ *
+ */
+
+$width: 70%;
+$mobile-width: 100%;
+
+// Block
+.hero {
+  &,
+  &.partial {
+    padding: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  position: relative;
+  overflow: hidden;
+
+  height: 500px;
+  height: calc(100vh - 10px);
+  max-height: 80vh;
+
+  @include mobile {
+    height: 100%;
+    padding: 5px 0;
+  }
+
+  &.partial {
+    align-items: center;
+    min-height: 100%;
+    @include mobile {
+      padding: 0;
+    }
+  }
+  &__overlay {
+    width: 100%;
+  }
+}
+
+.hero:not(.no-overlay) {
+  max-height: 80vh;
+  @media screen and (max-height: 400px),
+         screen and (max-width: 700px) {
+    &,
+    .hero__overlay {
+      max-height: 100% !important;
+      min-height: calc(100vh - 20px) !important;
+      height: 100% !important;
+    }
+  }
+}
+
+// Element - Faded overlay
+.hero__overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
+  .grid-full {
+    padding: 40px;
+  }
+}
+
+.hero:not(.no-overlay) {
+  .hero__overlay {
+    background: rgba(0,0,0,0.4);
+  }
+}
+
+// Element - Text content
+.hero__content {
+  color: $color--white;
+  @include mobile-landscape {
+    width: 100%;
+  }
+  @include mobile {
+    width: 100%;
+  }
+
+  p h1, h2, h3, h4, h5 {
+    width: $width;
+    @include mobile {
+      width: $mobile-width;
+    }
+  }
+}
+
+// Element - Bullet list
+.hero__bullets {
+  box-sizing: border-box;
+
+  width: $width;
+
+  @include mobile {
+    width: $mobile-width;
+  }
+
+  li {
+    $indent: 22px;
+
+    margin-bottom: 5px;
+    padding-left: $indent;
+    text-indent: -$indent;
+
+    &:before {
+      @include bullets;
+
+      content: "";
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+// Element - Images
+.hero__side-image {
+  position: absolute;
+  bottom: 0;
+  right: 80px;
+
+  width: 600px;
+
+  &:hover { z-index: 20; }
+  @include mobile { display: none; }
+
+  &.image-1 {
+    right: 40px;
+  }
+}

@@ -22,8 +22,8 @@ input[type="submit"] {
 
 // Button
 .button {
-  @include border-radius(4px);
-  @include box-sizing;
+  border-radius: 4px;
+  box-sizing: border-box;
 
   background: $color--flush-orange;
   color: $color--white;
@@ -44,8 +44,7 @@ input[type="submit"] {
 }
 
 input[type="submit"] {
-  @include appearance(none);
-
-  border:none;
+  appearance: none;
+  border: none;
   color: inherit;
 }

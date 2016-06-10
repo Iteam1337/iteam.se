@@ -15,9 +15,9 @@ function selectedCases(options) {
 
   cases.forEach(caseName => {
   	const frontmatter = front
-      .loadFront(`./src/pages/case/${caseName}/index.hbs`)
+      .loadFront(`./src/pages/cases/${caseName}/index.hbs`)
 
-  	frontmatter.url = `/case/${caseName.toLowerCase()}`
+  	frontmatter.url = `/cases/${caseName.toLowerCase()}`
     frontmatter.classes = ''
 
     if (frontmatter.categories ) {

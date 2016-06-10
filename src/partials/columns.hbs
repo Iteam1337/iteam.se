@@ -1,0 +1,24 @@
+<div
+  class="columns has-background {{{classList this}}}"
+  style="{{{styleHelper this}}}">
+
+  <div class="grid-full row">
+    {{#each blocks}}
+      <div class="col-xs">
+        <div class="row {{#if extra-classes}} {{extra-classes}} {{/if}}">
+          {{#if image}}
+            <img class="col-xs-5" src="{{ image }}" />
+          {{/if}}
+
+          {{#if title}}
+            <h3 class="col-xs-5">{{ title }}</h3>
+          {{/if}}
+
+          {{#if mdtext}}
+            <div class="col-xs">{{{ md mdtext }}}</div>
+          {{/if}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

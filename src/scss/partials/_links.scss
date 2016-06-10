@@ -5,13 +5,16 @@
     &:not(:last-child) { margin-bottom: $margin / 5; }
 
     .url {
-      @include inline-block(top);
+      display: inline-block;
+      vertical-align: top;
 
       margin-right:2%;
       width: 30%;
 
       a {
-        @include text-overflow;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         display: block;
       }

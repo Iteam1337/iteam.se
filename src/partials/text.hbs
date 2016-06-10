@@ -1,33 +1,8 @@
-<div class="
-  row
-  partial
-  text
-  {{#if image-position}} positioned {{/if}}
-  {{#if one-line}} one-line {{/if}}
-  {{#if parallax}} parallax{{/if}}
-  {{#if center}} center {{/if}}
-  {{#if divide}} divide {{/if}}
-  {{#if animate}} wow fadeIn {{/if}}
-  {{#if extra-classes}} {{extra-classes}} {{/if}}
-  {{#if background}} has-background {{/if}}
-  {{#if background-color}} background-{{{background-color}}} has-background {{/if}}
-  {{#if color}} color-{{{color}}} {{/if}}
-  "
-  style="
-  {{#if background-color}}
-    background-color: {{{hexFromString background-color }}};
-  {{/if}}
-  {{#if color}}
-    color: {{{ hexFromString color }}};
-  {{/if}}
-  {{#if background-image}}
-    background-image: {{ background-image }};
-  {{/if}}
-  {{#if padding-top}}
-    padding-top: {{ padding-top }};
-  {{/if}}
-  ">
-  <div class="grid-full">
+<div
+  class="{{{classList this}}}"
+  style="{{{styleHelper this}}}">
+
+  <div class="grid-full box text">
     {{#if image}}
     <img
       class="{{ image.position }}"
@@ -38,15 +13,16 @@
         {{#if image.height}}height:{{image.height}};{{/if}}
       " />
     {{/if}}
-    <div class="row {{#if background-color}}{{ background-color }}{{/if}}">
+
+    <div class="box {{#if background-color}}{{ background-color }}{{/if}}">
       {{#if content}}
-{{#markdown}}{{ content }}{{/markdown}}
+        {{#markdown}}{{ content }}{{/markdown}}
       {{/if}}
       {{#if mdtext}}
-{{{md mdtext}}}
+        {{{md mdtext}}}
       {{/if}}
       {{#if hbs}}
-{{{hb hbs}}}
+        {{{hb hbs}}}
       {{/if}}
     </div>
   </div>

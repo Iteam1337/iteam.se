@@ -1,5 +1,5 @@
 ---
-subtitle: Our team
+subtitle: Team
 menu-order: 3
 menu-title: Team
 
@@ -9,16 +9,16 @@ page-color: blue
 layout: default
 
 top-content:
-  type: fullview
+  type: hero
   extra-classes: padding-top
   color: white
   background-color: blue
   background-image: /content/images/section-top/medarbetare_multiply.jpg
   mdtext: src/pages/team/main-block
 ---
-{{>fullview top-content}}
+{{>hero top-content}}
 
-<div class="row partial team color-white background-black">
+<div class="box partial team color-white background-black">
   <div class="grid-fullscreen">
     <ul class="team__list">
       {{#getPages route="./src/pages/team/" start="" type="coworker" size=400}}

@@ -1,9 +1,9 @@
-.row.career {
+.box.career {
   > .grid-full { padding: $margin 0; }
 
   .text {
     @extend %inline-block--top;
-    @include box-sizing;
+    box-sizing: border-box;
 
     padding: 0 20px 20px 20px;
     width: 50%;
@@ -14,7 +14,7 @@
       list-style-type: none;
 
       li {
-        @include box-sizing;
+        box-sizing: border-box;
 
         padding: $margin / 2 $margin / 3;
         vertical-align: top;
@@ -30,7 +30,7 @@
       width: 100%;
 
       ul {
-        @include flex;
+        display: flex;
 
         width: 100%;
 
@@ -53,7 +53,16 @@
   }
 }
 
-.row.text.job-ad {
+.openings__list__item__link {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.career__city {
+  font-weight: 500;
+  font-size: 1.2vmax;
+}
+.box.text.job-ad {
   a {
     color: $color--black;
     text-decoration: underline;
@@ -73,5 +82,30 @@
     }
 
     li:not(:last-child) { margin-bottom: 5px }
+  }
+}
+
+@media (min-width: 767px) {
+  .openings__list__item, .perks__image, .perks__text {
+    padding-right: 1em;
+    padding-left: 1em;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+@include mobile {
+  .perks__image {
+    padding-bottom: 1em;
+  }
+}
+
+@include mobile-landscape {
+  .perks__image {
+    padding-bottom: 1em;
   }
 }
