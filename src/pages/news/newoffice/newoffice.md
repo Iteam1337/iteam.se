@@ -11,6 +11,6 @@ I augusti öppnar det nya kontoret och intensiv rekrytering sker just nu av syst
 Idag har Iteam 22 anställda och arbetar med kunder som Taxi Stockholm, Swedbank, Läkare utan gränser och Vimla/Telenor.
 
 
-**Kontakt**: Till Johanna Månsson Grahn, CTO.
+**Kontakt**: Johanna Månsson Grahn, Regional Manager.
 
 073-402 91 12 [johanna.grahn@iteam.se](mailto:johanna.grahn@iteam.se).
