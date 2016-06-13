@@ -34,6 +34,6 @@ Ytterligare backendspråk (t ex Python, Go, Java), Automatisk testning, Verktyg 
 
 **Start**: Omgående.
 
-**Ansökan**: Ansök genom att maila ditt CV, personligt brev och gärna en länk till ditt GitHub-konto till [systemdeveloper@iteam.se](mailto:systemdeveloper@iteam.se.
+**Ansökan**: Ansök genom att maila ditt CV, personligt brev och gärna en länk till ditt GitHub-konto till [systemdeveloper@iteam.se](mailto:systemdeveloper@iteam.se).
 
 **Frågor**: Till Johanna Månsson Grahn, CTO. 073-402 91 12.
