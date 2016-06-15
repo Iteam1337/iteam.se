@@ -35,8 +35,8 @@ if ($request_uri ~ aboutus) {
 if ($request_uri ~ coworkers) {
   rewrite /coworkers/(.*) /team/$1 permanent; break;
 }
-if ($request_uri ~ team) {
-  rewrite /team/(.*) /contact/$1 permanent; break;
+if ($request_uri ~ contact) {
+  rewrite /contact/(.*) /team/$1 permanent; break;
 }
 
 # temporary redirects
@@ -46,4 +46,3 @@ if ($request_uri ~ "vara-tjanster") {
 if ($request_uri ~ about) {
   rewrite /about/(.*) /process/$1 redirect; break;
 }
-
