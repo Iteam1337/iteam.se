@@ -22,6 +22,11 @@ $end: 10px;
 
   &.fadeIn { z-index: 0; }
 
+  @include mobile {
+    &.tsab-top { background-position: -200px 0 !important; }
+    &.tsab-group { background-position: -50px 0 !important; }
+  }
+
   img {
     vertical-align: bottom;
     width: 100%;
