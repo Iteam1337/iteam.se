@@ -62,6 +62,7 @@ $bg-color: $color--pink;
     @include mobile {
       max-height: 100%;
     }
+
     &, &__element {
       &:before {
         content: '';
@@ -141,6 +142,12 @@ $bg-color: $color--pink;
         }
       }
     }
-  }
 
+    @include mobile {
+      a.selected-case__element[href="/cases/tsab"] img {
+        position: relative;
+        top: -200px;
+      }
+    }
+  }
 }

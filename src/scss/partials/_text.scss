@@ -33,12 +33,9 @@ body {
   }
 
   h3 {
-    margin-top: $margin / 2;
+    margin-top: 0;
     padding-right: $margin / 2;
     line-height: 1.2em;
-    &:first-of-type {
-      margin-top:0;
-    }
   }
 
   &.positioned .grid-full {
