@@ -4,3 +4,4 @@ out
 .idea
 .awspublish*npm-debug.log
 .DS_Store
+npm-debug.log
