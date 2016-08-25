@@ -41,4 +41,4 @@ AI/machine learning, Big Data, devops - Docker, e2e-testning med tex Selenium, E
 
 **Ansökan**: Ansök genom att maila ditt CV, personligt brev och gärna en länk till ditt GitHub-konto till [seniordev@iteam.se](mailto:seniordev@iteam.se).
 
-**Frågor**: Till Johanna Månsson Grahn, CTO. 073-402 91 12.
+**Frågor**: Till Martin Loman, Head of Competence. +46 70 7227024.

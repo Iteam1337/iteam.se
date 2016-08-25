@@ -38,4 +38,4 @@ Business Intelligence, SWOT-analyser, Google analytics, PUL, grafisk design, han
 
 **Ansökan**: Ansök genom att maila ditt CV och ett personligt brev till [projektledare@iteam.se](mailto:projektledare@iteam.se).
 
-**Frågor**: Till Johanna Månsson Grahn, CTO. 073-402 91 12.
+**Frågor**: Till Martin Loman, Head of Competence. +46 70 7227024.
