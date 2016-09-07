@@ -31,7 +31,7 @@ AI/machine learning, Big Data, devops - Docker, e2e-testning med tex Selenium, E
 
 ## Teknikaliteter
 
-**Några av våra kunder**: Taxi Stockholm, Vimla, Swedbank, Alcro Beckers, Scania, SoundIdeas, Spotify, Sveriges Bagare och Konditorer, Trygghetsrådet.
+**Några av våra kunder**: Taxi Stockholm, Vimla, Swedbank, Läkare Utan Gränser, Alcro Beckers, Scania, SoundIdeas, Spotify, Sveriges Bagare och Konditorer, Trygghetsrådet.
 
 **Anställningsform**: Tillsvidareanställning. 6 månaders provanställning, sedan fast anställning.
 

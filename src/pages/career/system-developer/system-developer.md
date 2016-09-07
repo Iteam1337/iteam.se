@@ -22,11 +22,11 @@ Vi är oftast 3-7 personer från Iteam i ett projekt men vi jobbar alltid nära 
 
 Ingen kan allt, men om du kan något av det här så är du i gott sällskap och kommer att tillföra något extra. Kanske kan du något vi inte ens visste att vi behövde? Surprise us :)
 
-Ytterligare backendspråk (t ex Python, Go, Java), Automatisk testning, Verktyg för automatisering (något av Docker/Gulp/Grunt/Make/Vagrant), AI/machine learning, Big Data, e2e-testning med tex Selenium, Elastic Search, Erlang/Elixir, hårdvarunära programmering (Embedded/IoT), native mobilutveckling, Python, React/React native.
+Ytterligare backendspråk (t.ex. Python, Go, Java), Automatisk testning, Verktyg för automatisering (något av Docker/Gulp/Grunt/Make/Vagrant), AI/machine learning, Big Data, e2e-testning med t.ex. Selenium, Elastic Search, Erlang/Elixir, hårdvarunära programmering (Embedded/IoT), native mobilutveckling, Python, React/React native.
 
 ## Teknikaliteter
 
-**Några av våra kunder**: Taxi Stockholm, Vimla, Swedbank, Alcro Beckers, Scania, SoundIdeas, Spotify, Sveriges Bagare och Konditorer, Trygghetsrådet.
+**Några av våra kunder**: Taxi Stockholm, Vimla, Swedbank, Läkare Utan Gränser, Alcro Beckers, Scania, SoundIdeas, Spotify, Sveriges Bagare och Konditorer, Trygghetsrådet.
 
 **Anställningsform**: Tillsvidareanställning. 6 månaders provanställning, sedan fast anställning.
 

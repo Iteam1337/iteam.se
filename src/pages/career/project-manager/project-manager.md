@@ -28,7 +28,7 @@ Business Intelligence, SWOT-analyser, Google analytics, PUL, grafisk design, han
 
 ## Teknikaliteter
 
-**Några av våra kunder**: Taxi Stockholm, Vimla, Swedbank, Alcro Beckers, Scania, SoundIdeas, Spotify, Sveriges Bagare och Konditorer, Trygghetsrådet.
+**Några av våra kunder**: Taxi Stockholm, Vimla, Swedbank, Läkare Utan Gränser, Alcro Beckers, Scania, SoundIdeas, Spotify, Sveriges Bagare och Konditorer, Trygghetsrådet.
 
 **Anställningsform**: 6 månaders provanställning, därefter tillsvidareanställning.
 
