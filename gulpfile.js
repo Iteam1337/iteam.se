@@ -8,6 +8,7 @@ const $ = require('gulp-load-plugins')()
 const runSequence = require('run-sequence')
 const rimraf = require('rimraf')
 const imageop = require('gulp-image-optimization')
+const cleanCSS = require('gulp-clean-css')
 
 const mergeContext = require('./lib/mergeContext')
 const getConfigs = require('./lib/getConfigs')
@@ -138,6 +139,7 @@ gulp.task('sass', () =>
     }))
     .pipe($.concat('iteam.css'))
     .pipe($.importCss())
+    .pipe(cleanCSS())
     .pipe($.sourcemaps.write('.', {
       sourceRoot: 'src/scss'
     }))
