@@ -7,6 +7,8 @@ const gulp = require('gulp')
 const $ = require('gulp-load-plugins')()
 const runSequence = require('run-sequence')
 const rimraf = require('rimraf')
+const imageop = require('gulp-image-optimization')
+const cleanCSS = require('gulp-clean-css')
 
 const mergeContext = require('./lib/mergeContext')
 const getConfigs = require('./lib/getConfigs')
@@ -16,7 +18,8 @@ const outPaths = {
   styles: 'out/css/',
   scripts: 'out/scripts/',
   content: 'out/content/',
-  fonts: 'out/content/fonts/'
+  fonts: 'out/content/fonts/',
+  images: 'out/content/images/'
 }
 
 const sassOptions = {
@@ -67,6 +70,19 @@ gulp.task('test', done => {
     .pipe($.plumber())
     .pipe($.mocha())
     .on('end', done)
+})
+
+gulp.task('images', cb => {
+    gulp
+      .src(['src/**/*.png','src/**/*.jpg','src/**/*.gif','src/**/*.jpeg'])
+      .pipe(imageop({
+        optimizationLevel: 10,
+        progressive: true,
+        interlaced: true
+      }))
+      .pipe(gulp.dest(outPaths.images))
+      .on('end', cb)
+      .on('error', cb)
 })
 
 gulp.task('connect', () =>
@@ -123,6 +139,7 @@ gulp.task('sass', () =>
     }))
     .pipe($.concat('iteam.css'))
     .pipe($.importCss())
+    .pipe(cleanCSS())
     .pipe($.sourcemaps.write('.', {
       sourceRoot: 'src/scss'
     }))
@@ -159,7 +176,8 @@ gulp.task('build', [
   'scripts',
   'sass',
   'sass-ie',
-  'assemble'
+  'assemble',
+  'images'
 ])
 
 app.task('init', done => {
