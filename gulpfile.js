@@ -75,7 +75,7 @@ gulp.task('images', cb => {
     gulp
       .src(['src/**/*.png','src/**/*.jpg','src/**/*.gif','src/**/*.jpeg'])
       .pipe(imageop({
-        optimizationLevel: 5,
+        optimizationLevel: 10,
         progressive: true,
         interlaced: true
       }))
