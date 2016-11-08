@@ -1,4 +1,4 @@
-Som Systemutvecklare på Iteam hjälper du bolag att digitalisera deras affär och effektivisera sin verksamhet tillsammans med ett gäng duktiga, kompleterande och trevliga medarbetare/kunder och ny teknik.
+Som Systemutvecklare på Iteam hjälper du bolag att digitalisera deras affär och effektivisera sin verksamhet tillsammans med ett gäng duktiga, kompletterande och trevliga medarbetare/kunder och ny teknik.
 
 ## Om oss
 
