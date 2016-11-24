@@ -208,6 +208,7 @@
     &.left,
     &.right {
       margin: 0;
+      padding-right: 20px;
       width: 50%;
     }
     &.left {
@@ -224,6 +225,7 @@
     .box-position {
       &.left,
       &.right {
+        padding-right: 0;
         width: 100%;
         float: none;
       }
