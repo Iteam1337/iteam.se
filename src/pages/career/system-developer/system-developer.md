@@ -1,32 +1,34 @@
-Iteam hjälper företag att förändras och skapa nya intäktskällor genom digitalisering och automatisering. Vi jobbar enbart agilt. Tillsammans går vi in med strategisk rådgivning, systemutveckling, projektledning och UX, allt med fokus på att förändra våra kunders verksamhet med hjälp av det vi gillar bäst; teknik. Vi är oftast hemma i våra bekväma och snygga lokaler i Vasastan där kunderna gärna hälsar på. Men vi åker också ut och jobbar tillsammans, hos våra kunder.
+Som Systemutvecklare på Iteam hjälper du bolag att digitalisera deras affär och effektivisera sin verksamhet tillsammans med ett gäng duktiga, kompletterande och trevliga medarbetare/kunder och ny teknik.
 
-För att maximera värdet för varje kund arbetar vi aktivt för att sätta ihop team med så varierande och kompletterande bakgrund som möjligt – oavsett om det gäller kön, personlighet, födelseland, social bakgrund eller utbildning.
+## Om oss
 
-På Iteam har vi stort utbyte av varandra. Vi har kul tillsammans och tar hand om varandra både dagligen, i löparspåret, på spelkvällar och vid andra speciella tillfällen. Vi lär oss ständigt nya saker av varandra, antingen genom utbyte inom projekt, på måndagsfrukosten eller på vår gemensamma Kodlunch på fredagar.
+Hos oss på Iteam ligger två ord oss varmt om hjärtat: skapa värde. Vi effektiviserar och skapar nya intäktskällor för våra kunder genom digitalisering och automatisering. Tillsammans går vi in med strategisk rådgivning, user experience, design, systemutveckling och projektledning - med fokus på att hjälpa våra kunder att skapa värde med hjälp av innovation och ny teknik. Vi arbetar med spännande kunder och mycket duktiga beställare, men är inte rädda att ifrågasätta och utmana när vi ser en bättre väg.
+
+
+Hos Iteam tar du av dig skorna vid dörren och känner dig som hemma. Vi lär oss ständigt nya saker av varandra - genom utbyte inom projekt, på måndagsfrukost, på vår gemensamma kodlunch på fredagar eller under labbtimmarna i veckan. Iteam arbetar aktivt för att sätta ihop team med så varierande och kompletterande bakgrund som möjligt – oavsett om det gäller kompetens, kön, personlighet, födelseland, social bakgrund, sexuell läggning eller utbildning. Vi arbetar i korsfunktionella team på 3-7 personer per projekt och arbetar alltid agilt, nära beställaren och deras anställda, användare och intressenter.
+
+
+Vi har kul tillsammans och tar hand om varandra både dagligen, i löparspåret, på spelkvällar, after works och vid andra speciella tillfällen.
 
 ## Din roll
 
-Vi är oftast 3-7 personer från Iteam i ett projekt men vi jobbar alltid nära beställaren och ofta tillsammans med utvecklare från kunden. Som systemutvecklare jobbar du tillsammans med en Tech Lead som stöttar dig i arbetet och är bollplank vid diskussioner. Du ska vara van vid att jobba agilt och kommunicera mycket med övriga projektmedlemmar.
+Du jobbar i ett team tillsammans med kunden. Som systemutvecklare jobbar du tillsammans med andra utvecklare, UX, Design och projektledning (beroende på projekt) och en Tech Lead som stöttar dig i arbetet och är bollplank vid diskussioner. Du kommer att jobba agilt och kommunicera mycket med övriga projektmedlemmar.
 
 ## Du behöver kunna
 
+* Arbeta agilt
 * Node.js eller .Net
-* jobba i team :)
-* ta till dig ny kunskap
-* behärska engelska i tal och skrift
-* kunna svenska eller lära dig svenska
-* lyfta blicken och se ett systems nytta i det större sammanhanget
-
+* Jobba i team
+* Behärska engelska i tal och skrift
+* Lyfta blicken och se ett systems nytta i det större sammanhanget
 
 ## Gärna med erfarenhet av
-
-Ingen kan allt, men om du kan något av det här så är du i gott sällskap och kommer att tillföra något extra. Kanske kan du något vi inte ens visste att vi behövde? Surprise us :)
 
 Ytterligare backendspråk (t.ex. Python, Go, Java), Automatisk testning, Verktyg för automatisering (något av Docker/Gulp/Grunt/Make/Vagrant), AI/machine learning, Big Data, e2e-testning med t.ex. Selenium, Elastic Search, Erlang/Elixir, hårdvarunära programmering (Embedded/IoT), native mobilutveckling, Python, React/React native.
 
 ## Teknikaliteter
 
-**Några av våra kunder**: Taxi Stockholm, Vimla, Swedbank, Läkare Utan Gränser, Alcro Beckers, Scania, SoundIdeas, Spotify, Sveriges Bagare och Konditorer, Trygghetsrådet.
+**Några av våra kunder**: Taxi Stockholm, Vimla, Swedbank, Läkare Utan Gränser, Alcro Beckers, Scania, SoundIdeas.
 
 **Anställningsform**: Tillsvidareanställning. 6 månaders provanställning, sedan fast anställning.
 
@@ -34,6 +36,6 @@ Ytterligare backendspråk (t.ex. Python, Go, Java), Automatisk testning, Verktyg
 
 **Start**: Omgående.
 
-**Ansökan**: Ansök genom att maila ditt CV, personligt brev och gärna en länk till ditt GitHub-konto till [systemdeveloper@iteam.se](mailto:systemdeveloper@iteam.se).
+**Ansökan**: Ansök genom att maila ditt CV, personligt brev till [work@iteam.se](mailto:work@iteam.se).
 
-**Frågor**: Till Martin Loman, Head of Competence. +46 70 7227024.
+**Frågor**: Till Maria Sölscher, Head of Development. +46 73 3742784, [maria.solscher@iteam.se](mailto:maria.solscher@iteam.se).
