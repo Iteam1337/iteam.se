@@ -9,6 +9,7 @@ Du kommer att assistera:
 * Kontoret genom att sköta inköp, förbereda inför möten samt hantera löpande frågor kring lokalen.  
 * Ekonomiansvarig med bl.a. attestering av leverantörsfakturor samt kvittoredovisning.
 * Personalansvariga genom att anordna after works, kick-offer samt hålla koll på och uppmärksamma födelsedagar och andra firanden.
+* Rekryterande chefer med rekryteringsprocessen
 * Marknadsgruppen med anordning och utförande av event och mässor
 
 ## Din arbetsplats
@@ -21,7 +22,7 @@ Vi tror att du har tidigare erfarenhet av administrativt arbete. Att du är tekn
 Iteam Solutions grundades 1995. Sedan dess har vi vuxit tryggt och genom åren etablerat oss som en av Sveriges bästa teknikbyråer. Idag är vi 28 personer fördelade på två kontor (Stockholm och Göteborg). Vår vision är att förverkliga våra kunders drömmar med teknik. I vår strävan mot visionen erbjuder vi teknisk rådgivning, förstudier, utveckling, drift och support. I vår position som teknikbyrå jobbar vi i nära samarbete med webbyråpartners, reklambyråer och designbyråer i vårt kontinuerliga uppdrag att hjälpa förverkliga våra kunders mål och drömmar om affärsstödjande och moderna webbplatser och webbtjänster. Bland våra kunder finns Taxi Stockholm, Läkare utan gränser, Arbetsförmedlingen, SEB och  Telenor. Till vardags är det högt i tak med mycket skratt. Det finns en genuin teamkänsla och vi tränar tillsammans ett par luncher i månaden. Om du vill veta mer om hur det är att jobba hos oss så titta gärna in på vår instagram: iteam1337.
 
 ## Teknikaliteter
-**Anställningsform**: Heltid, tillsvidareanställning (vikariat)
+**Anställningsform**: Heltidsvikariat
 
 **Period**: Maj 2017 - September 2018
 
