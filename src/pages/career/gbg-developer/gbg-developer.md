@@ -1,5 +1,3 @@
-JA!! Nu söker vi nya kollegor i Göteborg igen!
-
 Som systemutvecklare på Iteam hjälper du bolag att digitalisera deras affär och effektivisera sin verksamhet tillsammans med ett gäng duktiga, kompletterande och trevliga medarbetare/kunder och ny teknik.
 
 ## Om oss
