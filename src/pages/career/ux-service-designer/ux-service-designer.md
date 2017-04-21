@@ -7,6 +7,7 @@ Du delar med dig av din kunskap inom user experience och tjänstedesign. Du för
 * Kvalitativa researchmetoder (t.ex. användbarhetstester, observationer, intervjuer och workshops)
 * Kommunicera dina insikter med hjälp av lämpliga leverabler (t.ex. rapporter, användarresor, prototyper eller skrynkliga pappersskisser)
 * Vara användarens representant i projekt och stötta både kollegor och kunder med användarens perspektiv (t.ex. prioritering av funktionalitet, teknikval som påverkar användaren)
+* Jobba agilt
 * Arbeta korsfunktionellt och förstå behoven hos kollegor ur andra yrkesgrupper
 * Behärska engelska i tal och skrift
 
