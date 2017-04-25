@@ -9,8 +9,8 @@ Du delar med dig av din kunskap inom user experience och tjänstedesign. Du för
 * Vara användarens representant i projekt och stötta både kollegor och kunder med användarens perspektiv (t.ex. prioritering av funktionalitet, teknikval som påverkar användaren)
 * Jobba agilt
 * Arbeta korsfunktionellt och förstå behoven hos kollegor ur andra yrkesgrupper
-* Behärska engelska i tal och skrift
-* Grundläggande svenska (för att kunna genomföra användarstudier i kontexter där det primära användarspråket är svenska)
+* Goda kunskaper i engelska (för att kunna kommincera med dina kollegor)
+* Goda kunskaper i svenska (för att kunna genomföra användarstudier i kontexter där det primära användarspråket är svenska)
 
 ## Plus i kanten
 
