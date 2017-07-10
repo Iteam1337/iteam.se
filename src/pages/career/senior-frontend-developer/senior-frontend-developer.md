@@ -1,52 +1,56 @@
-## Din roll
-Som erfaren utvecklare på Iteam hjälper du våra kunder med digitala lösningar som skapar värde på riktigt. Som gör något bra både för kunden, slutanvändaren och samhället.
+## Your role
+As an experienced developer at Iteam you help our customers with digital solutions that truly creates value. The result is something good for both the customer, end user, and society at large.
 
-I agila, tvärfunktionella team bygger du innovativa applikationer med hjälp av den senaste tekniken. Du utforskar och utvärderar nya tekniker och metoder, sprider din kunskap och omsätter den i praktiken - i ditt dagliga arbete, på kodluncher och genom mentorskap.
+You'll work in agile, cross-functional teams that build innovative architectures and infrastructures using the latest technologies. You'll research and evaluate new technologies and methods, share your insights with others, and use them in practice - in your day-to-day work, during internal code lunches, and through mentoring.
 
-## Du behöver kunna
-* Ha förmågan att se affärsnyttan av det som utvecklas och diskutera det med kund och kollegor
-* Samarbeta (t.ex. parprogrammera, mentorera, arbeta tvärfunktionellt)
-* Behärska engelska i tal och skrift
-* Bygga moderna Javascript/HTML/CSS-applikationer, gärna med React
-* CSS och använda preprocessorer (t.ex. SASS, Less)
-* Skriva kod som är testbar samt skriva automatiska tester
-* Verktyg för automatisering (t.ex. Docker, Gulp, Webpack)
 
-## Plus i kanten
-* Du är aktiv och bidrar i utvecklarcommunityn (t.ex. Open Source, Meetups)
-* e2e-testning med t.ex. Selenium
-* Praktisk erfarenhet av andra javascriptramverk (t.ex. Angular, Vue)
-* Du har kunskap om React Native
-* Förståelse för backendutveckling
-* Kanske kan du något vi inte ens visste att vi behövde? Överraska oss!
+## Your skills
+* The ability to see the business value of what you develop and discuss it with the customer and other team members
+* Work well with others (pair programming, mentoring, work in cross-functional teams)
+* Proficient in written and spoken english
+* Build modern JavaScript/HTML/CSS-applications, such as React
+* CSS and preprocessors (e.g. SASS, Less)
+* Write testable code and automated tests
+* Tools for automation (Docker, Gulp, Grunt, Webpack)
 
-## Om oss
-Vi digitaliserar företag och organisationer genom strategi, kod och kultur. Med hjälp av de tre bitarna skapar vi innovativa tekniska lösningar som skapar värde, gör något bra för samhället och låter oss ha roligt längs vägen.
 
-Våra kunder har spännande utmaningar både tekniskt och affärsmässigt, och stor potential att göra skillnad inom sina områden. Vi jobbar bland annat med Taxi Stockholm, Vimla, Läkare utan gränser och Arbetsförmedlingen.
+## Merits
+* You contribute to the developer community (e.g. open source projects or meetups)
+* E2E-testing (e.g. Selenium)
+* Experience with other Javascript-frameworks (e.g. Angular, Vue)
+* Understanding backend development
+* Anything else you might know that we don't yet know we need? Surprise us!
 
-Vi är ca 30 personer fördelade i Stockholm och Göteborg. Hos oss tar du av dig skorna vid dörren och känner dig som hemma. Vi lär oss ständigt nya saker av varandra - genom mentorskap, utbyte inom projekt, måndagsfrukostar, kodlunch eller under labbtimmarna. Vi har kul tillsammans och tar hand om varandra i vardagen, löparspåret, på yogamattan, spelkvällar, after works och vid andra speciella tillfällen. Vi arbetar aktivt för att sätta ihop team med så varierande och kompletterande bakgrund som möjligt – oavsett om det gäller kön, könsidentitet och -uttryck, etnisk tillhörighet, religion och trosuppfattning, funktionalitet, sexuell läggning, ålder, utbildning eller social bakgrund. Våra team är alltid tvärfunktionella. Alltid agila. Alltid nära beställaren, deras anställda, användare och intressenter.
 
-### Några av våra bonusar
-* 6 veckors semester
-* Kodluncher varje fredag för gemensamt lärande inkl lunch
-* ingen förväntad övertid
-* Förmånligt friskvårdsbidrag och fokus på välmående
-* Förmånligt pensionssystem 
-* Bonus vid slutet av ett bra år
-* Mentorskap mellan arbetskamrater
-* Individuell budget för kompetensutveckling
+## About us
+We digitalize companies and organizations through strategy, code, and culture. Using the three building blocks we create innovative techical solutions that produce value, results in something good, and lets us have fun along the way.
 
-## Teknikaliteter
+Our customers have exciting challenges both technically and businesswise, and great potential to make a difference within their domains. We work with among others: Taxi Stockhol, Vimla, Médecins Sans Frontières, and Arbetsförmedlingen.
 
-**Några av våra kunder**: Taxi Stockholm, Vimla, SEB, Läkare Utan Gränser, Scania, Arbetsförmedlingen.
+We are 30 (and counting) people located in Göteborg and Stockholm. Here you remove our shoes at the door and feel at home. We learn from each other continuously - through mentorships, exchanges within and across projects, monday breakfasts, code lunches, and lab hours. We have fun together and take care of each other throughout the day, at the gym, on the yoga mat, game nights, after works, and other occasions. We work actively to put together diverse teams with as complementing backgrounds as possible - no matter if it is gender, gender identity, ethnicity, religious beliefs, abilities, sexual orientation, age, education, or social background. Our teams are cross functional and agile. They are close to the customer, their employees, their users, and their stakeholders.
 
-**Anställningsform**: Tillsvidareanställning. 6 månaders provanställning.
 
-**Plats**: Stockholm.
+## Perks/bonuses
+* 6 weeks vacation
+* Code lunches every Fridays for mutual learning including lunch.
+* 40 work hours per week and no expected overtime
+* Beneficial health allowance and focus on well being
+* Beneficial individual retirement insurance
+* Bonus salary at the end of a good year
+* Mentorship between colleagues
+* Individual budget for your own capacity building
 
-**Start**: Omgående.
 
-**Ansökan**: Ansök genom att maila ditt CV, personligt brev till [work@iteam.se](mailto:work@iteam.se).
+## Formalia
 
-**Frågor**: Till Martin Loman, Head of Competence. +46 70 7227024, [martin.loman@iteam.se](mailto:martin.loman@iteam.se).
+**Selection of customers**: Taxi Stockholm, Vimla, SEB, Médecins Sans Frontières, Scania, Arbetsförmedlingen
+
+**Form of employment**: Permanent employment. 6 months probationary period.
+
+**Location**: Stockholm.
+
+**Start**: Immediate.
+
+**Application**: Email your CV and cover letter to [work@iteam.se](mailto:work@iteam.se).
+
+**Questions**: To Martin Loman, Head of Competence. +46 70 7227024 [martin.loman@iteam.se](mailto:martin.loman@iteam.se).
