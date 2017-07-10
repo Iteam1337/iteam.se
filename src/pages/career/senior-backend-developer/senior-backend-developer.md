@@ -28,6 +28,16 @@ Våra kunder har spännande utmaningar både tekniskt och affärsmässigt, och s
 
 Vi är ca 30 personer fördelade i Stockholm och Göteborg. Hos oss tar du av dig skorna vid dörren och känner dig som hemma. Vi lär oss ständigt nya saker av varandra - genom mentorskap, utbyte inom projekt, måndagsfrukostar, kodlunch eller under labbtimmarna. Vi har kul tillsammans och tar hand om varandra i vardagen, löparspåret, på yogamattan, spelkvällar, after works och vid andra speciella tillfällen. Vi arbetar aktivt för att sätta ihop team med så varierande och kompletterande bakgrund som möjligt – oavsett om det gäller kön, könsidentitet och -uttryck, etnisk tillhörighet, religion och trosuppfattning, funktionalitet, sexuell läggning, ålder, utbildning eller social bakgrund. Våra team är alltid tvärfunktionella. Alltid agila. Alltid nära beställaren, deras anställda, användare och intressenter.
 
+### Några av våra bonusar
+* 6 veckors semester
+* Kodluncher varje fredag för gemensamt lärande inkl lunch
+* ingen förväntad övertid
+* Förmånligt friskvårdsbidrag och fokus på välmående
+* Förmånligt pensionssystem 
+* Bonus vid slutet av ett bra år
+* Mentorskap mellan arbetskamrater
+* Individuell budget för kompetensutveckling
+
 ## Teknikaliteter
 
 **Några av våra kunder**: Taxi Stockholm, Vimla, SEB, Läkare Utan Gränser, Scania, Arbetsförmedlingen.
