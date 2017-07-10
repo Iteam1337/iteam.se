@@ -8,7 +8,7 @@ You'll work in agile, cross-functional teams that build innovative architectures
 * The ability to see the business value of what you develop and discuss it with the customer and other team members
 * Work well with others (pair programming, mentoring, work in cross-functional teams)
 * Proficient in written and spoken english
-* Build modern JavaScript/HTML/CSS-applications, such as React
+* Build modern JavaScript/HTML/CSS-applications, probably using React
 * CSS and preprocessors (e.g. SASS, Less)
 * Write testable code and automated tests
 * Tools for automation (Docker, Gulp, Grunt, Webpack)
@@ -25,7 +25,7 @@ You'll work in agile, cross-functional teams that build innovative architectures
 ## About us
 We digitalize companies and organizations through strategy, code, and culture. Using the three building blocks we create innovative techical solutions that produce value, results in something good, and lets us have fun along the way.
 
-Our customers have exciting challenges both technically and businesswise, and great potential to make a difference within their domains. We work with among others: Taxi Stockhol, Vimla, Médecins Sans Frontières, and Arbetsförmedlingen.
+Our customers have exciting challenges both technically and businesswise, and great potential to make a difference within their domains. We work with among others: Taxi Stockholm, Vimla, Médecins Sans Frontières, and Arbetsförmedlingen.
 
 We are 30 (and counting) people located in Göteborg and Stockholm. Here you remove our shoes at the door and feel at home. We learn from each other continuously - through mentorships, exchanges within and across projects, monday breakfasts, code lunches, and lab hours. We have fun together and take care of each other throughout the day, at the gym, on the yoga mat, game nights, after works, and other occasions. We work actively to put together diverse teams with as complementing backgrounds as possible - no matter if it is gender, gender identity, ethnicity, religious beliefs, abilities, sexual orientation, age, education, or social background. Our teams are cross functional and agile. They are close to the customer, their employees, their users, and their stakeholders.
 
@@ -33,7 +33,7 @@ We are 30 (and counting) people located in Göteborg and Stockholm. Here you rem
 ## Perks/bonuses
 * 6 weeks vacation
 * Code lunches every Fridays for mutual learning including lunch.
-* 40 work hours per week and no expected overtime
+* No expected overtime
 * Beneficial health allowance and focus on well being
 * Beneficial individual retirement insurance
 * Bonus salary at the end of a good year
