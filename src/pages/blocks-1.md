@@ -1,8 +1,12 @@
-### Supercharge your organization
+### Strategy
 
-We help you identify new opportunities through interviews, service design and innovation labs. We help you realize your goals through implementing agile methodology, setting up your build stack and mentoring your developers. We speed up your time to market through fast iterations and zero cost of release.
+We help your organization lead digitalization instead of being the one left behind. We know from experience that many confuse what feels urgent with what’s important. We help you focus on what’s really important and what creates value for both you, your customers and society.
 
 
-### For the Intrapreneur — for the Rebel
+### Code
 
-We believe Digital Transformation is for you. You see opportunities and without hesitating. You bring well needed change to your organisation. You, and the people around you, will make your company the leader in its industry. You help accelerate the potential of your organisation and the services you provide.
+Systems development, APIs, automation, app backends, web and hybrid services, artificial intelligence, real time data analysis tools, machine learning. We have all the tools needed to build what you want and didn’t know you needed. We love technology, and things always go so much smoother when you have fun along the way.
+
+### Culture
+
+There’s a whole new world out there. Simply building digital solutions that delight your end-users is not enough. You won’t be able to make a lasting impact until your entire organization is as modern, agile and digital as you want your services and products to be. We prepare your culture and way of working for the future.

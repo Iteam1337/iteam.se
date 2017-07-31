@@ -1,7 +1,15 @@
-### Having fun, producing value, doing something good
+### Always in teams
 
-These are our core values. And they are not just pretty words. We use them as a template for deciding whether an assignment is worth taking on. We work in a business capable of producing value on orders of magnitude. Life is too short to be scratching the surface, we want to dig.
+We always work in teams. System developers, strategist, interaction designers, visual designers and value coaches. Each valuable on their own, but even more so together. We offer our clients teams instead of individuals.
 
-### An inclusive, diverse environment
+### Continuously exploring
 
-We believe that diverse experiences and opposing views strengthen and evolve our capacity to solve problems. It also makes life at work more rewarding and fun. We want to maintain an environment where people who never fit in, people who always fit in and anyone in between, can work together and enjoy each other’s company. And we try to achieve it but demanding not consensus but respect.
+We’re always searching for the best process. The best method. We take risks, change direction, try new technologies, experiment and question both ourselves and our clients. There is always a better way.
+
+### Sharing is caring
+
+We share and learn from each other. All the time. Code lunches, mentorships, lab hours, lounge hacks, open source project contributions, the Facebook group Kodapor, conferences and in our day-to-day-work. Knowledge is power.
+
+### Relationships - not projects
+
+Our clients have big opportunities to make a difference. They’re past computerization and want to lead digitalization within their domains. That takes time. It’s not done through an isolated project a couple of months long, but through long-lasting work affecting the entire organization. That’s why we often have long relationships with our clients. And make sure we become good friends along the way.
