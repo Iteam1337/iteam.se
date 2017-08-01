@@ -22,10 +22,10 @@ $mobile-width: 100%;
 
   height: 500px;
   height: calc(100vh - 10px);
-  max-height: 80vh;
+  max-height: 60vh;
 
   @include mobile {
-    height: 100%;
+    height: 50%;
     padding: 5px 0;
   }
 
@@ -42,14 +42,14 @@ $mobile-width: 100%;
 }
 
 .hero:not(.no-overlay) {
-  max-height: 80vh;
+  max-height: 60vh;
   @media screen and (max-height: 400px),
          screen and (max-width: 700px) {
     &,
     .hero__overlay {
-      max-height: 100% !important;
-      min-height: calc(100vh - 20px) !important;
-      height: 100% !important;
+      max-height: 80% !important;
+      min-height: calc(80vh - 20px) !important;
+      height: 80% !important;
     }
   }
 }
