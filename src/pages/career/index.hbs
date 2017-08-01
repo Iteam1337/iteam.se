@@ -7,25 +7,37 @@ page-color: green
 layout: default
 
 top-content:
-  type: hero
-  extra-classes: padding-top
-  color: white
+  type: image
+  start: true
   background-color: green
-  background-image: "/content/images/section-top/iteam-people.jpg"
-  background-position: top
-  mdtext: src/pages/career/main-block
+  color: white
+  height: 500px
+  background-image: url(/content/images/section-top/radu-amir-nata.jpg)
+  title: Join the team
 
 partials:
-  -
-    type: image
-    height: 700px
-    background-image: url(/content/images/perks.jpg)
   -
     type: text
     background-color: white
     color: black
     extra-classes: contain-width
     mdtext: src/pages/career/blocks
+  -
+    type: text
+    background-color: black
+    color: white
+    extra-classes: contain-width
+    mdtext: src/pages/career/openings
+  -
+    type: image
+    height: 513px
+    background-image: url(/content/images/monday-meeting.jpg)
+  -
+    type: text
+    background-color: white
+    color: black
+    extra-classes: contain-width
+    mdtext: src/pages/career/blocks-2
   -
     type: instagram
     social-media:
@@ -34,47 +46,7 @@ partials:
     instagram-resolution: normal
 ---
 
-{{>hero top-content}}
-
-<div class="box partial color-white background-black openings">
-  <div class="grid-full row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <h3>Current openings</h3>
-        </div>
-      </div>
-      <div class="openings__list row">
-          <div class="openings__list__item col-xs-12 col-sm-6 col-md-4">
-            <h4>Developer</h4>
-            <p class="career__city">Göteborg</p>
-            <p>YAY! Now we're growing the west coast team.<br><a href="/career/gbg-developer">Read more</a></p>
-          </div>
-          <div class="openings__list__item col-xs-12 col-sm-6 col-md-4">
-            <h4>Senior Backend Developer</h4>
-            <p class="career__city">Stockholm</p>
-             <p>
-              <a href="/career/senior-backend-developer">Read more</a>
-            </p>
-            <p>
-              <a href="/career/senior-backend-developer-sv">På svenska</a>
-            </p>
-          </div>
-          <div class="openings__list__item col-xs-12 col-sm-6 col-md-4">
-            <h4>Senior Frontend Developer</h4>
-            <p class="career__city">Stockholm</p>
-            <p><a href="/career/senior-frontend-developer">Read more</a></p>
-            <p><a href="/career/senior-frontend-developer-sv">På svenska</a></p>
-          </div>
-          <div class="openings__list__item col-xs-12 col-sm-6 col-md-4">
-            <h4>Spontaneous Application</h4>
-            <p class="career__city">Stockholm/Göteborg</p>
-            <p>We love to be surprised and are always looking for new talent!<br><a href="mailto:joinus@iteam.se?subject=I want to work at Iteam!">Apply</a></p>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
+{{>image top-content}}
 
 {{#each partials}}
   {{#if this.type}}
