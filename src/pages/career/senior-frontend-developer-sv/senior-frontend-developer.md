@@ -1,3 +1,5 @@
+[In English](/career/senior-frontend-developer/)
+
 ## Din roll
 Som erfaren utvecklare på Iteam hjälper du våra kunder med digitala lösningar som skapar värde på riktigt. Som gör något bra både för kunden, slutanvändaren och samhället.
 
@@ -32,7 +34,7 @@ Vi är ca 30 personer fördelade i Stockholm och Göteborg. Hos oss tar du av di
 * Kodluncher varje fredag för gemensamt lärande inkl lunch
 * ingen förväntad övertid
 * Förmånligt friskvårdsbidrag och fokus på välmående
-* Förmånligt pensionssystem 
+* Förmånligt pensionssystem
 * Bonus vid slutet av ett bra år
 * Mentorskap mellan arbetskamrater
 * Individuell budget för kompetensutveckling

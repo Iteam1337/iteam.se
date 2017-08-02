@@ -1,5 +1,7 @@
+[In English](/career/senior-backend-developer/)
+
 ## Din roll
-Som erfaren utvecklare på Iteam hjälper du våra kunder med digitala lösningar som skapar värde på riktigt. Som gör något bra både för kunden, slutanvändaren och samhället. 
+Som erfaren utvecklare på Iteam hjälper du våra kunder med digitala lösningar som skapar värde på riktigt. Som gör något bra både för kunden, slutanvändaren och samhället.
 
 I agila, tvärfunktionella team bygger du innovativ arkitektur och infrastruktur med hjälp av den senaste tekniken. Du utforskar och utvärderar nya tekniker och metoder, sprider din kunskap och omsätter den i praktiken - i ditt dagliga arbete, på kodluncher och genom mentorskap.
 
@@ -33,7 +35,7 @@ Vi är ca 30 personer fördelade i Stockholm och Göteborg. Hos oss tar du av di
 * Kodluncher varje fredag för gemensamt lärande inkl lunch
 * ingen förväntad övertid
 * Förmånligt friskvårdsbidrag och fokus på välmående
-* Förmånligt pensionssystem 
+* Förmånligt pensionssystem
 * Bonus vid slutet av ett bra år
 * Mentorskap mellan arbetskamrater
 * Individuell budget för kompetensutveckling
