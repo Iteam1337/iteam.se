@@ -1,6 +1,6 @@
 ### Sharing is caring
 
-We share and learn from each other. All the time. Code lunches, mentorships, lab hours, lounge hacks, open source project contributions, the Facebook group Kodapor, conferences and in our day-to-day-work. Knowledge is power.
+We share and learn from each other. All the time. Code lunches, mentorships, lab hours, lounge hacks, open source project contributions, the Facebook group Kodapor, conferences and in our day-to-day-work. 
 
 ### Relationships - not projects
 
