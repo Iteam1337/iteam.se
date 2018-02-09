@@ -51,7 +51,7 @@
       if (data.type === 'twitter') {
         node = document.createElement('div');
         node.innerHTML = _this.parseLinks(data.text);
-      } else if (data.type === 'image') {
+      } else if (data.type === 'image' || data.type === 'carousel') {
         node = document.createElement('a');
         elm = document.createElement('img');
         image = data.image[_this.resolution];
