@@ -1,0 +1,24 @@
+body.ai {
+  table {
+    margin-bottom: 40px;
+
+    thead {
+      th {
+        font-weight: 700;
+        padding: 5px;
+      }
+    }
+
+    tbody {
+      tr td:first-child {
+        font-weight: bold;
+        padding-left: 0;
+      }
+
+      td {
+        border-bottom: 1px solid $color--quote;
+        padding: 10px;
+      }
+    }
+  }
+}

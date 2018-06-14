@@ -1,0 +1,40 @@
+---
+subtitle: AI
+menu-order: 4
+menu-title: AI
+body-class:
+page-color: green
+layout: default
+
+top-content:
+  type: image
+  start: true
+  background-color: green
+  color: white
+  height: 500px
+  background-image: url(/content/images/section-top/amir_ai.jpg)
+  title: Artificial Intelligence (AI)
+
+partials:
+  -
+    type: text
+    background-color: white
+    color: black
+    extra-classes: contain-width
+    mdtext: src/pages/ai/blocks
+
+  -
+    type: instagram
+    social-media:
+      instagram: self
+    instagram-count: 4
+    instagram-resolution: normal
+---
+
+{{>image top-content}}
+
+{{#each partials}}
+  {{#if this.type}}
+    {{{dynamicPartial partial=this}}}
+  {{/if}}
+{{/each}}
