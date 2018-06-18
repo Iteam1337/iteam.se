@@ -1,6 +1,6 @@
 # iteam.se
 
-The project requires `node@4.2.4`
+**NOTE**: The project requires `node@4.2.4`
 
 Project uses `assemble` and `gulp`
 
